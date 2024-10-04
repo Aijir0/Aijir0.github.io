@@ -5,7 +5,7 @@ Faire un commit
 
 ## Modifications
 
-Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte Utilisation de ~~texte barré~~.
+Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte ~~texte barré~~.
 
 ## Prérequis
 
@@ -15,7 +15,7 @@ Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte
 
 ---
 
-<span style="color: pink; background-color: green;">## Étape 1: Créer un répertoire GitHub Pages</span>
+## ~~Étape 1: Créer un répertoire GitHub Pages~~ ✅
 
 1. Connectez-vous à GitHub.
 2. Cliquez sur **"Use this template"** (bouton vert en haut à droite).
@@ -25,7 +25,7 @@ Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte
 
 ---
 
-<span style="color: pink; background-color: green;">## Étape 2: Cloner le répertoire sur votre ordinateur</span>
+## ~~Étape 2: Cloner le répertoire sur votre ordinateur~~ ✅
 
 Vous allez maintenant copier le répertoire sur votre machine pour pouvoir le modifier.
 
@@ -57,7 +57,7 @@ Les navigateurs web cherchent automatiquement un fichier index.html dans le rép
 
 ### Modifications à apporter
 
-<span style="color: pink; background-color: green;">#### 1. Le titre du site</span>
+#### ~~1. Le titre du site~~ ✅
 
 Dans le fichier `index.html`, trouvez cette ligne :
 
@@ -67,7 +67,7 @@ Dans le fichier `index.html`, trouvez cette ligne :
 
 Remplacez le texte entre les balises `<title>` par le titre que vous souhaitez pour votre site. 1Ce texte apparaîtra dans l'onglet de votre navigateur.
 
-<span style="color: pink; background-color: green;">#### 2. Votre nom et description</span>
+#### ~~2. Votre nom et description~~ ✅
 
 Dans la section `header` du fichier HTML, modifiez les éléments suivants :
 
@@ -86,7 +86,7 @@ Dans la section `header` du fichier HTML, modifiez les éléments suivants :
 </p>
 ```
 
-<span style="color: pink; background-color: green;">#### 3. Votre photo</span>
+#### ~~3. Votre photo~~ ✅
 
 Remplacez l'image de profil par une image de vous. Pour cela, vous devez remplacer le fichier `portrait.png` dans le dossier `images` par votre propre image et vous assurer que le nom du fichier est identique.
 
