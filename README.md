@@ -5,7 +5,7 @@ Faire un commit
 
 ## Modifications
 
-Mes modifications sont indiquées par un texte <span style="color: pink;">rose</span> et un surlignage <div style="background-color: green;">vert</span>.
+Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte Utilisation de ~~texte barré~~.
 
 ## Prérequis
 
