@@ -5,7 +5,7 @@ Faire un commit
 
 ## Modifications
 
-Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un texte ~~texte barré~~.
+Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un ~~texte barré~~.
 
 ## Prérequis
 
