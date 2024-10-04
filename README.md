@@ -1,8 +1,12 @@
-
 # Créer votre site web avec GitHub Pages
 
 Bienvenue ! Ce guide vous expliquera comment utiliser GitHub Pages pour créer votre propre site web personnel en utilisant un template HTML. Suivez attentivement chaque étape, même si vous n'êtes pas familier avec GitHub.
 Faire un commit
+
+## Modifications
+
+Mes modifications sont indiquées par un texte <span style="color: pink;">rose</span> et un surlignage <div style="background-color: green;">vert</span>.
+
 ## Prérequis
 
 - Avoir un compte GitHub. Si vous n'en avez pas encore, créez-en un sur [github.com](https://github.com).
@@ -11,7 +15,7 @@ Faire un commit
 
 ---
 
-## Étape 1: Créer un répertoire GitHub Pages
+<span style="color: pink; background-color: green;">## Étape 1: Créer un répertoire GitHub Pages</span>
 
 1. Connectez-vous à GitHub.
 2. Cliquez sur **"Use this template"** (bouton vert en haut à droite).
@@ -21,7 +25,7 @@ Faire un commit
 
 ---
 
-## Étape 2: Cloner le répertoire sur votre ordinateur
+<span style="color: pink; background-color: green;">## Étape 2: Cloner le répertoire sur votre ordinateur</span>
 
 Vous allez maintenant copier le répertoire sur votre machine pour pouvoir le modifier.
 
@@ -53,7 +57,7 @@ Les navigateurs web cherchent automatiquement un fichier index.html dans le rép
 
 ### Modifications à apporter
 
-#### 1. Le titre du site
+<span style="color: pink; background-color: green;">#### 1. Le titre du site</span>
 
 Dans le fichier `index.html`, trouvez cette ligne :
 
@@ -63,7 +67,7 @@ Dans le fichier `index.html`, trouvez cette ligne :
 
 Remplacez le texte entre les balises `<title>` par le titre que vous souhaitez pour votre site. 1Ce texte apparaîtra dans l'onglet de votre navigateur.
 
-#### 2. Votre nom et description
+<span style="color: pink; background-color: green;">#### 2. Votre nom et description</span>
 
 Dans la section `header` du fichier HTML, modifiez les éléments suivants :
 
@@ -82,7 +86,7 @@ Dans la section `header` du fichier HTML, modifiez les éléments suivants :
 </p>
 ```
 
-#### 3. Votre photo
+<span style="color: pink; background-color: green;">#### 3. Votre photo</span>
 
 Remplacez l'image de profil par une image de vous. Pour cela, vous devez remplacer le fichier `portrait.png` dans le dossier `images` par votre propre image et vous assurer que le nom du fichier est identique.
 
