@@ -122,6 +122,8 @@ Modifiez les liens des réseaux sociaux dans la section `footer` :
 
 Remplacez `href="#"` par le lien vers vos comptes de réseaux sociaux.
 
+Ajouter pour l'icone courriel : copie de mon mail lors du clic et petit message qui confirme la copie du mail. ✍️
+
 #### 6. Texte de la page d'accueil
 
 Modifiez le texte dans la section suivante pour écrire quelque chose de personnel à propos de vous :
