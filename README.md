@@ -169,6 +169,8 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 - Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page. ✍️
 
 - Proposer une option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️
+
+- Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes ✅
 ---
 
 ## Étape 4: Pousser les modifications sur GitHub
