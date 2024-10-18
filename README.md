@@ -125,7 +125,9 @@ Modifiez les liens des réseaux sociaux dans la section `footer` :
 
 Remplacez `href="#"` par le lien vers vos comptes de réseaux sociaux.
 
-Ajouter pour l'icone courriel : copie de mon mail lors du clic et petit message qui confirme la copie du mail. ✍️
+- Ajouter pour l'icone courriel : copie de mon mail lors du clic et petit message qui confirme la copie du mail. ✍️
+
+- Supprimer twitter et mettre instagram ? ✍️
 
 #### 6. Texte de la page d'accueil
 
