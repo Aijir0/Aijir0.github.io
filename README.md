@@ -7,6 +7,8 @@ Faire un commit
 
 Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un ~~texte barré~~.
 
+Mes futurs ajouts sont indiqués par un emoji "✍️".
+
 ## Prérequis
 
 - Avoir un compte GitHub. Si vous n'en avez pas encore, créez-en un sur [github.com](https://github.com).
@@ -85,6 +87,7 @@ Dans la section `header` du fichier HTML, modifiez les éléments suivants :
   Continuer la courte description
 </p>
 ```
+Ajouter une option pour ouvrir cet espace de façon latéral : icône de menu hamburger. ✍️
 
 #### ~~3. Votre photo~~ ✅
 
@@ -157,6 +160,13 @@ Trouvez cette ligne et modifiez-la pour ajouter votre propre adresse e-mail :
 
 Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polices, les images, etc. dans le fichier CSS `main.css`.
 
+- Utiliser [Bootstrap](https://getbootstrap.com/) pour m'aider avec les modifications ✍️
+
+- Ajouter un fond différent avec un voyage et une indication de la destination. ✍️ 
+
+- Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page. ✍️
+
+- Proposer une option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️
 ---
 
 ## Étape 4: Pousser les modifications sur GitHub
