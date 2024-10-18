@@ -20,8 +20,44 @@
    />
    <!-- Lien pour les icônes Flaticon -->
   <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+  <head>
+    <!-- ... autres éléments du head ... -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    
+    <!-- Tes styles personnalisés -->
+    <style>
+      /* Styles pour l'image principale */
+      .image.main {
+        position: relative;
+      }
+  
+      /* Styles pour l'icône interactive */
+      #rotate-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+      }
+  
+      /* Styles pour le texte de la destination */
+      .destination-name {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 10px;
+        opacity: 1;
+        transition: opacity 1s;
+      }
+    </style>  
   </head>
   <body class="is-preload">
+
     <!-- Header -->
     <section id="header">
       <header>
@@ -82,6 +118,9 @@
         <section id="one">
           <div class="image main" data-position="center">
             <img src="images/bg.jpeg" alt="" />
+
+               <!-- Icône ronde en bas à droite de l'image -->
+    <img id="rotate-icon" src="images/location.png" alt="Destination">
           </div>
           <div class="container">
             <header class="major">
@@ -197,5 +236,65 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+  // Variable pour le texte de la destination
+  var destinationText = "Pérou"; // Modifie le texte ici
+
+  // Script pour l'icône interactive avec réapparition
+  document.getElementById('rotate-icon').addEventListener('click', function() {
+    var icon = this;
+    // Animation de rotation
+    icon.style.transition = 'transform 1s, opacity 1s';
+    icon.style.transform = 'rotate(360deg)';
+
+    // Attendre la fin de la rotation, puis montrer le nom et disparaître
+    setTimeout(() => {
+      icon.style.opacity = '0'; // Icône disparaît
+
+      // Affichage du nom de la destination
+      var destinationName = document.createElement('div');
+      destinationName.innerText = destinationText; // Utilisation de la variable pour afficher la destination
+      destinationName.className = 'destination-name'; // Ajouter la classe pour le style
+      document.querySelector('#one .image').appendChild(destinationName);
+
+      // Disparition du texte après quelques secondes
+      setTimeout(() => {
+        destinationName.style.opacity = '0'; // Le nom disparaît
+
+        setTimeout(() => {
+          destinationName.remove(); // Retirer complètement l'élément
+
+          // Réapparition de l'icône après que le texte a disparu
+          icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
+          setTimeout(() => {
+            icon.style.opacity = '1'; // Réapparaître l'icône
+          }, 1000); // Délai pour que l'icône réapparaisse
+        }, 1000);
+      }, 3000); // Le nom de la destination reste visible pendant 3 secondes
+    }, 1000); // 1 seconde pour la rotation de l'icône
+  });
+
+  // Script pour l'accessibilité
+  document.getElementById('accessibility-btn').addEventListener('click', function() {
+    var menu = document.getElementById('accessibility-menu');
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  });
+
+  function increaseFontSize() {
+    document.body.style.fontSize = 'larger';
+  }
+
+  function toggleColorScheme() {
+    document.body.classList.toggle('daltonien');
+  }
+
+  function startTextToSpeech() {
+    var text = document.body.innerText;
+    var speech = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(speech);
+  }
+    </script>
+
   </body>
 </html>

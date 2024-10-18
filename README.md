@@ -164,13 +164,15 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 
 - Utiliser [Bootstrap](https://getbootstrap.com/) pour m'aider avec les modifications ✍️
 
-- Ajouter un fond différent avec un voyage et une indication de la destination. ✍️ 
+- Ajouter un fond différent avec un voyage et une ~~indication de la destination~~. ✍️ 
 
 - Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page. ✍️
 
 - Proposer une option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️
 
 - Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes ✅
+
+- Modifier l'animation et la position de l'îcone pour le voyage ✍️
 ---
 
 ## Étape 4: Pousser les modifications sur GitHub
