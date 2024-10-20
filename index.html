@@ -21,6 +21,10 @@
    <!-- Lien pour les icônes Flaticon -->
   <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
 
+  <!-- Ajout boutons d'accessibilité CSS et JS -->
+  <link rel="stylesheet" href="node_modules/accessibility-buttons/dist/css/accessibility-buttons.css">
+  <script src="node_modules/accessibility-buttons/dist/js/accessibility-buttons.js" defer></script>
+
   <head>
     <!-- ... autres éléments du head ... -->
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -228,6 +232,12 @@
       </section>
     </div>
 
+    <!-- Accessibilité -->
+    <section id="accessibility">
+      <button type="button" data-accessibility="font">+A</button>
+      <button type="button" data-accessibility="contrast">Contraste</button>
+    </section>
+    
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -295,6 +305,12 @@
     window.speechSynthesis.speak(speech);
   }
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    accessibilityButtons();
+  });
+</script>
 
   </body>
 </html>
