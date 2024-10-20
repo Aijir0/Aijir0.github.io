@@ -173,6 +173,10 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 - Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes ✅
 
 - Modifier l'animation et la position de l'îcone pour le voyage ✍️
+
+- Ajouter un timer pour le nombre de temps passé dans la fonction publique dans la section (MON CV) ✍️
+
+- Permettre au gens de cliquer sur l'image pour télécharger mon CV ! ✍️
 ---
 
 ## Étape 4: Pousser les modifications sur GitHub
