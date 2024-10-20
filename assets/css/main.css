@@ -3449,3 +3449,28 @@ input[type="button"]:disabled,
     padding: 0;
   }
 }
+
+/* Styles pour l'icône interactive */
+#rotate-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 2.5em; /* Ajuste la taille de l'icône Font Awesome */
+  color: #ff0000; /* Couleur de l'icône */
+}
+
+/* Styles pour le texte de la destination */
+.destination-name {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  opacity: 1;
+  transition: opacity 1s;
+}
