@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <!-- Lien pour les icônes Flaticon -->
   <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+<!-- Ajout de Font Awesome Version 6 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Ajout boutons d'accessibilité CSS et JS -->
   <link rel="stylesheet" href="node_modules/accessibility-buttons/dist/css/accessibility-buttons.css">
@@ -23,37 +25,6 @@
   <head>
     <!-- ... autres éléments du head ... -->
     <link rel="stylesheet" href="assets/css/main.css" />
-
-    <!-- Tes styles personnalisés -->
-    <style>
-      /* Styles pour l'image principale */
-      .image.main {
-        position: relative;
-      }
-
-      /* Styles pour l'icône interactive */
-      #rotate-icon {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-      }
-
-      /* Styles pour le texte de la destination */
-      .destination-name {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 10px;
-        opacity: 1;
-        transition: opacity 1s;
-      }
-    </style>
   </head>
 
 <body class="is-preload">
@@ -109,8 +80,8 @@
         <div class="image main" data-position="center">
           <img src="images/bg1.jpg" alt="" />
 
-          <!-- Icône ronde en bas à droite de l'image -->
-          <img id="rotate-icon" src="images/location.png" alt="Destination">
+            <!-- Icône Font Awesome avec animation -->
+            <i id="rotate-icon" class="fa-solid fa-location-dot fa-flip"></i> 
         </div>
         <div class="container">
           <header class="major">
@@ -118,7 +89,7 @@
             <p>Étudiant en science politique.</p>
           </header>
           <p>
-            j'oriente mon profil vers les politiques publiques, la gouvernance, le managment publique et l'éthique des organisations. 
+            j'oriente mon profil vers les politiques publiques, la gouvernance, le management publique et l'éthique des organisations. 
             praesent faucibus commodo ac mi lacus. Adipiscing mi ac commodo.
             Vis aliquet tortor ultricies non ante erat nunc integer eu ante
             ornare amet commetus vestibulum blandit integer in curae ac
