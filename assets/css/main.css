@@ -2937,7 +2937,7 @@ input[type="button"]:disabled,
 /* Wrapper */
 
 #wrapper {
-  background: #fff;
+  background: #fff;  /* FOND GLOBAL */
   padding-right: 23em;
 }
 
