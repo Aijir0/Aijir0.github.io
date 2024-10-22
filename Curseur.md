@@ -12,6 +12,7 @@ Mes futurs ajouts sont indiqués par un emoji "✍️".
 
 ## Modifications
 
-- Réduire la taille du curseur et du cercle (GPTcursor). ✍️
-- Changer la couleur du curseur. ✍️
-- Modifier style="cursor: pointer; pour que cela respect le nouveau curseur. ✍️
+- ~~Réduire la taille du curseur et du cercle (GPTcursor).~~ ✅
+- ~~Changer la couleur du curseur.~~ ✅
+- ~~Modifier style="cursor: pointer; pour que cela respect le nouveau curseur.~~ ❌
+- Faire un nouveau "pointer". ✅
