@@ -37,8 +37,8 @@
       </span>
       <h1 id="logo"><a href="#">Léo Matrat</a></h1>
       <p>
-        Étudiant aspirant à vivre dans un monde meilleur.<br />
-        Grand curieux et amoureux de la fonction publique.
+        Étudiant motivé par l'idée de contribuer à un monde meilleur. 
+        Curieux et passionné par la fonction publique.
       </p>
     </header>
     <nav id="nav">
@@ -92,12 +92,12 @@
             <p>Étudiant en science politique.</p>
           </header>
           <p>
-            j'oriente mon profil vers les politiques publiques, la gouvernance, le management publique et l'éthique des
-            organisations.
-            praesent faucibus commodo ac mi lacus. Adipiscing mi ac commodo.
-            Vis aliquet tortor ultricies non ante erat nunc integer eu ante
-            ornare amet commetus vestibulum blandit integer in curae ac
-            faucibus integer non. Adipiscing cubilia elementum.
+            Bienvenue sur mon site ! Je m’appelle Léo Matrat, étudiant en science politique passionné 
+            par l’étude des politiques publiques, la gouvernance et l'éthique des organisations. 
+            Originaire de France, j'ai choisi de m'établir à Québec pour approfondir mes connaissances 
+            dans un environnement politique stimulant et enrichissant. Mon parcours académique et 
+            professionnel est orienté vers une compréhension des enjeux de la fonction publique, 
+            avec l’ambition de contribuer activement à la société québécoise.
           </p>
         </div>
       </section>
@@ -105,27 +105,34 @@
       <!-- Two -->
       <section id="two">
         <div class="container">
-          <h3>Compétences techniques</h3>
+          <h3>Mes compétences</h3>
           <p>
-            Integer eu ante ornare amet commetus vestibulum blandit integer in
-            curae ac faucibus integer non. Adipiscing cubilia elementum
-            integer lorem ipsum dolor sit amet.
+            Je suis animé par une grande curiosité et j'apprécie particulièrement 
+            explorer de nouvelles perspectives et approches. J'aime progresser et grandir 
+            grâce aux enseignements que je tire des autres, de mes voyages et de mon apprentissage personnel.
           </p>
           <ul class="feature-icons">
             <li class="icon solid fa-code">
-              Ici vous pouvez écrire ce que vous voulez
+              J'apprend et pratique le code R/HTML/CSS/JS
             </li>
-            <li class="icon solid fa-cubes">
-              Le class= s'occupe des logos à côté de votre texte
+            <li class="icon solid fa-language">
+              Je pratique ces langues :
+              Français, Anglais, Espagnol, Allemand
             </li>
-            <li class="icon solid fa-book">
-              Trouvez autant de choses à écrire que vous le voulez
+            <li class="icon solid fa-file-word">
+              Je maîtrise la suite Office
             </li>
-            <li class="icon solid fa-coffee">Supprimez le reste</li>
-            <li class="icon solid fa-bolt">Lightning bolt</li>
-            <li class="icon solid fa-users">Shadow clone technique</li>
-            <li class="icon solid fa-users">Shadow clone technique</li>
-            <li class="icon"><i class="fi fi-rr-stats"></i> Statistiques</li>
+            <li class="icon solid fa-earth-americas">
+              Ouvert d'esprit grâce aux voyages
+            </li>
+            <li class="icon solid fa-brain">
+              J'apprend extrèmement vite
+            </li>
+            <li class="icon solid fa-users">
+              J'adore le travail d'équipe
+            </li>
+            <li class="icon solid fa-handshake">Je suis altruiste et médiateur</li>
+            <li class="icon solid fa-bolt"> J'ai une posture proactive</li>
           </ul>
         </div>
       </section>
@@ -136,7 +143,7 @@
           <h3>Mon CV</h3>
           <p>
             Je suis actuellement étudiant à la maîtrise avec stage en science politique à l'Université Laval,
-            Je travail aussi dans la fonction publique depuis (insérer un chiffre qui évolue) au Ministère de
+            Je travail aussi dans la fonction publique depuis <span id="public-service-time"></span> au Ministère de
             l'Éducation ou j'effectue de la veille et de la recherche.
           </p>
           <div class="features">
@@ -312,6 +319,36 @@
       }, 1000); // 1 seconde pour la rotation de l'icône
     });
   </script>
+
+<script>
+  function updatePublicServiceTime() {
+    const startTime = new Date('December 2, 2022 10:00:00');
+    const currentTime = new Date();
+    const diff = currentTime - startTime;
+
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    let timeString = '';
+    if (years > 0 || months > 0 || days > 0) {
+      timeString = `${years} ans, ${months} mois, ${days > 0 ? days + ' jours' : hours + ' heures'}`;
+    } else if (hours > 0) {
+      timeString = `${hours} heures, ${minutes} minutes`;
+    } else if (minutes > 0) {
+      timeString = `${minutes} minutes, ${seconds} secondes`;
+    } else {
+      timeString = `${seconds} secondes`;
+    }
+
+    document.getElementById('public-service-time').textContent = timeString;
+  }
+
+  setInterval(updatePublicServiceTime, 1000);
+</script>
 
 </body>
 
