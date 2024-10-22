@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <!-- Lien pour les icônes Flaticon -->
   <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
-<!-- Ajout de Font Awesome Version 6 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Ajout de Font Awesome Version 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Ajout boutons d'accessibilité CSS et JS -->
   <link rel="stylesheet" href="node_modules/accessibility-buttons/dist/css/accessibility-buttons.css">
@@ -34,7 +34,7 @@
     <header>
       <span class="image avatar tilt-container">
         <img src="images/port2.jpg" alt="" />
-    </span>
+      </span>
       <h1 id="logo"><a href="#">Léo Matrat</a></h1>
       <p>
         Étudiant aspirant à vivre dans un monde meilleur.<br />
@@ -53,7 +53,8 @@
       <ul class="icons">
         <li>
           <!-- Vous pouvez mettre en hyperlien vos reseaux sociaux en modifiant la valeur de href-->
-          <a href="https://www.instagram.com/leo.mtrt" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+          <a href="https://www.instagram.com/leo.mtrt" class="icon brands fa-instagram"><span
+              class="label">Instagram</span></a>
         </li>
         <li>
           <a href="https://www.facebook.com/leo.matrat/" class="icon brands fa-facebook-f"><span
@@ -82,8 +83,8 @@
         <div class="image main" data-position="center">
           <img src="images/bg1.jpg" alt="" />
 
-            <!-- Icône Font Awesome avec animation -->
-            <i id="rotate-icon" class="fa-solid fa-location-dot fa-bounce" title="Cliquez sur moi"></i>
+          <!-- Icône Font Awesome avec animation -->
+          <i id="rotate-icon" class="fa-solid fa-location-dot fa-bounce" title="Cliquez sur moi"></i>
         </div>
         <div class="container">
           <header class="major">
@@ -91,7 +92,8 @@
             <p>Étudiant en science politique.</p>
           </header>
           <p>
-            j'oriente mon profil vers les politiques publiques, la gouvernance, le management publique et l'éthique des organisations. 
+            j'oriente mon profil vers les politiques publiques, la gouvernance, le management publique et l'éthique des
+            organisations.
             praesent faucibus commodo ac mi lacus. Adipiscing mi ac commodo.
             Vis aliquet tortor ultricies non ante erat nunc integer eu ante
             ornare amet commetus vestibulum blandit integer in curae ac
@@ -133,21 +135,24 @@
         <div class="container">
           <h3>Mon CV</h3>
           <p>
-            Je suis actuellement étudiant à la maîtrise avec stage en science politique à l'Université Laval, 
-            Je travail aussi dans la fonction publique depuis (insérer un chiffre qui évolue) au Ministère de l'Éducation ou j'effectue de la veille et de la recherche.
+            Je suis actuellement étudiant à la maîtrise avec stage en science politique à l'Université Laval,
+            Je travail aussi dans la fonction publique depuis (insérer un chiffre qui évolue) au Ministère de
+            l'Éducation ou j'effectue de la veille et de la recherche.
           </p>
           <div class="features">
             <article>
-              <a href="https://raw.githubusercontent.com/Aijir0/Aijir0.github.io/main/CV/CVLeoMatrat.pdf" download class="image">
+              <a href="https://raw.githubusercontent.com/Aijir0/Aijir0.github.io/main/CV/CVLeoMatrat.pdf" download
+                class="image">
                 <div class="image-container tilt-container">
-                    <img src="images/pic05.jpg" alt="" />
-                    <div id="cv-destination-text" class="destination-name" style="display: none;">Madère</div>
+                  <img src="images/pic05.jpg" alt="" />
+                  <div id="cv-destination-text" class="destination-name" style="display: none;">Madère</div>
                 </div>
-            </a>
+              </a>
               <div class="inner">
-                <h4>Obtenir mon curriculum vitae ? <i id="cv-icon" class="fa-solid fa-location-dot fa-bounce" title="Cliquez sur moi" style="cursor: pointer;"></i></h4>
+                <h4>Obtenir mon curriculum vitae ? <i id="cv-icon" class="fa-solid fa-location-dot fa-bounce"
+                    title="Cliquez sur moi" style="cursor: pointer;"></i></h4>
                 <p>
-                  Si vous souhaitez en savoir plus. 
+                  Si vous souhaitez en savoir plus.
                   Je vous invite à cliquer sur l'image pour télécharger mon CV !
                   Il est à jour et contient plus de spécifications.
                 </p>
@@ -190,9 +195,9 @@
     </section>
   </div>
 
-    <!-- Trailing Cursor Div -->
-    <div id="cursor"></div>
-    <div id="click-circle"></div>
+  <!-- Trailing Cursor Div -->
+  <div id="cursor"></div>
+  <div id="click-circle"></div>
 
 
   <!-- Accessibilité -->
@@ -209,8 +214,8 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-<!-- Script Trailing Cursor -->
-<script src="assets/js/trailing-cursor.js"></script>
+  <!-- Script Trailing Cursor -->
+  <script src="assets/js/trailing-cursor.js"></script>
 
   <script>
     // Variable pour le texte de la destination
@@ -277,41 +282,41 @@
     });
   </script>
 
-<script>
-  // Script pour l'icône CV avec réapparition et texte de destination
-  document.getElementById('cv-icon').addEventListener('click', function () {
-    var icon = this;
-    var destinationText = document.getElementById('cv-destination-text');
+  <script>
+    // Script pour l'icône CV avec réapparition et texte de destination
+    document.getElementById('cv-icon').addEventListener('click', function () {
+      var icon = this;
+      var destinationText = document.getElementById('cv-destination-text');
 
-    // Animation de rotation et disparition de l'icône
-    icon.style.transition = 'transform 1s, opacity 1s';
-    icon.style.transform = 'rotate(360deg)';
+      // Animation de rotation et disparition de l'icône
+      icon.style.transition = 'transform 1s, opacity 1s';
+      icon.style.transform = 'rotate(360deg)';
 
-    // Attendre la fin de la rotation, puis montrer le texte de destination
-    setTimeout(() => {
-      icon.style.opacity = '0'; // Icône disparaît
-
-      // Affichage du texte de destination
-      destinationText.style.display = 'block';
-      destinationText.style.opacity = '1';
-
-      // Disparition du texte après quelques secondes
+      // Attendre la fin de la rotation, puis montrer le texte de destination
       setTimeout(() => {
-        destinationText.style.opacity = '0'; // Le texte disparaît
+        icon.style.opacity = '0'; // Icône disparaît
 
+        // Affichage du texte de destination
+        destinationText.style.display = 'block';
+        destinationText.style.opacity = '1';
+
+        // Disparition du texte après quelques secondes
         setTimeout(() => {
-          destinationText.style.display = 'none'; // Retirer complètement l'élément
+          destinationText.style.opacity = '0'; // Le texte disparaît
 
-          // Réapparition de l'icône après que le texte a disparu
-          icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
           setTimeout(() => {
-            icon.style.opacity = '1'; // Réapparaître l'icône
-          }, 1000); // Délai pour que l'icône réapparaisse
-        }, 1000);
-      }, 3000); // Le texte de la destination reste visible pendant 3 secondes
-    }, 1000); // 1 seconde pour la rotation de l'icône
-  });
-</script>
+            destinationText.style.display = 'none'; // Retirer complètement l'élément
+
+            // Réapparition de l'icône après que le texte a disparu
+            icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
+            setTimeout(() => {
+              icon.style.opacity = '1'; // Réapparaître l'icône
+            }, 1000); // Délai pour que l'icône réapparaisse
+          }, 1000);
+        }, 3000); // Le texte de la destination reste visible pendant 3 secondes
+      }, 1000); // 1 seconde pour la rotation de l'icône
+    });
+  </script>
 
 </body>
 
