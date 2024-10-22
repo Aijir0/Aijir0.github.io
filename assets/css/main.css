@@ -3454,13 +3454,13 @@ input[type="button"]:disabled,
 #rotate-icon {
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: 5px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   cursor: pointer;
-  font-size: 2.5em; /* Ajuste la taille de l'icône Font Awesome */
-  color: #ff0000; /* Couleur de l'icône */
+  font-size: 2.0em; /* Ajuste la taille de l'icône Font Awesome */
+  color: #e2292f; /* Couleur de l'icône */
 }
 
 /* Styles pour le texte de la destination */
@@ -3488,4 +3488,8 @@ input[type="button"]:disabled,
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.9em;
+}
+
+#cv-icon {
+  cursor: pointer;
 }
