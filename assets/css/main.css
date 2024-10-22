@@ -193,7 +193,7 @@ body,
 input,
 select,
 textarea {
-  color: #888;
+  color: #76453B;
   font-family: "Lato", sans-serif;
   font-size: 16pt;
   font-weight: 400;
@@ -220,7 +220,7 @@ a {
 
 a:hover {
   border-bottom-color: transparent;
-  color: #609966 !important;
+  color: #fff !important;
 }
 
 strong,
@@ -244,7 +244,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #777;
+  color: #76453B;
   font-weight: 700;
   line-height: 1em;
   margin: 0 0 0.5625em 0;
@@ -1892,7 +1892,7 @@ header.major h2 {
 }
 
 header.major h2 + p {
-  color: #777;
+  color: #76453B;
   font-size: 1.75em;
   font-weight: 700;
   margin-top: -0.75em;
@@ -2004,7 +2004,7 @@ input[type="radio"] {
 input[type="checkbox"] + label,
 input[type="radio"] + label {
   text-decoration: none;
-  color: #888;
+  color: #433878;
   cursor: pointer;
   display: inline-block;
   font-size: 1em;
@@ -2730,7 +2730,7 @@ input[type="button"].primary,
   color: #ffffff !important;
 }
 
-input[type="submit"].primary:hover,
+input[type="submit"].primary:hover, 
 input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 .button.primary:hover {
@@ -2890,8 +2890,8 @@ input[type="button"]:disabled,
   margin: 0;
 }
 
-#header > footer .icons li a {
-  color: #5c4a3e;
+#header > footer .icons li a { /* Couleur icones */
+  color: #76453b;
 }
 
 #header > nav {
@@ -2908,7 +2908,7 @@ input[type="button"]:disabled,
 }
 
 #header > nav ul li {
-  border-top: solid 2px #937663;
+  border-top: solid 2px #9DC08B;
   display: block;
   padding: 0;
 }
@@ -2919,14 +2919,14 @@ input[type="button"]:disabled,
   -ms-transition: none;
   transition: none;
   border: 0;
-  color: #ffffff !important;
+  color: #eadfd8 !important;
   display: block;
   padding: 0.85em 0;
   text-decoration: none;
 }
 
 #header > nav ul li a.active {
-  background: #fff;
+  background: #EDF1D6;
   color: #609966 !important;
 }
 
@@ -2937,14 +2937,14 @@ input[type="button"]:disabled,
 /* Wrapper */
 
 #wrapper {
-  background: #fff;  /* FOND GLOBAL */
+  background: #EDF1D6;  /* FOND GLOBAL */
   padding-right: 23em;
 }
 
 /* Main */
 
 #main > section {
-  border-top: solid 6px #f4f4f4;
+  border-top: solid 6px #c5dbbd; /* Ligne entre gros fond */
 }
 
 #main > section > .container {
@@ -2958,7 +2958,7 @@ input[type="button"]:disabled,
 /* Footer */
 
 #footer {
-  background: #fafafa;
+  background: #fff;
   border-top: 0;
   color: #c0c0c0;
   overflow: hidden;
