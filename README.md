@@ -5,7 +5,9 @@ Faire un commit
 
 ## Modifications
 
-Mes modifications sont indiquées par un emoji "✅" et l'utilisation d'un ~~texte barré~~.
+Mes modifications sont indiquées par un emoji "✅" ou "❌" et l'utilisation d'un ~~texte barré~~.
+- "✅" Correspond à une tâche effectuée
+- "❌" Correspond à une tâche abandonnée
 
 Mes futurs ajouts sont indiqués par un emoji "✍️".
 
@@ -162,24 +164,24 @@ Trouvez cette ligne et modifiez-la pour ajouter votre propre adresse e-mail :
 
 Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polices, les images, etc. dans le fichier CSS `main.css`.
 
-- Utiliser [Bootstrap](https://getbootstrap.com/) pour m'aider avec les modifications ✍️
+- ~~Utiliser [Bootstrap](https://getbootstrap.com/) pour m'aider avec les modifications~~ ❌
 
-- Ajouter un fond différent avec un voyage et une ~~indication de la destination~~. ✍️ 
+- ~~Ajouter un fond différent avec un voyage et une indication de la destination~~. ✅ 
 
-- Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page. ✍️
+- ~~Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page.~~ ❌
 
-- Proposer une option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️
+- Améliorer et trouver une meilleure option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️ 
 
-- Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes ✅
+- ~~Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes.~~ ✅
 
-- Modifier l'animation et la position de l'îcone pour le voyage ✍️
+- ~~Modifier l'animation et la position de l'îcone pour le voyage.~~ ✅
 
 - Ajouter un timer pour le nombre de temps passé dans la fonction publique dans la section (MON CV) ✍️
 
-- Permettre au gens de cliquer sur l'image pour télécharger mon CV ! ✍️
+- ~~Permettre au gens de cliquer sur l'image pour télécharger mon CV !~~ ✅
 ---
 
-## Étape 4: Pousser les modifications sur GitHub
+## ~~ Étape 4: Pousser les modifications sur GitHub~~ ✅
 
 Une fois que vous avez fait toutes les modifications, vous devez les envoyer sur GitHub pour que votre site soit mis à jour.
 
@@ -195,7 +197,7 @@ Cela enverra vos modifications sur GitHub.
 
 ---
 
-## Étape 5: Activer GitHub Pages
+## ~~ Étape 5: Activer GitHub Pages~~ ✅
 
 1. Allez sur la page de votre répertoire sur GitHub.
 2. Cliquez sur **Settings**.
@@ -207,7 +209,7 @@ Votre site sera maintenant accessible à l'adresse `https://username.github.io`,
 
 ---
 
-### Félicitations !
+### Félicitations ! 🥂
 
 Vous avez maintenant un site web fonctionnel hébergé gratuitement sur GitHub Pages. Vous pouvez y ajouter plus de contenu et personnaliser votre site autant que vous le souhaitez.
 
@@ -216,7 +218,7 @@ Vous avez maintenant un site web fonctionnel hébergé gratuitement sur GitHub P
 N'hésitez pas à poser des questions si vous rencontrez des difficultés. Bonne chance !
 
 
-## Étape 6: Bonus! Ajouter un nom de domaine personnalisé
+## ~~Étape 6: Bonus! Ajouter un nom de domaine personnalisé~~ ✅
 
 Ce guide explique comment lier votre site GitHub Pages à votre nom de domaine personnalisé en utilisant Namecheap. Dans cet exemple, nous utiliserons le domaine `votrenom.com` comme domaine personnalisé.
 
@@ -225,7 +227,7 @@ Ce guide explique comment lier votre site GitHub Pages à votre nom de domaine p
 1. Un répertoire GitHub avec un site GitHub Pages configuré (par exemple, `username.github.io` ou `organisation.github.io`).
 2. Un nom de domaine personnalisé enregistré chez un fournisseur de nom de domaine comme Namecheap (par exemple, `votrenom.com`).
 
-### Étape 1 : Configurer les Enregistrements DNS sur Namecheap
+### ~~Étape 1 : Configurer les Enregistrements DNS sur Namecheap~~ ✅
 
 Nous devons configurer les paramètres DNS sur Namecheap pour pointer votre domaine vers GitHub Pages.
 
@@ -257,7 +259,7 @@ Nous devons configurer les paramètres DNS sur Namecheap pour pointer votre doma
 
 5. **Enregistrer les Modifications** et attendez que les paramètres DNS se propagent. Cela peut prendre de quelques minutes à plusieurs heures.
 
-### Étape 2 : Configurer GitHub Pages pour un Domaine Personnalisé
+### ~~Étape 2 : Configurer GitHub Pages pour un Domaine Personnalisé~~ ✅
 
 1. **Accéder à Votre répertoire :**
    - Allez dans le répertoire GitHub qui héberge votre site GitHub Pages.
@@ -280,7 +282,7 @@ Nous devons configurer les paramètres DNS sur Namecheap pour pointer votre doma
 
 
 
-### Étape 3 : Vérifier la Configuration
+### ~~Étape 3 : Vérifier la Configuration~~ ✅
 
 1. **Visitez Votre Domaine :**
    - Ouvrez un navigateur et visitez `www.votrenom.com`. Il devrait afficher votre site GitHub Pages.
