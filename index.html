@@ -136,9 +136,14 @@
           </p>
           <div class="features">
             <article>
-              <a href="https://raw.githubusercontent.com/Aijir0/Aijir0.github.io/main/CV/CVLeoMatrat.pdf" download class="image"><img src="images/pic05.jpg" alt="" /></a>
+              <a href="https://raw.githubusercontent.com/Aijir0/Aijir0.github.io/main/CV/CVLeoMatrat.pdf" download class="image">
+                <div class="image-container">
+                  <img src="images/pic05.jpg" alt="" />
+                  <div id="cv-destination-text" class="destination-name" style="display: none;">Madère</div>
+                </div>
+              </a>
               <div class="inner">
-                <h4>Obtenir mon curriculum vitae ?  <i class="fa-solid fa-location-dot"></i></h4>
+                <h4>Obtenir mon curriculum vitae ? <i id="cv-icon" class="fa-solid fa-location-dot fa-bounce" title="Cliquez sur moi"></i></h4>
                 <p>
                   Si vous souhaitez en savoir plus. 
                   Je vous invite à cliquer sur l'image pour télécharger mon CV !
@@ -262,6 +267,42 @@
       accessibilityButtons();
     });
   </script>
+
+<script>
+  // Script pour l'icône CV avec réapparition et texte de destination
+  document.getElementById('cv-icon').addEventListener('click', function () {
+    var icon = this;
+    var destinationText = document.getElementById('cv-destination-text');
+
+    // Animation de rotation et disparition de l'icône
+    icon.style.transition = 'transform 1s, opacity 1s';
+    icon.style.transform = 'rotate(360deg)';
+
+    // Attendre la fin de la rotation, puis montrer le texte de destination
+    setTimeout(() => {
+      icon.style.opacity = '0'; // Icône disparaît
+
+      // Affichage du texte de destination
+      destinationText.style.display = 'block';
+      destinationText.style.opacity = '1';
+
+      // Disparition du texte après quelques secondes
+      setTimeout(() => {
+        destinationText.style.opacity = '0'; // Le texte disparaît
+
+        setTimeout(() => {
+          destinationText.style.display = 'none'; // Retirer complètement l'élément
+
+          // Réapparition de l'icône après que le texte a disparu
+          icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
+          setTimeout(() => {
+            icon.style.opacity = '1'; // Réapparaître l'icône
+          }, 1000); // Délai pour que l'icône réapparaisse
+        }, 1000);
+      }, 3000); // Le texte de la destination reste visible pendant 3 secondes
+    }, 1000); // 1 seconde pour la rotation de l'icône
+  });
+</script>
 
 </body>
 

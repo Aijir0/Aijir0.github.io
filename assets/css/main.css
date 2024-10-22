@@ -3474,3 +3474,18 @@ input[type="button"]:disabled,
   opacity: 1;
   transition: opacity 1s;
 }
+
+.image-container {
+  position: relative;
+}
+
+.destination-name {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
