@@ -157,3 +157,55 @@
 		});
 
 })(jQuery);
+
+// Trailing Cursor
+const cursor = document.getElementById("cursor");
+const clickCircle = document.getElementById("click-circle");
+
+// Variables pour stocker la position actuelle de la souris
+let mouseX = 0;
+let mouseY = 0;
+
+// Suivi du curseur
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX; // Mettre à jour la position X de la souris
+  mouseY = e.clientY; // Mettre à jour la position Y de la souris
+
+  updateCursorPosition(); // Mettre à jour la position du curseur
+});
+
+// Effet de clic
+document.addEventListener("mousedown", () => {
+  cursor.style.width = "10px";
+  cursor.style.height = "10px";
+
+  clickCircle.style.width = "80px";
+  clickCircle.style.height = "80px";
+  clickCircle.style.opacity = "1";
+});
+
+document.addEventListener("mouseup", () => {
+  cursor.style.width = "20px";
+  cursor.style.height = "20px";
+
+  clickCircle.style.width = "0";
+  clickCircle.style.height = "0";
+  clickCircle.style.opacity = "0";
+});
+
+// Gestion du défilement (scroll) pour ajuster la position du curseur
+document.addEventListener("scroll", () => {
+  updateCursorPosition(); // Mettre à jour la position du curseur lors du défilement
+});
+
+// Fonction pour mettre à jour la position du curseur et du cercle d'effet
+function updateCursorPosition() {
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
+  cursor.style.top = mouseY + scrollY + "px";
+  cursor.style.left = mouseX + scrollX + "px";
+
+  clickCircle.style.top = mouseY + scrollY + "px";
+  clickCircle.style.left = mouseX + scrollX + "px";
+}
