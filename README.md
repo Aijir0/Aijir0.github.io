@@ -51,7 +51,7 @@ Vous allez maintenant copier le répertoire sur votre machine pour pouvoir le mo
 
 ---
 
-## Étape 3: Modifier le fichier HTML
+## ~~Étape 3: Modifier le fichier HTML~~ ✅
 
 Maintenant que vous avez cloné le répertoire sur votre machine, vous pouvez modifier le fichier HTML pour y ajouter vos informations personnelles.
 Vous pouvez utiliser RStudio pour éditer le code HTML, ou tout autre éditeur de texte.
@@ -89,7 +89,7 @@ Dans la section `header` du fichier HTML, modifiez les éléments suivants :
   Continuer la courte description
 </p>
 ```
-Ajouter une option pour ouvrir cet espace de façon latéral : icône de menu hamburger. ✍️
+~~Ajouter une option pour ouvrir cet espace de façon latéral : icône de menu hamburger.~~ ❌
 
 #### ~~3. Votre photo~~ ✅
 
@@ -101,7 +101,7 @@ Remplacez l'image de profil par une image de vous. Pour cela, vous devez remplac
 
 Si vous nommez l'image différemment, modifiez également la ligne ci-dessus avec le nouveau nom de fichier.
 
-#### 4. Sections de navigation
+#### 4. ~~Sections de navigation~~ ✅
 
 Vous pouvez modifier les sections suivantes dans la barre de navigation :
 
@@ -114,7 +114,7 @@ Vous pouvez modifier les sections suivantes dans la barre de navigation :
 
 Ces liens renvoient aux différentes sections de votre site. Vous pouvez modifier les noms des sections si vous le souhaitez.
 
-#### 5. Vos réseaux sociaux
+#### 5. ~~Vos réseaux sociaux~~ ✅
 
 Modifiez les liens des réseaux sociaux dans la section `footer` :
 
@@ -129,9 +129,9 @@ Remplacez `href="#"` par le lien vers vos comptes de réseaux sociaux.
 
 - Ajouter pour l'icone courriel : copie de mon mail lors du clic et petit message qui confirme la copie du mail. ✍️
 
-- Supprimer twitter et mettre instagram ? ✍️
+- ~~Supprimer twitter et mettre instagram ?~~ ✅
 
-#### 6. Texte de la page d'accueil
+#### 6. ~~Texte de la page d'accueil~~ ✅
 
 Modifiez le texte dans la section suivante pour écrire quelque chose de personnel à propos de vous :
 
@@ -143,7 +143,7 @@ Modifiez le texte dans la section suivante pour écrire quelque chose de personn
 </p>
 ```
 
-#### 7. Section « Mes réalisations »
+#### 7. ~~Section « Mes réalisations »~~ ✅
 
 Ajoutez vos propres projets ou réalisations dans la section `two` :
 
@@ -152,7 +152,7 @@ Ajoutez vos propres projets ou réalisations dans la section `two` :
 <p>Décrivez ici vos travaux ou projets.</p>
 ```
 
-#### 8. Section « Me joindre »
+#### 8. ~~Section « Me joindre »~~ ✅
 
 Trouvez cette ligne et modifiez-la pour ajouter votre propre adresse e-mail :
 
@@ -179,7 +179,7 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 - Ajouter un timer pour le nombre de temps passé dans la fonction publique dans la section (MON CV) ✍️
 
 - ~~Permettre au gens de cliquer sur l'image pour télécharger mon CV !~~ ✅
----
+
 
 ## ~~ Étape 4: Pousser les modifications sur GitHub~~ ✅
 
