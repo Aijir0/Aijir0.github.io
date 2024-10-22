@@ -210,29 +210,30 @@ function updateCursorPosition() {
   clickCircle.style.left = mouseX + scrollX + "px";
 }
 
-document.querySelector('.tilt-container').addEventListener('mousemove', function(e) {
-    const container = this;
-    const img = container.querySelector('img');
-    
-    // Récupérer les dimensions et la position de l'élément
-    const containerRect = container.getBoundingClientRect();
-    const containerWidth = containerRect.width;
-    const containerHeight = containerRect.height;
-    
-    // Calculer la position de la souris à l'intérieur de l'élément
-    const mouseX = e.clientX - containerRect.left;
-    const mouseY = e.clientY - containerRect.top;
-    
-    // Calculer les angles de rotation en fonction de la position de la souris
-    const rotateX = ((mouseY / containerHeight) - 0.5) * 30; // Ajuste la sensibilité
-    const rotateY = ((mouseX / containerWidth) - 0.5) * -30;
-
-    // Appliquer les rotations à l'image
-    img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
-
-// Remettre l'image à zéro quand la souris sort de l'élément
-document.querySelector('.tilt-container').addEventListener('mouseleave', function() {
-    const img = this.querySelector('img');
-    img.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
+document.querySelectorAll('.tilt-container').forEach(container => {
+	container.addEventListener('mousemove', function(e) {
+	  const img = container.querySelector('img');
+	  
+	  // Récupérer les dimensions et la position de l'élément
+	  const containerRect = container.getBoundingClientRect();
+	  const containerWidth = containerRect.width;
+	  const containerHeight = containerRect.height;
+	  
+	  // Calculer la position de la souris à l'intérieur de l'élément
+	  const mouseX = e.clientX - containerRect.left;
+	  const mouseY = e.clientY - containerRect.top;
+	  
+	  // Calculer les angles de rotation en fonction de la position de la souris
+	  const rotateX = ((mouseY / containerHeight) - 0.5) * 30; // Ajuste la sensibilité
+	  const rotateY = ((mouseX / containerWidth) - 0.5) * -30;
+  
+	  // Appliquer les rotations à l'image
+	  img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	});
+  
+	// Remettre l'image à zéro quand la souris sort de l'élément
+	container.addEventListener('mouseleave', function() {
+	  const img = container.querySelector('img');
+	  img.style.transform = 'rotateX(0deg) rotateY(0deg)';
+	});
+  });
