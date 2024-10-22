@@ -176,17 +176,17 @@ document.addEventListener("mousemove", (e) => {
 
 // Effet de clic
 document.addEventListener("mousedown", () => {
-  cursor.style.width = "10px";
-  cursor.style.height = "10px";
+  cursor.style.width = "8.5px";  // Proportionnellement réduit
+  cursor.style.height = "8.5px";
 
-  clickCircle.style.width = "80px";
-  clickCircle.style.height = "80px";
+  clickCircle.style.width = "69px"; // Ajusté proportionnellement
+  clickCircle.style.height = "69px";
   clickCircle.style.opacity = "1";
 });
 
 document.addEventListener("mouseup", () => {
-  cursor.style.width = "20px";
-  cursor.style.height = "20px";
+  cursor.style.width = "13px";
+  cursor.style.height = "13px";
 
   clickCircle.style.width = "0";
   clickCircle.style.height = "0";
