@@ -180,11 +180,13 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 
 - ~~Permettre au gens de cliquer sur l'image pour télécharger mon CV !~~ ✅
 
-- Changer le script "Année et mois" et afficher que mois lorsque jours = 0 ✍️
+- ~~Changer le script "Année et mois" et afficher que mois lorsque jours = 0~~ ✅
 
 - Ajouter une autre page avec une carte interactive retrançant des voyages et racontant quelques annecdotes. ✍️
 
-## ~~ Étape 4: Pousser les modifications sur GitHub~~ ✅
+- Changer couleurs icônes réseaux sociaux #76453b --> #edf1d6  ✍️
+
+## ~~Étape 4: Pousser les modifications sur GitHub~~ ✅
 
 Une fois que vous avez fait toutes les modifications, vous devez les envoyer sur GitHub pour que votre site soit mis à jour.
 
@@ -200,7 +202,7 @@ Cela enverra vos modifications sur GitHub.
 
 ---
 
-## ~~ Étape 5: Activer GitHub Pages~~ ✅
+## ~~Étape 5: Activer GitHub Pages~~ ✅
 
 1. Allez sur la page de votre répertoire sur GitHub.
 2. Cliquez sur **Settings**.
