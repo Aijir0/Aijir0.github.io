@@ -322,26 +322,29 @@
 
 <script>
   function updatePublicServiceTime() {
-    const startTime = new Date('December 2, 2022 10:00:00');
-    const currentTime = new Date();
+    const options = { timeZone: 'America/Toronto' };
+    const startTime = new Date(new Date('December 2, 2022 10:00:00').toLocaleString('en-US', options));
+    const currentTime = new Date(new Date().toLocaleString('en-US', options));
     const diff = currentTime - startTime;
 
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+    let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
     const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Adjust months to prevent it from going back to 0
+    if (months >= 12) {
+      years += 1;
+      months = months % 12;
+    }
+
+    // Ensure months start at 1 instead of 0
+    months = months + 1;
 
     let timeString = '';
-    if (years > 0 || months > 0 || days > 0) {
-      timeString = `${years} ans, ${months} mois, ${days > 0 ? days + ' jours' : hours + ' heures'}`;
-    } else if (hours > 0) {
-      timeString = `${hours} heures, ${minutes} minutes`;
-    } else if (minutes > 0) {
-      timeString = `${minutes} minutes, ${seconds} secondes`;
+    if (days > 0) {
+      timeString = `${years} ans, ${months} mois, ${days} jours`;
     } else {
-      timeString = `${seconds} secondes`;
+      timeString = `${years} ans, ${months} mois`;
     }
 
     document.getElementById('public-service-time').textContent = timeString;
