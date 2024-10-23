@@ -127,7 +127,7 @@ Modifiez les liens des réseaux sociaux dans la section `footer` :
 
 Remplacez `href="#"` par le lien vers vos comptes de réseaux sociaux.
 
-- Ajouter pour l'icone courriel : copie de mon mail lors du clic et petit message qui confirme la copie du mail. ✍️
+- ~~Ajouter pour l'icone courriel : copie de mon mail lors du clic.~~ ✅
 
 - ~~Supprimer twitter et mettre instagram ?~~ ✅
 
@@ -170,16 +170,19 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 
 - ~~Ajouter une musique NCS et une petite icône pour la couper à tout moment, l'icône doit descendre à mesure que l'utilisateur descend la page.~~ ❌
 
-- Améliorer et trouver une meilleure option d'accessibilité (taille de police, couleur daltonien et lecture de texte). ✍️ 
+- ~~Améliorer et trouver une meilleure option d'accessibilité (taille de police, couleur daltonien et lecture de texte).~~ ❌ 
 
 - ~~Ajout de Font Awesome et Flaticon pour l'utilisation d'icônes.~~ ✅
 
 - ~~Modifier l'animation et la position de l'îcone pour le voyage.~~ ✅
 
-- Ajouter un timer pour le nombre de temps passé dans la fonction publique dans la section (MON CV) ✍️
+- ~~Ajouter un timer pour le nombre de temps passé dans la fonction publique dans la section (MON CV)~~ ✅
 
 - ~~Permettre au gens de cliquer sur l'image pour télécharger mon CV !~~ ✅
 
+- Changer le script "Année et mois" et afficher que mois lorsque jours = 0 ✍️
+
+- Ajouter une autre page avec une carte interactive retrançant des voyages et racontant quelques annecdotes. ✍️
 
 ## ~~ Étape 4: Pousser les modifications sur GitHub~~ ✅
 
