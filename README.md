@@ -186,6 +186,8 @@ Vous pouvez personnaliser davantage le site en modifiant les couleurs, les polic
 
 - Changer couleurs icônes réseaux sociaux #76453b --> #edf1d6  ✍️
 
+- Voir la meilleure font-family pour Date/heure ✍️
+
 ## ~~Étape 4: Pousser les modifications sur GitHub~~ ✅
 
 Une fois que vous avez fait toutes les modifications, vous devez les envoyer sur GitHub pour que votre site soit mis à jour.
