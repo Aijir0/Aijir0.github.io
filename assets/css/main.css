@@ -3546,3 +3546,11 @@ body {
   transition: transform 0.1s ease-out;
   transform-style: preserve-3d;
 }
+
+#public-service-time {
+  text-decoration: underline;
+  font-family: monospace;
+  color: #76453b;
+  padding: 5px;
+  display: inline-block;
+}
