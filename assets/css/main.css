@@ -2892,7 +2892,7 @@ input[type="button"]:disabled,
 
 #header>footer .icons li a {
   /* Couleur icones */
-  color: #76453b;
+  color: #edf1d6;
 }
 
 #header>nav {
@@ -3205,7 +3205,7 @@ input[type="button"]:disabled,
   }
 
   #titleBar .toggle:before {
-    background: #b8947c;
+    background: #609966;
     color: #ffffff;
     content: "\f0c9";
     display: block;
