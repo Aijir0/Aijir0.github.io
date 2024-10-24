@@ -322,36 +322,35 @@
 
 <script>
   function updatePublicServiceTime() {
-    const options = { timeZone: 'America/Toronto' };
-    const startTime = new Date(new Date('December 2, 2022 10:00:00').toLocaleString('en-US', options));
-    const currentTime = new Date(new Date().toLocaleString('en-US', options));
-    const diff = currentTime - startTime;
+    const startTime = new Date('December 2, 2022 10:00:00');
+    const currentTime = new Date();
 
-    let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    // Calcul de la différence en millisecondes
+    let years = currentTime.getFullYear() - startTime.getFullYear();
+    let months = currentTime.getMonth() - startTime.getMonth();
+    let days = currentTime.getDate() - startTime.getDate();
 
-    // Adjust months to prevent it from going back to 0
-    if (months >= 12) {
-      years += 1;
-      months = months % 12;
+    // Ajuster les mois et les années si nécessaire
+    if (days < 0) {
+      months--;
+      days += new Date(currentTime.getFullYear(), currentTime.getMonth(), 0).getDate();
     }
 
-    // Ensure months start at 1 instead of 0
-    months = months + 1;
-
-    let timeString = '';
-    if (days > 0) {
-      timeString = `${years} ans, ${months} mois, ${days} jours`;
-    } else {
-      timeString = `${years} ans, ${months} mois`;
+    if (months < 0) {
+      years--;
+      months += 12;
     }
+
+    // Formatage de la chaîne de résultat
+    let timeString = `${years} ans, ${months} mois, ${days} jours`;
 
     document.getElementById('public-service-time').textContent = timeString;
   }
 
   setInterval(updatePublicServiceTime, 1000);
 </script>
+
+
 
 </body>
 
