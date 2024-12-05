@@ -166,6 +166,13 @@
               </div>
             </article>
           </div>
+        
+            <!-- Bouton pour ouvrir la présentation -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <button class="button primary" onclick="openPresentation()">Voir ma présentation</button>
+    </div>
+  </div>
+</section>
         </div>
       </section>
 
@@ -350,6 +357,14 @@
   setInterval(updatePublicServiceTime, 1000);
 </script>
 
+<script>
+  function openPresentation() {
+    // Remplace le chemin ci-dessous par celui de ta présentation PDF
+    const presentationURL = "presentation/rabb.pdf";
+    // Ouvre la présentation dans un nouvel onglet
+    window.open(presentationURL, "_blank");
+  }
+</script>
 
 
 </body>
