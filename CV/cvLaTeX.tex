@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 Aug 2024) written by LianTze Lim (liantze@gmail.com), based on the
+% CV created by BusinessInsider at http://www.businessinsider.my/a-sample-resume-for-marissa-mayer-2016-7/?r=US&IR=T
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+\usepackage{ragged2e}
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" mmayer.tex
+\iftutex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+\else
+  % If using pdflatex:
+  \usepackage[default]{lato}
+\fi
+
+% Change the colours if you want to
+\definecolor{VividPurple}{HTML}{000000}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{PageBackground}{HTML}{FFF9F7}
+
+% \colorlet{name}{black}
+% \colorlet{tagline}{PastelRed}
+\colorlet{heading}{VividPurple}
+\colorlet{headingrule}{VividPurple}
+% \colorlet{subheading}{PastelRed}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+% \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+% \renewcommand{\personalinfofont}{\footnotesize}
+% \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+% \renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+\NewInfoField{phone}{\faPhone}
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Léo Matrat}
+\tagline{Étudiant \& Fonctionnaire}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+%% You can add multiple photos on the left or right
+\photoR{3cm}{port2.jpg}
+% \photoL{2cm}{Yacht_High,Suitcase_High}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \email{leo.matrat.pro@gmail.com}
+%   \phone{000-00-0000}
+  \location{3417 Ch. des Quatre Bourgeois, app. 8}
+  \phone{581-777-6705}
+  \homepage{leomatrat.com}
+  % \twitter{@marissamayer}
+  \github{Aijir0}
+  \linkedin{léo-matrat}
+%   \github{github.com/mmayer} % I'm just making this up though.
+%   \orcid{0000-0000-0000-0000} % Obviously making this up too.
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+	%%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Mes Expériences}
+
+\cvevent{Étudiant \& Conseiller}{Minitère de l'éducation du Québec}{Décembre 2022 -- En cours}{Québec, CA}
+\begin{itemize}
+\item Veille et recherche internationale en éducation pour répondre aux enjeux auxquels fait face le Québec
+\item Rédaction de notes informationnel pour les autorités publiques et divers services ministériels
+\item Participation à des projet d’améliorations visant l'évolution des processus et outils au sein de notre équipe
+\item Coordination avec divers services et polyvalence de données permettant un apprentissage constant
+\end{itemize}
+
+\divider
+
+\cvevent{Secrétaire}{Club Animé Québec}{Septembre 2024 -- En cours}{Québec, CA}
+\begin{itemize}
+\item Effectuer diverses tâches administratives
+\item Pérenniser les processus et mettre à jour les pratiques
+\item Participation à diverses organisations événementielles 
+\end{itemize}
+
+\divider
+
+\cvevent{Stage en Relations Humaines}{Citelum}{2018 -- 2019}{Paris, FR}
+\begin{itemize}
+\item Assister la personne en charge des ressources humaines
+\item Apprentissage des tâches administratives classiques physiques et numériques
+\end{itemize}
+
+
+
+% \divider
+
+% \cvevent{Product Engineer}{Google}{23 June 1999 -- 2001}{Palo Alto, CA}
+
+% \begin{itemize}
+% \item Joined the company as employe \#20 and female employee \#1
+% \item Developed targeted advertisement in order to use user's search queries and show them related ads
+% \end{itemize}
+
+\cvsection{Mon éducation}
+
+\cvevent{Baccalauréat en science politique}{Université Laval}{Obtenu en hiver 2024}{Québec, CA}
+\begin{itemize}
+\item J'ai débuté mes études supérieurs en Science Politique à Québec.
+Je suis aujourd’hui diplômé d’un Baccalauréat en Science politique à l’Université Laval. Ce cursus m’a ouvert les portes de la cultures scientifique et politique au Québec.
+\end{itemize}
+
+\divider
+
+\cvevent{Maîtrise en scienced politique avec stage}{Université Laval}{2024 -- En cours}{Québec, CA}
+\begin{itemize}
+\item J'effectue actuellement une maîtrise avec stage à l’Université Laval. 
+J'oriente mon profil vers les politiques publiques, la gouvernance, le management public et l'éthique des organisations, afin de me perfectionner pour une future carrière dans la fonction publique.
+\end{itemize}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the currentc column
+
+\switchcolumn
+
+\cvsection{Philosophie de vie}
+\begin{quote}
+\justify
+``Vivre selon ses valeurs, c'est transformer chaque conviction en acte et chaque idéal en contribution concrète pour une société plus juste et authentique.''
+\end{quote}
+
+\cvsection{Mes fiertés}
+
+\cvachievement{\faTrophy}{Sportif}{2 médailles de bronze aux championnats de France de natation}
+
+\divider
+
+\cvachievement{\faHeartbeat}{Valeurs \& Loyauté}{Engagé envers mes valeurs, je fais preuve de loyauté et de respect envers les organisations et les équipes avec lesquelles je collabore}
+
+\divider
+
+\cvachievement{\faChartLine}{Apprentissage}{J'aime découvrir et apprendre vite}
+
+\divider
+
+\cvachievement{\faPenNib}{Poête à mes heures perdues}{J'aime m'exprimer au travers de vers et de proses}
+
+\cvsection{Mes forces}
+
+% Don't overuse these \cvtag boxes — they're just eye-candies and not essential. If something doesn't fit on a single line, it probably works better as part of an itemized list (probably inlined itemized list), or just as a comma-separated list of strengths.
+
+% The `ragged2e` document class option might cause automatic linebreaks between \cvtag to fail.
+% Either remove the ragged2e option; or 
+% add \LaTeXraggedright in the paragraph for these \cvtag
+{\LaTeXraggedright
+\cvtag{Fast-learner}
+\cvtag{Apte au télétravail}
+\cvtag{Conciliant \& Médiateur}
+\par}
+
+\divider\smallskip
+
+\cvtag{Learn R/HTML/CSS/JS}
+\cvtag{Pack Office}
+\cvtag{Canva \& Genially}
+\cvtag{ChatGPT \& NotebookLM}
+
+\cvsection{Langages}
+
+\cvskill{Français}{5}
+% \divider
+
+\cvskill{Anglais}{4}
+% \divider
+
+\cvskill{Espagnol}{3} %% supports X.5 values.
+
+
+\cvsection{Education}
+\vspace{-1em} % Ajustez la valeur (par exemple, -0.5em, -1em, etc.) pour réduire l'espace
+
+\justify
+Réalisant mes études dans un cadre théorique, je souhaite m'immerger dans le monde du travail pour en comprendre les réalités concrètes. Déterminé, j'aime me dépasser, tirer parti des critiques constructives et accomplir mes tâches avec rigueur et fierté.
+
+
+
+
+\end{paracol}
+
+\end{document}
