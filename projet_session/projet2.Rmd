@@ -65,25 +65,25 @@ Ce processus m'a permis de collecter des données prétriées et fiables, direct
 
     -   Ce graphique montre les résultats de ma régression linéaire.
 
-    ![Résumé du Modèle Linéaire](images/Model.png)
+    ![](C:/Users/leoth/Aijir0.github.io/images/Model.png)
 
 2.  **Relation entre dépenses sociales et inégalités** :
 
     -   Ce graphique montre une corrélation négative, indiquant que des dépenses sociales plus élevées sont associées à des inégalités plus faibles.
 
-    ![Relation entre dépenses sociales et inégalités](images/Relation1.png)
+    ![](C:/Users/leoth/Aijir0.github.io/images/Relation1.png)
 
 3.  **Relation entre PIB par habitant et inégalités** :
 
     -   Une tendance similaire est observée : un PIB par habitant plus élevé tend à réduire les inégalités.
 
-    ![Relation entre PIB par habitant et inégalités](images/Relation2.png)
+    ![](C:/Users/leoth/Aijir0.github.io/images/Relation2.png)
 
 4.  **Relation entre taux de chômage et inégalités** :
 
     -   Une corrélation positive est visible, suggérant que des taux de chômage plus élevés augmentent les inégalités.
 
-    ![Relation entre taux de chômage et inégalités](images/Relation3.png)
+    ![](C:/Users/leoth/Aijir0.github.io/images/Relation3.png)
 
 ------------------------------------------------------------------------
 
