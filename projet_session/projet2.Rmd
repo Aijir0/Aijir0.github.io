@@ -16,7 +16,11 @@ Comment les politiques publiques, mesurées par les dépenses sociales (% du PIB
 
 ## Hypothèse de recherche
 
-Les politiques publiques, mesurées par les dépenses sociales (% du PIB), ont un effet significatif et négatif sur les inégalités sociales dans les pays de l’OCDE. Plus précisément : - Une augmentation des dépenses sociales est associée à une réduction des inégalités, mesurées par le taux de pauvreté. - Les effets des dépenses sociales sont amplifiés dans les pays avec des systèmes fiscaux progressifs. - D'autres facteurs, comme le taux de chômage, aggravent les inégalités, tandis que le PIB par habitant a un effet modéré.
+Les politiques publiques, mesurées par les dépenses sociales (% du PIB), ont un effet significatif et négatif sur les inégalités sociales dans les pays de l’OCDE. Plus précisément :
+
+-   Une augmentation des dépenses sociales est associée à une réduction des inégalités, mesurées par le taux de pauvreté.
+-   Les effets des dépenses sociales sont amplifiés dans les pays avec des systèmes fiscaux progressifs.
+-   D'autres facteurs, comme le taux de chômage, aggravent les inégalités, tandis que le PIB par habitant a un effet modéré.
 
 ## Outils utilisés
 
