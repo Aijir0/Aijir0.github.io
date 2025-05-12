@@ -38,6 +38,12 @@ print("Recherche en cours...")
 
 response = requests.get(BASE_URL, headers=HEADERS, params=params)
 
+print("Code de réponse :", response.status_code)
+print("Texte brut :", response.text[:1000])  # Affiche les 1000 premiers caractères pour pas noyer le terminal
+
+data = response.json()
+print("Nombre de résultats reçus :", len(data.get("data", [])))
+
 if response.status_code != 200:
     print(f"Erreur API : {response.status_code}")
     exit()
