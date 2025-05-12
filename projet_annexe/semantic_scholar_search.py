@@ -1,105 +1,101 @@
 import requests
 import csv
 import time
+import os
 
 print("Script lancé.")
 
+# ----- CONFIG -----
 BASE_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
 HEADERS = {}
 
-query = "congruence"
+QUERY = "congruence"
 FIELDS = "title,abstract,year,authors,citationCount,externalIds"
 MAX_PER_PAGE = 100
-MAX_ARTICLES = 500
-output_csv = "congruence_articles.csv"
-output_csv_noabs = "congruence_no_abstract.csv"
-output_bib = "congruence_articles.bib"
+OFFSET = 0  # ⇦ 💥💥💥 🌸 À MODIFIER ICI À CHAQUE LANCEMENT 🌸 💥💥💥
+OUTPUT_CSV = "congruence_articles.csv"
+OUTPUT_CSV_NOABS = "congruence_no_abstract.csv"
+OUTPUT_BIB = "congruence_articles.bib"
+KEYWORDS_POLITICS = ["representation", "policy", "opinion", "government", "public"]
 
-keywords_politics = ["representation", "policy", "opinion", "government", "public"]
-
-results = []
+# ----- RESULT STORAGE -----
+filtered = []
 no_abstract = []
-offset = 0
 
-print("Recherche en cours...")
+# ----- API REQUEST -----
+print(f"Requête offset {OFFSET}...")
+params = {
+    "query": QUERY,
+    "limit": MAX_PER_PAGE,
+    "fields": FIELDS,
+    "offset": OFFSET
+}
 
-while len(results) < MAX_ARTICLES:
-    params = {
-        "query": query,
-        "limit": MAX_PER_PAGE,
-        "fields": FIELDS,
-        "offset": offset
-    }
+response = requests.get(BASE_URL, headers=HEADERS, params=params)
+print(f"Code réponse : {response.status_code}")
 
-    response = requests.get(BASE_URL, headers=HEADERS, params=params)
-    print(f"Requête offset {offset} → code : {response.status_code}")
-    if response.status_code != 200:
-        print("Erreur API :", response.text)
-        break
+if response.status_code != 200:
+    print("Erreur API :", response.text)
+    exit()
 
-    data = response.json()
-    papers = data.get("data", [])
-    if not papers:
-        break
+data = response.json()
+papers = data.get("data", [])
+print(f"{len(papers)} articles reçus")
 
-    for paper in papers:
-        title = paper.get("title", "")
-        abstract = paper.get("abstract")
-        year = paper.get("year", "")
-        citations = paper.get("citationCount", 0)
-        doi = paper.get("externalIds", {}).get("DOI", "")
-        authors_list = paper.get("authors", [])
-        authors = ", ".join([a.get("name", "") for a in authors_list])
+# ----- FILTRAGE -----
+for paper in papers:
+    title = paper.get("title", "")
+    abstract = paper.get("abstract")
+    year = paper.get("year", "")
+    citations = paper.get("citationCount", 0)
+    doi = paper.get("externalIds", {}).get("DOI", "")
+    authors = ", ".join([a.get("name", "") for a in paper.get("authors", [])])
 
-        # S'il n'y a pas d'abstract
-        if not abstract:
-            no_abstract.append({
-                "Title": title,
-                "Year": year,
-                "Citations": citations,
-                "DOI": doi,
-                "Authors": authors
-            })
-            continue
+    if not abstract:
+        no_abstract.append({
+            "Title": title,
+            "Year": year,
+            "Citations": citations,
+            "DOI": doi,
+            "Authors": authors
+        })
+        continue
 
-        # Sinon : traitement classique
-        if "congruence" in abstract.lower():
-            if any(kw in abstract.lower() for kw in keywords_politics):
-                if int(year) >= 2018 and (citations >= 5 or citations == 0):
-                    results.append({
-                        "Title": title,
-                        "Year": year,
-                        "Citations": citations,
-                        "DOI": doi,
-                        "Authors": authors,
-                        "Abstract": abstract
-                    })
+    if "congruence" in abstract.lower():
+        if any(kw in abstract.lower() for kw in KEYWORDS_POLITICS):
+            if int(year) >= 2018 and (citations >= 5 or citations == 0):
+                filtered.append({
+                    "Title": title,
+                    "Year": year,
+                    "Citations": citations,
+                    "DOI": doi,
+                    "Authors": authors,
+                    "Abstract": abstract
+                })
 
-        if len(results) >= MAX_ARTICLES:
-            break
+# ----- CSV UTILS -----
+def append_to_csv(filename, data, headers):
+    write_header = not os.path.exists(filename)
+    with open(filename, mode='a', encoding='utf-8', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        if write_header:
+            writer.writeheader()
+        writer.writerows(data)
 
-    offset += MAX_PER_PAGE
-    time.sleep(1)
+# ----- ÉCRITURE -----
+if filtered:
+    append_to_csv(OUTPUT_CSV, filtered, filtered[0].keys())
+    print(f"{len(filtered)} articles ajoutés à '{OUTPUT_CSV}'")
+else:
+    print("Aucun article pertinent trouvé.")
 
-# Écriture CSV avec abstracts
-if results:
-    with open(output_csv, mode='w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=results[0].keys())
-        writer.writeheader()
-        writer.writerows(results)
-    print(f"{len(results)} articles enregistrés dans '{output_csv}'")
-
-# Écriture CSV sans abstracts
 if no_abstract:
-    with open(output_csv_noabs, mode='w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=no_abstract[0].keys())
-        writer.writeheader()
-        writer.writerows(no_abstract)
-    print(f"{len(no_abstract)} articles sans abstract enregistrés dans '{output_csv_noabs}'")
+    append_to_csv(OUTPUT_CSV_NOABS, no_abstract, no_abstract[0].keys())
+    print(f"{len(no_abstract)} articles sans abstract ajoutés à '{OUTPUT_CSV_NOABS}'")
 
-# Export BibTeX
-def to_bibtex(entry, idx):
-    entry_id = f"congruence{idx}"
+# ----- BIBTEX -----
+def to_bibtex(entry, idx_start):
+    entry_id = f"congruence{idx_start}"
     bib = f"@article{{{entry_id},\n"
     bib += f"  title={{ {entry['Title']} }},\n"
     bib += f"  author={{ {entry['Authors']} }},\n"
@@ -110,8 +106,15 @@ def to_bibtex(entry, idx):
     bib += "}\n"
     return bib
 
-with open(output_bib, 'w', encoding='utf-8') as f:
-    for idx, entry in enumerate(results):
-        f.write(to_bibtex(entry, idx))
+# Ajout BibTeX sans écraser
+if filtered:
+    existing = 0
+    if os.path.exists(OUTPUT_BIB):
+        with open(OUTPUT_BIB, 'r', encoding='utf-8') as f:
+            existing = f.read().count("@article")
 
-print(f"Fichier BibTeX exporté : '{output_bib}'")
+    with open(OUTPUT_BIB, 'a', encoding='utf-8') as f:
+        for i, entry in enumerate(filtered):
+            f.write(to_bibtex(entry, existing + i))
+    print(f"{len(filtered)} entrées BibTeX ajoutées à '{OUTPUT_BIB}'")
+
