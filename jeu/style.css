@@ -25,3 +25,88 @@ body {
   background: #000;
   image-rendering: pixelated;
 }
+
+.music-player {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  width: min(330px, calc(100vw - 36px));
+  padding: 10px;
+  color: #f8f8f8;
+  background: rgba(18, 18, 18, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.music-cover {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #111;
+  background: #3ee66f;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.music-info {
+  min-width: 0;
+}
+
+.music-info p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.music-kicker,
+.music-subtitle,
+.volume-control {
+  color: #b8b8b8;
+  font-size: 0.72rem;
+}
+
+.music-title {
+  overflow: hidden;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.music-toggle {
+  width: 44px;
+  height: 32px;
+  color: #101010;
+  background: #3ee66f;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.music-toggle.is-muted {
+  color: #fff;
+  background: #555;
+}
+
+.volume-control {
+  grid-column: 2 / 4;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.volume-control input {
+  width: 100%;
+  accent-color: #3ee66f;
+  cursor: pointer;
+}

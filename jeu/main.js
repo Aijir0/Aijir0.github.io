@@ -1,5 +1,8 @@
 const canvas = document.getElementById("gameCanvas");
 const context = canvas.getContext("2d");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+const musicVolume = document.getElementById("musicVolume");
 
 // Jeu - assets
 const background = new Image();
@@ -75,6 +78,10 @@ const keys = {
 };
 
 function setKey(event, isPressed) {
+  if (event.target.closest && event.target.closest(".music-player")) {
+    return;
+  }
+
   const key = event.key.toLowerCase();
 
   if (key === "arrowup" || key === "z") {
@@ -172,6 +179,57 @@ canvas.addEventListener("click", (event) => {
     y: Math.round(mapPosition.y),
   });
 });
+
+// Jeu - musique
+function updateMusicButton() {
+  if (backgroundMusic.muted) {
+    musicToggle.textContent = "OFF";
+    musicToggle.classList.add("is-muted");
+    musicToggle.setAttribute("aria-label", "Relancer la musique");
+    return;
+  }
+
+  musicToggle.textContent = "ON";
+  musicToggle.classList.remove("is-muted");
+  musicToggle.setAttribute("aria-label", "Couper la musique");
+}
+
+function playMusic() {
+  backgroundMusic.play().catch(() => {
+    musicToggle.textContent = "PLAY";
+  });
+}
+
+backgroundMusic.volume = Number(musicVolume.value);
+backgroundMusic.loop = true;
+updateMusicButton();
+
+musicToggle.addEventListener("click", () => {
+  if (backgroundMusic.paused) {
+    backgroundMusic.muted = false;
+    playMusic();
+  } else {
+    backgroundMusic.muted = !backgroundMusic.muted;
+  }
+
+  updateMusicButton();
+});
+
+musicVolume.addEventListener("input", () => {
+  backgroundMusic.volume = Number(musicVolume.value);
+});
+
+musicVolume.addEventListener("keydown", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+});
+
+musicVolume.addEventListener("mouseup", () => {
+  musicVolume.blur();
+});
+
+window.addEventListener("pointerdown", playMusic, { once: true });
+window.addEventListener("keydown", playMusic, { once: true });
 
 // Jeu - collisions
 function prepareWalkableMask() {
@@ -314,5 +372,6 @@ Promise.all([
   setupWorldCanvas();
   prepareWalkableMask();
   applyPlayerSpawn();
+  playMusic();
   gameLoop();
 });
