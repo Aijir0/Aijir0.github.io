@@ -322,3 +322,9 @@ Voilà ! Vous avez réussi à lier votre site GitHub Pages au domaine personnali
 - Personnalisation avancée (10%)
     - L'étudiant.e ont personnalisé leur site (changement de couleurs, utilisation d’un autre template, ajustements spécifiques à leurs besoins).
     - Les modifications vont au-delà des consignes de base, démontrant une initiative supplémentaire.
+
+
+
+
+AJOUTER UN BOUTON POUR RESET/TP LE PERSONNAGE SI BLOQUE 
+prévoir les liens etc vers les batiments etc
