@@ -1,0 +1,5 @@
+﻿# Configuration privée de la future authentification (jamais publiée).
+.env
+.env.*
+!.env.example
+.private/

@@ -2895,10 +2895,11 @@ input[type="button"]:disabled,
   color: #edf1d6;
 }
 
-#header>footer .icons li .game-icon-link {
+#header>footer .icons li .games-entry {
   display: inline-flex;
-  width: 1.35em;
-  height: 1.35em;
+  gap: .5em;
+  min-height: 44px;
+  font-size: .85em;
   align-items: center;
   justify-content: center;
   vertical-align: middle;

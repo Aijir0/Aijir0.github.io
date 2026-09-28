@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choisir un jeu — Léo Matrat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="access.js" defer></script>
+</head>
+<body data-page="selection">
+  <main>
+    <nav class="menu-nav" aria-label="Navigation"><a href="../index.html">← Retour au site</a><button id="logout" type="button" disabled>Déconnexion</button></nav>
+    <p class="eyebrow">ESPACE JEUX</p>
+    <h1>À vous de jouer.</h1>
+    <p>Deux univers, le temps d’une pause.</p>
+    <p id="access-status" role="status" aria-live="polite">Vérification du service d’accès…</p>
+    <section class="cards" aria-label="Choix des jeux" hidden>
+      <article>
+        <img src="../jeu/imagesjeu/Fond.png" alt="Décor en pixel art du premier jeu" width="640" height="360">
+        <div class="card-body"><h2>Scene Pixel Art</h2><p>Explorez un décor en pixel art, accompagné de sa bande-son.</p><a class="button" href="../jeu/index.html">Jouer<span class="sr-only"> à Scene Pixel Art</span></a></div>
+      </article>
+      <article>
+        <img class="pac-preview" src="../PacQC/docs/controle-sprites.png" alt="Planche des personnages et bonus de PacQC" width="640" height="360">
+        <div class="card-body"><h2>PackQC</h2><p>Le labyrinthe personnalisé du bureau : quatre fantômes, trois vies et quelques pauses bonus.</p><a class="button" href="../PacQC/index.html">Jouer<span class="sr-only"> à PackQC</span></a></div>
+      </article>
+    </section>
+    <noscript>Activez JavaScript pour vérifier votre session. L’authentification nécessite un service serveur.</noscript>
+  </main>
+</body>
+</html>

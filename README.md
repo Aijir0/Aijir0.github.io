@@ -328,3 +328,7 @@ Voilà ! Vous avez réussi à lier votre site GitHub Pages au domaine personnali
 
 AJOUTER UN BOUTON POUR RESET/TP LE PERSONNAGE SI BLOQUE 
 prévoir les liens etc vers les batiments etc
+## Espace jeux : intégration locale en cours
+
+Voir [les instructions d’essai et l’état de la protection](docs/INTEGRATION-JEUX.md).
+L’interface est prête à prévisualiser ; GitHub Pages seul ne protège pas les jeux par mot de passe.

@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Espace jeux — Léo Matrat</title>
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="access.js" defer></script>
+</head>
+<body data-page="login">
+  <main class="login">
+    <a href="../index.html">← Retour au site</a>
+    <p class="eyebrow"><i class="fas fa-lock" aria-hidden="true"></i> ESPACE JEUX</p>
+    <h1>Une petite pause ?</h1>
+    <p>Entrez le mot de passe personnel pour rejoindre les jeux.</p>
+    <form id="login-form" method="post" action="/api/games/login">
+      <label for="password">Mot de passe</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="256" aria-describedby="access-status" disabled>
+      <button id="submit" type="submit" disabled>Entrer dans l’espace jeux</button>
+    </form>
+    <p id="access-status" role="status" aria-live="polite">Vérification du service d’accès…</p>
+    <noscript>JavaScript est nécessaire pour ce formulaire. La protection des jeux doit être assurée par l’hébergement.</noscript>
+  </main>
+</body>
+</html>
