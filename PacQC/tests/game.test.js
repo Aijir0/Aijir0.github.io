@@ -11,7 +11,7 @@ export function runTests() {
   const map = createMap(LEVEL);
   test('Ministère : points et bonus accessibles, tunnel et sortie des fantômes valides', () => {
     const second = createMap(MINISTRY_LEVEL);
-    assert(second.validation.reachable === 308 && second.collectibles.size === 303);
+    assert(second.validation.reachable === 229 && second.collectibles.size === 222);
     assert(second.bonusSpawns.size === 4);
     assert(neighbor(second, { x: 0, y: second.tunnelRow }, 'gauche').x === second.width - 1);
     const exits = distanceField(second, second.ghostHome.exit, true);
@@ -30,8 +30,8 @@ export function runTests() {
     }
     assert(Math.abs(pos.x - Math.round(pos.x)) < 1e-8 || Math.abs(pos.y - Math.round(pos.y)) < 1e-8, 'Désalignement');
   }
-  test('Carte : 276 cases connectées, 271 objets, réserve de 15 cases exclue', () => {
-    assert(map.validation.reachable === 276 && map.validation.collectibles === 271 && map.validation.reserve === 15);
+  test('Carte : 228 cases connectées, 223 objets, réserve de 25 cases exclue', () => {
+    assert(map.validation.reachable === 228 && map.validation.collectibles === 223 && map.validation.reserve === 25);
     for (const key of map.collectibles) { const [x, y] = key.split(',').map(Number); assert(map.rows[y][x] === '.'); }
   });
   test('Une carte contenant un collectible isolé est refusée', () => {
@@ -54,7 +54,7 @@ export function runTests() {
     }));
   });
   test('Départ immobile et bouche fermée', () => {
-    const game = createGame(map); updateGame(game, 3); samePosition(game, 11, 20);
+    const game = createGame(map); updateGame(game, 3); samePosition(game, 11, 21);
     assert(!game.player.moving && playerSprite(game.player, true) === 'droite1');
   });
   test('Mur : arrêt au centre sans traversée, même sur un grand delta', () => {
@@ -64,8 +64,8 @@ export function runTests() {
   });
   test('Virage anticipé : demande conservée après une case incompatible', () => {
     const game = at(1,5); requestDirection(game,'droite'); updateGame(game,.05);
-    samePosition(game,1.25,5); requestDirection(game,'haut'); updateGame(game,.45);
-    samePosition(game,3,4.5); assert(game.player.facing === 'haut'); validPosition(game);
+    samePosition(game,1.25,5); requestDirection(game,'haut'); updateGame(game,.85);
+    samePosition(game,5,4.5); assert(game.player.facing === 'haut'); validPosition(game);
   });
   test('La dernière direction demandée remplace le virage mémorisé', () => {
     const game = at(1,5); requestDirection(game,'droite'); updateGame(game,.05);
@@ -83,17 +83,17 @@ export function runTests() {
     requestDirection(game,'gauche'); updateGame(game,.1); samePosition(game,2.5,5);
   });
   test('Tunnel dans les deux sens et demi-tour pendant la traversée', () => {
-    const left = at(0,12); requestDirection(left,'gauche'); updateGame(left,.1);
-    samePosition(left,-.5,12); requestDirection(left,'droite');
+    const left = at(0,11); requestDirection(left,'gauche'); updateGame(left,.1);
+    samePosition(left,-.5,11); requestDirection(left,'droite');
     const pos = playerPosition(left); close((pos.x+23)%23,22.5);
-    updateGame(left,.1); samePosition(left,0,12);
-    requestDirection(left,'gauche'); updateGame(left,.2); samePosition(left,22,12);
-    const right = at(22,12); requestDirection(right,'droite'); updateGame(right,.2); samePosition(right,0,12);
+    updateGame(left,.1); samePosition(left,0,11);
+    requestDirection(left,'gauche'); updateGame(left,.2); samePosition(left,22,11);
+    const right = at(22,11); requestDirection(right,'droite'); updateGame(right,.2); samePosition(right,0,11);
     assert(right.score === POINTS && left.score === POINTS * 2);
   });
   test('Porte et réserve centrale infranchissables', () => {
-    const game = at(11,8); requestDirection(game,'bas'); updateGame(game,5); samePosition(game,11,8);
-    for (let y=10;y<=12;y++) for (let x=9;x<=13;x++) assert(!isWalkable(map,x,y));
+    const game = at(11,7); requestDirection(game,'bas'); updateGame(game,5); samePosition(game,11,7);
+    for (let y=9;y<=13;y++) for (let x=9;x<=13;x++) assert(!isWalkable(map,x,y));
   });
   test('Même trajet et même score à 30, 60 et 144 Hz et avec des durées irrégulières', () => {
     const drive = chunks => { const game = at(1,5); requestDirection(game,'droite'); for (const dt of chunks) updateGame(game,dt); return game; };
@@ -108,7 +108,7 @@ export function runTests() {
     const game=at(1,5); requestDirection(game,'droite'); updateGame(game,.2);
     requestDirection(game,'gauche'); updateGame(game,.2); const score=game.score;
     requestDirection(game,'droite'); updateGame(game,.2); assert(game.score===score);
-    const fresh=createGame(map); assert(fresh.score===0 && fresh.remaining.size===271 && map.collectibles.size===271);
+    const fresh=createGame(map); assert(fresh.score===0 && fresh.remaining.size===223 && map.collectibles.size===223);
   });
   test('Flèches, WASD, ZQSD, majuscules ; touches étrangères ignorées', () => {
     for (const key of ['ArrowUp','w','W','z','Z']) assert(directionForKey(key)==='haut');
@@ -139,7 +139,7 @@ export function runTests() {
       updateGame(game, [1/30,1/60,1/144,.07][(seed>>>8)%4]); validPosition(game);
     }
   });
-  test('Parcours complet : 271 collectes, 2 710 points, réussite puis arrêt', () => {
+  test('Parcours complet : 223 collectes, 2 230 points, réussite puis arrêt', () => {
     const game=createGame(map);
     let steps=0;
     while(game.remaining.size && steps<10000) {
@@ -156,7 +156,7 @@ export function runTests() {
       assert(route,'Objet inaccessible pendant la partie');
       for(const direction of route) { requestDirection(game,direction); updateGame(game,1/SPEED); validPosition(game); steps++; }
     }
-    assert(game.won && game.remaining.size===0 && game.score===2710 && !game.player.moving);
+    assert(game.won && game.remaining.size===0 && game.score===2230 && !game.player.moving);
     const before=playerPosition(game); requestDirection(game,'gauche'); updateGame(game,5); samePosition(game,before.x,before.y);
   });
   return results;

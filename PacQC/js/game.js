@@ -1,4 +1,5 @@
-import { LEVELS } from './map.js';
+import { LEVELS, selectLevel, nextLevel } from './map.js';
+import { validateLevels } from './map-validation.js';
 import { createMap } from './movement.js';
 import { createSession } from './session.js';
 import { loadImages } from './assets.js';
@@ -10,13 +11,16 @@ import { mountGame } from './controller.js';
 const $ = id => document.getElementById(id);
 async function start() {
   try {
-    const levelIndex = new URLSearchParams(window.location.search).get('carte') === '2' ? 1 : 0;
-    const level = LEVELS[levelIndex];
+    validateLevels(LEVELS);
+    const level = selectLevel(window.location.search), levelIndex = LEVELS.indexOf(level);
     $('map-label').textContent = `CARTE 0${levelIndex + 1}`;
     $('map-title').textContent = level.name + '.';
+    $('map-description').textContent = level.description;
+    $('next-map').href = '?carte=' + nextLevel(level).id;
+    $('next-map').textContent = 'Carte suivante : ' + nextLevel(level).name + ' (nouvelle partie)';
     document.title = 'PacQC — ' + level.name;
     document.querySelectorAll('[data-map]').forEach(link => {
-      if (Number(link.dataset.map) === levelIndex + 1) link.setAttribute('aria-current', 'page');
+      if (link.dataset.map === level.id) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
     const map = createMap(level), game = createSession(map);

@@ -1,5 +1,7 @@
-import { DIRECTIONS, actorPosition, cellKey, neighbor } from './movement.js';
-import { accessibleTarget, distanceField, ghostNeighbor } from './navigation.js';
+import { DIRECTIONS, actorPosition, cellKey } from './movement.js';
+import { accessibleTarget, distanceField, ghostNeighbor, routeNeighbor } from './navigation.js';
+import { arrive, releasePortalLock } from './topology.js';
+import { terrainSpeed, distanceToBoundary } from './modifiers.js';
 import { isVulnerable, isHarmless } from './bonuses.js';
 
 const same = (a, b) => a.x === b.x && a.y === b.y;
@@ -12,7 +14,7 @@ export function createGhosts(map, rules, seed) {
     const tile = map.ghostHome.starts[index];
     if (map.rows[tile.y]?.[tile.x] !== 'G' || !routes.has(cellKey(tile.x, tile.y))) throw new Error(`Départ inaccessible : ${definition.id}.`);
     return { ...definition, home: { ...tile }, recovery: 0, tile: { ...tile }, next: null, progress: 0, direction: null, facing: 'haut',
-      mode: 'attente', chasing: false, fleeTurn: false, patrolIndex: index % map.patrol.length,
+      mode: 'attente', chasing: false, fleeTurn: false, portalLock: null, patrolIndex: index % map.patrol.length,
       randomState: (seed + (index + 1) * 2654435761) >>> 0, decisions: 0, target: null };
   });
 }
@@ -30,7 +32,7 @@ export function ghostTarget(game, ghost, rules) {
   if (ghost.id === 'pcq') {
     let target = player;
     for (let i = 0; i < rules.interceptTiles; i++) {
-      const next = neighbor(map, target, game.player.facing);
+      const next = routeNeighbor(map, target, game.player.facing);
       if (!next) break;
       target = next;
     }
@@ -66,7 +68,7 @@ export function chooseGhostDirection(game, ghost, rules) {
     const target = accessibleTarget(game.map, actorPosition(game.player));
     const distances = distanceField(game.map, target);
     options.sort((a, b) => {
-      const aa = ghostNeighbor(game.map, ghost.tile, a), bb = ghostNeighbor(game.map, ghost.tile, b);
+      const aa = routeNeighbor(game.map, ghost.tile, a), bb = routeNeighbor(game.map, ghost.tile, b);
       return distances.get(cellKey(bb.x, bb.y)) - distances.get(cellKey(aa.x, aa.y))
         || Number(b === ghost.direction) - Number(a === ghost.direction);
     });
@@ -82,7 +84,7 @@ export function chooseGhostDirection(game, ghost, rules) {
   const distances = distanceField(game.map, ghost.target, leaving);
   // Continuer tout droit en cas d'égalité évite des zigzags inutiles.
   options.sort((a, b) => {
-    const aa = ghostNeighbor(game.map, ghost.tile, a, leaving), bb = ghostNeighbor(game.map, ghost.tile, b, leaving);
+    const aa = routeNeighbor(game.map, ghost.tile, a, leaving), bb = routeNeighbor(game.map, ghost.tile, b, leaving);
     return (distances.get(cellKey(aa.x, aa.y)) ?? Infinity) - (distances.get(cellKey(bb.x, bb.y)) ?? Infinity)
       || Number(b === ghost.direction) - Number(a === ghost.direction);
   });
@@ -120,12 +122,20 @@ export function updateGhost(game, ghost, seconds, roundTime, rules) {
       ghost.next = ghostNeighbor(game.map, ghost.tile, ghost.direction, ['sortie', 'retour'].includes(ghost.mode));
       ghost.progress = 0;
     }
-    const speed = ghost.mode === 'retour' ? rules.bonuses.returnSpeed : (ghost.mode === 'sortie' ? rules.exitSpeed : ghost.speed);
-    const duration = Math.min(seconds - time, (1 - ghost.progress) / speed);
+    const baseSpeed = ghost.mode === 'retour' ? rules.bonuses.returnSpeed : (ghost.mode === 'sortie' ? rules.exitSpeed : ghost.speed);
+    const speed = terrainSpeed(game.map, ghost, baseSpeed);
+    const duration = Math.min(seconds - time, distanceToBoundary(ghost) / speed);
     const step = duration * speed, vector = DIRECTIONS[ghost.direction], from = actorPosition(ghost);
     trace.push({ start: time, end: time + duration, from, to: { x: from.x + vector.x * step, y: from.y + vector.y * step }, harmless: isHarmless(ghost) });
     ghost.progress += step; time += duration;
-    if (ghost.progress >= 1 - 1e-9) { ghost.tile = ghost.next; ghost.next = null; ghost.progress = 0; }
+    releasePortalLock(ghost);
+    if (ghost.progress >= 1 - 1e-9) {
+      ghost.tile = ghost.next; ghost.next = null; ghost.progress = 0;
+      if (arrive(game.map, ghost)) {
+        const destination = actorPosition(ghost);
+        trace.push({ start: time, end: time, from: destination, to: destination, harmless: isHarmless(ghost) });
+      }
+    }
   }
   if (time < seconds) {
     const position = actorPosition(ghost);

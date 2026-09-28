@@ -1,63 +1,125 @@
-// Données seules : # mur, . collectible, P départ, G réserve, = porte des fantômes.
-// Coordonnées (x, y), origine en haut à gauche ; centres espacés d'une case.
-export const LEVEL = Object.freeze({
-  name: 'La ronde du bureau',
-  tunnelRow: 12,
-  // Ces cases remplacent un point ordinaire ; aucun objet ne se superpose.
-  bonusSpawns: Object.freeze([
-    Object.freeze({ type: 'beer', x: 15, y: 20 }),
-    Object.freeze({ type: 'coffee', x: 9, y: 20 }),
-    Object.freeze({ type: 'beer', x: 3, y: 5 }),
-    Object.freeze({ type: 'coffee', x: 19, y: 5 }),
-  ]),
-  ghostHome: Object.freeze({
-    exit: Object.freeze({ x: 11, y: 8 }),
-    starts: Object.freeze([{ x: 9, y: 11 }, { x: 10, y: 11 }, { x: 12, y: 11 }, { x: 13, y: 11 }]),
-  }),
-  patrol: Object.freeze([{ x: 1, y: 16 }, { x: 5, y: 16 }, { x: 5, y: 20 }, { x: 1, y: 22 }]),
-  rows: Object.freeze([
+// Grilles indépendantes : # mur, . point, P départ, G réserve, = porte.
+function freeze(value) {
+  if (value && typeof value === 'object') { Object.values(value).forEach(freeze); Object.freeze(value); }
+  return value;
+}
+const home = { exit: { x: 11, y: 7 }, starts: [{ x: 9, y: 11 }, { x: 10, y: 11 }, { x: 12, y: 11 }, { x: 13, y: 11 }] };
+const tunnels = [
+  { from: { x: 0, y: 11 }, direction: 'gauche', to: { x: 22, y: 11 } },
+  { from: { x: 22, y: 11 }, direction: 'droite', to: { x: 0, y: 11 } },
+];
+export const LEVEL = freeze({
+  id: 'bureau', name: 'La ronde du bureau', modifier: 'none',
+  description: 'Le labyrinthe de référence : boucles reliées, sans modificateur.',
+  tunnelRow: 11, tunnels, ghostHome: home,
+  bonusSpawns: [{ type: 'coffee', x: 9, y: 21 }, { type: 'beer', x: 13, y: 21 }, { type: 'beer', x: 3, y: 5 }, { type: 'coffee', x: 19, y: 5 }],
+  patrol: [{ x: 1, y: 13 }, { x: 5, y: 15 }, { x: 5, y: 19 }, { x: 1, y: 23 }],
+  rows: [
     '#######################',
     '#.....#.........#.....#',
     '#.###.#.###.###.#.###.#',
-    '#.#...#...#.#...#...#.#',
-    '#.#.#####.#.#.#####.#.#',
+    '#.###...###.###...###.#',
+    '#.###.#.###.###.#.###.#',
     '#.....................#',
-    '###.###.#.###.#.###.###',
-    '#...#...#.....#...#...#',
-    '#.###.#.........#.###.#',
-    '#.....#.###=###.#.....#',
-    '#####.#.#GGGGG#.#.#####',
-    '#.....#.#GGGGG#.#.....#',
+    '#.#####.#######.#####.#',
+    '#.#####.........#####.#',
+    '#.#####.###=###.#####.#',
+    '#.......#GGGGG#.......#',
+    '#.#####.#GGGGG#.#####.#',
     '........#GGGGG#........',
+    '#.#####.#GGGGG#.#####.#',
+    '#.....#.#GGGGG#.#.....#',
     '#.###.#.#######.#.###.#',
-    '#...#.#.........#.#...#',
-    '###.#.###.#.#.###.#.###',
-    '#.....#...#.#...#.....#',
+    '#.###...#######...###.#',
     '#.###.#.#######.#.###.#',
-    '#...#.....#.....#.#...#',
-    '###.#.###.#.###.#.#.###',
-    '#...#......P......#...#',
-    '#.#######.#.#.#######.#',
-    '#.........#.#.........#',
-    '#.#######.....#######.#',
+    '#.###.#.........#.###.#',
+    '#.###.#.#######.#.###.#',
+    '#.....................#',
+    '#.#######.###.#######.#',
+    '#.#######..P..#######.#',
+    '#.#######.###.#######.#',
+    '#.....................#',
     '#######################',
-  ]),
+  ],
 });
-
-// La réserve et le tunnel sont communs ; les ailes forment de nouvelles boucles.
-export const MINISTRY_LEVEL = Object.freeze({
-  ...LEVEL,
-  name: 'Les couloirs du ministère',
-  rows: Object.freeze(LEVEL.rows.map((row, y) => ({
-    2: '#.#.#.#.#.#.#.#.#.#.#.#',
-    4: '#.#.###.#.#.#.###.#.#.#',
-    6: '#.#.###.#.###.#.###.#.#',
-    15: '#.#.#.###.#.#.###.#.#.#',
-    17: '#.#.#.#.#######.#.#.#.#',
-    19: '#.#.#.###.#.###.#.#.#.#',
-    21: '#.#.###.#.#.#.#.###.#.#',
-    23: '#.....................#',
-  })[y] ?? row)),
+export const MINISTRY_LEVEL = freeze({
+  id: 'ministere', name: 'Les couloirs du ministère', modifier: 'portals',
+  description: 'Les portails A et B transportent aussi les fantômes. Quittez la case d’arrivée avant de les réutiliser.',
+  tunnelRow: 11, tunnels, ghostHome: home,
+  portals: [{ id: 'A', x: 3, y: 7 }, { id: 'B', x: 17, y: 21 }],
+  bonusSpawns: [{ type: 'coffee', x: 9, y: 19 }, { type: 'beer', x: 13, y: 19 }, { type: 'beer', x: 5, y: 1 }, { type: 'coffee', x: 19, y: 3 }],
+  patrol: [{ x: 1, y: 13 }, { x: 5, y: 15 }, { x: 5, y: 19 }, { x: 1, y: 23 }],
+  rows: [
+    '#######################',
+    '#.........###.........#',
+    '#.#######.###.#######.#',
+    '#.#######.............#',
+    '#.#######.###.#######.#',
+    '#.........###.........#',
+    '#.#.###.#########.###.#',
+    '#.#...............###.#',
+    '#.#.###.###=###.#.###.#',
+    '#.#.###.#GGGGG#.#.###.#',
+    '#.#.###.#GGGGG#.#.###.#',
+    '........#GGGGG#........',
+    '#.#####.#GGGGG#.#.###.#',
+    '#.....#.#GGGGG#.#.....#',
+    '#.###.#.#######.#####.#',
+    '#.###...#######.#.....#',
+    '#.###.#.#######.#.###.#',
+    '#.###.#.............#.#',
+    '#.###.#####.#####.#.#.#',
+    '#.###......P..###...#.#',
+    '#.###.#.#####.###.###.#',
+    '#.....#.#####.....###.#',
+    '#.#####.#####.###.###.#',
+    '#.............###.....#',
+    '#######################',
+  ],
 });
-
-export const LEVELS = Object.freeze([LEVEL, MINISTRY_LEVEL]);
+export const RINGS_LEVEL = freeze({
+  id: 'anneaux', name: 'Les anneaux express', modifier: 'speed',
+  description: 'Les bandes turquoise accélèrent tout le monde de 20 %. Avec le café : +50 %, plafond de 7,5 cases/s.',
+  tunnelRow: 11, tunnels, ghostHome: home,
+  speedZones: [
+    { from: { x: 7, y: 1 }, to: { x: 11, y: 1 } },
+    { from: { x: 3, y: 13 }, to: { x: 3, y: 17 } },
+    { from: { x: 11, y: 19 }, to: { x: 15, y: 19 } },
+    { from: { x: 15, y: 9 }, to: { x: 15, y: 13 } },
+  ],
+  bonusSpawns: [{ type: 'coffee', x: 9, y: 21 }, { type: 'beer', x: 13, y: 21 }, { type: 'beer', x: 9, y: 5 }, { type: 'coffee', x: 13, y: 17 }],
+  patrol: [{ x: 1, y: 13 }, { x: 3, y: 15 }, { x: 5, y: 19 }, { x: 1, y: 23 }],
+  rows: [
+    '#######################',
+    '#.....................#',
+    '#.###.###############.#',
+    '#.#.................#.#',
+    '#.#.#####.#########.#.#',
+    '#.#.#.............#.#.#',
+    '#.#.#.###########.#.#.#',
+    '#.#.#.#.........#.#.#.#',
+    '#.#.#.#.###=###.#.#.#.#',
+    '#.#.#...#GGGGG#.#.#.#.#',
+    '#.#.#.#.#GGGGG#.#.#.#.#',
+    '........#GGGGG#........',
+    '#.#.#.#.#GGGGG#.#.#.#.#',
+    '#.#.#.#.#GGGGG#.#.#.#.#',
+    '#.#.#.#.#######.#.#.#.#',
+    '#.#.#.#.#######...#.#.#',
+    '#.#.#.#.#######.#.#.#.#',
+    '#.#.#.#.........#.#.#.#',
+    '#.#.#.###########.#.#.#',
+    '#.#.#.............#.#.#',
+    '#.#.#########.#####.#.#',
+    '#.#........P........#.#',
+    '#.###############.###.#',
+    '#.....................#',
+    '#######################',
+  ],
+});
+export const LEVELS = Object.freeze([LEVEL, MINISTRY_LEVEL, RINGS_LEVEL]);
+export function selectLevel(search = '') {
+  const value = new URLSearchParams(search).get('carte');
+  return LEVELS.find(level => level.id === value) || LEVELS[Number(value) - 1] || LEVEL;
+}
+export function nextLevel(level) { return LEVELS[(LEVELS.findIndex(item => item.id === level.id) + 1) % LEVELS.length]; }

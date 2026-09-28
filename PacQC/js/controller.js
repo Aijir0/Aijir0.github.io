@@ -24,6 +24,7 @@ export function mountGame(game, renderer, doc = document, win = window) {
     text('play', game.phase === STATES.HOME ? 'Démarrer' : 'Reprendre');
     $('pause').disabled = !running; $('restart').disabled = false;
     $('game-overlay').hidden = game.phase === STATES.PLAY;
+    if ($('next-map')) $('next-map').hidden = game.phase !== STATES.WON;
     const views = {
       [STATES.HOME]: ['À VOUS DE JOUER', `${game.rules.lives} vies. Un défi.`, `Bière : fantômes à manger pendant ${game.rules.bonuses.beer.duration} s. Café : vitesse +${Math.round((game.rules.bonuses.coffee.speedMultiplier - 1) * 100)} % pendant ${game.rules.bonuses.coffee.duration} s. Ces bonus sont facultatifs et cumulables.`, 'Prêt. Cliquez sur Démarrer.'],
       [STATES.COUNTDOWN]: [game.notice.toUpperCase(), String(Math.max(1, Math.ceil(game.countdown))), 'Choisissez déjà votre direction. Les fantômes attendent le départ.', `${game.notice} dans ${Math.max(1, Math.ceil(game.countdown))}…`],

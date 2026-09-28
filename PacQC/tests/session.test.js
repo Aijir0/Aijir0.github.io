@@ -48,8 +48,8 @@ export function runSessionTests() {
     assert(same(ghostTarget(game, game.ghosts[1], rules), { x: 5, y: 5 }));
     game.player.tile = { x: 5, y: 1 }; // Mur immédiatement devant.
     assert(same(ghostTarget(game, game.ghosts[1], rules), { x: 5, y: 1 }));
-    game.player.tile = { x: 22, y: 12 };
-    assert(same(ghostTarget(game, game.ghosts[1], rules), { x: 3, y: 12 }));
+    game.player.tile = { x: 22, y: 11 };
+    assert(same(ghostTarget(game, game.ghosts[1], rules), { x: 3, y: 11 }));
   });
   test('Toute cible hors carte, dans un mur ou dans la réserve est corrigée', () => {
     for (const target of [{x:-20,y:80},{x:200,y:-1},{x:0,y:0},{x:11,y:11},{x:NaN,y:1}]) {
@@ -65,7 +65,7 @@ export function runSessionTests() {
     game.player.tile={x:12,y:5}; ghostTarget(game,ghost,rules); assert(!ghost.chasing);
   });
   test('Teams varie ses choix avec une séquence reproductible et sans demi-tour arbitraire', () => {
-    const a=fresh(), b=fresh(), choices=new Set(); place(a.ghosts[3],3,5,'droite'); place(b.ghosts[3],3,5,'droite');
+    const a=fresh(), b=fresh(), choices=new Set(); place(a.ghosts[3],5,5,'droite'); place(b.ghosts[3],5,5,'droite');
     for(let i=0;i<80;i++) {
       const direction=chooseGhostDirection(a,a.ghosts[3],rules);
       assert(direction===chooseGhostDirection(b,b.ghosts[3],rules));
@@ -73,12 +73,12 @@ export function runSessionTests() {
     }
     assert(choices.size>=2);
   });
-  test('Les décisions sont prises aux centres ; demi-tour autorisé seulement dans une impasse', () => {
+  test('Les décisions sont prises aux centres ; pas de demi-tour arbitraire à un virage', () => {
     const game=fresh(), ghost=game.ghosts[0]; place(ghost,2,5,'droite');
     updateGhost(game,ghost,.01,10,rules); const decisions=ghost.decisions, direction=ghost.direction;
     game.player.tile={x:1,y:1}; updateGhost(game,ghost,.01,10.01,rules);
     assert(ghost.decisions===decisions && ghost.direction===direction);
-    place(ghost,1,23,'bas'); assert(chooseGhostDirection(game,ghost,rules)==='haut');
+    place(ghost,1,23,'bas'); assert(chooseGhostDirection(game,ghost,rules)==='droite');
   });
   test('Fantômes : 48 000 pas légaux, alignés, réserve non réintégrée après sortie', () => {
     const game=fresh(), exited=new Set();
@@ -104,8 +104,8 @@ export function runSessionTests() {
   test('Le fantôme traverse le tunnel dans les deux sens', () => {
     const game=fresh(), ghost=game.ghosts[0];
     for(const [x,direction,expected] of [[0,'gauche',22],[22,'droite',0]]) {
-      place(ghost,x,12,direction); game.player.tile={x:expected,y:12};
-      updateGhost(game,ghost,1/ghost.speed,10,rules); assert(same(ghost.tile,{x:expected,y:12}));
+      place(ghost,x,11,direction); game.player.tile={x:expected,y:11};
+      updateGhost(game,ghost,1/ghost.speed,10,rules); assert(same(ghost.tile,{x:expected,y:11}));
     }
   });
   test('Collision balayée : croisement rapide, perpendiculaire et contact au repos', () => {
@@ -116,9 +116,9 @@ export function runSessionTests() {
     assert(firstContact(p,[segment({x:1,y:7},{x:3,y:7})],map,.49)===Infinity);
   });
   test('Collision dans le tunnel et aucun faux balayage à travers toute la carte', () => {
-    const p=[segment({x:0,y:12},{x:-1,y:12})], opposite=[segment({x:22,y:12},{x:23,y:12})];
+    const p=[segment({x:0,y:11},{x:-1,y:11})], opposite=[segment({x:22,y:11},{x:23,y:11})];
     assert(firstContact(p,opposite,map,.49)<.5);
-    assert(firstContact(p,[segment({x:11,y:12},{x:11,y:12})],map,.49)===Infinity);
+    assert(firstContact(p,[segment({x:11,y:11},{x:11,y:11})],map,.49)===Infinity);
     const turn=[segment({x:1,y:1},{x:2,y:1},0,.5),segment({x:2,y:1},{x:2,y:2},.5,1)];
     assert(firstContact(turn,[segment({x:1.5,y:1.5},{x:1.5,y:1.5})],map,.2)===Infinity);
   });
@@ -137,10 +137,10 @@ export function runSessionTests() {
     const before=JSON.stringify(game); updateSession(game,100); assert(JSON.stringify(game)===before);
   });
   test('Croisement à vitesse élevée dans une vraie session : une vie perdue', () => {
-    const custom={...rules,playerSpeed:200,fixedStep:.04}; const game=createSession(map,custom,2026);
+    const custom={...rules,playerSpeed:7.5,fixedStep:.4}; const game=createSession(map,custom,2026);
     startSession(game);updateSession(game,custom.countdown);game.player.tile={x:1,y:5};
-    place(game.ghosts[0],3,5,'gauche');game.ghosts[0].next={x:2,y:5};game.ghosts[0].speed=200;
-    steerSession(game,'droite');updateSession(game,.04);
+    place(game.ghosts[0],3,5,'gauche');game.ghosts[0].next={x:2,y:5};game.ghosts[0].speed=7.5;
+    steerSession(game,'droite');updateSession(game,.2);
     assert(game.lives===2 && game.phase===STATES.COUNTDOWN);
   });
   test('Pause du jeu et du compte à rebours : temps, sorties et positions figés', () => {
@@ -151,7 +151,7 @@ export function runSessionTests() {
     updateSession(game,40); assert(JSON.stringify(game)===playingBefore); resumeSession(game); assert(game.phase===STATES.PLAY);
   });
   test('Victoire au dernier collectible : score et simulation ensuite figés', () => {
-    const game=playing(); game.remaining=new Set(['12,20']); game.score=2700;
+    const game=playing(); game.remaining=new Set(['12,21']); game.score=2700;
     steerSession(game,'droite'); updateSession(game,.3);
     assert(game.phase===STATES.WON && game.score===2710 && game.remaining.size===0);
     const before=JSON.stringify(game); updateSession(game,30); assert(JSON.stringify(game)===before);
@@ -159,11 +159,11 @@ export function runSessionTests() {
   test('Un contact avant le dernier point empêche la victoire et annule la collecte tardive', () => {
     const custom={...rules, fixedStep:.3}; const game=createSession(map,custom,2026);
     startSession(game); updateSession(game,custom.countdown);
-    game.remaining=new Set(['12,20']); game.score=2700;
-    place(game.ghosts[0],12,20,'gauche'); game.ghosts[0].next={x:11,y:20};
+    game.remaining=new Set(['12,21']); game.score=2700;
+    place(game.ghosts[0],12,21,'gauche'); game.ghosts[0].next={x:11,y:21};
     steerSession(game,'droite'); updateSession(game,.3);
     assert(game.lives===2 && !game.won && game.phase===STATES.COUNTDOWN);
-    assert(game.score===2700 && game.remaining.has('12,20'));
+    assert(game.score===2700 && game.remaining.has('12,21'));
   });
   test('Vingt redémarrages réinitialisent vies, score, objets, commandes, sorties et hasard', () => {
     const game=fresh(); restartSession(game); const expected=JSON.stringify(game);
@@ -205,6 +205,8 @@ export function runSessionTests() {
     $('pause').emit('click');
     $('move-up').emit('pointerdown',{preventDefault(){}});
     assert(game.phase===STATES.PAUSE,'Le tactile ne reprend pas une partie en pause');
+    game.phase=STATES.WON;frame();assert($('next-map').hidden===false);
+    $('restart').emit('click');frame();assert($('next-map').hidden===true);
     controller.dispose();assert(queue.size===0 && listenerCount()===0);
   });
   return results;

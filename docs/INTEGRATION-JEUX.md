@@ -10,6 +10,14 @@ Le joystick dans le pied de navigation du site ouvre directement `espace-jeux/se
 
 Le formulaire, les messages de protection, la déconnexion, `access.js`, ses tests et `.env.example` ont été supprimés. Aucun cookie de session, appel d’API ou contrôle d’accès ne subsiste. Le `.gitignore` garde uniquement des exclusions générales de fichiers locaux privés. Le script PowerShell est un simple serveur de développement statique, pas un composant à installer sur GitHub Pages.
 
+## Cartes de PacQC
+
+`PacQC/index.html` propose trois grilles indépendantes de 23 × 25 cases : `?carte=bureau` (référence sans modificateur), `?carte=ministere` (tracé asymétrique et portails A/B), `?carte=anneaux` (boucles concentriques et bandes d’accélération à +20 %). Les liens numériques `?carte=1`, `2` et `3` restent compatibles. Le nom, la grille et le modificateur proviennent de la même sélection. Changer de carte, y compris via « Carte suivante » après victoire, démarre une nouvelle partie ; Recommencer conserve la carte courante.
+
+Les trois cartes sont validées au chargement : connectivité sans portails, aucun cul-de-sac ni bloc praticable de 2 × 2, réserve séparée, tunnels explicites et absence de superpositions. Le café se multiplie avec les bandes, avec un plafond de 7,5 cases/s. Voir [le README de PacQC](../PacQC/README.md) pour les coordonnées et les tests (`node PacQC/tests/run.mjs`, ou `PacQC/tests.html`). Les marqueurs sont dessinés depuis les données réelles. Aucun sprite n’a été remplacé. La vignette animée du menu général reste une illustration ; ce n’est pas un sélecteur de tracés.
+
+L’atelier n’a plus de lien public et `PacQC/sprites.html` redirige vers le jeu. Scene Pixel Art reste testable, avec la mention « En chantier — en cours de construction, mais testable ».
+
 ## Icône du site
 
 - Remplacer **`images/joystick.svg`** pour changer le joystick. C’est un dessin SVG original local, sous la licence du dépôt, sans dépendance externe.

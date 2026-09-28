@@ -105,6 +105,22 @@ export function createRenderer(canvas, map, settings) {
   background.lineJoin = 'round'; background.stroke();
 
   const reserve = [];
+  for (const key of map.speedCells || []) {
+    const [x, y] = key.split(',').map(Number);
+    background.fillStyle = '#123f43'; background.fillRect(x * TILE, y * TILE, TILE, TILE);
+    background.strokeStyle = '#56e6ce'; background.lineWidth = 2;
+    // Marques sans flèche : aucune direction imposée par la zone.
+    background.beginPath(); background.moveTo((x + .18) * TILE, (y + .8) * TILE);
+    background.lineTo((x + .4) * TILE, (y + .2) * TILE);
+    background.moveTo((x + .6) * TILE, (y + .8) * TILE);
+    background.lineTo((x + .82) * TILE, (y + .2) * TILE); background.stroke();
+  }
+  for (const portal of map.portals || []) {
+    const x = (portal.x + .5) * TILE, y = (portal.y + .5) * TILE;
+    ring(background, x, y, 12, portal.id === 'A' ? '#dd91ff' : '#87cfff');
+    background.fillStyle = '#ffffff'; background.font = 'bold 14px Segoe UI, sans-serif';
+    background.textAlign = 'center'; background.fillText(portal.id, x, y + 5);
+  }
   map.rows.forEach((row, y) => [...row].forEach((cell, x) => {
     if (cell === 'G') {
       background.fillStyle = '#171529'; background.fillRect(x * TILE, y * TILE, TILE, TILE); reserve.push({ x, y });

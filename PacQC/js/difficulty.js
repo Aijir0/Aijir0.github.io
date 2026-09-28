@@ -3,6 +3,7 @@ export const DIFFICULTY = Object.freeze({
   lives: 3,
   countdown: 3,
   playerSpeed: 5,
+  modifiers: Object.freeze({ zoneMultiplier: 1.2, maxSpeed: 7.5 }),
   points: 10,
   playerRadius: .24,
   ghostRadius: .25,

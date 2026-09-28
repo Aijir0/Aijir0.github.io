@@ -6,7 +6,8 @@ import { runTests } from './tests/game.test.js';
 import { runSessionTests } from './tests/session.test.js';
 import { runBonusTests } from './tests/bonuses.test.js';
 import { runFramingTests } from "./tests/framing.test.js";
-const results=[...runFramingTests(),...runTests(),...runSessionTests(),...runBonusTests()];
+import { runMapTests } from './tests/maps.test.js';
+const results=[...runFramingTests(),...runTests(),...runSessionTests(),...runBonusTests(),...runMapTests()];
 document.getElementById('result').textContent=`${results.filter(result=>result.passed).length} / ${results.length} tests réussis`;
 for(const result of results) {
   const item=document.createElement('li'); item.textContent=`${result.passed?'✓':'✗'} ${result.name}${result.error?' — '+result.error:''}`;

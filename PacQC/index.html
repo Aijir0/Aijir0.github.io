@@ -27,10 +27,13 @@
   <header class="topbar"><a class="brand" href="./">PAC<span>QC</span><i aria-hidden="true"></i></a></header>
     <section class="game-intro"><div><p class="eyebrow" id="map-label">CARTE 01</p><h1 id="map-title">La ronde du bureau.</h1></div><span class="badge">4 FANTÔMES · 3 VIES</span></section>
         <nav class="map-choice" aria-label="Choisir une carte">
-          <a href="?carte=1" data-map="1" aria-current="page">01 · La ronde du bureau</a>
-          <a href="?carte=2" data-map="2">02 · Les couloirs du ministère</a>
+          <a href="?carte=bureau" data-map="bureau" aria-current="page">01 · La ronde du bureau</a>
+          <a href="?carte=ministere" data-map="ministere">02 · Les couloirs du ministère</a>
+          <a href="?carte=anneaux" data-map="anneaux">03 · Les anneaux express</a>
         </nav>
         <p class="muted">Changer de carte commence une nouvelle partie.</p>
+        <p id="map-description">Le labyrinthe de référence : boucles reliées, sans modificateur.</p>
+        <a id="next-map" class="atelier-link" hidden href="?carte=ministere">Carte suivante (nouvelle partie)</a>
         <div class="scoreboard"><div><span>SCORE</span><output id="score">0000</output></div><div><span>VIES</span><output id="lives">3</output></div><div><span>À RAMASSER</span><output id="remaining">—</output></div></div>
         <p id="game-status" role="status" aria-live="polite">Chargement des images…</p>
         <div id="game-errors" role="alert" hidden></div>
