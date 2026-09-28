@@ -1,5 +1,5 @@
-﻿# Configuration privée de la future authentification (jamais publiée).
+﻿# Fichiers locaux privés (précaution générale du dépôt).
 .env
 .env.*
-!.env.example
+
 .private/

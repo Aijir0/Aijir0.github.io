@@ -4,7 +4,7 @@ $root = [IO.Path]::GetFullPath((Split-Path $PSScriptRoot -Parent))
 $listener = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $Port)
 $types = @{ '.html'='text/html; charset=utf-8'; '.css'='text/css; charset=utf-8'; '.js'='text/javascript; charset=utf-8'; '.json'='application/json; charset=utf-8'; '.png'='image/png'; '.md'='text/plain; charset=utf-8'; '.jpg'='image/jpeg'; '.mp3'='audio/mpeg'; '.woff2'='font/woff2'; '.woff'='font/woff'; '.svg'='image/svg+xml'; '.pdf'='application/pdf' }
 $listener.Start()
-Write-Host "Aperçu NON PROTEGE du site : http://127.0.0.1:$Port/ - Ctrl+C pour arreter."
+Write-Host "Aperçu local du site : http://127.0.0.1:$Port/ - Ctrl+C pour arreter."
 try {
   while ($true) {
     $client = $listener.AcceptTcpClient()
