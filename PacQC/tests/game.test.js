@@ -1,4 +1,5 @@
-import { LEVEL } from '../js/map.js';
+import { LEVEL, MINISTRY_LEVEL } from '../js/map.js';
+import { distanceField } from '../js/navigation.js';
 import { createMap, createGame, requestDirection, updateGame, playerPosition, neighbor, isWalkable, cellKey, DIRECTIONS, SPEED, POINTS, directionForKey } from '../js/movement.js';
 import { wallContours, playerSprite } from '../js/renderer.js';
 
@@ -8,6 +9,15 @@ export function runTests() {
   const close = (a, b) => assert(Math.abs(a - b) < 1e-7, `${a} ≠ ${b}`);
   const test = (name, check) => { try { check(); results.push({ name, passed: true }); } catch (error) { results.push({ name, passed: false, error: error.message }); } };
   const map = createMap(LEVEL);
+  test('Ministère : points et bonus accessibles, tunnel et sortie des fantômes valides', () => {
+    const second = createMap(MINISTRY_LEVEL);
+    assert(second.validation.reachable === 308 && second.collectibles.size === 303);
+    assert(second.bonusSpawns.size === 4);
+    assert(neighbor(second, { x: 0, y: second.tunnelRow }, 'gauche').x === second.width - 1);
+    const exits = distanceField(second, second.ghostHome.exit, true);
+    for (const start of second.ghostHome.starts) assert(exits.has(cellKey(start.x, start.y)), 'Fantôme bloqué');
+    for (const tile of second.patrol) assert(isWalkable(second, tile.x, tile.y), 'Patrouille dans un mur');
+  });
   const at = (x, y) => { const game = createGame(map); game.player.tile = { x, y }; return game; };
   function samePosition(game, x, y) { const p = playerPosition(game); close(p.x, x); close(p.y, y); }
   function validPosition(game) {

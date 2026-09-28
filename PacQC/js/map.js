@@ -43,3 +43,21 @@ export const LEVEL = Object.freeze({
     '#######################',
   ]),
 });
+
+// La réserve et le tunnel sont communs ; les ailes forment de nouvelles boucles.
+export const MINISTRY_LEVEL = Object.freeze({
+  ...LEVEL,
+  name: 'Les couloirs du ministère',
+  rows: Object.freeze(LEVEL.rows.map((row, y) => ({
+    2: '#.#.#.#.#.#.#.#.#.#.#.#',
+    4: '#.#.###.#.#.#.###.#.#.#',
+    6: '#.#.###.#.###.#.###.#.#',
+    15: '#.#.#.###.#.#.###.#.#.#',
+    17: '#.#.#.#.#######.#.#.#.#',
+    19: '#.#.#.###.#.###.#.#.#.#',
+    21: '#.#.###.#.#.#.#.###.#.#',
+    23: '#.....................#',
+  })[y] ?? row)),
+});
+
+export const LEVELS = Object.freeze([LEVEL, MINISTRY_LEVEL]);

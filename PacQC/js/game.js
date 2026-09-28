@@ -1,4 +1,4 @@
-import { LEVEL } from './map.js';
+import { LEVELS } from './map.js';
 import { createMap } from './movement.js';
 import { createSession } from './session.js';
 import { loadImages } from './assets.js';
@@ -10,7 +10,16 @@ import { mountGame } from './controller.js';
 const $ = id => document.getElementById(id);
 async function start() {
   try {
-    const map = createMap(LEVEL), game = createSession(map);
+    const levelIndex = new URLSearchParams(window.location.search).get('carte') === '2' ? 1 : 0;
+    const level = LEVELS[levelIndex];
+    $('map-label').textContent = `CARTE 0${levelIndex + 1}`;
+    $('map-title').textContent = level.name + '.';
+    document.title = 'PacQC — ' + level.name;
+    document.querySelectorAll('[data-map]').forEach(link => {
+      if (Number(link.dataset.map) === levelIndex + 1) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    const map = createMap(level), game = createSession(map);
     let settings = {};
     try { settings = readSpriteSettings(); } catch { /* Valeurs du manifeste si stockage indisponible. */ }
     const result = await loadImages((done, total) => { $('game-status').textContent = 'Chargement des images : ' + done + ' / ' + total; });

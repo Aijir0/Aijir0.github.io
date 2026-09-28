@@ -24,8 +24,13 @@
       </section>
       <aside class="game-sidebar">
         <a class="atelier-link" href="../espace-jeux/selection.html">← Espace jeux</a>
-  <header class="topbar"><a class="brand" href="./">PAC<span>QC</span><i aria-hidden="true"></i></a><a class="atelier-link" href="./sprites.html">Atelier des sprites ↗</a></header>
-    <section class="game-intro"><div><p class="eyebrow">CARTE 01 / LE BUREAU SE RÉVEILLE</p><h1>La ronde du bureau.</h1></div><span class="badge">4 FANTÔMES · 3 VIES</span></section>
+  <header class="topbar"><a class="brand" href="./">PAC<span>QC</span><i aria-hidden="true"></i></a></header>
+    <section class="game-intro"><div><p class="eyebrow" id="map-label">CARTE 01</p><h1 id="map-title">La ronde du bureau.</h1></div><span class="badge">4 FANTÔMES · 3 VIES</span></section>
+        <nav class="map-choice" aria-label="Choisir une carte">
+          <a href="?carte=1" data-map="1" aria-current="page">01 · La ronde du bureau</a>
+          <a href="?carte=2" data-map="2">02 · Les couloirs du ministère</a>
+        </nav>
+        <p class="muted">Changer de carte commence une nouvelle partie.</p>
         <div class="scoreboard"><div><span>SCORE</span><output id="score">0000</output></div><div><span>VIES</span><output id="lives">3</output></div><div><span>À RAMASSER</span><output id="remaining">—</output></div></div>
         <p id="game-status" role="status" aria-live="polite">Chargement des images…</p>
         <div id="game-errors" role="alert" hidden></div>

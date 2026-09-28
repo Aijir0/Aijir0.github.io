@@ -1,4 +1,8 @@
 /* Grandes cibles tactiles, sans réduire le plateau ni ses sprites. */
+.map-choice { display:grid; gap:8px; }
+.map-choice a { display:block; padding:10px 12px; border:1px solid currentColor; border-radius:8px; text-decoration:none; }
+.map-choice a[aria-current="page"] { color:#ffda83; background:#242333; }
+.map-choice a:focus-visible { outline:2px solid #ffda83; outline-offset:3px; }
 .touch-controls { display:none; grid-template-columns:repeat(3,52px); justify-content:center; gap:6px; margin:12px 0; }
 .touch-controls button { min-height:48px; font-size:22px; touch-action:none; }
 #move-up { grid-column:2; }
