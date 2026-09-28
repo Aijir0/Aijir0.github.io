@@ -65,6 +65,12 @@ Limite : aucun navigateur pilotable n’est disponible dans cette session (inven
 
 ## État Git à connaître avant une future publication
 
-`PacQC` est toujours un dépôt imbriqué enregistré comme gitlink (mode 160000), sans `.gitmodules`. Ses changements préexistants et les cinq nouveaux PNG sont conservés. Aucun historique ni index Git n’a été modifié. Un simple commit du dépôt parent ne suffira pas à inclure les fichiers internes : avant publication, intégrer ce dossier comme fichiers ordinaires après sauvegarde de son historique, ou configurer un vrai sous-module récupérable par le build. Ce point de gestion du dépôt ne nécessite **aucun changement d’hébergeur**.
+`PacQC` est désormais un dossier ordinaire du dépôt principal : son gitlink (mode 160000), dépourvu de `.gitmodules`, a été retiré de l’index et remplacé par ses 67 fichiers individuels. Cette conversion corrige l’erreur de checkout `No url found for submodule path 'PacQC' in .gitmodules`, sans modifier le workflow ni désactiver la récupération des sous-modules.
+
+Avant conversion, une copie intégrale a été vérifiée par SHA-256 dans `D:\PacQC-backups\PacQC-20260928-000044` (160 fichiers, métadonnées Git comprises ; inventaire dans `manifest-sha256.csv`). Le `.git` imbriqué original est conservé dans `nested-git-original` sous ce même dossier de sauvegarde. Les quatre fichiers modifiés et les cinq PNG auparavant non suivis sont inclus dans l’index du dépôt principal, sans changement de leur contenu sur disque. Aucune configuration propre à PacQC n’était présente ; le réglage générique `submodule.active = .` est conservé.
+
+Les chemins restent inchangés : `espace-jeux/selection.html` et `espace-jeux/index.html` ouvrent `../PacQC/index.html`, le jeu revient vers `../espace-jeux/selection.html`, et ses modules chargent les sprites depuis `PacQC/assets/`. Les fichiers HTML, CSS, JavaScript, les 30 sprites et les cinq images `front1.png` à `front5.png` sont inclus dans le dépôt principal.
+
+Lors de la vérification distante, `origin/main` pointait sur `26d2ad7`. Les commits locaux `f534e83` et `11ba5d8` n’étaient pas encore publiés : un prochain push de `main` publiera également ces deux commits, puis la correction. La conversion est préparée dans l’index ; elle prendra effet sur GitHub Pages après commit et push.
 
 Aucun commit, push ni déploiement effectué.

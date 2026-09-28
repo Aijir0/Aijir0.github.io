@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PacQC — Tests de logique</title><link rel="stylesheet" href="./css/style.css"></head>
+<body><main><a href="./index.html">← Retour au jeu</a><h1>Vérification de la carte.</h1><p>Tests déterministes de logique, sans charger les PNG. Le rendu visuel et les événements clavier restent à vérifier dans le jeu.</p><p id="result" role="status">Exécution…</p><ol id="checks"></ol></main>
+<script type="module">
+import { runTests } from './tests/game.test.js';
+import { runSessionTests } from './tests/session.test.js';
+import { runBonusTests } from './tests/bonuses.test.js';
+import { runFramingTests } from "./tests/framing.test.js";
+const results=[...runFramingTests(),...runTests(),...runSessionTests(),...runBonusTests()];
+document.getElementById('result').textContent=`${results.filter(result=>result.passed).length} / ${results.length} tests réussis`;
+for(const result of results) {
+  const item=document.createElement('li'); item.textContent=`${result.passed?'✓':'✗'} ${result.name}${result.error?' — '+result.error:''}`;
+  item.style.color=result.passed?'#d9fb81':'#ff867f'; item.style.marginBottom='12px'; document.getElementById('checks').append(item);
+}
+</script></body></html>

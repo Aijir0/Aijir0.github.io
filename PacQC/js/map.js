@@ -1,0 +1,45 @@
+// Données seules : # mur, . collectible, P départ, G réserve, = porte des fantômes.
+// Coordonnées (x, y), origine en haut à gauche ; centres espacés d'une case.
+export const LEVEL = Object.freeze({
+  name: 'La ronde du bureau',
+  tunnelRow: 12,
+  // Ces cases remplacent un point ordinaire ; aucun objet ne se superpose.
+  bonusSpawns: Object.freeze([
+    Object.freeze({ type: 'beer', x: 15, y: 20 }),
+    Object.freeze({ type: 'coffee', x: 9, y: 20 }),
+    Object.freeze({ type: 'beer', x: 3, y: 5 }),
+    Object.freeze({ type: 'coffee', x: 19, y: 5 }),
+  ]),
+  ghostHome: Object.freeze({
+    exit: Object.freeze({ x: 11, y: 8 }),
+    starts: Object.freeze([{ x: 9, y: 11 }, { x: 10, y: 11 }, { x: 12, y: 11 }, { x: 13, y: 11 }]),
+  }),
+  patrol: Object.freeze([{ x: 1, y: 16 }, { x: 5, y: 16 }, { x: 5, y: 20 }, { x: 1, y: 22 }]),
+  rows: Object.freeze([
+    '#######################',
+    '#.....#.........#.....#',
+    '#.###.#.###.###.#.###.#',
+    '#.#...#...#.#...#...#.#',
+    '#.#.#####.#.#.#####.#.#',
+    '#.....................#',
+    '###.###.#.###.#.###.###',
+    '#...#...#.....#...#...#',
+    '#.###.#.........#.###.#',
+    '#.....#.###=###.#.....#',
+    '#####.#.#GGGGG#.#.#####',
+    '#.....#.#GGGGG#.#.....#',
+    '........#GGGGG#........',
+    '#.###.#.#######.#.###.#',
+    '#...#.#.........#.#...#',
+    '###.#.###.#.#.###.#.###',
+    '#.....#...#.#...#.....#',
+    '#.###.#.#######.#.###.#',
+    '#...#.....#.....#.#...#',
+    '###.#.###.#.###.#.#.###',
+    '#...#......P......#...#',
+    '#.#######.#.#.#######.#',
+    '#.........#.#.........#',
+    '#.#######.....#######.#',
+    '#######################',
+  ]),
+});

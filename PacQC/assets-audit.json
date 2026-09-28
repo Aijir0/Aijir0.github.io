@@ -1,0 +1,487 @@
+﻿{
+    "missing":  [
+
+                ],
+    "files":  [
+                  {
+                      "file":  "droite1.png",
+                      "width":  3153,
+                      "height":  3153,
+                      "bytes":  11757893,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3877538,
+                      "partialPixels":  86374,
+                      "bounds":  [
+                                     285,
+                                     0,
+                                     2868,
+                                     3153
+                                 ],
+                      "sha256":  "74E291679C97952BD6EE5A39068A3789B35C58BD9F7733D808C8FB45C6A35EBC"
+                  },
+                  {
+                      "file":  "droite2.png",
+                      "width":  3153,
+                      "height":  3153,
+                      "bytes":  11231788,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3774966,
+                      "partialPixels":  79354,
+                      "bounds":  [
+                                     295,
+                                     0,
+                                     2949,
+                                     3153
+                                 ],
+                      "sha256":  "FA8894D15E2596FF1EB220120BC6C2E242277610BA4082CA82DAB69BF90015B0"
+                  },
+                  {
+                      "file":  "gauche1.png",
+                      "width":  3108,
+                      "height":  3108,
+                      "bytes":  9838452,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3736299,
+                      "partialPixels":  79410,
+                      "bounds":  [
+                                     294,
+                                     0,
+                                     2814,
+                                     3108
+                                 ],
+                      "sha256":  "69717D45299A6594F03ED3683A084BE0721A7A1536B6B262A59E00797D45B4AB"
+                  },
+                  {
+                      "file":  "gauche2.png",
+                      "width":  3055,
+                      "height":  3055,
+                      "bytes":  10586151,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3702989,
+                      "partialPixels":  70801,
+                      "bounds":  [
+                                     284,
+                                     0,
+                                     2773,
+                                     3055
+                                 ],
+                      "sha256":  "EE2B08BBB2B13AF128AC997BD810764A8AAE0DE1753E1674CC70B7AEE3A1A483"
+                  },
+                  {
+                      "file":  "face1.png",
+                      "width":  2706,
+                      "height":  2706,
+                      "bytes":  6223074,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3838143,
+                      "partialPixels":  45227,
+                      "bounds":  [
+                                     507,
+                                     0,
+                                     2215,
+                                     2706
+                                 ],
+                      "sha256":  "11D0F6652E361A4E774F784745EDDB1774DB93A866D22BA69697352AE7859732"
+                  },
+                  {
+                      "file":  "face2.png",
+                      "width":  2875,
+                      "height":  2874,
+                      "bytes":  6844598,
+                      "alphaChannel":  true,
+                      "transparentPixels":  4546566,
+                      "partialPixels":  49164,
+                      "bounds":  [
+                                     571,
+                                     0,
+                                     2304,
+                                     2874
+                                 ],
+                      "sha256":  "22362620C1AB1B7A3C9BA3AEF72803EDE22CC4E812E6A08172B318EF5BE183F9"
+                  },
+                  {
+                      "file":  "dos.png",
+                      "width":  2387,
+                      "height":  2386,
+                      "bytes":  6339733,
+                      "alphaChannel":  true,
+                      "transparentPixels":  2391711,
+                      "partialPixels":  58854,
+                      "bounds":  [
+                                     269,
+                                     0,
+                                     2118,
+                                     2386
+                                 ],
+                      "sha256":  "6EBD5293421AA4C866128CC6622A17990013EE6D3BE8D6F8E0AACCA006FF1275"
+                  },
+                  {
+                      "file":  "ennemi1_b.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  608303,
+                      "alphaChannel":  true,
+                      "transparentPixels":  705951,
+                      "partialPixels":  4651,
+                      "bounds":  [
+                                     129,
+                                     87,
+                                     1125,
+                                     1141
+                                 ],
+                      "sha256":  "4C88B2290387C9FFA5B8482C8FE776CAA9D072EE112910D443C6995479DF0403"
+                  },
+                  {
+                      "file":  "ennemi1_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  651826,
+                      "alphaChannel":  true,
+                      "transparentPixels":  705951,
+                      "partialPixels":  4651,
+                      "bounds":  [
+                                     129,
+                                     87,
+                                     1125,
+                                     1141
+                                 ],
+                      "sha256":  "93513CA2823EB3986A2D38D30F1899F96176FFBFFD165A4A9F28F16144B4F30D"
+                  },
+                  {
+                      "file":  "ennemi1_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  605918,
+                      "alphaChannel":  true,
+                      "transparentPixels":  705951,
+                      "partialPixels":  4651,
+                      "bounds":  [
+                                     129,
+                                     87,
+                                     1125,
+                                     1141
+                                 ],
+                      "sha256":  "EC531A8659709713812EB83B7C4E1666A899801A93C07ACFA2C6FDBE0094B93F"
+                  },
+                  {
+                      "file":  "ennemi1_h.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  607523,
+                      "alphaChannel":  true,
+                      "transparentPixels":  705951,
+                      "partialPixels":  4651,
+                      "bounds":  [
+                                     129,
+                                     87,
+                                     1125,
+                                     1141
+                                 ],
+                      "sha256":  "44CDEB62A159BE8DA9AB75FFC62A3ADC3F847F4A482CF648E05136C66878D8A3"
+                  },
+                  {
+                      "file":  "ennemi2_b.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  573074,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709636,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "B3861DDF5CA02D0C0EE4B88DDFF2A105736434EE730FF57F4E1EB7CB82CDE063"
+                  },
+                  {
+                      "file":  "ennemi2_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  614364,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709636,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "87791DD83FB6F80A57BA18CD92D3970DF5FCD3F0FFC4A1EF5AB133B48177AADE"
+                  },
+                  {
+                      "file":  "ennemi2_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  571553,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709636,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "43B72204A99AB34D81DA872AB424486C4FF19C29DD50A56E0FF02695322F5C56"
+                  },
+                  {
+                      "file":  "ennemi2_h.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  573604,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709636,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "28289DA1145EF4AF31CD40577B3BD396D6AFDABBA4DA456EDD7EEDE33BDCC081"
+                  },
+                  {
+                      "file":  "ennemi3_b.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  635614,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709202,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "9A547184A207C372A87D4B03578A9C890F1FF4E91DC089616667ABB5B54559FA"
+                  },
+                  {
+                      "file":  "ennemi3_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  677045,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709202,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "34B90170B318F36C7F0ECB03132E7971107A9E025D42C28A5CD795C92B42BB83"
+                  },
+                  {
+                      "file":  "ennemi3_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  633651,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709202,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "D5A13225CCAE99746B6AE3CDC529FB988B28768446AA8CE4D20524BE3E16C5F6"
+                  },
+                  {
+                      "file":  "ennemi3_h.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  635800,
+                      "alphaChannel":  true,
+                      "transparentPixels":  709202,
+                      "partialPixels":  4744,
+                      "bounds":  [
+                                     130,
+                                     88,
+                                     1124,
+                                     1140
+                                 ],
+                      "sha256":  "F99286123E4114F241DAAE4780A391EA47D4349CE41CEFA2A7AA2BA120AA7066"
+                  },
+                  {
+                      "file":  "ennemi4_b.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  671850,
+                      "alphaChannel":  true,
+                      "transparentPixels":  683499,
+                      "partialPixels":  4388,
+                      "bounds":  [
+                                     127,
+                                     85,
+                                     1254,
+                                     1141
+                                 ],
+                      "sha256":  "76D07F2C27832CF797B0520114768B847ABE12FCB15A79C9991F8087FC26DDBE"
+                  },
+                  {
+                      "file":  "ennemi4_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  712681,
+                      "alphaChannel":  true,
+                      "transparentPixels":  683499,
+                      "partialPixels":  4389,
+                      "bounds":  [
+                                     127,
+                                     85,
+                                     1254,
+                                     1141
+                                 ],
+                      "sha256":  "835AD6DBDD6D50E825015762ABF890C292CCBCE6FA2EACCCFAA3908D6135BF88"
+                  },
+                  {
+                      "file":  "ennemi4_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  671062,
+                      "alphaChannel":  true,
+                      "transparentPixels":  683499,
+                      "partialPixels":  4389,
+                      "bounds":  [
+                                     127,
+                                     85,
+                                     1254,
+                                     1141
+                                 ],
+                      "sha256":  "C0A2A3724948EBA8DFA90FB83726A6A25F8F2E3D6BFAE9A3DA505B1B2BC4002D"
+                  },
+                  {
+                      "file":  "ennemi4_h.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  673033,
+                      "alphaChannel":  true,
+                      "transparentPixels":  683511,
+                      "partialPixels":  4381,
+                      "bounds":  [
+                                     127,
+                                     85,
+                                     1254,
+                                     1141
+                                 ],
+                      "sha256":  "B8B2A316F10B64051852C5155E9EDC3D2ADA8F15BD4FD0D098AE394CFDA81DC6"
+                  },
+                  {
+                      "file":  "collectible.png",
+                      "width":  112,
+                      "height":  112,
+                      "bytes":  446,
+                      "alphaChannel":  true,
+                      "transparentPixels":  3072,
+                      "partialPixels":  0,
+                      "bounds":  [
+                                     0,
+                                     0,
+                                     112,
+                                     112
+                                 ],
+                      "sha256":  "5753A3F3C19F66046DAA28DE97479FBC0167DC8DCEEDA988ABE45F2DB595C319"
+                  },
+                  {
+                      "file":  "bonus1.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  718763,
+                      "alphaChannel":  true,
+                      "transparentPixels":  807739,
+                      "partialPixels":  12118,
+                      "bounds":  [
+                                     184,
+                                     84,
+                                     1138,
+                                     1170
+                                 ],
+                      "sha256":  "7FDB8694640E2E96733DD5A10CDA4CF874E2433E1984022D06C52D743CEFBB07"
+                  },
+                  {
+                      "file":  "bonus1_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  1091187,
+                      "alphaChannel":  true,
+                      "transparentPixels":  808195,
+                      "partialPixels":  12145,
+                      "bounds":  [
+                                     128,
+                                     46,
+                                     1148,
+                                     1197
+                                 ],
+                      "sha256":  "A2B0315302B3B24D7B1CBEF0CEABB493BE6A21156CB436D563E9BEAEA2E76268"
+                  },
+                  {
+                      "file":  "bonus1_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  1053722,
+                      "alphaChannel":  true,
+                      "transparentPixels":  808208,
+                      "partialPixels":  12137,
+                      "bounds":  [
+                                     104,
+                                     106,
+                                     1172,
+                                     1234
+                                 ],
+                      "sha256":  "A844A0C61563096FCF5C3DA5A9EC0BADB7B29285D1DDA2BEF5BD8E369B3F9F62"
+                  },
+                  {
+                      "file":  "bonus2.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  624246,
+                      "alphaChannel":  true,
+                      "transparentPixels":  1164414,
+                      "partialPixels":  6642,
+                      "bounds":  [
+                                     221,
+                                     189,
+                                     1079,
+                                     1082
+                                 ],
+                      "sha256":  "C32A6CF84107ABB52EF6CDE11FB73DCD2EC643E27557E70414F0A31DF276900E"
+                  },
+                  {
+                      "file":  "bonus2_d.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  788124,
+                      "alphaChannel":  true,
+                      "transparentPixels":  1163621,
+                      "partialPixels":  8832,
+                      "bounds":  [
+                                     152,
+                                     183,
+                                     1049,
+                                     1103
+                                 ],
+                      "sha256":  "413A13F124BEE5F8EAC81AD2A2500AB5D372363CD96C37ABA62F3F0155B1E936"
+                  },
+                  {
+                      "file":  "bonus2_g.png",
+                      "width":  1254,
+                      "height":  1254,
+                      "bytes":  721926,
+                      "alphaChannel":  true,
+                      "transparentPixels":  1163664,
+                      "partialPixels":  8811,
+                      "bounds":  [
+                                     304,
+                                     214,
+                                     1100,
+                                     1121
+                                 ],
+                      "sha256":  "4A400C3951B3D56E2C560178A0631611737C0E1C60E343EF8AEB3661C6FA06A7"
+                  }
+              ]
+}

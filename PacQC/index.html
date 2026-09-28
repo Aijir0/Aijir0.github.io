@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>PacQC — La ronde du bureau</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/game.css">
+  <script type="module" src="./js/game.js"></script>
+</head>
+<body class="game-page">
+
+  <main class="game-main">
+
+    <div class="game-layout">
+      <section class="arcade" aria-label="Partie de labyrinthe">
+
+        <div class="board-wrap">
+          <canvas id="game" width="690" height="750" tabindex="0" aria-label="Labyrinthe jouable. Flèches, WASD ou ZQSD pour se déplacer." aria-describedby="controls game-status">Votre navigateur doit prendre en charge Canvas 2D pour afficher le labyrinthe.</canvas>
+          <div id="game-overlay" class="game-overlay"><div><p class="eyebrow" id="overlay-label">BIENVENUE AU BUREAU</p><h2 id="overlay-title">Un instant…</h2><p id="overlay-text">Préparation de vos images.</p></div></div>
+        </div>
+        <div class="arcade-bottom"><span>← TUNNEL →</span><span>10 points par icône</span></div>
+      </section>
+      <aside class="game-sidebar">
+        <a class="atelier-link" href="../espace-jeux/selection.html">← Espace jeux</a>
+  <header class="topbar"><a class="brand" href="./">PAC<span>QC</span><i aria-hidden="true"></i></a><a class="atelier-link" href="./sprites.html">Atelier des sprites ↗</a></header>
+    <section class="game-intro"><div><p class="eyebrow">CARTE 01 / LE BUREAU SE RÉVEILLE</p><h1>La ronde du bureau.</h1></div><span class="badge">4 FANTÔMES · 3 VIES</span></section>
+        <div class="scoreboard"><div><span>SCORE</span><output id="score">0000</output></div><div><span>VIES</span><output id="lives">3</output></div><div><span>À RAMASSER</span><output id="remaining">—</output></div></div>
+        <p id="game-status" role="status" aria-live="polite">Chargement des images…</p>
+        <div id="game-errors" role="alert" hidden></div>
+        <div class="game-actions"><button id="play" class="primary" type="button" disabled>Démarrer</button><button id="pause" type="button" disabled>Pause</button><button id="restart" type="button" disabled>Recommencer</button></div>
+        <nav class="touch-controls" aria-label="Déplacement tactile">
+          <button id="move-up" type="button" aria-label="Aller en haut">↑</button>
+          <button id="move-left" type="button" aria-label="Aller à gauche">←</button>
+          <button id="move-down" type="button" aria-label="Aller en bas">↓</button>
+          <button id="move-right" type="button" aria-label="Aller à droite">→</button>
+        </nav>
+        <section class="effects" aria-label="Bonus actifs">
+          <p id="effects-empty">Aucun bonus actif</p>
+          <div id="beer-effect" class="effect beer" hidden><div><strong>Bière · fantômes vulnérables</strong><output id="beer-time">0,0 s</output></div><progress id="beer-bar" max="8" value="0" aria-label="Durée restante de la bière"></progress></div>
+          <div id="coffee-effect" class="effect coffee" hidden><div><strong>Café · vitesse augmentée</strong><output id="coffee-time">0,0 s</output></div><progress id="coffee-bar" max="6" value="0" aria-label="Durée restante du café"></progress></div>
+          <p id="bonus-message" role="status" aria-live="polite"></p>
+        </section>
+        <details class="game-help"><summary>Règles et commandes</summary>
+        <p class="eyebrow">VOTRE MISSION</p><h2>Gardez une longueur d’avance.</h2><p>Ramassez tous les points et évitez les quatre fantômes. Vous avez trois vies ; vos points restent acquis après une collision.</p>
+        <div class="bonus-guide"><h3>La pause bonus.</h3><p><strong>Bière</strong> : mangez les fantômes entourés de bleu. Leur halo clignote avant la fin.</p><p><strong>Café</strong> : allez plus vite, sans protection. Les deux effets se cumulent ; seuls les petits points terminent la carte.</p></div>
+        <div id="controls" class="controls"><h3>Les commandes</h3><p><kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd></p><p>Flèches, <strong>WASD</strong> ou <strong>ZQSD</strong></p><p><kbd>Espace</kbd> Pause / reprise<br><kbd>Échap</kbd> Pause</p><p class="muted">Cliquez sur la carte pour prendre les commandes. Anticipez un virage : votre dernière direction demandée reste mémorisée. Le demi-tour est immédiat.</p></div>
+        <div class="ghost-guide"><h3>Vos collègues vous cherchent.</h3><p><strong class="csi">CSI</strong> suit votre position.</p><p><strong class="pcq">PCQ</strong> anticipe votre trajet.</p><p><strong class="sagir">SAGIR</strong> patrouille en bas à gauche et vous poursuit si vous approchez.</p><p><strong class="teams">Teams</strong> improvise à chaque croisement.</p></div>
+        <div class="reserve-note"><span class="reserve-dot" aria-hidden="true"></span><div><strong>Sorties progressives</strong><p>La réserve reste interdite au joueur. Les fantômes sortent un par un après chaque départ.</p></div></div>
+        </details>
+        <p class="quick-help">Flèches · WASD · ZQSD<br>Espace : pause / reprise<br>Bière : vulnérabilité · Café : vitesse +25 %</p>
+        <noscript>Activez JavaScript pour jouer.</noscript>
+      </aside>
+    </div>
+  </main>
+  <footer>PacQC · Trois vies au bureau <span>Une pause, quelques points, puis on repart.</span></footer>
+</body>
+</html>

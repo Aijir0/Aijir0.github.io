@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>PacQC — Atelier des sprites</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/preview.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./">PAC<span>QC</span><i aria-hidden="true"></i></a><a href="./index.html">Jouer au labyrinthe →</a></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">LE LABORATOIRE</p><h1>Du bureau au labyrinthe.</h1><p class="lead">Les visages, les fantômes et les petites pauses. Vérifiez chaque sprite avant de leur donner vie dans le jeu.</p></div><div class="count"><strong>30</strong><span>images attendues</span></div></div>
+    <p id="status" role="status">Chargement des images…</p>
+    <div id="errors" role="alert" hidden></div>
+    <noscript>Activez JavaScript pour afficher les sprites et leurs animations.</noscript>
+    <section class="stage-section" aria-labelledby="stage-title">
+      <div class="section-heading"><h2 id="stage-title">En situation</h2><span>Échelle commune · aperçu sans gameplay</span></div>
+      <div class="stage-wrap"><canvas id="stage" width="960" height="190" aria-label="Comparaison des sprites à leur taille de référence"></canvas></div>
+      <div class="toolbar">
+        <button id="pause" type="button" aria-pressed="false">Mettre en pause</button>
+        <label>Cadence <input id="speed" type="range" min="1" max="8" value="3"><output id="speed-value" for="speed">3 poses/s</output></label>
+        <label>Fond <select id="background"><option value="grid">Damier</option><option value="dark">Sombre</option><option value="light">Clair</option></select></label>
+      </div>
+    </section>
+    <section aria-labelledby="gallery-title"><div class="section-heading"><h2 id="gallery-title">La distribution</h2><span>Choisissez une direction pour chaque personnage</span></div><div id="gallery" class="gallery"></div></section>
+    <section class="calibration" aria-labelledby="settings-title">
+      <div><p class="eyebrow">RÉGLAGES FINS</p><h2 id="settings-title">Une place pour chaque pixel.</h2><p>Ajustez chaque fichier séparément, sans modifier les PNG. Les proportions sont toujours conservées.</p><p class="muted">Décalages en pixels à une taille de référence de 64 px. Réglages mémorisés dans ce navigateur.</p><p id="storage-status" role="status"></p></div>
+      <div class="settings-panel"><label>Fichier <select id="sprite-select"></select></label><canvas id="inspector" width="280" height="220" aria-label="Sprite sélectionné et repère de taille nominale"></canvas><p id="sprite-info" class="muted"></p>
+        <label>Taille <input id="scale" type="range" min="0.25" max="2" step="0.01"><output for="scale"></output></label>
+        <label>Décalage horizontal <input id="offsetX" type="range" min="-32" max="32" step="1"><output for="offsetX"></output></label>
+        <label>Décalage vertical <input id="offsetY" type="range" min="-32" max="32" step="1"><output for="offsetY"></output></label>
+        <div class="actions"><button id="reset" type="button">Réinitialiser ce fichier</button><button id="export" type="button">Exporter les réglages</button></div>
+      </div>
+    </section>
+    <details><summary>Inventaire technique des 30 PNG</summary><p id="audit-summary">Lecture de l’audit de transparence…</p><div class="table-wrap"><table><thead><tr><th>Fichier</th><th>Dimensions</th><th>Transparence réelle</th><th>Poids</th></tr></thead><tbody id="inventory"></tbody></table></div></details>
+  </main>
+  <footer>PacQC · Atelier des sprites <span>HTML / CSS / JavaScript / Canvas 2D</span></footer>
+</body>
+</html>

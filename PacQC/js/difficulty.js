@@ -1,0 +1,31 @@
+// Temps en secondes, vitesses en cases/seconde, rayons en cases (jamais en pixels).
+export const DIFFICULTY = Object.freeze({
+  lives: 3,
+  countdown: 3,
+  playerSpeed: 5,
+  points: 10,
+  playerRadius: .24,
+  ghostRadius: .25,
+  exitSpeed: 3,
+  fixedStep: 1 / 120,
+  maxFrameGap: .5,
+  mouthRate: 8,
+  interceptTiles: 4,
+  chaseEnterDistance: 6,
+  chaseLeaveDistance: 9,
+  teamsStraightWeight: 1.5,
+  bonuses: Object.freeze({
+    beer: Object.freeze({ duration: 8, eatPoints: 200, blinkLast: 2, blinkHz: 3 }),
+    coffee: Object.freeze({ duration: 6, speedMultiplier: 1.25 }),
+    returnSpeed: 6,
+    respawnDelay: 2,
+    swingRate: 4,
+    feedbackSeconds: 1.5,
+  }),
+  ghosts: Object.freeze([
+    Object.freeze({ id: 'csi', speed: 3.65, release: 0 }),
+    Object.freeze({ id: 'pcq', speed: 3.5, release: 2.5 }),
+    Object.freeze({ id: 'sagir', speed: 3.4, release: 5 }),
+    Object.freeze({ id: 'teams', speed: 3.25, release: 7.5 }),
+  ]),
+});
