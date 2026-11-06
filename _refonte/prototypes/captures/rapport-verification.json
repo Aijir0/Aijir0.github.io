@@ -9,7 +9,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 1,
-    "hauteur": 5575,
+    "hauteur": 5645,
     "erreurs": []
   },
   "v1/mobile": {
@@ -22,7 +22,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 8137,
+    "hauteur": 8141,
     "erreurs": []
   },
   "v2/desktop": {
@@ -35,7 +35,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 4391,
+    "hauteur": 4390,
     "erreurs": []
   },
   "v2/mobile": {
@@ -48,33 +48,33 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 7076,
+    "hauteur": 7238,
     "erreurs": []
   },
   "v3/desktop": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 5,
-    "hauteur": 4792,
+    "hauteur": 4830,
     "erreurs": []
   },
   "v3/mobile": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 4,
-    "hauteur": 7156,
+    "hauteur": 7273,
     "erreurs": []
   },
   "fiche/desktop": {
@@ -148,7 +148,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 6628,
+    "hauteur": 6805,
     "erreurs": []
   },
   "fiche-v2bis/desktop": {
@@ -184,7 +184,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 4977,
+    "hauteur": 5646,
     "erreurs": []
   },
   "pistes/mobile": {
@@ -196,7 +196,31 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 9862,
+    "hauteur": 10488,
+    "erreurs": []
+  },
+  "fiche-rr/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 2042,
+    "erreurs": []
+  },
+  "fiche-rr/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 2313,
     "erreurs": []
   }
 }

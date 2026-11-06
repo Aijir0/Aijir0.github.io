@@ -121,5 +121,37 @@ const buste = avatarSVG(AVATAR.slice(0, 17));
 await rendre('scene-3-pastille.png', `${silk}<div style="width:800px;height:420px;background:#1a1c1a;display:flex;align-items:center;justify-content:center;gap:48px">
   <div style="background:#5a9a3c;padding:18px 18px 0;box-shadow:inset 0 0 0 6px #6fae46,8px 8px 0 #e6d3a8"><img src="data:image/svg+xml,${encodeURIComponent(buste)}" style="display:block;height:204px;image-rendering:pixelated"></div>
   <div style="color:#f5f2ea;font:400 44px/1.05 Silkscreen">SCÈNE<br>PIXEL ART<div style="font:400 14px/1 Silkscreen;margin-top:14px;color:#e6d3a8">QUÉBEC · EN CHANTIER</div></div></div>`);
+/* ---------- ResearchRabbit : présentation universitaire (LaTeX Beamer), pas une application ---------- */
+// 1. La vignette fournie par Léo (racine du dépôt), convertie en JPEG léger ; l'original n'est pas modifié.
+{
+  const p = await (await b.newContext({ viewport: { width: 1672, height: 941 } })).newPage();
+  await p.goto(`${H}/_refonte/`); await p.setContent(`<body style="margin:0"><img src="${H}/vignette-researchrabbit.png" style="display:block;width:1672px;height:941px">`);
+  await p.waitForLoadState('networkidle');
+  await p.screenshot({ path: path.join(OUT, 'researchrabbit-vignette.jpg'), type: 'jpeg', quality: 84 });
+  await p.close();
+}
+// 2. La vraie première page du PDF, posée comme un document sur le papier du site, la page « Plan » en dessous.
+{
+  const p = await ctx.newPage(); await p.setViewportSize({ width: 800, height: 420 });
+  await p.goto(`${H}/_refonte/`);
+  await p.setContent('<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>');
+  await p.waitForFunction(() => window.pdfjsLib);
+  const pages = await p.evaluate(async (url) => {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    const doc = await pdfjsLib.getDocument(url).promise, out = [];
+    for (const n of [1, 2]) {
+      const pg = await doc.getPage(n), v = pg.getViewport({ scale: 1 }), vp = pg.getViewport({ scale: 1200 / v.width });
+      const c = document.createElement('canvas'); c.width = vp.width; c.height = vp.height;
+      await pg.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise; out.push(c.toDataURL('image/jpeg', .92));
+    }
+    return out;
+  }, `${H}/presentation/rabb2.pdf`);
+  const diapo = (src, css) => `<img src="${src}" style="position:absolute;width:520px;height:292.5px;outline:1px solid #d9d3c4;box-shadow:0 1px 0 #d9d3c4,0 14px 28px -18px #1a1c1a59;${css}">`;
+  await p.setContent(`<!doctype html><style>body{margin:0;width:800px;height:420px;overflow:hidden;background:#ece7da}</style>
+    <div style="position:relative;width:800px;height:420px">${diapo(pages[1], 'left:196px;top:38px')}${diapo(pages[0], 'left:150px;top:72px')}</div>`);
+  await p.waitForTimeout(200);
+  await p.screenshot({ path: path.join(OUT, 'researchrabbit-document.jpg'), type: 'jpeg', quality: 86 });
+  await p.close();
+}
 await b.close();
 for (const f of fs.readdirSync(OUT)) console.log(f.padEnd(24), Math.round(fs.statSync(path.join(OUT, f)).size / 1024), 'Ko');

@@ -75,26 +75,21 @@
     </section>
 
     <section id="travaux" aria-labelledby="t-travaux">
-      <header class="tete-section"><h2 id="t-travaux">Travaux</h2><p>Des jeux sérieux, une analyse de données et un outil de veille, à essayer ou à lire.</p></header>
+      <header class="tete-section"><h2 id="t-travaux">Travaux</h2><p>Des jeux sérieux, une analyse de données et une présentation scientifique, à essayer ou à lire.</p></header>
       <div class="index">
         <ol>
           <li><a href="artefacts-2050.html" data-apercu="0" data-actif><span class="t-titre">Artéfacts 2050</span><span class="t-annee">2026</span><span class="t-type">Jeu de prospective sur l'éducation au Québec</span><span class="t-vignette vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt="" loading="lazy"></span></a></li>
           <li><a href="../../../PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
           <li><a href="../../../jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
           <li data-detail><a href="#analyse" data-apercu="3"><span class="t-titre">Dépenses sociales et pauvreté</span><span class="t-annee">2024</span><span class="t-type">Analyse de données en R, présentée plus bas</span></a></li>
-          <li data-detail><a href="../../../projet_annexe/semantic_scholar_search.py" data-apercu="4"><span class="t-titre">Veille bibliographique automatisée</span><span class="t-annee">2025</span><span class="t-type">Script Python : de l'API Semantic Scholar aux fichiers CSV et BibTeX</span></a></li>
+          <li><a href="researchrabbit.html" data-apercu="4"><span class="t-titre">ResearchRabbit</span><span class="t-annee">2024</span><span class="t-type">Présentation universitaire d'un outil de recherche scientifique</span><span class="t-vignette vignette cadre"><img src="../medias/projets/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></span></a></li>
         </ol>
         <div class="apercu" aria-hidden="true">
           <figure class="visible"><div class="vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div><figcaption>Artéfacts 2050, écran d'accueil.</figcaption></figure>
           <figure><div class="vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, un couloir du labyrinthe.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
           <figure><div class="vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Scène Pixel Art, et son personnage.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
           <figure><div class="vignette cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div><figcaption>Dépenses sociales et pauvreté, pays de l'OCDE.</figcaption></figure>
-          <figure><pre class="code"><span class="c"># Veille bibliographique, Semantic Scholar</span>
-QUERY = <span class="s">"congruence"</span>
-KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
-  <span class="s">"policy"</span>, <span class="s">"opinion"</span>, <span class="s">"government"</span>]
-<span class="c"># sorties : congruence_articles.csv</span>
-<span class="c">#           congruence_articles.bib</span></pre><figcaption>Extrait du script de veille.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></div><figcaption>ResearchRabbit, couverture de la présentation.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -118,7 +113,7 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
           <li class="note fixe" id="l3"><span class="num-note">3</span><strong>Des exceptions</strong>Quelques pays combinent dépenses élevées et pauvreté élevée : d'où l'ajout du chômage et du PIB par habitant au modèle.</li>
         </ol>
       </div>
-      <p class="liens"><a class="lien" href="../../../projet_session/projet2.html">Lire le rapport</a><a class="lien" href="../../../presentation/rabb2.pdf">Présentation en PDF</a></p>
+      <p class="liens"><a class="lien" href="../../../projet_session/projet2.html">Lire le rapport</a></p>
     </section>
 
     <section id="parcours" aria-labelledby="t-parcours">
@@ -147,11 +142,11 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
       <table class="competences">
         <thead><tr><th scope="col">Domaine</th><th scope="col">Pratique</th><th scope="col">Où la voir</th></tr></thead>
         <tbody>
-          <tr><td>Veille et recherche</td><td>Veille internationale en éducation ; revue de littérature outillée (Elicit, NotebookLM)</td><td>Ministère · <a class="lien" href="#travaux">script de veille</a></td></tr>
+          <tr><td>Veille et recherche</td><td>Veille internationale en éducation ; revue de littérature outillée (Elicit, NotebookLM)</td><td>Ministère · <a class="lien" href="researchrabbit.html">ResearchRabbit</a></td></tr>
           <tr><td>Rédaction</td><td>Notes informationnelles pour les autorités et les services ministériels</td><td>Ministère</td></tr>
           <tr><td>Analyse de données</td><td>R (tidyverse, ggplot2), régression linéaire multiple</td><td><a class="lien" href="#analyse">Analyse OCDE</a></td></tr>
           <tr><td>Prospective et médiation</td><td>Veille prospective ; conception de jeux sérieux sur les politiques éducatives</td><td>Ministère · <a class="lien" href="artefacts-2050.html">Artéfacts 2050</a></td></tr>
-          <tr data-detail><td>Outils numériques</td><td>HTML, CSS, JavaScript, Python ; suite Office, Canva, Genially</td><td><a class="lien" href="../../../PacQC/">PacQC</a>, <a class="lien" href="../../../jeu/">Scène</a></td></tr>
+          <tr data-detail><td>Outils numériques</td><td>HTML, CSS, JavaScript, Python ; LaTeX (Beamer) ; suite Office, Canva, Genially</td><td><a class="lien" href="../../../PacQC/">PacQC</a>, <a class="lien" href="../../../jeu/">Scène</a>, <a class="lien" href="researchrabbit.html">ResearchRabbit</a></td></tr>
           <tr><td>Langues</td><td>Français ; anglais (avancé) ; espagnol (intermédiaire) ; allemand <span class="a-completer">niveau</span></td><td>CV</td></tr>
         </tbody>
       </table>

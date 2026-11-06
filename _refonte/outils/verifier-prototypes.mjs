@@ -18,6 +18,7 @@ const PAGES = {
   v2bis: { url: 'v2bis/', sections: ['travaux', 'analyse', 'parcours', 'competences', 'contact'] },
   fiche: { url: 'fiche/artefacts-2050.html', sections: [] },
   'fiche-v2bis': { url: 'v2bis/artefacts-2050.html', sections: [] },
+  'fiche-rr': { url: 'v2bis/researchrabbit.html', sections: [] },
   pistes: { url: 'pistes-visuels.html', sections: [] },
   comparatif: { url: '', sections: [] },
 };

@@ -34,6 +34,7 @@
     .planche-logo div { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; }
     .avatar-grand { display: grid; place-items: center; aspect-ratio: 40 / 21; background: #e9dcbf; }
     .avatar-grand img { width: auto; height: 80%; image-rendering: pixelated; }
+    @media (min-width: 1100px) { .pistes.deux { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     .titre-archives { margin: 6rem 0 0; padding-top: 1rem; border-top: 1px solid var(--encre); font-size: 1.6rem; color: var(--encre-2); }
     @media (max-width: 1099.98px) { .etat, .pistes { grid-template-columns: minmax(0, 1fr); } .recommandee { outline-offset: 6px; } }
   </style>
@@ -41,7 +42,7 @@
 <body>
 <div class="page">
   <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 6 · propositions, rien n'est remplacé sur le site</span></div>
-  <h1>Visuels de PacQC et de la Scène Pixel Art</h1>
+  <h1>Visuels des projets</h1>
   <p class="chapo intro">Chaque jeu garde son identité : ses couleurs, ses personnages, sa matière. Le site, lui, impose seulement un cadre commun (même proportion, même légende, même filet) pour que la grille des travaux reste cohérente. Toutes les images ci-dessous sont fabriquées à partir des ressources réelles des jeux ; aucun fichier d'origine n'a été modifié.</p>
 
   <section class="projet" aria-labelledby="t6-pacqc">
@@ -117,6 +118,22 @@
       </article>
     </div>
     <div class="reco"><p>Recommandation : PacQC proposition 2 et Scène proposition 2 dans la grille des travaux (déjà à l'essai dans V2bis). Le logotype PacQC et la pastille de la Scène peuvent servir de logos sur les pages des jeux eux-mêmes.</p></div>
+  </section>
+
+  <section class="projet" aria-labelledby="t-rr">
+    <header class="tete-section"><h2 id="t-rr">ResearchRabbit</h2><p>Une présentation universitaire (LaTeX, Beamer) : deux façons de la montrer dans la grille.</p></header>
+    <div class="pistes deux">
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/projets/researchrabbit-vignette.jpg" width="1672" height="941" alt="Vignette fournie : « Présentation de Research Rabbit », illustration d'un personnage au télescope sur une tête ouverte."></div>
+        <p class="rubrique">A · votre vignette, dans la grille de V2bis</p><h3>La couverture redessinée</h3>
+        <p><strong>Pour :</strong> grand titre lisible en petit, mention « Présentation universitaire » explicite. <strong>Contre :</strong> un aplat bleu vif qui attire l'œil plus que les autres vignettes.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/researchrabbit-document.jpg" width="1600" height="840" alt="La vraie première page du PDF posée sur le papier, la diapositive « Plan » derrière."></div>
+        <p class="rubrique">B · la vraie première page, en tête de la fiche</p><h3>Le document</h3>
+        <p><strong>Pour :</strong> authentique, et dans la logique « Note de breffage » (un document posé sur le papier, comme le graphique R). <strong>Contre :</strong> le titre de la diapositive devient petit en vignette mobile.</p>
+      </article>
+    </div>
   </section>
 
   <h2 class="titre-archives">Pistes de la phase 5 (écartées, conservées pour mémoire)</h2>
