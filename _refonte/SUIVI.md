@@ -2,9 +2,9 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 6)
+## Où en est-on (6 novembre 2026, correction des travaux validée)
 
-**Phase 6 terminée : V2bis retenue et affinée (Atlas, nouveaux visuels de projets à l'essai, parcours complété). En attente de validation de Léo.**
+**Phase 6 terminée ; correction des travaux (ResearchRabbit, retrait de la veille) validée par Léo. Prochaine étape : trancher les décisions ouvertes, puis `DESIGN.md` et la refonte définitive à partir de V2bis.**
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
 Avant / après : `v2bis-phase5/` (instantané de fin de phase 5) contre `v2bis/`.
 Visuels des projets : http://127.0.0.1:8765/_refonte/prototypes/pistes-visuels.html
@@ -39,6 +39,7 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | Retirés de V2bis : l'avatar (portrait rond) et la biographie d'une ligne, remplacés par l'annonce du hors-série Atlas ; la bascule « 30 s / 3 min » (affichage scripté) ; le repère daté « Novembre 2026 » de la frise (il se périmerait). Le lien GitHub reste dans le contact. |
 | 2026-11-06 | Faits complétés par Léo : poste actuel « Étudiant en veille, recherche et prospective » au ministère de l'Éducation du Québec (stage terminé, emploi étudiant en cours, dates du stage non affichées) ; pendant le stage, contribution à la programmation pluriannuelle des travaux de recherche du Ministère ; MBA en analytique d'affaires à l'Université Laval, en cours (dates non confirmées) ; secrétaire du Club Animé de septembre 2024 à mai 2025 (deux sessions universitaires). |
 | 2026-11-06 | **Correction des travaux** : « Veille bibliographique automatisée » retirée de tous les prototypes (le script `projet_annexe/semantic_scholar_search.py` reste dans le dépôt) ; le PDF `presentation/rabb2.pdf` quitte le projet d'analyse (qui garde « Lire le rapport ») et devient une réalisation distincte, **ResearchRabbit — Présentation d'un outil de recherche scientifique** (travail universitaire, LaTeX Beamer sur Overleaf, 5 décembre 2024, 11 diapositives ; Léo est l'auteur de la présentation, pas du logiciel). |
+| 2026-11-06 | **Validé** : la correction des travaux. Deux réalisations distinctes (analyse de données ; présentation ResearchRabbit) ; veille retirée des prototypes. Vignette **A** (composition bleue) dans la grille de V2bis, vignette **B** (vraie couverture du PDF, mise en scène documentaire) en tête de la fiche ResearchRabbit : l'une donne une identité reconnaissable, l'autre montre le document réel. |
 | 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
@@ -77,7 +78,9 @@ Générés par `_refonte/outils/visuels-projets.mjs` (conservé : sources de l'a
 
 ### ResearchRabbit
 - PDF vérifié avec pdf.js : producteur pdfTeX-1.40.25, classe Beamer, « Présentation de Research Rabbit · Outils numériques de recherche », Léo Matrat, Université Laval, 5 décembre 2024 ; parties : introduction (origines, place dans la recherche), comparaison (Zotero, Mendeley, EndNote, Google Scholar, ResearchRabbit), prise en main. La fiche ne dit rien de plus.
-- Deux vignettes : **A** la vignette fournie par Léo (`vignette-researchrabbit.png` à la racine, non suivie par Git ; copie JPEG `medias/projets/researchrabbit-vignette.jpg`), utilisée dans la grille de V2bis ; **B** la vraie première page posée sur le papier avec la diapositive « Plan » derrière (`researchrabbit-document.jpg`, générée depuis le PDF), utilisée en tête de la fiche `v2bis/researchrabbit.html`.
+- Deux vignettes, **validées dans leur usage actuel** : **A** la composition bleue (copie JPEG suivie par Git : `medias/projets/researchrabbit-vignette.jpg`), dans la grille de V2bis, légende « visuel du projet » (ce n'est pas la couverture du PDF) ; **B** la vraie première page posée sur le papier avec la diapositive « Plan » derrière (`researchrabbit-document.jpg`, suivie par Git, générée depuis le PDF), en tête de la fiche `v2bis/researchrabbit.html`.
+- Original de A : `vignette-researchrabbit.png` (1,4 Mo) à la racine, **non suivi** et non déplacé. Il serait publié tel quel s'il était commité à la racine. Rangement proposé : `_refonte/sources/vignette-researchrabbit.png` (non publié), en ajustant le chemin dans `outils/visuels-projets.mjs` ; à la refonte définitive, une copie web légère ira dans `images/`.
+- Intégration dans la grille vérifiée (1440, 768, 390) : descriptif raccourci à « Présentation d'un outil de recherche, en LaTeX » pour tenir sur une ligne à 390 px, comme les lignes voisines ; recadrage 40 : 21 de la vignette sans perte d'information. Le bleu saturé reste l'élément le plus coloré de la liste, choix assumé.
 - Bouton « Consulter la présentation » vers `presentation/rabb2.pdf`.
 - Correction appliquée aussi à V1, V2, V3 et `v2bis-phase5/` (sans fiche propre : lien direct vers le PDF, ou vers la fiche de V2bis pour l'instantané).
 - Contrôle des liens : `_refonte/outils/verifier-liens.mjs` (23 liens internes, ancres comprises, sur 10 pages : aucun lien cassé).
@@ -94,7 +97,7 @@ Fabriquées à partir des ressources réelles des jeux ; aucun original modifié
 ```
 _refonte/prototypes/index.html            Comparatif V2bis, V2, V1 (+ V3 en référence), critique des détails
 _refonte/prototypes/pistes-visuels.html   Pistes visuelles PacQC et Scène Pixel Art
-_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, v2bis.css (base retenue)
+_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, researchrabbit.html, v2bis.css (base retenue)
 _refonte/prototypes/v2bis-phase5/         Instantané de V2bis à la fin de la phase 5 (avant / après)
 _refonte/prototypes/medias/projets/       Visuels phase 6 (PacQC, Scène), avatar-leo.svg, pacqc-logotype.svg
 _refonte/outils/visuels-projets.mjs       Générateur des visuels phase 6 (avatar et logotype en source)
@@ -106,6 +109,7 @@ _refonte/prototypes/commun/               base.css, signatures.js (préfixe de l
 _refonte/prototypes/medias/               Copies JPEG légères ; medias/pistes/ = visuels-pistes
 _refonte/prototypes/captures/             Captures par page + rapport-verification.json + controles/
 _refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis comparatif pistes)
+_refonte/outils/verifier-liens.mjs           Liens internes (HTTP 200) et ancres, sur 10 pages
 _refonte/outils/controles-complementaires.mjs Contrastes, poids, CLS, LCP, transition (V2bis), clavier (V1), tiroir (V2bis)
 ```
 
@@ -143,7 +147,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 2. L'annonce Atlas : emplacement (couverture) et texte.
 3. Le retrait du portrait : définitif, ou retour discret (contact, fiche) ?
 4. L'accroche définitive.
-5. Vignette de ResearchRabbit dans la grille : A (votre vignette) ou B (la vraie première page).
+5. Rangement de l'original `vignette-researchrabbit.png` (proposition ci-dessus).
 6. Le jeu PacQC lui-même affiche encore le visage du collègue, les sigles et le logo Teams : hors périmètre des prototypes, à traiter avant de mettre PacQC en avant.
 7. Orthographe du nom « Scène Pixel Art » (avec accent) sur la page du jeu.
 
@@ -153,7 +157,8 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 : commits `0293cba` (socle + V1) et `3174285` (V2, V3, fiche, outils) ; comparatif, contrôles complémentaires, ce suivi (`09fd5a3`).
 - 2026-11-06 (phase 5) : faits corrigés dans V1 et V2 ; critique visuelle ; V2bis et sa fiche ; pistes visuelles PacQC et Scène ; comparatif refait ; vérifications Playwright (`f79ce7f`).
 - 2026-11-06 (phase 6) : instantané `v2bis-phase5/` ; Atlas à la place de l'avatar ; retraits (bascule 30 s, repère daté, doublon du colophon) ; faits complétés dans V2bis, V1 et V2 ; visuels PacQC et Scène (générateur conservé) ; intégration à l'essai ; vérifications Playwright (`4891870`).
-- 2026-11-06 (correction des travaux) : veille retirée, ResearchRabbit ajouté (fiche V2bis, deux vignettes), PDF détaché de l'analyse ; contrôle des liens ; vérifications Playwright.
+- 2026-11-06 (correction des travaux) : veille retirée, ResearchRabbit ajouté (fiche V2bis, deux vignettes), PDF détaché de l'analyse ; contrôle des liens ; vérifications Playwright (`00c3249`).
+- 2026-11-06 (validation) : correction des travaux validée ; légende de la vignette A rectifiée, descriptif ResearchRabbit raccourci (V2bis, instantané, V2) ; liens et rendu revérifiés.
 
 ## Prochaines étapes
 
