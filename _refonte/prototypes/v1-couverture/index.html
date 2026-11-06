@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Léo Matrat — V1 Couverture</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <style>
+    /* ---- V1 « Couverture » : la page de garde d'un rapport, sommaire en marge gauche ---- */
+    .v1 { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0 clamp(2.5rem, 4vw, 4.5rem); max-width: var(--page); margin: 0 auto; padding-inline: var(--gouttiere); }
+    .v1-marge { position: sticky; top: 0; height: 100dvh; display: flex; flex-direction: column; padding: 2.25rem 2rem 2.25rem 0; border-right: 1px solid var(--filet); }
+    .v1-nom { font: 700 1.05rem/1.2 var(--sans); text-decoration: none; letter-spacing: -.01em; }
+    .v1-marge .meta { margin-top: .35rem; }
+    .v1-marge .sommaire { margin-top: auto; margin-bottom: auto; padding-left: 1rem; }
+    .v1-marge .sommaire > .meta { margin: 0 0 .75rem -1rem; }
+    .v1-marge .actions { display: grid; gap: .9rem; justify-items: start; }
+    .v1-entete-mobile { display: none; }
+
+    .couverture { min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1fr) 15rem; grid-template-rows: auto 1fr auto auto; gap: 0 3rem; padding: 2.25rem 0 2.5rem; }
+    .couverture > .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--encre); }
+    .couverture h1 { align-self: end; font-size: clamp(2.9rem, 6.4vw, 6.6rem); font-weight: 360; letter-spacing: -.03em; line-height: 1; padding: 3rem 0 2.5rem; }
+    .couverture h1 em { font-style: italic; font-weight: 340; color: var(--vert); }
+    .couverture .portrait { grid-row: 2; grid-column: 2; align-self: end; padding-bottom: 2.75rem; }
+    .fiche { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--filet); }
+    .fiche div { padding: 1.1rem 1.25rem 1.1rem 0; border-right: 1px solid var(--filet); }
+    .fiche div + div { padding-left: 1.25rem; }
+    .fiche div:last-child { border-right: 0; }
+    .fiche dt { margin-bottom: .45rem; }
+    .fiche dd { margin: 0; font: 400 .98rem/1.45 var(--sans); }
+    .couverture .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--filet); }
+    .couverture .actions .bascule-lecture { margin-left: auto; }
+
+    main > section { padding: 5.5rem 0 1rem; }
+    .saillants { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+    .saillants li { border-top: 1px solid var(--filet); padding-top: 1.25rem; font-size: 1.15rem; line-height: 1.5; }
+    .saillants .chiffre { display: block; font: 300 3.2rem/1 var(--serif); color: var(--vert); margin-bottom: 1.25rem; font-variant-numeric: lining-nums; }
+
+    .chrono { list-style: none; margin-block: 0; padding: 0; }
+    .chrono > li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1.5rem; padding: 1.4rem 0; border-top: 1px solid var(--filet); }
+    .chrono .quand { font: 500 .8rem/1.6 var(--mono); color: var(--vert); padding-top: .3rem; }
+    .chrono h3 { font-size: 1.5rem; font-weight: 500; }
+    .chrono .ou { font: 500 .95rem var(--sans); color: var(--encre-2); margin: .3rem 0 .6rem; }
+    .chrono ul { margin: 0; padding-left: 1.1rem; font-size: 1.05rem; }
+
+    .dossiers { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3.5rem 2.5rem; }
+    .dossier { grid-column: span 3; display: flex; flex-direction: column; }
+    .dossier.une { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2.5rem; align-items: end; }
+    .dossier.tiers { grid-column: span 2; }
+    .dossier .cote { display: flex; justify-content: space-between; gap: 1rem; margin: 1.1rem 0 .5rem; }
+    .dossier.une .cote { margin-top: 0; }
+    .dossier h3 { font-size: 1.65rem; font-weight: 500; margin-bottom: .6rem; }
+    .dossier.une h3 { font-size: clamp(2.2rem, 3.2vw, 3rem); font-weight: 400; }
+    .dossier p { font-size: 1.05rem; color: var(--encre-2); }
+    .dossier .liens { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: auto; font-size: .95rem; }
+    .dossier a.image { display: block; text-decoration: none; }
+    .fig-artefacts { view-transition-name: fig-artefacts; }
+
+    table.competences { width: 100%; border-collapse: collapse; font: 400 1rem/1.5 var(--sans); }
+    .competences th { text-align: left; font: 500 .75rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--encre-2); padding: 0 1rem .75rem 0; border-bottom: 1px solid var(--encre); }
+    .competences td { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--filet); vertical-align: top; }
+    .competences td:first-child { font: 500 1.2rem/1.3 var(--serif); width: 24%; }
+    .competences td:last-child { width: 24%; }
+
+    .contact .courriel { display: inline-block; font: 350 clamp(1.9rem, 4.6vw, 4.4rem)/1.1 var(--serif); letter-spacing: -.025em; text-decoration: none; overflow-wrap: anywhere; margin: .5rem 0 2rem; }
+    .contact .courriel span { background: linear-gradient(var(--rouge), var(--rouge)) 0 100% / 0 2px no-repeat; transition: background-size 350ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) { .contact .courriel:hover span { background-size: 100% 2px; } }
+    .contact .autres { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; }
+
+    @media (max-width: 1099.98px) {
+      .v1 { grid-template-columns: minmax(0, 1fr); }
+      .v1-marge { display: none; }
+      .v1-entete-mobile { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid var(--encre); font: 600 .95rem var(--sans); }
+      .v1-entete-mobile a { text-decoration: none; }
+      .couverture { min-height: auto; grid-template-columns: minmax(0, 1fr) 11rem; padding-top: 1.25rem; }
+      .couverture > .meta { border-bottom: 0; padding-bottom: 0; }
+      .fiche { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fiche div:nth-child(2) { border-right: 0; }
+      .fiche div:nth-child(3) { padding-left: 0; }
+      .fiche div:nth-child(n+3) { border-top: 1px solid var(--filet); }
+      .saillants { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+      .dossier, .dossier.tiers { grid-column: 1 / -1; }
+      .dossier.une { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .dossier.une .cote { margin-top: 1.1rem; }
+    }
+    @media (max-width: 640px) {
+      .couverture { grid-template-columns: minmax(0, 1fr); }
+      .couverture h1 { padding: 2rem 0 1.5rem; }
+      .couverture .portrait { grid-row: auto; grid-column: 1; max-width: 9rem; padding-bottom: 1.75rem; order: -1; margin-top: 1.5rem; }
+      .couverture .portrait figcaption { display: none; }
+      .fiche { grid-template-columns: minmax(0, 1fr); }
+      .fiche div, .fiche div + div { padding: .9rem 0; border-right: 0; border-top: 1px solid var(--filet); }
+      .fiche div:first-child { border-top: 0; }
+      .couverture .actions .bascule-lecture { margin-left: 0; }
+      .couverture .actions .bouton { width: 100%; justify-content: center; }
+      .chrono > li { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+      .competences thead { display: none; }
+      .competences tr { display: block; padding: 1rem 0; border-bottom: 1px solid var(--filet); }
+      .competences td { display: block; width: auto !important; padding: .15rem 0; border: 0; }
+      main > section { padding-top: 4rem; }
+    }
+  </style>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<!-- Prototype V1 « Couverture » — contenus réels issus du site et du CV ; emplacements provisoires signalés « À compléter ». -->
+<div class="v1">
+  <aside class="v1-marge" aria-label="Navigation">
+    <a class="v1-nom" href="#haut">Léo Matrat</a>
+    <p class="meta">Science politique<br>Québec</p>
+    <nav class="sommaire" aria-label="Sommaire">
+      <p class="meta">Sommaire</p>
+      <ol>
+        <li class="curseur" aria-hidden="true"></li>
+        <li><a href="#essentiel"><span class="num">01</span><span class="titre">L'essentiel</span><span class="jauge"></span></a></li>
+        <li><a href="#parcours"><span class="num">02</span><span class="titre">Parcours</span><span class="jauge"></span></a></li>
+        <li><a href="#travaux"><span class="num">03</span><span class="titre">Travaux</span><span class="jauge"></span></a></li>
+        <li><a href="#competences"><span class="num">04</span><span class="titre">Compétences</span><span class="jauge"></span></a></li>
+        <li><a href="#contact"><span class="num">05</span><span class="titre">Me joindre</span><span class="jauge"></span></a></li>
+      </ol>
+    </nav>
+    <div class="actions">
+      <a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
+      <a class="lien" href="#contact">Me joindre <span class="fleche" aria-hidden="true">→</span></a>
+    </div>
+  </aside>
+
+  <main id="contenu">
+    <div class="v1-entete-mobile"><a href="#haut">Léo Matrat</a><a class="lien" href="../../../CV/CVLeoM.pdf" download>CV (PDF)</a></div>
+
+    <header class="couverture" id="haut">
+      <p class="meta"><span>Note n° 01 — Profil professionnel</span><span>Québec</span><span>Mise à jour : 6 novembre 2026</span><span class="etiquette-proto">Accroche proposée · à valider</span></p>
+      <h1 class="lignes">
+        <span class="ligne"><span style="--i:0">Comprendre</span></span>
+        <span class="ligne"><span style="--i:1">l'action publique,</span></span>
+        <span class="ligne"><span style="--i:2"><em>et la rendre lisible.</em></span></span>
+      </h1>
+      <figure class="portrait apparait" style="--d:500ms">
+        <div class="cadre"><img src="../../../images/port2.jpg" width="667" height="667" alt="Portrait de Léo Matrat"></div>
+        <figcaption><b>Fig. 1</b>Léo Matrat, Québec.</figcaption>
+      </figure>
+      <dl class="fiche apparait" style="--d:650ms">
+        <div><dt class="meta">Poste</dt><dd>Étudiant et conseiller, ministère de l'Éducation du Québec — depuis déc. 2022</dd></div>
+        <div><dt class="meta">Formation</dt><dd>Maîtrise en science politique avec stage, Université Laval</dd></div>
+        <div><dt class="meta">Domaines</dt><dd>Politiques publiques, gouvernance, management public, éthique des organisations</dd></div>
+        <div><dt class="meta">Langues</dt><dd>Français, anglais, espagnol</dd></div>
+      </dl>
+      <div class="actions apparait" style="--d:800ms">
+        <a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
+        <a class="lien" href="#travaux">Voir les travaux <span class="fleche" aria-hidden="true">→</span></a>
+        <div class="bascule-lecture" role="group" aria-label="Niveau de lecture">
+          <span>Lecture</span>
+          <button type="button" data-lecture="courte" aria-pressed="false">30 s</button>
+          <button type="button" data-lecture="complete" aria-pressed="true">3 min</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="essentiel" aria-labelledby="t-essentiel">
+      <div class="titre-section"><span class="paragraphe">§ 01</span><h2 id="t-essentiel">L'essentiel</h2></div>
+      <ol class="saillants">
+        <li><span class="chiffre" aria-hidden="true">01</span>Au ministère de l'Éducation du Québec depuis décembre 2022, je fais de la veille internationale et je rédige des <span class="stylo">notes informationnelles pour les autorités</span>.</li>
+        <li><span class="chiffre" aria-hidden="true">02</span>Bachelier en science politique de l'Université Laval (2024), je poursuis une <span class="stylo" style="--delai:150ms">maîtrise avec stage</span> orientée vers les politiques publiques.</li>
+        <li><span class="chiffre" aria-hidden="true">03</span>Je conçois des outils pour rendre les enjeux publics lisibles : analyse de données, veille automatisée et <span class="stylo" style="--delai:300ms">jeux de prospective</span>.</li>
+      </ol>
+    </section>
+
+    <section id="parcours" aria-labelledby="t-parcours">
+      <div class="titre-section"><span class="paragraphe">§ 02</span><h2 id="t-parcours">Parcours</h2></div>
+      <ol class="chrono avec-marge">
+        <li>
+          <span class="quand">Depuis déc. 2022</span>
+          <div>
+            <h3>Étudiant et conseiller<button class="appel" type="button" aria-controls="n1" aria-expanded="false" aria-label="Note 1">1</button></h3>
+            <span class="note" id="n1" role="note"><span class="num-note">1</span>Une note informationnelle synthétise un enjeu pour éclairer une décision. C'est ce format qui inspire la mise en page de ce site.</span>
+            <p class="ou">Ministère de l'Éducation du Québec · Québec</p>
+            <ul data-detail>
+              <li>Veille et recherche internationale en éducation</li>
+              <li>Rédaction de notes informationnelles pour les autorités et les services ministériels</li>
+              <li>Projets d'amélioration des processus et des outils de l'équipe</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="quand">Depuis 2024</span>
+          <div>
+            <h3>Maîtrise en science politique avec stage</h3>
+            <p class="ou">Université Laval · Québec</p>
+            <p data-detail>Orientation : politiques publiques, gouvernance, management public et éthique des organisations.</p>
+          </div>
+        </li>
+        <li>
+          <span class="quand">Depuis sept. 2024</span>
+          <div>
+            <h3>Secrétaire</h3>
+            <p class="ou">Club Animé Québec · Québec</p>
+            <p data-detail>Tâches administratives, mise à jour des pratiques, organisation d'événements.</p>
+          </div>
+        </li>
+        <li>
+          <span class="quand">Hiver 2024</span>
+          <div>
+            <h3>Baccalauréat en science politique<button class="appel" type="button" aria-controls="n2" aria-expanded="false" aria-label="Note 2">2</button></h3>
+            <span class="note" id="n2" role="note"><span class="num-note">2</span>Originaire de France, je me suis établi à Québec pour mes études. <span class="a-completer">année d'arrivée</span></span>
+            <p class="ou">Université Laval · Québec</p>
+          </div>
+        </li>
+        <li>
+          <span class="quand">2018 – 2019</span>
+          <div>
+            <h3>Stage en ressources humaines<button class="appel" type="button" aria-controls="n3" aria-expanded="false" aria-label="Note 3">3</button></h3>
+            <span class="note" id="n3" role="note"><span class="num-note">3</span>En dehors du bureau : deux médailles de bronze aux championnats de France de natation, et de la poésie à mes heures.</span>
+            <p class="ou">Citelum · Paris</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="travaux" aria-labelledby="t-travaux">
+      <div class="titre-section"><span class="paragraphe">§ 03</span><h2 id="t-travaux">Travaux</h2></div>
+      <div class="dossiers">
+        <article class="dossier une">
+          <a class="image" href="../fiche/artefacts-2050.html" tabindex="-1" aria-hidden="true">
+            <figure><div class="cadre fig-artefacts"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div></figure>
+          </a>
+          <div>
+            <p class="cote meta"><span>Dossier 01 · Jeu de prospective</span><span class="num">2026</span></p>
+            <h3>Artéfacts 2050</h3>
+            <p>Un jeu d'effet papillon sur l'éducation au Québec : cinq notes de prospective, six décisions, moins de cinq minutes.</p>
+            <p class="liens"><a class="lien" href="../fiche/artefacts-2050.html">Lire la fiche <span class="fleche" aria-hidden="true">→</span></a><a class="lien" href="../../../artefacts-2050/">Jouer <span class="fleche" aria-hidden="true">↗</span></a></p>
+          </div>
+        </article>
+        <article class="dossier">
+          <a class="image" href="../../../projet_session/projet2.html" tabindex="-1" aria-hidden="true"><figure><div class="cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div></figure></a>
+          <p class="cote meta"><span>Dossier 02 · Analyse de données</span><span class="num">Déc. 2024</span></p>
+          <h3>Dépenses sociales et inégalités dans l'OCDE</h3>
+          <p data-detail>Régression linéaire multiple en R : dépenses sociales, chômage et PIB par habitant face au taux de pauvreté après transferts, depuis 2010.</p>
+          <p class="liens"><a class="lien" href="../../../projet_session/projet2.html">Lire le rapport <span class="fleche" aria-hidden="true">→</span></a><a class="lien" href="../../../presentation/rabb2.pdf">Présentation (PDF)</a></p>
+        </article>
+        <article class="dossier">
+          <figure><pre class="code" aria-label="Extrait du script de veille"><span class="c"># Veille bibliographique — Semantic Scholar</span>
+QUERY  = <span class="s">"congruence"</span>
+FIELDS = <span class="s">"title,abstract,year,authors,</span>
+         <span class="s">citationCount,externalIds"</span>
+KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
+  <span class="s">"policy"</span>, <span class="s">"opinion"</span>, <span class="s">"government"</span>, <span class="s">"public"</span>]
+
+<span class="c"># → congruence_articles.csv</span>
+<span class="c"># → congruence_articles.bib</span></pre></figure>
+          <p class="cote meta"><span>Dossier 03 · Outil de recherche</span><span class="num">Mai 2025</span></p>
+          <h3>Veille bibliographique automatisée</h3>
+          <p data-detail>Un script Python interroge l'API Semantic Scholar, filtre les articles par mots-clés et les exporte en CSV et en BibTeX.</p>
+          <p class="liens"><a class="lien" href="../../../projet_annexe/semantic_scholar_search.py">Voir le code <span class="fleche" aria-hidden="true">→</span></a></p>
+        </article>
+        <article class="dossier">
+          <a class="image" href="../../../PacQC/" tabindex="-1" aria-hidden="true"><figure><div class="cadre"><img src="../medias/pacqc.jpg" width="1000" height="625" alt="" loading="lazy"></div></figure></a>
+          <p class="cote meta"><span>Dossier 04 · Jeu web</span><span class="num">Sept. 2026</span></p>
+          <h3>PacQC</h3>
+          <p data-detail>Le labyrinthe du bureau : trois cartes, quatre fantômes, des tracés validés automatiquement au chargement.</p>
+          <p class="liens"><a class="lien" href="../../../PacQC/">Jouer <span class="fleche" aria-hidden="true">↗</span></a></p>
+        </article>
+        <article class="dossier">
+          <a class="image" href="../../../jeu/" tabindex="-1" aria-hidden="true"><figure><div class="cadre"><img src="../medias/pixel-art.jpg" width="1200" height="675" alt="" loading="lazy"></div></figure></a>
+          <p class="cote meta"><span>Dossier 05 · Scène interactive</span><span class="num">En chantier</span></p>
+          <h3>Scene Pixel Art</h3>
+          <p data-detail>Une scène isométrique de Québec, en cours de construction mais déjà testable.</p>
+          <p class="liens"><a class="lien" href="../../../jeu/">Tester <span class="fleche" aria-hidden="true">↗</span></a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="competences" aria-labelledby="t-competences" data-detail>
+      <div class="titre-section"><span class="paragraphe">§ 04</span><h2 id="t-competences">Compétences</h2></div>
+      <table class="competences">
+        <thead><tr><th scope="col">Domaine</th><th scope="col">Pratique</th><th scope="col">Où le voir</th></tr></thead>
+        <tbody>
+          <tr><td>Veille et recherche</td><td>Veille internationale en éducation ; revue de littérature outillée (Elicit, NotebookLM)</td><td>Ministère · Dossier 03</td></tr>
+          <tr><td>Rédaction</td><td>Notes informationnelles pour les autorités et les services ministériels</td><td>Ministère</td></tr>
+          <tr><td>Analyse de données</td><td>R (tidyverse, ggplot2), régression linéaire multiple</td><td><a class="lien" href="../../../projet_session/projet2.html">Dossier 02</a></td></tr>
+          <tr><td>Prospective et médiation</td><td>Conception de jeux sérieux sur les politiques éducatives</td><td><a class="lien" href="../fiche/artefacts-2050.html">Dossier 01</a></td></tr>
+          <tr><td>Outils numériques</td><td>HTML, CSS, JavaScript, Python ; suite Office, Canva, Genially</td><td>Dossiers 03 à 05</td></tr>
+          <tr><td>Langues</td><td>Français ; anglais (avancé) ; espagnol (intermédiaire) ; allemand <span class="a-completer">niveau</span></td><td>CV</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="t-contact">
+      <div class="titre-section"><span class="paragraphe">§ 05</span><h2 id="t-contact">Me joindre</h2></div>
+      <p class="chapo">Pour un poste, un stage, une collaboration ou simplement une conversation :</p>
+      <a class="courriel" href="mailto:leo.matrat.pro@gmail.com"><span>leo.matrat.pro@gmail.com</span></a>
+      <p class="autres"><a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a><a class="lien" href="https://www.linkedin.com/in/l%C3%A9o-matrat/">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a><a class="lien" href="https://github.com/Aijir0">GitHub <span class="fleche" aria-hidden="true">↗</span></a></p>
+    </section>
+
+    <footer class="colophon">
+      <div class="grille">
+        <p><strong>Colophon.</strong> Composé en Newsreader et Atkinson Hyperlegible Next. Site personnel : il n'engage ni ne représente aucune organisation.</p>
+        <a class="hors-serie" href="#" aria-disabled="true"><span class="meta">Hors-série n° 1 · À paraître</span><br><strong>Atlas</strong> — un globe des lieux visités, en photographies et en récits.</a>
+        <p>Prototype V1 « Couverture ».<br><a href="../">← Comparer les trois variantes</a></p>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<div class="barre-lecture">
+  <button type="button" data-ouvre-tiroir aria-haspopup="dialog"><span data-section-courante><span class="num">§</span> Sommaire</span></button>
+  <a href="../../../CV/CVLeoM.pdf" download>CV ↓</a>
+</div>
+<dialog class="tiroir" aria-label="Sommaire">
+  <div class="entete"><span class="meta">Sommaire</span><button class="fermer" type="button">Fermer</button></div>
+  <nav class="sommaire" aria-label="Sommaire (mobile)">
+    <ol>
+      <li><a href="#essentiel"><span class="num">01</span><span class="titre">L'essentiel</span></a></li>
+      <li><a href="#parcours"><span class="num">02</span><span class="titre">Parcours</span></a></li>
+      <li><a href="#travaux"><span class="num">03</span><span class="titre">Travaux</span></a></li>
+      <li><a href="#competences"><span class="num">04</span><span class="titre">Compétences</span></a></li>
+      <li><a href="#contact"><span class="num">05</span><span class="titre">Me joindre</span></a></li>
+    </ol>
+  </nav>
+</dialog>
+<script src="../commun/signatures.js" defer></script>
+</body>
+</html>
