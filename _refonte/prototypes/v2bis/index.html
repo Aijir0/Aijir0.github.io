@@ -20,16 +20,12 @@
 <div class="page">
   <header class="tete">
     <h1 class="nom lignes"><span class="ligne"><span>Léo Matrat</span></span></h1>
-    <aside class="atlas apparait" style="--d:300ms" aria-label="Hors-série à paraître">
-      <svg class="globe trace-svg" viewBox="-34 -34 68 68" aria-hidden="true">
-        <circle r="31"/><ellipse rx="12" ry="31"/><ellipse rx="23" ry="31"/><path class="axe-globe" d="M0-31V31"/>
-        <ellipse ry="9" rx="31"/><path class="axe-globe" d="M-27-15.5H27M-27 15.5H27"/>
-        <path class="route" pathLength="1" style="--delai:900ms" d="M17-6C10-25-14-24-19-9"/><circle class="escale" cx="17" cy="-6" r="2.2"/><circle class="escale" cx="-19" cy="-9" r="2.2"/>
-      </svg>
+    <aside class="atlas apparait" style="--d:300ms" aria-labelledby="atlas-titre">
+      <img class="globe" src="../medias/projets/p7-atlas-globe.svg" width="68" height="68" alt="">
       <div>
         <p class="rubrique">Hors-série · en chantier</p>
-        <p class="atlas-titre"><em>Atlas</em>, un globe interactif de mes voyages</p>
-        <p class="proto-note">Texte provisoire, à valider.</p>
+        <p class="atlas-titre" id="atlas-titre"><a href="atlas.html"><em>Atlas</em>, un globe interactif de mes voyages</a></p>
+        <p class="atlas-statut">À paraître : lieux visités, photographies, récits.</p>
       </div>
     </aside>
   </header>
@@ -55,12 +51,15 @@
           <span class="ligne"><span style="--i:2"><em>et la rendre <span class="stylo" style="--delai:1100ms">lisible</span>.</em></span></span>
         </p>
         <p class="proto-note apparait" style="--d:500ms">Accroche proposée, à valider.</p>
-        <dl class="fiche apparait" style="--d:550ms">
+        <div class="identite apparait" style="--d:550ms">
+        <figure class="portrait"><img src="../medias/portrait-leo.jpg" width="480" height="600" alt="Portrait de Léo Matrat"></figure>
+        <dl class="fiche">
           <div><dt>En poste</dt><dd>Étudiant en veille, recherche et prospective, ministère de l'Éducation du Québec</dd></div>
           <div><dt>En formation</dt><dd>MBA en analytique d'affaires, Université Laval</dd></div>
           <div><dt>Diplômé</dt><dd>Maîtrise en science politique, Université Laval, 2026</dd></div>
           <div data-detail><dt>Langues</dt><dd>Français, anglais, espagnol</dd></div>
         </dl>
+        </div>
         <div class="actions apparait" style="--d:650ms">
           <a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
         </div>
@@ -79,17 +78,19 @@
       <div class="index">
         <ol>
           <li><a href="artefacts-2050.html" data-apercu="0" data-actif><span class="t-titre">Artéfacts 2050</span><span class="t-annee">2026</span><span class="t-type">Jeu de prospective sur l'éducation au Québec</span><span class="t-vignette vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt="" loading="lazy"></span></a></li>
-          <li><a href="../../../PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
-          <li><a href="../../../jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre"><img src="../medias/projets/p7-pacqc-1-borne.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre"><img src="../medias/projets/p7-scene-2-place.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
           <li data-detail><a href="#analyse" data-apercu="3"><span class="t-titre">Dépenses sociales et pauvreté</span><span class="t-annee">2024</span><span class="t-type">Analyse de données en R, présentée plus bas</span></a></li>
           <li><a href="researchrabbit.html" data-apercu="4"><span class="t-titre">ResearchRabbit</span><span class="t-annee">2024</span><span class="t-type">Présentation d'un outil de recherche, en LaTeX</span><span class="t-vignette vignette cadre"><img src="../medias/projets/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></span></a></li>
+          <li><a href="atlas.html" data-apercu="5"><span class="t-titre">Atlas</span><span class="t-annee">À venir</span><span class="t-type">Hors-série : globe interactif de mes voyages</span><span class="t-vignette vignette cadre"><img src="../medias/projets/p7-atlas-vignette.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
         </ol>
         <div class="apercu" aria-hidden="true">
           <figure class="visible"><div class="vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div><figcaption>Artéfacts 2050, écran d'accueil.</figcaption></figure>
-          <figure><div class="vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, un couloir du labyrinthe.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
-          <figure><div class="vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Scène Pixel Art, et son personnage.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/p7-pacqc-1-borne.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, le personnage et son nom.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/p7-scene-2-place.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Scène Pixel Art, une place et son personnage.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
           <figure><div class="vignette cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div><figcaption>Dépenses sociales et pauvreté, pays de l'OCDE.</figcaption></figure>
           <figure><div class="vignette cadre"><img src="../medias/projets/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></div><figcaption>ResearchRabbit, visuel du projet.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/p7-atlas-vignette.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Atlas, hors-série en chantier.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
         </div>
       </div>
     </section>
@@ -163,7 +164,7 @@
     <footer class="colophon">
       <div class="grille">
         <p>Composé en Newsreader et Atkinson Hyperlegible Next. Site personnel : il n'engage ni ne représente aucune organisation.</p>
-        <p>Prototype V2bis, phase 6.<br><a href="../">Comparer les versions</a></p>
+        <p>Prototype V2bis, phase 7.<br><a href="../">Comparer les versions</a></p>
       </div>
     </footer>
   </main>

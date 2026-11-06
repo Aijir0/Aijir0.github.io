@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 7 — Visuels et identité</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="commun/base.css">
+  <link rel="stylesheet" href="v2bis/v2bis.css">
+  <style>
+    .page { padding-bottom: 4rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    h1 { margin: 2.5rem 0 1rem; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; letter-spacing: -.03em; }
+    .intro { max-width: 46rem; }
+    .liens-haut { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1.5rem 0 0; }
+    .projet { padding-top: 4.5rem; }
+    .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+    .pistes.deux { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .piste-carte h3 { margin: 1rem 0 .4rem; font-size: 1.45rem; font-weight: 400; }
+    .piste-carte p { font: 400 .95rem/1.5 var(--sans); color: var(--encre-2); margin: 0 0 .5rem; }
+    .piste-carte p strong { color: var(--encre); font-weight: 600; }
+    .recommandee { outline: 2px solid var(--vert); outline-offset: 10px; }
+    .reco { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--papier-2); max-width: 52rem; }
+    .reco p { margin: 0; font-size: 1.0625rem; }
+    .reco p + p { margin-top: .6rem; }
+    .planche { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: end; }
+    .planche figure { margin: 0; }
+    .planche .fond { display: grid; place-items: center; aspect-ratio: 4 / 3; }
+    .planche .fond img { image-rendering: pixelated; }
+    .reference { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; max-width: 34rem; }
+    .reference .fond { aspect-ratio: 4 / 5; display: grid; place-items: center; background: var(--papier-2); }
+    .reference .fond img.px { height: 80%; width: auto; image-rendering: pixelated; }
+    .reference .fond img.photo { width: 100%; height: 100%; object-fit: cover; }
+    .etat { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--axe-ecart); align-items: start; margin-bottom: 2.5rem; }
+    .etat ul { margin: 0; padding-left: 1.1rem; font: 400 1rem/1.55 var(--sans); }
+    .etat li + li { margin-top: .4rem; }
+    .captures img { border: 1px solid var(--filet); background: var(--papier); }
+    .captures .mobile img { max-width: 22rem; }
+    @media (max-width: 1099.98px) { .pistes, .pistes.deux, .planche, .etat { grid-template-columns: minmax(0, 1fr); } .recommandee { outline-offset: 6px; } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 7 · propositions ; les recommandées sont intégrées à V2bis à l'essai</span></div>
+  <h1>Visuels et identité, phase 7</h1>
+  <p class="chapo intro">Quatre chantiers : un logo et une vignette pour PacQC, un personnage pixel pour la Scène, une vraie carte pour Atlas, et le retour du portrait. Les images de jeu sont dessinées pixel par pixel, chacune sur une grille constante (aucun pixel étiré, aucune police chargée), par le script <code>_refonte/outils/visuels-phase7.mjs</code>.</p>
+  <p class="liens-haut"><a class="lien" href="v2bis/">V2bis avec les propositions intégrées</a><a class="lien" href="v2bis-phase6/">Avant : V2bis à la fin de la phase 6</a><a class="lien" href="pistes-visuels.html">Pistes des phases 5 et 6</a></p>
+
+  <!-- ===================== PacQC ===================== -->
+  <section class="projet" aria-labelledby="t-pacqc">
+    <header class="tete-section"><h2 id="t-pacqc">PacQC</h2><p>Un personnage jaune original, le nom exact « PacQC », l'arcade sans surcharge ; aucun visage, aucun logo Teams, aucun symbole officiel.</p></header>
+    <div class="pistes">
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/projets/p7-pacqc-1-borne.png" width="1600" height="840" alt="Proposition 1 : le personnage jaune avale deux pastilles vers le nom PacQC en lettres pixel, dans un cadre de borne d'arcade."></div>
+        <p class="rubrique">Proposition 1 · recommandée pour la grille</p>
+        <h3>Borne</h3>
+        <p>Le personnage avale une ligne de pastilles jusqu'au nom. Lettres pixel dessinées pour ce logo, « QC » au vert anis du jeu, un seul filet de borne.</p>
+        <p><strong>Pourquoi :</strong> le nom est le plus lisible des trois en vignette mobile (on le lit à 360 pixels de large), et le fond nuit reste celui du jeu.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/p7-pacqc-2-tuque.png" width="1600" height="840" alt="Proposition 2 : le personnage coiffé d'une tuque rayée, au-dessus du nom PacQC, sur fond vert anis." loading="lazy"></div>
+        <p class="rubrique">Proposition 2 · mascotte</p>
+        <h3>Tuque</h3>
+        <p>Le personnage coiffé d'une tuque rayée : un clin d'œil québécois sans aucun symbole officiel. Contour d'un pixel pour tenir sur fond clair.</p>
+        <p><strong>Usage conseillé :</strong> icône d'onglet, écran de victoire, page du jeu. Plus ludique, moins sobre dans un portfolio.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/p7-pacqc-3-labyrinthe.png" width="1600" height="840" alt="Proposition 3 : le nom PacQC tracé comme des murs de labyrinthe, le personnage dans un couloir de pastilles." loading="lazy"></div>
+        <p class="rubrique">Proposition 3 · affiche</p>
+        <h3>Labyrinthe</h3>
+        <p>Le nom devient le labyrinthe : chaque lettre est un bloc de murs. Le personnage file dans le couloir du dessous.</p>
+        <p><strong>Limite :</strong> les murs fins perdent de la netteté en petit. Mieux en grand, en tête de la page du jeu.</p>
+      </article>
+    </div>
+    <div class="planche">
+      <figure><div class="fond" style="background:#101419"><img src="medias/projets/p7-pacqc-logo-1.svg" width="53" height="15" style="width:80%;height:auto" alt="Logo 1 : personnage, pastilles et nom PacQC."></div><figcaption>Logo 1, horizontal (SVG, pixels exacts).</figcaption></figure>
+      <figure><div class="fond" style="background:#d9fb81"><img src="medias/projets/p7-pacqc-logo-2.svg" width="36" height="32" style="height:70%;width:auto" alt="Logo 2 : personnage en tuque au-dessus du nom PacQC."></div><figcaption>Logo 2, empilé (SVG) : se réduit en icône.</figcaption></figure>
+      <figure><div class="fond" style="background:#f5f2ea"><img src="medias/projets/p7-pacqc-logo-2.svg" width="36" height="32" style="width:64px;height:auto" alt="Logo 2 à 64 pixels de large."></div><figcaption>Logo 2 à 64 pixels : le nom reste lisible.</figcaption></figure>
+    </div>
+    <div class="reco">
+      <p><strong>Recommandation :</strong> la Borne pour la grille et l'en-tête du jeu ; la Tuque comme mascotte et icône. Les deux partagent le même personnage et les mêmes lettres : une seule identité, deux formats.</p>
+      <p>Le personnage est redessiné (œil, ombré en deux tons, proportions propres) ; aucun sprite ni logo existant n'est repris. Sa silhouette (un disque à bouche ouverte) évoque toutefois un personnage d'arcade déposé : acceptable pour un jeu personnel non commercial, à garder en tête.</p>
+    </div>
+  </section>
+
+  <!-- ===================== Scène Pixel Art ===================== -->
+  <section class="projet" aria-labelledby="t-scene">
+    <header class="tete-section"><h2 id="t-scene">Scène Pixel Art</h2><p>Un petit personnage dessiné d'après le portrait professionnel ; trois compositions.</p></header>
+    <div class="etat">
+      <div class="reference">
+        <figure><div class="fond"><img class="photo" src="medias/portrait-leo.jpg" width="480" height="600" alt="Portrait professionnel de Léo Matrat, servant de référence." loading="lazy"></div><figcaption>Référence : <code>images/port1.jpg</code>.</figcaption></figure>
+        <figure><div class="fond"><img class="px" src="medias/projets/p7-avatar-leo.svg" width="20" height="32" alt="Avatar pixel de Léo : cheveux châtains en volume, lunettes rondes, moustache et barbiche, costume marine." loading="lazy"></div><figcaption>Avatar, 20 × 32 pixels.</figcaption></figure>
+      </div>
+      <div>
+        <p class="rubrique">Le personnage</p>
+        <ul>
+          <li>Traits repris du portrait : cheveux châtain foncé coiffés en volume, lunettes rondes à monture sombre, moustache et barbiche auburn, costume marine, chemise bleu clair sans cravate.</li>
+          <li>Proportions « chibi » (tête d'environ la moitié de la hauteur) : le visage reste lisible à la taille native de 32 pixels.</li>
+          <li>Contour sélectif : chaque matière est cernée par sa propre teinte sombre (peau, cheveux, costume), pas par un noir uniforme.</li>
+          <li>Il remplace l'avatar de la phase 6, dont les lunettes formaient un bandeau et la barbe couvrait les joues.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pistes">
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/p7-scene-1-personnage.png" width="1600" height="840" alt="Composition 1 : l'avatar seul, au centre, debout sur un carreau d'herbe." loading="lazy"></div>
+        <p class="rubrique">Composition 1</p>
+        <h3>Le personnage</h3>
+        <p>L'avatar seul, en grand, sur son carreau. Le plus lisible, mais il ne dit rien du projet.</p>
+      </article>
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/projets/p7-scene-2-place.png" width="1600" height="840" alt="Composition 2 : une petite place isométrique avec un pavillon, des arbres, un banc, un lampadaire et l'avatar." loading="lazy"></div>
+        <p class="rubrique">Composition 2 · recommandée pour la grille</p>
+        <h3>La place</h3>
+        <p>Une petite place isométrique (pavillon, arbres, banc, lampadaire) dans l'esprit de la scène du jeu, et l'avatar qui s'y promène.</p>
+        <p><strong>Pourquoi :</strong> elle montre à la fois le projet et la personne, et tout est au même pas de pixel.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/p7-scene-3-titre.png" width="1560" height="819" alt="Composition 3 : le titre SCÈNE PIXEL ART en lettres pixel, à côté de l'avatar." loading="lazy"></div>
+        <p class="rubrique">Composition 3</p>
+        <h3>Le titre</h3>
+        <p>Le titre en lettres pixel (même alphabet que PacQC) et l'avatar. Il ferait un bon écran d'accueil pour la page du jeu.</p>
+      </article>
+    </div>
+    <div class="reco"><p><strong>Recommandation :</strong> la Place dans la grille, le Titre en tête de la page du jeu. Si l'avatar doit vous ressembler davantage, une retouche sur quelques pixels suffit (coiffure, barbe, couleur des yeux) : il est décrit ligne par ligne dans le script.</p></div>
+  </section>
+
+  <!-- ===================== Atlas ===================== -->
+  <section class="projet" aria-labelledby="t-atlas">
+    <header class="tete-section"><h2 id="t-atlas">Atlas</h2><p>Une annonce de hors-série, en couverture et dans les travaux ; rien n'est développé.</p></header>
+    <div class="etat">
+      <figure><div class="vignette cadre"><img src="medias/projets/p7-atlas-vignette.jpg" width="1600" height="840" alt="Vignette d'Atlas : page de carnet pointée, titre Atlas et globe avec un repère sur Québec." loading="lazy"></div><figcaption>Vignette de la grille des travaux.</figcaption></figure>
+      <div>
+        <p class="rubrique">Ce qui change</p>
+        <ul>
+          <li>Le globe stylisé devient une vraie carte : côtes réelles (Natural Earth au 1:110 M), projection orthographique centrée sur l'Atlantique nord, graticule de 15°.</li>
+          <li>Un seul repère, sur Québec : aucune destination n'est inventée. Les voyages viendront avec le projet.</li>
+          <li>Le titre de l'annonce mène à une fiche « Hors-série · En chantier » ; Atlas apparaît aussi en dernière ligne des travaux, « À venir ».</li>
+          <li>Le papier pointé de la vignette rappelle le carnet de voyage, sans dessin décoratif.</li>
+          <li>Le bloc d'avatar automatisé n'existait plus depuis la phase 6 ; l'annonce garde sa place.</li>
+        </ul>
+        <p class="liens-haut"><a class="lien" href="v2bis/atlas.html">Ouvrir la fiche Atlas</a></p>
+      </div>
+    </div>
+    <div class="pistes deux captures">
+      <figure><img src="captures/phase7/atlas-bureau.png" alt="L'en-tête de V2bis sur ordinateur : nom, puis l'annonce Atlas avec son globe." loading="lazy"><figcaption>En couverture, sur ordinateur.</figcaption></figure>
+      <figure class="mobile"><img src="captures/phase7/atlas-mobile.png" alt="L'en-tête de V2bis sur mobile : nom, puis l'annonce Atlas sur une ligne." loading="lazy"><figcaption>Sur mobile : une seule ligne, la fiche signalétique reste dans le premier écran.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===================== Portrait ===================== -->
+  <section class="projet" aria-labelledby="t-portrait">
+    <header class="tete-section"><h2 id="t-portrait">Le portrait</h2><p>Associer le portfolio à une personne réelle, sans revenir au médaillon rond.</p></header>
+    <div class="pistes deux captures">
+      <article class="piste-carte recommandee">
+        <img src="captures/phase7/portrait-a-bureau.png" alt="Intégration A : petite photo d'identité à gauche de la fiche signalétique, sous l'accroche." loading="lazy">
+        <p class="rubrique">Intégration A · recommandée, intégrée à V2bis</p>
+        <h3>Photo d'identité de la fiche</h3>
+        <p>Un portrait rectangulaire, au format d'une photo d'identité, en tête de la fiche signalétique : la logique même d'une note de breffage sur une personne. Visible dès le premier écran, sur ordinateur comme sur mobile.</p>
+        <p class="mobile"><img src="captures/phase7/portrait-a-mobile.png" alt="Intégration A sur mobile : la photo à gauche, les rubriques de la fiche empilées à droite." loading="lazy"></p>
+      </article>
+      <article class="piste-carte">
+        <img src="captures/phase7/portrait-b-bureau.png" alt="Intégration B : portrait à gauche de l'adresse de courriel, dans la section Contact." loading="lazy">
+        <p class="rubrique">Intégration B · simulée pour la capture</p>
+        <h3>Visage du contact</h3>
+        <p>Le portrait accompagne l'adresse, en fin de page : on sait à qui l'on écrit. Plus discret, mais un recruteur pressé ne le voit qu'en bas de page.</p>
+        <p class="mobile"><img src="captures/phase7/portrait-b-mobile.png" alt="Intégration B sur mobile : le portrait à gauche de l'adresse." loading="lazy"></p>
+      </article>
+    </div>
+    <div class="reco"><p><strong>Recommandation :</strong> A. Le recadrage (<code>medias/portrait-leo.jpg</code>, 30 Ko) vient du portrait professionnel déjà publié sur le site actuel ; l'original n'est pas modifié. A et B peuvent coexister si vous voulez aussi un visage au contact.</p></div>
+  </section>
+
+  <section class="projet" aria-labelledby="t-decider">
+    <header class="tete-section"><h2 id="t-decider">À décider</h2><p>Rien n'est remplacé sur le site public.</p></header>
+    <div class="etat"><div></div><ul>
+      <li>PacQC : Borne, Tuque ou Labyrinthe pour la grille ; quel logo pour la page du jeu.</li>
+      <li>Scène : la composition, et la ressemblance de l'avatar (quelque chose à corriger ?).</li>
+      <li>Atlas : le texte de l'annonce et de la fiche (rédigés d'après votre description).</li>
+      <li>Portrait : A, B, ou les deux.</li>
+    </ul></div>
+  </section>
+</div>
+</body>
+</html>

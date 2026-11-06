@@ -204,3 +204,22 @@ main > section:not(.une) { padding-top: 6.5rem; }
   .atlas-titre em { font-size: 1.1rem; }
   .tete { padding-top: 1.6rem; gap: .75rem; }
 }
+
+/* ---------- Phase 7 ----------
+   Atlas : le globe devient une vraie carte (côtes Natural Earth, projection orthographique, repère sur Québec) ;
+   le titre mène à la fiche du hors-série. */
+.atlas img.globe { display: block; }
+.atlas-titre a { text-decoration: none; background: linear-gradient(var(--rouge), var(--rouge)) 0 100% / 0 1px no-repeat; transition: background-size 250ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .atlas-titre a:hover { background-size: 100% 1px; } }
+.atlas-statut { margin: 0; font: 400 .8125rem/1.4 var(--sans); color: var(--encre-2); }
+/* Portrait : une photo d'identité en tête de la fiche signalétique, comme sur une note de breffage */
+.identite { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1.25rem; align-items: start; margin: 0 0 1.75rem; }
+.identite .fiche { margin: 0; }
+.identite .fiche div { grid-template-columns: 5.75rem minmax(0, 1fr); }
+.portrait { margin: 0; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; outline: 1px solid var(--filet); outline-offset: -1px; }
+@media (max-width: 640px) {
+  .atlas-statut { display: none; }
+  .identite { grid-template-columns: 4.75rem minmax(0, 1fr); gap: .9rem; }
+  .identite .fiche div { grid-template-columns: minmax(0, 1fr); gap: .1rem; padding: .55rem 0; }
+}

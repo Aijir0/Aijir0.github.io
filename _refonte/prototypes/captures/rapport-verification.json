@@ -112,7 +112,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 3415,
+    "hauteur": 3454,
     "erreurs": []
   },
   "comparatif/mobile": {
@@ -124,7 +124,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 5358,
+    "hauteur": 5402,
     "erreurs": []
   },
   "v2bis/desktop": {
@@ -136,7 +136,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 4497,
+    "hauteur": 4586,
     "erreurs": []
   },
   "v2bis/mobile": {
@@ -148,7 +148,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 6784,
+    "hauteur": 7104,
     "erreurs": []
   },
   "fiche-v2bis/desktop": {
@@ -221,6 +221,54 @@
     "sansAlt": 0,
     "petitesCibles": 0,
     "hauteur": 2313,
+    "erreurs": []
+  },
+  "fiche-atlas/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 1592,
+    "erreurs": []
+  },
+  "fiche-atlas/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 1450,
+    "erreurs": []
+  },
+  "phase7/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 4433,
+    "erreurs": []
+  },
+  "phase7/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 8562,
     "erreurs": []
   }
 }

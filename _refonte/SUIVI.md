@@ -2,12 +2,12 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, correction des travaux validée)
+## Où en est-on (6 novembre 2026, fin de phase 7)
 
-**Phase 6 terminée ; correction des travaux (ResearchRabbit, retrait de la veille) validée par Léo. Prochaine étape : trancher les décisions ouvertes, puis `DESIGN.md` et la refonte définitive à partir de V2bis.**
+**Phase 7 terminée : V2bis retenue définitivement comme référence visuelle ; nouveaux visuels (PacQC, Scène Pixel Art), carte d'Atlas et portrait proposés, les recommandés intégrés à V2bis à l'essai. En attente de l'examen de Léo.**
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
-Avant / après : `v2bis-phase5/` (instantané de fin de phase 5) contre `v2bis/`.
-Visuels des projets : http://127.0.0.1:8765/_refonte/prototypes/pistes-visuels.html
+Avant / après : `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
+Propositions de la phase 7 : http://127.0.0.1:8765/_refonte/prototypes/phase7.html (pistes des phases 5 et 6 : `pistes-visuels.html`).
 
 Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni publié.
 
@@ -40,6 +40,7 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | Faits complétés par Léo : poste actuel « Étudiant en veille, recherche et prospective » au ministère de l'Éducation du Québec (stage terminé, emploi étudiant en cours, dates du stage non affichées) ; pendant le stage, contribution à la programmation pluriannuelle des travaux de recherche du Ministère ; MBA en analytique d'affaires à l'Université Laval, en cours (dates non confirmées) ; secrétaire du Club Animé de septembre 2024 à mai 2025 (deux sessions universitaires). |
 | 2026-11-06 | **Correction des travaux** : « Veille bibliographique automatisée » retirée de tous les prototypes (le script `projet_annexe/semantic_scholar_search.py` reste dans le dépôt) ; le PDF `presentation/rabb2.pdf` quitte le projet d'analyse (qui garde « Lire le rapport ») et devient une réalisation distincte, **ResearchRabbit — Présentation d'un outil de recherche scientifique** (travail universitaire, LaTeX Beamer sur Overleaf, 5 décembre 2024, 11 diapositives ; Léo est l'auteur de la présentation, pas du logiciel). |
 | 2026-11-06 | **Validé** : la correction des travaux. Deux réalisations distinctes (analyse de données ; présentation ResearchRabbit) ; veille retirée des prototypes. Vignette **A** (composition bleue) dans la grille de V2bis, vignette **B** (vraie couverture du PDF, mise en scène documentaire) en tête de la fiche ResearchRabbit : l'une donne une identité reconnaissable, l'autre montre le document réel. |
+| 2026-11-06 | **Phase 7 : V2bis est la référence visuelle définitive** ; direction « Note de breffage — publication vivante » confirmée. Pas de changement d'architecture ni de nouvelle exploration générale. |
 | 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
@@ -76,6 +77,14 @@ Générés par `_refonte/outils/visuels-projets.mjs` (conservé : sources de l'a
 - **PacQC** : logotype SVG « PA + personnage à la place du C + QC » (identité d'origine : capitales grasses, « QC » vert anis `#D9FB81`, fond `#101419`). Propositions : 1 logotype seul ; **2 couloir de labyrinthe, personnage, pastilles, fantôme vert anis sans sigle (à l'essai dans V2bis)** ; 3 logotype sur le plan réel assombri. Le personnage reprend la forme du personnage d'arcade d'origine (marque déposée de Bandai Namco) : acceptable pour un jeu personnel non commercial, à garder en tête.
 - **Scène Pixel Art** : avatar `avatar-leo.svg`, 16 × 24 pixels dessinés à la main (cheveux bruns, lunettes, barbe courte, veste marine, chemise bleu clair), toujours agrandi par multiples entiers sans lissage. Propositions : 1 fiche de personnage sur carreau isométrique ; **2 avatar net devant la scène floutée (à l'essai dans V2bis)** ; 3 pastille (buste en cadre pixel), utilisable comme logo. Titre en Silkscreen, intégré à l'image (aucune police chargée par le site).
 
+## Visuels de la phase 7 (`phase7.html`, images `medias/projets/p7-*`)
+
+Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est dessinée en basse définition sur une grille de pixels constante, puis agrandie d'un facteur entier (×20, ×13 ou ×10) ; aucune police chargée, alphabet pixel dessiné pour l'occasion (capitales de 7 pixels, fût de 2).
+- **PacQC** : personnage original (œil, ombré en deux tons, 13 × 13 px). 1 **Borne** (personnage, deux pastilles, nom ; filet de borne ; recommandée pour la grille, **à l'essai dans V2bis**) ; 2 **Tuque** (mascotte en tuque rayée sur vert anis ; icône, page du jeu) ; 3 **Labyrinthe** (le nom tracé en murs, personnage dans le couloir ; affiche). Logos SVG `p7-pacqc-logo-1.svg` (horizontal) et `p7-pacqc-logo-2.svg` (empilé). Silhouette d'arcade déposée : réserve maintenue.
+- **Scène Pixel Art** : nouvel avatar `p7-avatar-leo.svg`, 20 × 32 px, d'après `images/port1.jpg` (cheveux en volume, lunettes rondes, moustache et barbiche, costume marine, chemise bleu clair ; contour sélectif). 1 **Personnage** seul ; 2 **Place** isométrique (pavillon, arbres, banc, lampadaire ; recommandée, **à l'essai dans V2bis**) ; 3 **Titre** « SCÈNE PIXEL ART » en lettres pixel (écran de la page du jeu).
+- **Atlas** : globe orthographique aux côtes réelles (Natural Earth 1:110 M via world-atlas, d3-geo au moment de la génération, aucun script sur la page), un seul repère sur Québec, rien d'inventé. `p7-atlas-globe.svg` (en-tête), `p7-atlas-vignette.jpg` (grille), `p7-atlas-carte.jpg` (fiche). Le titre de l'annonce mène à `v2bis/atlas.html` (« Hors-série · En chantier ») ; ligne « Atlas · À venir » en fin de Travaux.
+- **Portrait** : `medias/portrait-leo.jpg` (recadrage 4:5 de `images/port1.jpg`, original intact). A **photo d'identité en tête de la fiche signalétique** (recommandée, **intégrée à V2bis**) ; B portrait au contact (simulé pour la capture : `outils/captures-phase7.mjs`). `images/portrait.png` est un selfie de voyage, non utilisé (piste possible pour Atlas, si Léo le souhaite).
+
 ### ResearchRabbit
 - PDF vérifié avec pdf.js : producteur pdfTeX-1.40.25, classe Beamer, « Présentation de Research Rabbit · Outils numériques de recherche », Léo Matrat, Université Laval, 5 décembre 2024 ; parties : introduction (origines, place dans la recherche), comparaison (Zotero, Mendeley, EndNote, Google Scholar, ResearchRabbit), prise en main. La fiche ne dit rien de plus.
 - Deux vignettes, **validées dans leur usage actuel** : **A** la composition bleue (copie JPEG suivie par Git : `medias/projets/researchrabbit-vignette.jpg`), dans la grille de V2bis, légende « visuel du projet » (ce n'est pas la couverture du PDF) ; **B** la vraie première page posée sur le papier avec la diapositive « Plan » derrière (`researchrabbit-document.jpg`, suivie par Git, générée depuis le PDF), en tête de la fiche `v2bis/researchrabbit.html`.
@@ -97,8 +106,12 @@ Fabriquées à partir des ressources réelles des jeux ; aucun original modifié
 
 ```
 _refonte/prototypes/index.html            Comparatif V2bis, V2, V1 (+ V3 en référence), critique des détails
-_refonte/prototypes/pistes-visuels.html   Pistes visuelles PacQC et Scène Pixel Art
-_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, researchrabbit.html, v2bis.css (base retenue)
+_refonte/prototypes/pistes-visuels.html   Pistes visuelles PacQC et Scène Pixel Art (phases 5 et 6)
+_refonte/prototypes/phase7.html           Propositions de la phase 7 (PacQC, Scène, Atlas, portrait)
+_refonte/prototypes/v2bis-phase6/         Instantané de V2bis à la fin de la phase 6 (avant / après)
+_refonte/outils/visuels-phase7.mjs        Générateur phase 7 (moteur de pixels, alphabet, sprites, globe, portrait)
+_refonte/outils/captures-phase7.mjs       Captures du portrait (A, B) et de l'annonce Atlas
+_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, researchrabbit.html, atlas.html, v2bis.css (base retenue)
 _refonte/prototypes/v2bis-phase5/         Instantané de V2bis à la fin de la phase 5 (avant / après)
 _refonte/prototypes/medias/projets/       Visuels phase 6 (PacQC, Scène), avatar-leo.svg, pacqc-logotype.svg
 _refonte/outils/visuels-projets.mjs       Générateur des visuels phase 6 (avatar et logotype en source)
@@ -109,8 +122,8 @@ _refonte/prototypes/fiche/                Fiche Artéfacts 2050 commune à V1, V
 _refonte/prototypes/commun/               base.css, signatures.js (préfixe de la barre mobile réglable : data-prefixe)
 _refonte/prototypes/medias/               Copies JPEG légères ; medias/pistes/ = visuels-pistes
 _refonte/prototypes/captures/             Captures par page + rapport-verification.json + controles/
-_refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis comparatif pistes)
-_refonte/outils/verifier-liens.mjs           Liens et images internes (HTTP 200) et ancres, sur 10 pages
+_refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis fiche-rr fiche-atlas comparatif pistes phase7)
+_refonte/outils/verifier-liens.mjs           Liens et images internes (HTTP 200) et ancres, sur 13 pages
 _refonte/sources/                         Originaux fournis par Léo (non publiés) : vignette-researchrabbit.png
 _refonte/outils/controles-complementaires.mjs Contrastes, poids, CLS, LCP, transition (V2bis), clavier (V1), tiroir (V2bis)
 ```
@@ -145,9 +158,9 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-1. Visuels : PacQC (1, 2 ou 3) et Scène Pixel Art (1, 2 ou 3) ; ressemblance de l'avatar ; logos des pages de jeux (logotype PacQC, pastille de la Scène).
-2. L'annonce Atlas : emplacement (couverture) et texte.
-3. Le retrait du portrait : définitif, ou retour discret (contact, fiche) ?
+1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
+2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
+3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
 4. L'accroche définitive.
 5. Le jeu PacQC lui-même affiche encore le visage du collègue, les sigles et le logo Teams : hors périmètre des prototypes, à traiter avant de mettre PacQC en avant.
 6. Orthographe du nom « Scène Pixel Art » (avec accent) sur la page du jeu.
@@ -162,6 +175,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (validation) : correction des travaux validée ; légende de la vignette A rectifiée, descriptif ResearchRabbit raccourci (V2bis, instantané, V2) ; liens et rendu revérifiés.
 
 - 2026-11-06 (rangement) : original de la vignette ResearchRabbit déplacé dans `_refonte/sources/`, générateur mis à jour ; contrôle étendu aux images (50 liens et images, aucun cassé) ; non-publication vérifiée.
+- 2026-11-06 (phase 7) : instantané `v2bis-phase6/` ; générateur pixel `visuels-phase7.mjs` ; PacQC (3 propositions, 2 logos), avatar d'après le portrait et 3 compositions de la Scène, globe d'Atlas aux côtes réelles et fiche `atlas.html`, portrait A intégré et B simulé ; page `phase7.html` ; contrôles liens et images (74, aucun cassé) et Playwright.
 
 ## Prochaines étapes
 

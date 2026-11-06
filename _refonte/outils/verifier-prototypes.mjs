@@ -20,6 +20,8 @@ const PAGES = {
   'fiche-v2bis': { url: 'v2bis/artefacts-2050.html', sections: [] },
   'fiche-rr': { url: 'v2bis/researchrabbit.html', sections: [] },
   pistes: { url: 'pistes-visuels.html', sections: [] },
+  'fiche-atlas': { url: 'v2bis/atlas.html', sections: [] },
+  phase7: { url: 'phase7.html', sections: [] },
   comparatif: { url: '', sections: [] },
 };
 const choix = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PAGES);
