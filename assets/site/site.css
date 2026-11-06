@@ -671,3 +671,13 @@ html:active-view-transition-type(suivant)::view-transition-new(root) { animation
   .memo div { grid-template-columns: 6rem minmax(0, 1fr); gap: .75rem; }
   .acces .bouton { width: 100%; justify-content: center; }
 }
+
+/* =====================================================================
+   4. Finitions de la mise en ligne
+   ===================================================================== */
+/* Au doigt, les liens pris dans le texte (preuves, annonce Atlas, colophon) reçoivent une zone de contact
+   d'environ 44 px, invisible : la mise en page et le soulignement ne bougent pas. */
+@media (pointer: coarse) {
+  .competences td:last-child .lien, .atlas-titre a, .colophon a { position: relative; }
+  .competences td:last-child .lien::after, .atlas-titre a::after, .colophon a::after { content: ""; position: absolute; inset: -.7rem -.3rem; }
+}
