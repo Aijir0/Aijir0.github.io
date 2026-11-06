@@ -2,9 +2,9 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 10)
+## Où en est-on (6 novembre 2026, fin de phase 11)
 
-**Phase 10 terminée : V2bis finie (mouvement retravaillé et coordonné, défauts visuels corrigés, tablette recomposée, Citelum retiré, chargement stabilisé). En attente de la validation de Léo avant la phase de remplacement du site public.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
+**Phase 11 terminée : le site définitif est construit et vérifié dans la branche locale `site-definitif` (répertoire `_site-definitif/`, servi sur http://127.0.0.1:8766/). Rien n'est poussé ni publié. La publication attend l'accord de Léo et deux décisions (CV, `CV/cvLaTeX.tex`) : voir `_refonte/PUBLICATION.md`.**
 Laboratoire : http://127.0.0.1:8765/_refonte/prototypes/labo/ (comparaison : `labo/comparer.html`).
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
 Avant / après : `v2bis-phase9/` (fin de phase 9, avant la finition), `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
@@ -88,6 +88,59 @@ Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est de
 - **Scène Pixel Art** : nouvel avatar `p7-avatar-leo.svg`, 20 × 32 px, d'après `images/port1.jpg` (cheveux en volume, lunettes rondes, moustache et barbiche, costume marine, chemise bleu clair ; contour sélectif). 1 **Personnage** seul ; 2 **Place** isométrique (pavillon, arbres, banc, lampadaire ; recommandée, **à l'essai dans V2bis**) ; 3 **Titre** « SCÈNE PIXEL ART » en lettres pixel (écran de la page du jeu).
 - **Atlas** : globe orthographique aux côtes réelles (Natural Earth 1:110 M via world-atlas, d3-geo au moment de la génération, aucun script sur la page), un seul repère sur Québec, rien d'inventé. `p7-atlas-globe.svg` (en-tête), `p7-atlas-vignette.jpg` (grille), `p7-atlas-carte.jpg` (fiche). Le titre de l'annonce mène à `v2bis/atlas.html` (« Hors-série · En chantier ») ; ligne « Atlas · À venir » en fin de Travaux.
 - **Portrait** : `medias/portrait-leo.jpg` (recadrage 4:5 de `images/port1.jpg`, original intact). A **photo d'identité en tête de la fiche signalétique** (recommandée, **intégrée à V2bis**) ; B portrait au contact (simulé pour la capture : `outils/captures-phase7.mjs`). `images/portrait.png` est un selfie de voyage, non utilisé (piste possible pour Atlas, si Léo le souhaite).
+
+## Phase 11 : site définitif (branche `site-definitif`)
+
+**Méthode**
+- La branche `site-definitif` part de l'état publié (`origin/main` = `95750c5`, étiquette locale `site-avant-refonte`). Elle vit dans un répertoire de travail séparé, `_site-definitif/`, exclu localement par `.git/info/exclude`.
+- Elle n'a pas de branche amont : un `git push` sans destination ne publie rien.
+- `_refonte/` n'y entre jamais. Le dépôt est public, et fusionner la branche de refonte rendrait le suivi et les prototypes lisibles sur GitHub.
+- La transposition est automatisée par `_refonte/outils/construire-site.mjs` : il lit V2bis et écrit les pages, la feuille de style, le script, les images et `_config.yml`. Chaque remplacement vérifie son motif, et une reconstruction donne des fichiers identiques.
+
+**Lots** (commits de `site-definitif`)
+1. `2960505` Accueil : V2bis transposée. Une feuille de style unique `assets/site/site.css` (socle, édition, fiches), un script unique `assets/site/site.js` (socle, aperçu, mouvement), images dans `assets/site/img/`, chemins depuis la racine, métadonnées SEO et Open Graph, icône, `_config.yml`.
+2. `557585a` Fiches sous `/travaux/artefacts-2050/`, `/travaux/researchrabbit/`, `/travaux/atlas/`.
+3. Parcours et CV : rien à changer sur le site (faits déjà justes, Citelum absent). CV obsolète : brouillon fiable préparé (`_refonte/cv/CV-Leo-Matrat-brouillon-2026-11.pdf`, informations validées seulement), en attente de décision.
+4. `e2ddb48` Jeux : aucun moteur touché. Tests `PacQC/tests/run.mjs` 86/86 et `tests/preview.test.mjs` réussis ; PacQC répond au clavier sur les trois cartes et au toucher ; la Scène répond au clavier ; Artéfacts 2050 répond au clic ; retours jeux → menu → nouvel accueil. Ajout de `favicon.ico` (les jeux sans icône déclarée provoquaient une erreur 404).
+5. `a47ce30` Nettoyage :
+   - retirés : ancien thème HTML5 UP (`assets/css`, `assets/js` avec jQuery, `assets/sass`, `assets/webfonts` avec Font Awesome), `node_modules/` (module d'accessibilité déjà cassé en ligne), `package.json` ; une recherche a d'abord vérifié qu'aucune page ne les chargeait ;
+   - conservés : images et documents historiques ;
+   - ajoutés : image de partage, `robots.txt`, `sitemap.xml`, `README.md` réécrit, `DESIGN.md` à la racine (exclu de la publication).
+6. `dfe6228` Contrôles finaux :
+   - zones tactiles invisibles d'environ 44 px pour les liens pris dans le texte (écran tactile) ;
+   - au retour d'une fiche, l'aperçu bascule sans délai (plus d'image fantôme dans la transition) ; correction reportée aussi dans V2bis ;
+   - « Retour au profil » revient en arrière dans l'historique quand on vient de l'accueil : la position de lecture et l'image sont retrouvées.
+
+**Différences avec V2bis**
+- Mentions de travail retirées :
+  - « Visuel proposé, à valider » et « niveaux à confirmer » ;
+  - note « Texte à valider » d'Atlas ;
+  - lignes Rôle et Outils et paragraphe « à compléter » d'Artéfacts 2050 (non confirmés, donc retirés plutôt qu'inventés) ;
+  - note « formulation à valider » sur la question d'Artéfacts (la question est gardée).
+- Colophon : « © 2026 Léo Matrat · Code source ».
+- Vignette d'Artéfacts tirée de la version publiée (PR #4), visuellement identique.
+- Comparaison au pixel en mouvement réduit : l'accueil sur ordinateur a la même hauteur, avec 0,04 % de pixels différents, tous dans les zones des mentions retirées.
+
+**Tests** (`_refonte/outils/verifier-site.mjs`, Edge par Playwright)
+- **Pages :** 4 pages du site à 1440, 1024, 768 et 390 px, plus 6 pages de jeux et de documents. Aucune erreur JavaScript, aucun débordement.
+- **Liens et images :** 24 ressources internes, aucune cassée. GitHub répond 200 ; LinkedIn répond 999 (blocage habituel des robots).
+- **Métadonnées :** `lang`, titre, description, canonique, image de partage, un seul `h1`, pas de `noindex`, aucune mention de travail.
+- **Accessibilité :** contrastes AA, focus visible sur 30 tabulations, rien de caché en mouvement réduit.
+- **Mouvement :** captures en cours d'animation (entrée, ouverture d'une fiche, fiche suivante, retour avec position et image retrouvées).
+- **Performances :**
+  - ordinateur : LCP 176 ms, CLS 0,003 ;
+  - téléphone avec processeur ralenti quatre fois : LCP 384 ms, CLS 0 ;
+  - aucune image lente au défilement.
+- **Publication simulée :** 151 fichiers publiés sur 179 suivis ; aucun fichier sensible ni de travail publié.
+
+**Problèmes non résolus**
+- CV obsolète (décision requise, bloquant pour la mise en ligne).
+- `CV/cvLaTeX.tex` (adresse postale) toujours lisible dans le dépôt public.
+- Les 4 images du rapport R historique (`projet_session/projet2.html`) n'ont pas d'attribut `alt` (document généré, non modifié).
+- Dans le jeu PacQC et dans l'aperçu du menu des jeux, le visage du collègue est toujours présent (décision reportée, jeux non modifiés).
+- Le titre de la page de la Scène est sans accent.
+- Rien n'a été essayé sur un vrai téléphone, ni dans Safari ou Firefox.
+- Il n'y a pas de Jekyll local : les exclusions sont simulées, puis à vérifier en ligne.
 
 ## Phase 10 : finition (V2bis)
 
@@ -232,7 +285,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-0. Phase 10 : valider la V2bis finie avant la phase de remplacement du site public ; autoriser ou non le correctif de confidentialité (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
+0. Phase 11 : valider le site définitif (http://127.0.0.1:8766/) ; choisir pour le CV (a) export Canva à jour, (b) brouillon préparé ou (c) liens retirés ; retirer ou non `CV/cvLaTeX.tex` du dépôt public ; confirmer Nadeshicon et le Collectif dans la frise ; puis autoriser la publication (`PUBLICATION.md`). Restent : visage du collègue dans PacQC, accent de « Scène », intitulé officiel du poste, niveaux de langue.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -255,6 +308,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 9) : instantané `v2bis-phase8/` ; accroche A et engagements Nadeshicon et Collectif ajoutés à V2bis (accent du « É » rétabli : le masque de ligne le rognait) ; analyse du site actuel (publication Jekyll, fichiers de travail publiés dont `CV/cvLaTeX.tex`, scripts déjà en 404, `origin/main` en avance d'une vignette) ; `DESIGN.md` et `PLAN-MIGRATION.md` ; contrôles liens et Playwright.
 - 2026-11-06 (phase 9 élargie) : skills vérifiés (`find-animation-opportunities` et `animate` disponibles ; `review-animations` **absent**, revue faite avec la grille d'`animate`) ; opportunités et rejets consignés ; laboratoire avec six expériences (une composée, réalisation qui devient la page, annotations vivantes, parallaxe à trois intensités, frise et trait de lecture) ; piège corrigé (`overflow: hidden` fige `animation-timeline: view()`, d'où `overflow: clip`) ; mesures : aucune image lente (téléphone ×4), CLS ≤ 0,009, mouvement réduit et clavier conformes ; `DESIGN.md` § 11 et plan par lots.
 - 2026-11-06 (phase 10) : instantané `v2bis-phase9/` ; audit à quatre largeurs (tablette, saut au chargement, masque des lignes, aperçu) ; Citelum retiré, frise de 2020 à 2027 ; mouvement définitif dans V2bis ; polices de secours mesurées ; revue ; tests Playwright, liens et mesures ; `DESIGN.md` § 7 définitif ; plan, lot 6.
+- 2026-11-06 (phase 11) : étiquette `site-avant-refonte` ; branche `site-definitif` dans `_site-definitif/` ; lots 1 à 6 (`2960505` à `dfe6228`) ; brouillon de CV ; `PUBLICATION.md` ; vérification complète du site définitif.
 
 ## Prochaines étapes
 

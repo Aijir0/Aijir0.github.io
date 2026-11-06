@@ -52,7 +52,11 @@
     const ligne = [...document.querySelectorAll('.index a[data-apercu]')].find(a => fiche(a.href) === fiche(depuis));
     if (ligne) {
       document.querySelectorAll('.index a[data-apercu]').forEach(a => a.toggleAttribute('data-actif', a === ligne));
+      // Bascule instantanée (le délai de 280 ms du survol laisserait l'ancienne image dans l'instantané de transition).
+      const parties = document.querySelectorAll('.apercu figure, .apercu figcaption');
+      parties.forEach(el => { el.style.transition = 'none'; });
       document.querySelectorAll('.apercu figure').forEach((f, i) => f.classList.toggle('visible', i === +ligne.dataset.apercu));
+      e.viewTransition.finished.finally(() => parties.forEach(el => { el.style.transition = ''; }));
     }
     nommer(cadrePour(depuis), e.viewTransition);
   });
