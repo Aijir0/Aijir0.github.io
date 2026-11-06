@@ -102,5 +102,31 @@
     "petitesCibles": 1,
     "hauteur": 2464,
     "erreurs": []
+  },
+  "comparatif/desktop": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 3389,
+    "erreurs": []
+  },
+  "comparatif/mobile": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 5637,
+    "erreurs": []
   }
 }

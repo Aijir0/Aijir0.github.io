@@ -1,0 +1,43 @@
+{
+  "contrastes": {
+    "encre/papier": 15.32,
+    "encre-2/papier": 7.97,
+    "encre-2/papier-2": 7.23,
+    "vert/papier": 9.46,
+    "rouge/papier": 5.65,
+    "papier/encre (boutons)": 15.32,
+    "papier/vert (survol)": 9.46,
+    "saumon/encre (barre mobile)": 9.99
+  },
+  "perf v1-couverture/": {
+    "cls": 0.011,
+    "lcpMs": 260,
+    "poidsKo": 627
+  },
+  "perf v2-la-une/": {
+    "cls": 0,
+    "lcpMs": 192,
+    "poidsKo": 656
+  },
+  "perf v3-note-annotee/": {
+    "cls": 0,
+    "lcpMs": 316,
+    "poidsKo": 683
+  },
+  "viewTransitions": true,
+  "retourVersOrigine": "http://127.0.0.1:8765/_refonte/prototypes/v2-la-une/",
+  "ordreTabulation": [
+    "Aller au contenu",
+    "Léo Matrat",
+    "01L'essentiel",
+    "02Parcours",
+    "03Travaux",
+    "04Compétences"
+  ],
+  "noteRelieeAuFocus": true,
+  "tiroirMobile": {
+    "ouvertEtFocusDedans": true,
+    "echapFermeEtRendLeFocus": true,
+    "sectionAtteinteTop": 80
+  }
+}
