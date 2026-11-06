@@ -2,11 +2,11 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 8)
+## Où en est-on (6 novembre 2026, fin de phase 9)
 
-**Phase 8 terminée : contenus de V2bis vérifiés source par source, erreurs certaines corrigées, trois accroches proposées, écarts avec le CV relevés et texte de mise à jour du CV préparé. En attente des arbitrages de Léo.** Bilan : http://127.0.0.1:8765/_refonte/prototypes/phase8.html
+**Phase 9 terminée : `_refonte/DESIGN.md` (design system) et `_refonte/PLAN-MIGRATION.md` (méthode, carte des URL, publication, étapes, risques, ordre) proposés pour validation. Décisions de la phase 8 appliquées à V2bis. Rien du site définitif n'est développé.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
-Avant / après : `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
+Avant / après : `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
 Propositions de la phase 7 : http://127.0.0.1:8765/_refonte/prototypes/phase7.html (pistes des phases 5 et 6 : `pistes-visuels.html`).
 
 Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni publié.
@@ -42,6 +42,7 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | **Validé** : la correction des travaux. Deux réalisations distinctes (analyse de données ; présentation ResearchRabbit) ; veille retirée des prototypes. Vignette **A** (composition bleue) dans la grille de V2bis, vignette **B** (vraie couverture du PDF, mise en scène documentaire) en tête de la fiche ResearchRabbit : l'une donne une identité reconnaissable, l'autre montre le document réel. |
 | 2026-11-06 | **Phase 7 : V2bis est la référence visuelle définitive** ; direction « Note de breffage — publication vivante » confirmée. Pas de changement d'architecture ni de nouvelle exploration générale. |
 | 2026-11-06 | Faits confirmés par Léo (phase 8) : au Ministère depuis décembre 2022, poste actuel « Étudiant en veille, recherche et prospective » ; stage terminé, emploi étudiant en cours ; pendant le stage, contribution notamment aux travaux de programmation pluriannuelle de la recherche. Ne pas présenter le stage comme un emploi terminé ; ne pas inventer ses dates. |
+| 2026-11-06 | **Phase 8 tranchée par Léo** : accroche **A** « Éclairer les décisions publiques / par la recherche, la prospective et les données. » ; Nadeshicon (CA 2025 – 2026) et Collectif de Québec pour la paix (bénévole, 2026) **ajoutés** à la frise (côté événementiel et engagement) ; Citelum **conservé** ; le CV sera mis à jour par Léo plus tard. |
 | 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
@@ -119,6 +120,9 @@ _refonte/prototypes/phase7.html           Propositions de la phase 7 (PacQC, Sc�
 _refonte/prototypes/phase8.html           Bilan éditorial de la phase 8 (corrections, accroches, vérifications, CV)
 _refonte/prototypes/v2bis-phase7/         Instantané de V2bis à la fin de la phase 7 (avant / après)
 _refonte/cv/proposition-cv-2026-11.md     Texte proposé pour le CV (à reporter dans Canva ; CV actuel intact)
+_refonte/DESIGN.md                        Design system proposé (sera déplacé à la racine, exclu de la publication)
+_refonte/PLAN-MIGRATION.md                Plan de migration de V2bis vers le site définitif
+_refonte/prototypes/v2bis-phase8/         Instantané de V2bis à la fin de la phase 8 (avant / après)
 _refonte/prototypes/v2bis-phase6/         Instantané de V2bis à la fin de la phase 6 (avant / après)
 _refonte/outils/visuels-phase7.mjs        Générateur phase 7 (moteur de pixels, alphabet, sprites, globe, portrait)
 _refonte/outils/captures-phase7.mjs       Captures du portrait (A, B) et de l'annonce Atlas
@@ -169,7 +173,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-0. Phase 8 : accroche (A, B, C) ; Nadeshicon (CA 2025 – 2026) et Collectif de Québec pour la paix (2026), présents dans le CV, absents du site ; Citelum, présent sur le site, absent du CV ; intitulé officiel du poste et lien stage / maîtrise ; niveaux de langue, allemand, Python ; rôle et outils pour Artéfacts 2050 ; version publique du CV.
+0. Phase 9 : valider `DESIGN.md` et `PLAN-MIGRATION.md` ; autoriser ou non le correctif de confidentialité immédiat (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent de la phase 8 : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -189,9 +193,10 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (rangement) : original de la vignette ResearchRabbit déplacé dans `_refonte/sources/`, générateur mis à jour ; contrôle étendu aux images (50 liens et images, aucun cassé) ; non-publication vérifiée.
 - 2026-11-06 (phase 7) : instantané `v2bis-phase6/` ; générateur pixel `visuels-phase7.mjs` ; PacQC (3 propositions, 2 logos), avatar d'après le portrait et 3 compositions de la Scène, globe d'Atlas aux côtes réelles et fiche `atlas.html`, portrait A intégré et B simulé ; page `phase7.html` ; contrôles liens et images (74, aucun cassé) et Playwright.
 - 2026-11-06 (phase 8) : instantané `v2bis-phase7/` ; vérification des contenus source par source ; corrections factuelles dans V2bis ; trois accroches ; bilan `phase8.html` ; proposition de CV ; contrôles liens et images (80, aucun cassé) et Playwright.
+- 2026-11-06 (phase 9) : instantané `v2bis-phase8/` ; accroche A et engagements Nadeshicon et Collectif ajoutés à V2bis (accent du « É » rétabli : le masque de ligne le rognait) ; analyse du site actuel (publication Jekyll, fichiers de travail publiés dont `CV/cvLaTeX.tex`, scripts déjà en 404, `origin/main` en avance d'une vignette) ; `DESIGN.md` et `PLAN-MIGRATION.md` ; contrôles liens et Playwright.
 
 ## Prochaines étapes
 
-1. Léo compare V2bis, V2 et V1, et tranche les décisions ouvertes ; il fournit les informations manquantes.
-2. Phase suivante : finaliser la direction artistique avec Léo, puis rédiger `DESIGN.md` (tokens, typographie, composants, règles de motion) à partir de la version retenue.
-3. Puis : accueil définitif → fiches des travaux → parcours et CV → intégration de l'espace jeux → contrôle qualité → bascule du site.
+1. Léo valide `DESIGN.md` et `PLAN-MIGRATION.md` (ou les amende) et tranche les décisions ouvertes.
+2. Selon son accord : correctif de confidentialité sur `main`, puis étapes 0 à 6 du plan, une à la fois, chacune vérifiée et validée.
+3. Publication par Léo (fusion dans `main`), puis contrôle en ligne.

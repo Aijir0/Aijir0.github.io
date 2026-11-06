@@ -223,3 +223,9 @@ main > section:not(.une) { padding-top: 6.5rem; }
   .identite { grid-template-columns: 4.75rem minmax(0, 1fr); gap: .9rem; }
   .identite .fiche div { grid-template-columns: minmax(0, 1fr); gap: .1rem; padding: .55rem 0; }
 }
+
+/* ---------- Phase 9 ----------
+   Accroche validée (« Éclairer les décisions publiques… ») : le masque de révélation ne doit pas rogner
+   l'accent des capitales ; l'accroche se sépare de la fiche sans la note « à valider » qui faisait l'écart. */
+.manifeste .ligne { padding-top: .14em; margin-top: -.14em; }
+.une .manifeste { margin-bottom: 1.75rem; }
