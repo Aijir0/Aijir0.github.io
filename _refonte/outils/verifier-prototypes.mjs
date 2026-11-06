@@ -52,7 +52,8 @@ for (const nom of choix) {
       const mesures = await page.evaluate(async () => {
         await document.fonts.ready;
         const familles = ['Newsreader', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Mono'];
-        const polices = Object.fromEntries(familles.map(p => [p, document.fonts.check(`16px "${p}"`)]));
+        const chargees = new Set([...document.fonts].filter(f => f.status === 'loaded').map(f => f.family.replace(/"/g, '')));
+        const polices = Object.fromEntries(familles.map(p => [p, chargees.has(p)]));
         const d = document.documentElement;
         const debord = [...document.querySelectorAll('body *')].filter(el => el.getBoundingClientRect().right > d.clientWidth + 1 && getComputedStyle(el).position !== 'fixed').slice(0, 5).map(el => el.tagName + '.' + el.className);
         const sansAlt = [...document.querySelectorAll('img:not([alt])')].length;

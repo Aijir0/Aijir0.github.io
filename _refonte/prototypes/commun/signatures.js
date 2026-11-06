@@ -71,10 +71,13 @@ function notesReliees() {
   document.body.append(svg);
 
   function relier(appel, note) {
+    // Le fil part de la gouttière (jamais à travers le texte) puis rejoint la note.
     const a = appel.getBoundingClientRect(), n = note.getBoundingClientRect();
-    const y1 = a.bottom + scrollY + 1, y2 = n.top + scrollY + 9;
-    const x2 = n.left + scrollX - 3, xm = x2 - 14;
-    chemin.setAttribute('d', `M${a.left + scrollX} ${y1}H${xm}V${y2}H${x2}`);
+    const zone = appel.closest('.avec-marge')?.getBoundingClientRect();
+    const x1 = (zone ? zone.right + 6 : a.right + 3) + scrollX;
+    const y1 = a.top + a.height / 2 + scrollY, y2 = n.top + scrollY + 9;
+    const x2 = n.left + scrollX - 3, xm = Math.max(x1, x2 - 14);
+    chemin.setAttribute('d', `M${x1} ${y1}H${xm}V${y2}H${x2}`);
     chemin.classList.remove('trace');
     chemin.getBoundingClientRect(); // repart de zéro à chaque nouvelle note
     chemin.classList.add('trace');
@@ -107,7 +110,7 @@ function notesReliees() {
 
 /* ---------- Stylo rouge et figures tracées : une seule fois, à l'entrée dans l'écran ---------- */
 function traces() {
-  const cibles = document.querySelectorAll('.stylo, .trace-svg');
+  const cibles = document.querySelectorAll('.stylo, .trace-svg, [data-trace]');
   if (reduit.matches || !('IntersectionObserver' in window)) {
     cibles.forEach(el => el.classList.add('trace'));
     return;
@@ -142,8 +145,8 @@ function renvois() {
 
 /* ---------- Fiche : le retour ramène au prototype d'origine ---------- */
 function retour() {
-  const a = document.querySelector('[data-retour]');
-  if (a && document.referrer && new URL(document.referrer).origin === location.origin) a.href = document.referrer;
+  if (!document.referrer || new URL(document.referrer).origin !== location.origin) return;
+  document.querySelectorAll('[data-retour]').forEach(a => { a.href = document.referrer; });
 }
 
 sommaireVivant(); tiroir(); notesReliees(); traces(); niveauxDeLecture(); renvois(); retour();

@@ -5,19 +5,12 @@
       "Atkinson Hyperlegible Next": true,
       "Atkinson Hyperlegible Mono": true
     },
-    "defilementHorizontal": true,
-    "debord": [
-      "SPAN.note",
-      "SPAN.note",
-      "SPAN.a-completer",
-      "SPAN.note"
-    ],
+    "defilementHorizontal": false,
+    "debord": [],
     "sansAlt": 0,
     "petitesCibles": 1,
-    "hauteur": 5331,
-    "erreurs": [
-      "Failed to load resource: the server responded with a status of 404 (Not Found)"
-    ]
+    "hauteur": 5416,
+    "erreurs": []
   },
   "v1/mobile": {
     "polices": {
@@ -26,12 +19,88 @@
       "Atkinson Hyperlegible Mono": true
     },
     "defilementHorizontal": false,
-    "debord": [
-      "SPAN.s"
-    ],
+    "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 7836,
+    "hauteur": 7878,
+    "erreurs": []
+  },
+  "v2/desktop": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 2,
+    "hauteur": 4363,
+    "erreurs": []
+  },
+  "v2/mobile": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 2,
+    "hauteur": 6945,
+    "erreurs": []
+  },
+  "v3/desktop": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 5,
+    "hauteur": 4792,
+    "erreurs": []
+  },
+  "v3/mobile": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 4,
+    "hauteur": 7156,
+    "erreurs": []
+  },
+  "fiche/desktop": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 1,
+    "hauteur": 2192,
+    "erreurs": []
+  },
+  "fiche/mobile": {
+    "polices": {
+      "Newsreader": true,
+      "Atkinson Hyperlegible Next": true,
+      "Atkinson Hyperlegible Mono": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 1,
+    "hauteur": 2464,
     "erreurs": []
   }
 }

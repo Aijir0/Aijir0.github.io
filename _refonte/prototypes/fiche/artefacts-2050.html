@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artéfacts 2050 — Fiche de réalisation</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <style>
+    /* Fiche de réalisation commune aux trois variantes : la structure d'une note (résumé, question, démarche, résultat, accès). */
+    .fiche-page { max-width: 64rem; margin: 0 auto; padding: 0 var(--gouttiere) 2rem; }
+    .haut { display: flex; justify-content: space-between; align-items: baseline; padding: 1.5rem 0 1rem; border-bottom: 1px solid var(--encre); font: 600 .95rem var(--sans); }
+    .haut a { text-decoration: none; }
+    .titre-fiche { padding: 3rem 0 2rem; }
+    .titre-fiche h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; letter-spacing: -.035em; margin: .6rem 0 1rem; }
+    .hero .cadre { view-transition-name: fig-artefacts; }
+    .signaletique { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--encre); border-bottom: 1px solid var(--filet); margin: 2rem 0 0; }
+    .signaletique div { padding: 1rem 1rem 1rem 0; }
+    .signaletique div + div { padding-left: 1rem; border-left: 1px solid var(--filet); }
+    .signaletique dd { margin: .35rem 0 0; font: 400 .98rem/1.45 var(--sans); }
+    .fiche-page section { padding-top: 3.5rem; }
+    .fiche-page h2 { font-size: 1.9rem; margin-bottom: 1rem; }
+    .notes-prospective { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+    .notes-prospective li { counter-increment: n; display: grid; grid-template-columns: 3rem 1fr; padding: .8rem 0; border-top: 1px solid var(--filet); }
+    .notes-prospective li::before { content: "N° " counter(n); font: 500 .78rem/2 var(--mono); color: var(--vert); }
+    .acces { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+    @media (max-width: 760px) {
+      .signaletique { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signaletique div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .signaletique div:nth-child(n+3) { border-top: 1px solid var(--filet); }
+      .acces .bouton { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="fiche-page">
+  <div class="haut"><a href="../" data-retour>← Retour</a><span class="meta">Fiche de réalisation · Dossier 01</span></div>
+  <main id="contenu">
+    <header class="titre-fiche">
+      <p class="meta">Jeu de prospective · 2026</p>
+      <h1>Artéfacts 2050</h1>
+      <p class="chapo">Un jeu d'effet papillon sur l'éducation au Québec : choisir une note de prospective, prendre six décisions, découvrir en moins de cinq minutes l'école qu'elles dessinent.</p>
+    </header>
+    <figure class="hero">
+      <div class="cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt="Écran d'accueil d'Artéfacts 2050 : un papillon sur une carte datée 2026 et une seconde carte datée 2050."></div>
+      <figcaption><b>Fig. 1</b>Écran d'accueil du jeu.</figcaption>
+    </figure>
+    <dl class="signaletique">
+      <div><dt class="meta">Type</dt><dd>Jeu sérieux de prospective</dd></div>
+      <div><dt class="meta">Format</dt><dd>Navigateur, moins de cinq minutes</dd></div>
+      <div><dt class="meta">Rôle</dt><dd><span class="a-completer">conception, écriture, développement ?</span></dd></div>
+      <div><dt class="meta">Outils</dt><dd><span class="a-completer">technologies utilisées</span></dd></div>
+    </dl>
+
+    <section class="avec-marge" aria-labelledby="t-question">
+      <h2 id="t-question">La question</h2>
+      <p><span class="a-valider">Comment faire sentir, en quelques minutes, que de petites décisions d'aujourd'hui façonnent l'école de 2050</span><button class="appel" type="button" aria-controls="f1" aria-expanded="false" aria-label="Note 1">1</button><span class="note" id="f1" role="note"><span class="num-note">1</span>Formulation proposée à partir du sous-titre du jeu ; à valider.</span> ? Le jeu emprunte la logique de l'effet papillon : chaque choix déplace la trajectoire.</p>
+    </section>
+
+    <section aria-labelledby="t-notes">
+      <h2 id="t-notes">Les cinq notes de prospective</h2>
+      <ol class="notes-prospective">
+        <li>Apprentissage, IA générative et autonomie intellectuelle</li>
+        <li>Adaptation climatique et communautés éducatives</li>
+        <li>Mobilité sociale, équité et contrat éducatif</li>
+        <li>Formation continue, transitions et nouvelles trajectoires de vie</li>
+        <li>Citoyenneté, confiance et cohésion sociale</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="t-demarche">
+      <h2 id="t-demarche">Démarche et résultat</h2>
+      <p><span class="a-completer">sources mobilisées, étapes de conception, public visé, retours des joueurs</span></p>
+    </section>
+
+    <section aria-labelledby="t-acces">
+      <h2 id="t-acces">Accès</h2>
+      <p class="acces"><a class="bouton" href="../../../artefacts-2050/">Jouer à Artéfacts 2050 <span aria-hidden="true">↗</span></a><a class="lien" href="../" data-retour>Revenir au profil <span class="fleche" aria-hidden="true">→</span></a></p>
+    </section>
+  </main>
+  <footer class="colophon"><p>Site personnel : il n'engage ni ne représente aucune organisation. Prototype — fiche commune aux trois variantes.</p></footer>
+</div>
+<script src="../commun/signatures.js" defer></script>
+</body>
+</html>

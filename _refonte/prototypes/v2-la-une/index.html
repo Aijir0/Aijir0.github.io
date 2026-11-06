@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Léo Matrat — V2 La Une</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <style>
+    /* ---- V2 « La Une » : la une d'une revue, grille à colonnes et filets verticaux ---- */
+    .page { max-width: var(--page); margin: 0 auto; padding-inline: var(--gouttiere); }
+    .bandeau { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0 .9rem; border-bottom: 1px solid var(--encre); }
+    .bandeau .liens-bandeau { display: flex; gap: 1.5rem; }
+    .bandeau a { font: 600 .9rem var(--sans); white-space: nowrap; }
+    .titre-journal { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 1.2rem 0 1rem; border-bottom: 4px double var(--encre); }
+    .titre-journal h1 { font-size: clamp(3.6rem, 10.5vw, 10rem); font-weight: 500; letter-spacing: -.045em; line-height: .86; }
+    .titre-journal .devise { margin: 0; max-width: 19rem; text-align: right; font: italic 400 1.2rem/1.35 var(--serif); color: var(--encre-2); padding-bottom: .5rem; }
+    .manchette { position: sticky; top: 0; z-index: 10; background: var(--papier); border-bottom: 1px solid var(--filet); }
+    .manchette .sommaire ol { display: flex; gap: 2.25rem; }
+    .manchette .sommaire a { display: inline-flex; gap: .45rem; padding: .85rem 0; }
+    .manchette .sommaire .jauge { left: 0; bottom: .45rem; }
+
+    .une { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr); padding: 1.75rem 0 3rem; }
+    .une > * { padding: 0 1.75rem; }
+    .une > :first-child { padding-left: 0; }
+    .une > :last-child { padding-right: 0; }
+    .une > * + * { border-left: 1px solid var(--filet); }
+    .breve { padding-bottom: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--filet); }
+    .breve:last-child { border-bottom: 0; }
+    .breve h3 { font-size: 1.3rem; font-weight: 500; margin: .45rem 0 .5rem; }
+    .breve p { font-size: 1rem; line-height: 1.5; color: var(--encre-2); margin: 0; }
+    .a-la-une .rubrique { display: flex; justify-content: space-between; margin: 1rem 0 .6rem; }
+    .a-la-une h2 { font-size: clamp(1.9rem, 2.8vw, 2.75rem); font-weight: 450; margin-bottom: .75rem; }
+    .a-la-une p.chapo { font-size: 1.15rem; margin-bottom: .9rem; }
+    .a-la-une .liens { display: flex; gap: 1.5rem; }
+    .a-la-une .cadre { view-transition-name: fig-artefacts; }
+    .profil figure { max-width: 13rem; }
+    .profil .accroche { font: italic 400 1.35rem/1.35 var(--serif); margin: 1.2rem 0 .6rem; }
+    .profil .bouton { margin-top: 1.25rem; }
+
+    main > section { padding: 5rem 0 1rem; }
+
+    /* Index des travaux avec aperçu */
+    .index { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; }
+    .index ol { list-style: none; margin: 0; padding: 0; counter-reset: t; }
+    .index li a { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; gap: .3rem 1rem; align-items: baseline; padding: 1.15rem 0; border-top: 1px solid var(--filet); text-decoration: none; }
+    .index li:last-child a { border-bottom: 1px solid var(--filet); }
+    .index .t-num { font: 500 .8rem var(--mono); color: var(--encre-2); }
+    .index .t-titre { font: 450 clamp(1.4rem, 2.2vw, 1.9rem)/1.15 var(--serif); transition: color 150ms ease, transform 220ms var(--ease-out); }
+    .index .t-annee { font: 500 .8rem var(--mono); color: var(--encre-2); }
+    .index .t-type { grid-column: 2 / -1; font: 400 .95rem var(--sans); color: var(--encre-2); }
+    .index li a[data-actif] .t-titre { color: var(--vert); transform: translateX(.4rem); }
+    .index li a[data-actif] .t-num { color: var(--rouge); }
+    .apercu { position: sticky; top: 5rem; align-self: start; display: grid; }
+    .apercu figure { grid-area: 1 / 1; opacity: 0; transform: scale(.985); transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
+    .apercu figure.visible { opacity: 1; transform: none; }
+    .apercu .t-vignette { display: none; }
+
+    /* Figure annotée */
+    .analyse .entete-analyse { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; margin-bottom: 2rem; }
+    .figure-annotee { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 3rem; align-items: start; }
+    .graphique { position: relative; }
+    .graphique svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .graphique svg path { fill: none; stroke: var(--rouge); stroke-width: 4; stroke-linecap: round; }
+    .graphique .appel { position: absolute; transform: translate(-50%, -50%); vertical-align: baseline; font-size: .8rem; width: 1.75rem; height: 1.75rem; border-radius: 50%; border: 1.5px solid var(--rouge); background: var(--papier); padding: 0; }
+    .graphique .appel.actif { background: var(--rouge); }
+    .lecture { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+    .lecture .note { font-size: .95rem; }
+    .lecture .note strong { display: block; font: 500 1.15rem/1.3 var(--serif); color: var(--encre); margin-bottom: .2rem; }
+
+    /* Frise à l'échelle */
+    .frise { list-style: none; margin: 0; padding: 0; --axe: 9; }
+    .frise li { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 1.5rem; align-items: center; padding: .75rem 0; border-top: 1px solid var(--filet); }
+    .frise h3 { font-size: 1.15rem; font-weight: 500; }
+    .frise .ou { font: 400 .88rem var(--sans); color: var(--encre-2); }
+    .piste { position: relative; height: 1.6rem; background: repeating-linear-gradient(to right, var(--filet) 0 1px, transparent 1px calc(100% / 9)); }
+    .barre { position: absolute; top: 50%; height: 8px; margin-top: -4px; left: calc((var(--d) - 2018) / var(--axe) * 100%); width: calc((var(--f) - var(--d)) / var(--axe) * 100%); background: var(--vert); transform-origin: 0 50%; transition: transform 900ms var(--ease-in-out); transition-delay: calc(var(--i, 0) * 110ms); }
+    .barre.en-cours::after { content: ""; position: absolute; right: -9px; top: -3px; border: 7px solid transparent; border-left: 9px solid var(--vert); border-right: 0; }
+    .barre.incertaine { background: repeating-linear-gradient(90deg, var(--vert) 0 7px, transparent 7px 11px); }
+    .barre.incertaine + .barre { border-radius: 0; }
+    .js .frise:not(.trace) .barre { transform: scaleX(0); }
+    .axe { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 1.5rem; border-top: 1px solid var(--encre); padding-top: .5rem; }
+    .axe ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(9, 1fr); font: 500 .75rem var(--mono); color: var(--encre-2); }
+    .legende-frise { font: 400 .85rem var(--sans); color: var(--encre-2); margin-top: 1rem; }
+
+    .rubriques { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .rubriques > div { padding: 0 1.75rem; }
+    .rubriques > div:first-child { padding-left: 0; }
+    .rubriques > div + div { border-left: 1px solid var(--filet); }
+    .rubriques h3 { font-size: 1.6rem; font-weight: 450; margin: .5rem 0 1rem; }
+    .rubriques ul { margin: 0; padding: 0; list-style: none; font: 400 1rem/1.5 var(--sans); }
+    .rubriques li { padding: .55rem 0; border-top: 1px solid var(--filet); }
+    .langues { margin-top: 2rem; font: 400 1rem var(--sans); }
+
+    .contact { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: end; }
+    .contact .courriel { display: block; font: 400 clamp(1.8rem, 4vw, 3.8rem)/1.1 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; text-decoration: none; }
+    .contact .courriel span { background: linear-gradient(var(--rouge), var(--rouge)) 0 100% / 0 2px no-repeat; transition: background-size 350ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) { .contact .courriel:hover span { background-size: 100% 2px; } }
+    .contact .autres { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; }
+
+    @media (max-width: 1099.98px) {
+      .manchette { display: none; }
+      .titre-journal { flex-direction: column; align-items: start; gap: .75rem; }
+      .titre-journal .devise { text-align: left; max-width: none; font-size: 1.1rem; }
+      .une { grid-template-columns: minmax(0, 1fr); }
+      .une > * { padding: 0 !important; border-left: 0 !important; }
+      .une > .a-la-une { order: -1; padding-bottom: 2rem !important; border-bottom: 1px solid var(--encre) !important; margin-bottom: 1.5rem; }
+      .une > .profil { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 0 1.25rem; align-items: start; padding-bottom: 1.5rem !important; border-bottom: 1px solid var(--filet) !important; margin-bottom: 1.5rem; }
+      .profil figcaption { display: none; }
+      .profil .accroche { margin-top: 0; font-size: 1.2rem; }
+      .profil .meta, .profil .bouton { grid-column: 2; }
+      .index, .analyse .entete-analyse, .figure-annotee, .contact { grid-template-columns: minmax(0, 1fr); }
+      .apercu { display: none; }
+      .apercu .t-vignette { display: block; }
+      .index li a { grid-template-columns: 2rem minmax(0, 1fr) auto; }
+      .index li a .t-vignette { display: block; grid-column: 2 / -1; margin-top: .6rem; }
+      .rubriques { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+      .rubriques > div { padding: 0 !important; border: 0 !important; }
+      .frise li, .axe { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+      .axe > span { display: none; }
+    }
+    @media (max-width: 640px) {
+      .bandeau .num-edition, .bandeau .date-edition { display: none; }
+      .titre-journal h1 { font-size: 18vw; }
+      .axe ol li:nth-child(even) { visibility: hidden; }
+      .contact .bouton { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<!-- Prototype V2 « La Une » — contenus réels issus du site et du CV ; emplacements provisoires signalés « À compléter ». -->
+<div class="page">
+  <header>
+    <div class="bandeau meta">
+      <span><span class="num-edition">Vol. 1 · N° 1 · </span>Québec<span class="date-edition">, 6 novembre 2026</span></span>
+      <span class="liens-bandeau"><a class="lien" href="../../../CV/CVLeoM.pdf" download>CV ↓</a><a class="lien" href="#contact">Me joindre</a></span>
+    </div>
+    <div class="titre-journal">
+      <h1 class="lignes"><span class="ligne"><span>Léo Matrat</span></span></h1>
+      <p class="devise apparait" style="--d:350ms">Science politique, politiques publiques, données et prospective.</p>
+    </div>
+  </header>
+  <div class="manchette">
+    <nav class="sommaire" aria-label="Sommaire">
+      <ol>
+        <li><a href="#une"><span class="num">01</span><span class="titre">À la une</span><span class="jauge"></span></a></li>
+        <li><a href="#travaux"><span class="num">02</span><span class="titre">Travaux</span><span class="jauge"></span></a></li>
+        <li><a href="#analyse"><span class="num">03</span><span class="titre">Analyse</span><span class="jauge"></span></a></li>
+        <li><a href="#parcours"><span class="num">04</span><span class="titre">Parcours</span><span class="jauge"></span></a></li>
+        <li><a href="#competences"><span class="num">05</span><span class="titre">Compétences</span><span class="jauge"></span></a></li>
+        <li><a href="#contact"><span class="num">06</span><span class="titre">Me joindre</span><span class="jauge"></span></a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="contenu">
+    <section class="une" id="une" aria-label="À la une" style="padding-top:1.75rem">
+      <div class="breves apparait" style="--d:500ms">
+        <article class="breve">
+          <p class="meta">En poste</p>
+          <h3>Au ministère de l'Éducation du Québec depuis 2022</h3>
+          <p>Veille et recherche internationale en éducation ; rédaction de <span class="stylo" style="--delai:900ms">notes informationnelles pour les autorités</span>.</p>
+        </article>
+        <article class="breve">
+          <p class="meta">En formation</p>
+          <h3>Maîtrise en science politique avec stage</h3>
+          <p>Université Laval, depuis 2024. Baccalauréat obtenu à l'hiver 2024.</p>
+        </article>
+        <article class="breve">
+          <p class="meta">Langues</p>
+          <p>Français, anglais, espagnol.</p>
+        </article>
+      </div>
+      <article class="a-la-une apparait" style="--d:300ms">
+        <a href="../fiche/artefacts-2050.html" tabindex="-1" aria-hidden="true"><div class="cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div></a>
+        <p class="rubrique meta"><span>À la une · Jeu de prospective</span><span class="num">2026</span></p>
+        <h2>Artéfacts 2050 : penser l'école québécoise de demain en six décisions</h2>
+        <p class="chapo">Cinq notes de prospective, un effet papillon, moins de cinq minutes de jeu.</p>
+        <p class="liens"><a class="lien" href="../fiche/artefacts-2050.html">Lire la fiche <span class="fleche" aria-hidden="true">→</span></a><a class="lien" href="../../../artefacts-2050/">Jouer <span class="fleche" aria-hidden="true">↗</span></a></p>
+      </article>
+      <aside class="profil apparait" style="--d:650ms" aria-label="Profil">
+        <figure><div class="cadre"><img src="../../../images/port2.jpg" width="667" height="667" alt="Portrait de Léo Matrat"></div><figcaption><b>Fig. 1</b>L'auteur, Québec.</figcaption></figure>
+        <p class="accroche">Comprendre l'action publique, et la rendre lisible.</p>
+        <p class="meta"><span class="etiquette-proto">Accroche proposée · à valider</span></p>
+        <a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
+      </aside>
+    </section>
+
+    <section id="travaux" aria-labelledby="t-travaux">
+      <div class="titre-section"><span class="paragraphe">§ 02</span><h2 id="t-travaux">Index des travaux</h2></div>
+      <div class="index">
+        <ol>
+          <li><a href="../fiche/artefacts-2050.html" data-apercu="0" data-actif><span class="t-num">01</span><span class="t-titre">Artéfacts 2050</span><span class="t-annee">2026</span><span class="t-type">Jeu de prospective sur l'éducation au Québec</span><span class="t-vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../PacQC/" data-apercu="1"><span class="t-num">02</span><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web : trois cartes, tracés validés automatiquement</span><span class="t-vignette cadre"><img src="../medias/pacqc.jpg" width="1000" height="625" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../jeu/" data-apercu="2"><span class="t-num">03</span><span class="t-titre">Scene Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette cadre"><img src="../medias/pixel-art.jpg" width="1200" height="675" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../projet_annexe/semantic_scholar_search.py" data-apercu="3"><span class="t-num">04</span><span class="t-titre">Veille bibliographique automatisée</span><span class="t-annee">2025</span><span class="t-type">Script Python : API Semantic Scholar → CSV et BibTeX</span></a></li>
+          <li><a href="#analyse" data-apercu="4"><span class="t-num">05</span><span class="t-titre">Dépenses sociales et inégalités</span><span class="t-annee">2024</span><span class="t-type">Analyse de données en R · voir § 03</span></a></li>
+        </ol>
+        <div class="apercu" aria-hidden="true">
+          <figure class="visible"><div class="cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div><figcaption><b>Fig. 2</b>Artéfacts 2050, écran d'accueil.</figcaption></figure>
+          <figure><div class="cadre"><img src="../medias/pacqc.jpg" width="1000" height="625" alt="" loading="lazy"></div><figcaption><b>Fig. 3</b>PacQC, carte « La ronde du bureau ».</figcaption></figure>
+          <figure><div class="cadre"><img src="../medias/pixel-art.jpg" width="1200" height="675" alt="" loading="lazy"></div><figcaption><b>Fig. 4</b>Scene Pixel Art, vue d'ensemble.</figcaption></figure>
+          <figure><pre class="code"><span class="c"># Veille bibliographique — Semantic Scholar</span>
+QUERY  = <span class="s">"congruence"</span>
+KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
+  <span class="s">"policy"</span>, <span class="s">"opinion"</span>, <span class="s">"government"</span>]
+<span class="c"># → congruence_articles.csv</span>
+<span class="c"># → congruence_articles.bib</span></pre><figcaption><b>Fig. 5</b>Extrait du script de veille.</figcaption></figure>
+          <figure><div class="cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div><figcaption><b>Fig. 6</b>Dépenses sociales et pauvreté, OCDE.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="analyse" class="analyse" aria-labelledby="t-analyse">
+      <div class="titre-section"><span class="paragraphe">§ 03</span><h2 id="t-analyse">Analyse : dépenses sociales et pauvreté</h2></div>
+      <div class="entete-analyse">
+        <p class="chapo">Les dépenses sociales réduisent-elles les inégalités dans les pays de l'OCDE ? Projet de session du cours d'outils numériques POL-6078 : données de l'OCDE depuis 2010, régression linéaire multiple en R.</p>
+        <p class="ui" style="align-self:end"><a class="lien" href="../../../projet_session/projet2.html">Lire le rapport <span class="fleche" aria-hidden="true">→</span></a>&nbsp;&nbsp;&nbsp;<a class="lien" href="../../../presentation/rabb2.pdf">Présentation (PDF)</a></p>
+      </div>
+      <div class="figure-annotee">
+        <figure>
+          <div class="graphique">
+            <div class="cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="Nuage de points : taux de pauvreté après transferts en fonction des dépenses sociales en pourcentage du PIB, pays de l'OCDE ; la droite de régression descend."></div>
+            <svg class="trace-svg" viewBox="0 0 1041 546" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M89 236L997 360"/></svg>
+            <button class="appel" type="button" style="left:16%;top:22%" aria-controls="l1" aria-expanded="false" aria-label="Lecture 1">1</button>
+            <button class="appel" type="button" style="left:49%;top:47%" aria-controls="l2" aria-expanded="false" aria-label="Lecture 2">2</button>
+            <button class="appel" type="button" style="left:86%;top:15%" aria-controls="l3" aria-expanded="false" aria-label="Lecture 3">3</button>
+          </div>
+          <figcaption><b>Fig. 6</b>Taux de pauvreté après transferts selon les dépenses sociales (% du PIB), pays de l'OCDE depuis 2010. Graphique d'origine en R ; droite de régression repassée en rouge.</figcaption>
+        </figure>
+        <ol class="lecture" aria-label="Lecture du graphique">
+          <li class="note fixe" id="l1"><span class="num-note">1</span><strong>Peu de dépenses, plus de pauvreté</strong>Les pays qui consacrent 10 à 15 % du PIB aux dépenses sociales affichent les taux les plus élevés.</li>
+          <li class="note fixe" id="l2"><span class="num-note">2</span><strong>Une pente négative</strong>La tendance générale va dans le sens de l'hypothèse : plus de dépenses, moins de pauvreté. C'est une corrélation, pas une preuve de causalité.</li>
+          <li class="note fixe" id="l3"><span class="num-note">3</span><strong>Des exceptions</strong>Quelques observations combinent dépenses élevées et pauvreté élevée : d'où l'ajout du chômage et du PIB par habitant au modèle.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="parcours" aria-labelledby="t-parcours">
+      <div class="titre-section"><span class="paragraphe">§ 04</span><h2 id="t-parcours">Parcours, à l'échelle</h2></div>
+      <ol class="frise" data-trace>
+        <li><div><h3>Étudiant et conseiller</h3><p class="ou">Ministère de l'Éducation du Québec · depuis déc. 2022</p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
+        <li><div><h3>Maîtrise en science politique avec stage</h3><p class="ou">Université Laval · depuis 2024</p></div><div class="piste"><span class="barre en-cours" style="--d:2024.3;--f:2026.85;--i:1"></span></div></li>
+        <li><div><h3>Secrétaire</h3><p class="ou">Club Animé Québec · depuis sept. 2024</p></div><div class="piste"><span class="barre en-cours" style="--d:2024.67;--f:2026.85;--i:2"></span></div></li>
+        <li><div><h3>Baccalauréat en science politique</h3><p class="ou">Université Laval · obtenu à l'hiver 2024 · <span class="a-completer">année de début</span></p></div><div class="piste"><span class="barre incertaine" style="--d:2020.7;--f:2021.7;--i:3"></span><span class="barre" style="--d:2021.7;--f:2024.3;--i:3"></span></div></li>
+        <li><div><h3>Stage en ressources humaines</h3><p class="ou">Citelum, Paris · 2018 – 2019</p></div><div class="piste"><span class="barre" style="--d:2018.1;--f:2019.9;--i:4"></span></div></li>
+      </ol>
+      <div class="axe" aria-hidden="true"><span></span><ol><li>2018</li><li>2019</li><li>2020</li><li>2021</li><li>2022</li><li>2023</li><li>2024</li><li>2025</li><li>2026</li></ol></div>
+      <p class="legende-frise">Les flèches indiquent une activité en cours ; le pointillé, une date de début à confirmer.</p>
+    </section>
+
+    <section id="competences" aria-labelledby="t-competences">
+      <div class="titre-section"><span class="paragraphe">§ 05</span><h2 id="t-competences">Compétences</h2></div>
+      <div class="rubriques">
+        <div><p class="meta">Rubrique 1</p><h3>Veiller et rédiger</h3><ul><li>Veille internationale en éducation</li><li>Notes informationnelles pour les autorités</li><li>Revue de littérature outillée : Elicit, NotebookLM</li></ul></div>
+        <div><p class="meta">Rubrique 2</p><h3>Analyser</h3><ul><li>R : tidyverse, ggplot2</li><li>Régression linéaire multiple</li><li>Données ouvertes de l'OCDE</li></ul></div>
+        <div><p class="meta">Rubrique 3</p><h3>Concevoir</h3><ul><li>Jeux sérieux de prospective</li><li>HTML, CSS, JavaScript, Python</li><li>Suite Office, Canva, Genially</li></ul></div>
+      </div>
+      <p class="langues"><span class="meta">Langues ·</span> français ; anglais (avancé) ; espagnol (intermédiaire) ; allemand <span class="a-completer">niveau</span></p>
+    </section>
+
+    <section id="contact" aria-labelledby="t-contact">
+      <div class="titre-section"><span class="paragraphe">§ 06</span><h2 id="t-contact">Me joindre</h2></div>
+      <div class="contact">
+        <div><p class="chapo">Poste, stage, collaboration ou simple conversation :</p><a class="courriel" href="mailto:leo.matrat.pro@gmail.com"><span>leo.matrat.pro@gmail.com</span></a></div>
+        <p class="autres"><a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a><a class="lien" href="https://www.linkedin.com/in/l%C3%A9o-matrat/">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a><a class="lien" href="https://github.com/Aijir0">GitHub <span class="fleche" aria-hidden="true">↗</span></a></p>
+      </div>
+    </section>
+
+    <footer class="colophon">
+      <div class="grille">
+        <p><strong>Colophon.</strong> Composé en Newsreader et Atkinson Hyperlegible Next. Site personnel : il n'engage ni ne représente aucune organisation.</p>
+        <a class="hors-serie" href="#" aria-disabled="true"><span class="meta">Hors-série n° 1 · À paraître</span><br><strong>Atlas</strong> — un globe des lieux visités, en photographies et en récits.</a>
+        <p>Prototype V2 « La Une ».<br><a href="../">← Comparer les trois variantes</a></p>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<div class="barre-lecture">
+  <button type="button" data-ouvre-tiroir aria-haspopup="dialog"><span data-section-courante><span class="num">§</span> Sommaire</span></button>
+  <a href="../../../CV/CVLeoM.pdf" download>CV ↓</a>
+</div>
+<dialog class="tiroir" aria-label="Sommaire">
+  <div class="entete"><span class="meta">Sommaire</span><button class="fermer" type="button">Fermer</button></div>
+  <nav class="sommaire" aria-label="Sommaire (mobile)">
+    <ol>
+      <li><a href="#une"><span class="num">01</span><span class="titre">À la une</span></a></li>
+      <li><a href="#travaux"><span class="num">02</span><span class="titre">Travaux</span></a></li>
+      <li><a href="#analyse"><span class="num">03</span><span class="titre">Analyse</span></a></li>
+      <li><a href="#parcours"><span class="num">04</span><span class="titre">Parcours</span></a></li>
+      <li><a href="#competences"><span class="num">05</span><span class="titre">Compétences</span></a></li>
+      <li><a href="#contact"><span class="num">06</span><span class="titre">Me joindre</span></a></li>
+    </ol>
+  </nav>
+</dialog>
+<script src="../commun/signatures.js" defer></script>
+<script>
+  // Index : l'aperçu suit la ligne survolée ou ciblée au clavier (retour d'action, ~dizaines/jour : 220 ms).
+  const lignes = document.querySelectorAll('.index [data-apercu]');
+  const figures = document.querySelectorAll('.apercu figure');
+  lignes.forEach(a => ['pointerenter', 'focus'].forEach(ev => a.addEventListener(ev, () => {
+    lignes.forEach(x => x.toggleAttribute('data-actif', x === a));
+    figures.forEach((f, i) => f.classList.toggle('visible', i === +a.dataset.apercu));
+  })));
+</script>
+</body>
+</html>

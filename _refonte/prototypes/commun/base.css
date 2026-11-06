@@ -261,3 +261,7 @@ h2.eclaire { animation: eclaire 1400ms ease-out; }
 /* Document imprimé : un graphique d'origine (ggplot) fondu dans le papier */
 .cadre.document { background: var(--papier); }
 .cadre.document img { filter: grayscale(1) contrast(1.08); mix-blend-mode: multiply; }
+
+/* Note toujours visible (lecture d'une figure) : reliée mais jamais repliée */
+.note.fixe { display: block !important; float: none !important; width: auto !important; margin: 0 !important; background: none; }
+@media (max-width: 640px) { .code { white-space: pre-wrap; overflow-wrap: anywhere; } }
