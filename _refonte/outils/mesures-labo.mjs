@@ -6,12 +6,15 @@ import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 const { chromium } = await import(pathToFileURL(path.join(process.env.PW, 'index.mjs')).href);
 const B = 'http://127.0.0.1:8765/_refonte/prototypes/';
-const CAS = [
+// « node mesures-labo.mjs v2bis » compare V2bis à son instantané de fin de phase 9 (phase 10).
+const CAS_V2BIS = [['V2bis fin phase 9', 'v2bis-phase9/'], ['V2bis phase 10', 'v2bis/']];
+const CAS_LABO = [
   ['V2bis', 'v2bis/'],
   ['Labo, parallaxe discrète', 'v2bis-labo/?compo=1&parallaxe=1&transitions=1&annotations=1&frise=1&manchette=1'],
   ['Labo, parallaxe marquée', 'v2bis-labo/?compo=1&parallaxe=2&transitions=1&annotations=1&frise=1&manchette=1'],
   ['Labo, parallaxe expressive', 'v2bis-labo/?compo=1&parallaxe=3&transitions=1&annotations=1&frise=1&manchette=1'],
 ];
+const CAS = process.argv[2] === 'v2bis' ? CAS_V2BIS : CAS_LABO;
 const b = await chromium.launch({ channel: 'msedge' });
 const resultats = [];
 
@@ -51,7 +54,7 @@ console.table(resultats);
 // Mouvement réduit : tout doit être visible sans attendre, sans composition ni parallaxe.
 {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
-  const p = await ctx.newPage(); await p.goto(B + CAS[2][1], { waitUntil: 'networkidle' }); await p.waitForTimeout(400);
+  const p = await ctx.newPage(); await p.goto(B + CAS[CAS.length - 1][1], { waitUntil: 'networkidle' }); await p.waitForTimeout(400);
   const r = await p.evaluate(() => {
     const caches = [...document.querySelectorAll('.une *, .tete *')].filter(e => { const s = getComputedStyle(e); return e.getClientRects().length && (parseFloat(s.opacity) < 0.99); }).map(e => e.className || e.tagName);
     const i = document.querySelector('.a-la-une .cadre img');
@@ -62,14 +65,14 @@ console.table(resultats);
 // Clavier : le focus sur un appel active son cercle ; le focus sur une ligne de l'index montre son aperçu.
 {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
-  const p = await ctx.newPage(); await p.goto(B + CAS[2][1], { waitUntil: 'networkidle' }); await p.keyboard.press('Escape');
+  const p = await ctx.newPage(); await p.goto(B + CAS[CAS.length - 1][1], { waitUntil: 'networkidle' }); await p.keyboard.press('Escape');
   await p.focus('.graphique .appel >> nth=0'); await p.waitForTimeout(300);
-  const cercle = await p.evaluate(() => document.querySelector('.labo-annot path')?.classList.contains('actif'));
+  const cercle = await p.evaluate(() => document.querySelector('.labo-annot path, .cercles path')?.classList.contains('actif'));
   await p.focus('a[data-apercu="2"]'); await p.waitForTimeout(300);
   const apercu = await p.evaluate(() => [...document.querySelectorAll('.apercu figure')].findIndex(f => f.classList.contains('visible')));
   console.log('Clavier', { cercleActifAuFocus: cercle, apercuSuitLeFocus: apercu === 2 }); resultats.push({ clavier: { cercle, apercu } }); await ctx.close();
 }
 await b.close();
-const sortie = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../prototypes/labo/mesures.json');
+const sortie = path.resolve(path.dirname(fileURLToPath(import.meta.url)), process.argv[2] === 'v2bis' ? '../prototypes/captures/mesures-v2bis.json' : '../prototypes/labo/mesures.json');
 fs.mkdirSync(path.dirname(sortie), { recursive: true });
 fs.writeFileSync(sortie, JSON.stringify({ date: new Date().toISOString(), resultats }, null, 1));

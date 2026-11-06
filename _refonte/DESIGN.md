@@ -3,7 +3,7 @@
 Référence de design du site professionnel de Léo Matrat (leomatrat.com).
 Statut : **proposé pour validation (phase 9, 6 novembre 2026)**. Source : prototype validé `_refonte/prototypes/v2bis/` (phases 5 à 9).
 
-**Lecture.** Les §§ 1 à 10 documentent l'existant **validé** (marqué « Validé »). Le § 11 regroupe les **propositions expérimentales** du laboratoire de mouvement (marquées « Expérimental ») : elles ne s'appliquent pas tant que Léo ne les a pas retenues.
+**Lecture.** Les §§ 1 à 10 documentent l'existant **validé**. Depuis la phase 10, le mouvement (§ 7) est définitif : les propositions du laboratoire retenues y sont intégrées, et le § 11 ne garde que ce qui n'a pas été retenu.
 Emplacement : ce fichier sera déplacé à la racine du dépôt au lot 0 de la migration, puis exclu de la publication (voir `_refonte/PLAN-MIGRATION.md`).
 
 Ce document décrit ce qui est **validé**. Pour une règle qui n'y figure pas, imiter le composant validé le plus proche plutôt qu'en inventer un nouveau.
@@ -56,6 +56,7 @@ Règles :
 - **Pas de chasse fixe**, sauf pour un vrai extrait de code (police système `ui-monospace`).
 - **Les chiffres s'écrivent en Newsreader** (`lining-nums tabular-nums` pour les dates alignées). Le zéro barré d'Atkinson donnerait aux dates un air de terminal.
 - Titres : `text-wrap: balance`. Paragraphes : `text-wrap: pretty`.
+- **Polices de secours aux métriques mesurées** : `"Newsreader repli"` (Georgia, romain et italique, avec des facteurs distincts) et `"Atkinson repli"` (Arial), réglés par `size-adjust` et `ascent-override`. Le passage aux polices web ne déplace plus le texte (sur téléphone, l'accroche gagnait une ligne, soit 37 px de saut). Toute nouvelle police doit recevoir son repli mesuré.
 - Typographie française : espace insécable avant `: ; ? !` et à l'intérieur des guillemets « », tiret demi-cadratin pour les intervalles (2020 – 2024). À généraliser lors de la migration.
 
 Échelle (valeurs validées) :
@@ -83,6 +84,7 @@ Règles :
 - **Rythme vertical** : section = filet `1px --encre` en tête, puis titre et chapeau, `2.5rem` avant le contenu ; `6.5rem` entre sections (`4.5rem` en étroit). À l'intérieur, séparation par filets `--filet`, pas par des boîtes.
 - **Hiérarchie** : un seul `h1` par page (le nom ou le titre de la fiche) ; sections en `h2` ; une seule accroche ; un seul travail « à la une ».
 - **Seuils** : `1100px` (large ou étroit : marge des notes, manchette, aperçu) et `640px` (téléphone). Pas de troisième seuil sans besoin démontré sur capture.
+- **Tablette (641 à 1099 px)** : l'axe 5/7 revient dans la une (figure 7, texte 5, côte à côte) et dans chaque ligne de l'index (texte à gauche, vignette de 17rem à droite). Sinon les images passaient en pleine largeur, et la section Travaux mesurait 3 260 px à 1024 px.
 - La règle « une section par écran » de Taste Skill ne s'applique qu'au premier écran.
 
 ## 5. Composants éditoriaux · Validé
@@ -90,17 +92,17 @@ Règles :
 | Composant | Rôle | Règles clés |
 | --- | --- | --- |
 | **En-tête** (`.tete`) | Nom en titre de revue, annonce du hors-série Atlas à droite | L'annonce reste discrète (globe de 4,25rem, une ligne) et mène à la fiche Atlas. |
-| **Manchette** (`.manchette`) | Sommaire collant, en bas de casse, lien « CV en PDF » | Section courante marquée (`aria-current`) et jauge de lecture verte. Masquée en étroit. |
+| **Manchette** (`.manchette`) | Sommaire collant, en bas de casse, lien « CV en PDF » | Section courante marquée (`aria-current`) ; **un seul trait de lecture** vert glisse d'une rubrique à l'autre et s'allonge avec la lecture. Masquée en étroit. |
 | **Barre de lecture et tiroir** | Navigation en étroit | Barre fixe en bas : section courante, progression rouge de 2px, lien CV. Le sommaire s'ouvre dans un `<dialog>`. |
 | **Accroche** (`.manifeste`) | Positionnement | Deux lignes : romain, puis italique vert ; **un seul** trait de stylo. Texte validé : « Éclairer les décisions publiques / *par la recherche, la prospective et les données.* » |
 | **Fiche signalétique** (`.identite`) | Qui, où, quoi | Portrait 4:5 à gauche et liste `dl` (En poste, En formation, Diplômé, Langues). En téléphone, libellé au-dessus de la valeur. |
 | **À la une** (`.a-la-une`) | Un travail phare | Figure cliquable qui devient la fiche (transition de vue) ; rubrique, titre, chapeau, deux liens. |
-| **Index des travaux et aperçu** | Toutes les réalisations | Ligne = titre, année ou statut (« En chantier », « À venir »), nature en une ligne. En large, l'aperçu suit le survol et le focus ; en étroit, la vignette s'insère sous chaque ligne. Vignettes au format 40:21. |
-| **Figure annotée** | Lire un graphique | Appels numérotés posés sur la figure, notes de lecture à droite (8/4), tracé rouge de la tendance. |
-| **Frise** | Parcours | Deux registres (Expérience, Formation) sur une même échelle. Barre pleine : période ; flèche : en cours ; pointillé : dates non précisées ; gris : engagement associatif ou bénévole. Légende en texte obligatoire. |
+| **Index des travaux et aperçu** | Toutes les réalisations | Ligne = titre, année ou statut (« En chantier », « À venir »), nature en une ligne. En large, l'aperçu suit le survol et le focus ; la nouvelle image se pose sur l'ancienne, et l'ancienne légende disparaît aussitôt. En tablette, la vignette est à droite de la ligne ; sur téléphone, sous la ligne. Vignettes au format 40:21. |
+| **Figure annotée** | Lire un graphique | Appels numérotés posés sur la figure, notes de lecture à droite (8/4), tracé rouge de la tendance, **cercle au stylo** autour de la zone que commente chaque note (repassé à l'encre pleine au survol, au focus ou au toucher). La donnée ne bouge jamais. |
+| **Frise** | Parcours | Deux registres (Expérience, Formation) sur une même échelle, **de 2020 à 2027** (`--debut`, `--axe`). Barre pleine : période ; flèche : en cours ; pointillé : dates non précisées ; gris : engagement associatif ou bénévole. Repère rouge « aujourd'hui » calculé chaque jour, auquel s'arrêtent les barres en cours. Légende en texte obligatoire. |
 | **Tableau des preuves** | Compétences | Domaine, pratique, « où la voir » (liens vers les preuves). Devient une liste de fiches sous 640 px. |
 | **Contact** | Agir | Courriel en très grand, sans coupure ; CV, LinkedIn, GitHub. |
-| **Fiche de réalisation** | Page d'un travail | Retour, rubrique, `h1`, sous-titre italique, chapeau, figure, mémo `dl` (Objet, Date, Cadre, Outils, Rôle…), sections, accès. |
+| **Fiche de réalisation** | Page d'un travail | Retour, rubrique, `h1`, sous-titre italique, chapeau, figure, mémo `dl` (Objet, Date, Cadre, Outils, Rôle…), sections, accès, puis « Réalisation suivante » (Artéfacts 2050, ResearchRabbit, Atlas, en boucle). |
 | **Boutons et liens** | Actions | `.bouton` : encre, coins de 2px, un seul bouton principal par zone. `.lien` : soulignement qui se trace au survol, flèche qui glisse de 3px. |
 | **Notes en marge reliées** | Précisions | Appel en exposant ; en large, la note flotte dans la marge avec un fil rouge au survol ou au focus ; en étroit, elle s'ouvre dans le texte. |
 | **Colophon** | Mentions | Polices, mention « site personnel ». |
@@ -116,40 +118,54 @@ Mentions de travail (`.a-completer`, `.a-valider`, `.proto-note`, `.piste-visuel
 - **Illustration** : uniquement si elle porte une information. Exemple validé : le globe d'Atlas, avec côtes réelles (Natural Earth), un seul repère, rien d'inventé.
 - **Formats** : JPEG pour les photos et captures, PNG pour le pixel art, SVG pour le vectoriel. Largeur maximale 1600px. Attributs `width` et `height` toujours présents. `loading="lazy"` partout sauf au premier écran.
 
-## 7. Mouvement · Validé (l'existant)
+## 7. Mouvement · Validé (définitif, phase 10)
 
-Le mouvement a un rôle nommé, sinon il n'existe pas. Outils : CSS d'abord, JavaScript natif si nécessaire. Aucune bibliothèque d'animation.
+Le mouvement a un rôle nommé, sinon il n'existe pas. Outils : CSS d'abord (transitions, animations, animations liées au défilement, View Transitions), puis quelques lignes de JavaScript natif (`v2bis/v2bis.js`). Aucune bibliothèque d'animation.
+
+**Principe d'ensemble : une publication qui se compose, s'annote et garde la trace de la lecture.** Le premier contact est orchestré, puis la page se calme. Le contenu est lisible en environ une seconde, et rien ne retarde l'accès à l'information.
 
 | Mouvement | Rôle | Valeurs |
 | --- | --- | --- |
-| Lignes du nom et de l'accroche qui montent | Entrée, une fois par chargement | 900ms, `--ease-out`, décalage de 90ms par ligne |
-| Apparition des blocs de la une | Entrée | 600ms, `--ease-out`, translation de 8px |
-| Trait de stylo sous un mot | Explication, une fois | 800ms, `--ease-in-out` |
-| Tracés (tendance, barres de la frise) | Explication, à l'entrée dans l'écran, une fois | 900 à 1100ms, `--ease-in-out` |
-| Survols : lien, couleur, flèche, zoom d'image de 1,025 | Retour d'action | 150 à 250ms (400ms pour le zoom), uniquement sur un pointeur fin |
-| Aperçu de l'index | Changement d'état | Fondu de 220ms |
-| Fil d'une note | Relation | 260ms |
+| **La une se compose** (première visite de la session) : filets tracés, rubriques posées, lignes du nom et de l'accroche qui montent, portrait « développé » (gris → couleur), figure découverte de gauche à droite, stylo en dernier | Entrée, plaisir de première visite | Filets 800ms `--ease-in-out` ; blocs 450 à 500ms `--ease-out`, décalés de 40 à 100ms ; lisible vers 1s, achevé vers 1,8s ; s'achève au premier geste ; sur téléphone, la une attend d'entrer dans l'écran |
+| Entrée des visites suivantes de la session | Entrée | Fondus courts de 600ms (`.apparait`) |
+| Révélation des titres de section (filet tracé, titre puis chapeau) | Transition entre sections | Une fois ; filet 900ms `--ease-in-out`, titre et chapeau 600 à 700ms `--ease-out`, décalés de 120ms |
+| Révélation des images de l'index (tablette, téléphone) et de la figure de l'analyse | Arrivée de l'image, sans à-coup | Une fois ; `clip-path` du haut vers le bas, 900ms `--ease-in-out`, image qui se pose (`scale` de 1,06 à 1, 1400ms) |
+| Trait de stylo, tracé de la tendance (après la révélation), cercles au stylo | Explication | 800ms, 1100ms (après 600ms), puis 650ms par cercle, décalés de 380ms |
+| Barres de la frise, dans l'ordre chronologique, puis repère « aujourd'hui » | Explication | 900ms `--ease-in-out`, décalées de 110ms |
+| Profondeur : l'image glisse de ±3 % dans son cadre au défilement | Profondeur | Grandes figures seulement (une, fiches) ; `translate` lié au défilement, `linear` ; **jamais** sur une vignette de liste ni sur une donnée |
+| Survols : lien, couleur, flèche, zoom d'image de 1,025, marche de bouton de 1px ; appui sur bouton (`scale` 0,97) | Retour d'action | 120 à 250ms (400ms pour le zoom) ; survols réservés au pointeur fin |
+| Aperçu de l'index (la nouvelle image se pose sur l'ancienne) | Changement d'état | Opacité 280ms, `scale` de 1,02 à 1 en 300ms ; légende en 220ms |
+| Trait de lecture de la manchette | État | 300ms `--ease-in-out` |
+| Nom de section de la barre de lecture (téléphone) | État | Glisse de 6px en 220ms `--ease-out` |
+| Fil d'une note ; estompage des autres lignes de la frise au survol | Relation | 260ms ; 200ms |
 | Tiroir mobile | Spatial | 380ms, `--ease-drawer` |
-| La figure devient la page (View Transitions entre documents) | Continuité spatiale | 450ms, `--ease-in-out` ; page racine 250ms |
+| La vignette devient l'image de la fiche (et l'inverse au retour) | Continuité spatiale | 500ms `--ease-in-out` ; page qui sort en 220ms, page qui entre en 420ms (10px) |
+| Réalisation suivante | Continuité | Glissement latéral de 5 % en 420ms `--ease-in-out` |
 
-Courbes : `--ease-out` `cubic-bezier(.23,1,.32,1)`, `--ease-in-out` `cubic-bezier(.77,0,.175,1)`, `--ease-drawer` `cubic-bezier(.32,.72,0,1)`. Jamais d'`ease-in` sur l'interface.
+Courbes : `--ease-out` `cubic-bezier(.23,1,.32,1)`, `--ease-in-out` `cubic-bezier(.77,0,.175,1)`, `--ease-drawer` `cubic-bezier(.32,.72,0,1)`, `linear` pour ce qui suit le défilement. Jamais d'`ease-in` sur l'interface.
 
 Règles :
-- Seuls `transform` et `opacity` s'animent, plus `background-size` pour les soulignements.
-- Rien n'est lié au défilement, sauf la jauge du sommaire et la barre de progression (état, pas décor).
-- Aucune boucle automatique. Les révélations au défilement sont rationnées : une par écran au plus, une seule fois.
-- Une interaction fréquente reste sous 250ms. Ce qui est déclenché à répétition passe par des transitions (interruptibles), pas par des animations à étapes.
-- **Mouvement réduit** (`prefers-reduced-motion: reduce`) : états finaux immédiats ; seuls des fondus d'opacité de 200ms subsistent ; View Transitions désactivées ; défilement non lissé. Rien ne reste caché.
+- On anime `transform`, `translate`, `scale`, `opacity`, `clip-path` et le tracé SVG (`stroke-dashoffset`), plus `background-size` pour les soulignements. Seule exception : le filtre gris → couleur du portrait, sur une petite image et une seule fois.
+- Rien n'est lié au défilement, sauf la jauge et le trait de lecture, la barre de progression et la profondeur légère des grandes figures.
+- Aucune boucle automatique. Les révélations sont rationnées (titres de section, images, figure) et ne jouent qu'une fois.
+- Une interaction fréquente reste sous 300ms. Ce qui se déclenche à répétition passe par des transitions (interruptibles).
+- **Mouvement réduit** (`prefers-reduced-motion: reduce`) : ni composition, ni révélation, ni profondeur, ni transition de page. Les cercles et le repère sont là d'emblée, et seuls des fondus d'opacité de 200ms subsistent. Rien ne reste caché.
+- Sans JavaScript, la page est complète et immobile.
 
 Pièges techniques connus :
 - Une animation liée au défilement (`animation-timeline: view()`) se rapporte au plus proche conteneur de défilement : un cadre en `overflow: hidden` en est un, et fige l'animation. Utiliser `overflow: clip` sur les cadres.
 - Un nom de View Transition doit être unique dans la page au moment de la capture : poser les noms au clic plutôt qu'en dur quand plusieurs éléments représentent la même œuvre.
 - Avec une animation d'entrée à images-clés (`fill: both`) sur une propriété, une transition sur cette même propriété ne joue plus : séparer les propriétés (`translate`, `scale`, `transform`).
+- Un élément masqué par `clip-path: inset(0 0 100% 0)` n'a aucune surface visible : `IntersectionObserver` ne le voit jamais entrer. Observer son parent.
+- Une rubrique animée (transformée) devient son propre repère pour `offsetLeft` dans Chromium : mesurer les positions avec `getBoundingClientRect()`.
+- Le masque d'une ligne qui monte déborde de `.2em` : faire partir le texte de `calc(100% + .4em)`, sinon le sommet des lettres dépasse au départ.
+- Un défaut de mise en page peut être caché par une animation, car un élément transparent ne compte pas dans le CLS. Mesurer aussi en mouvement réduit (le CLS y était de 0,11 avant la phase 10).
 
 ## 8. Adaptation aux écrans · Validé
 
 - **Large (≥ 1100px)** : axe 5/7, manchette collante, aperçu de l'index, notes en marge.
-- **Étroit (< 1100px)** : une colonne ; la manchette laisse place à la barre de lecture et au tiroir ; vignettes insérées dans l'index ; notes ouvertes dans le texte ; frise sur une colonne.
+- **Étroit (< 1100px)** : la manchette laisse place à la barre de lecture et au tiroir ; notes ouvertes dans le texte ; frise sur une colonne.
+- **Tablette (641 à 1099 px)** : la une et chaque ligne de l'index restent en deux colonnes (§ 4).
 - **Téléphone (≤ 640px)** : boutons pleine largeur, tableau des preuves en fiches, une année sur deux sur l'axe de la frise, libellés de fiche au-dessus des valeurs.
 - Le premier écran mobile montre le nom, l'annonce Atlas en une ligne, l'accroche et le début de la fiche signalétique. Le CV reste accessible dans la barre de lecture.
 - Aucun défilement horizontal. Cibles tactiles d'au moins 44px. Le courriel ne se coupe jamais au milieu.
@@ -192,25 +208,26 @@ Proposer une amélioration est encouragé, sous conditions :
   - la modification d'un composant validé.
 - Une idée acceptée met à jour ce document, en datant le changement.
 
-## 11. Propositions expérimentales · Expérimental (phase 9, non validé)
+## 11. Laboratoire de mouvement · Clos (phase 10)
 
-Laboratoire : `_refonte/prototypes/labo/` (présentation, mesures, comparaison) et `_refonte/prototypes/v2bis-labo/` (copie de V2bis, `labo.css`, `labo.js`). Opportunités et rejets : `_refonte/motion/01-opportunites.md`.
+Le laboratoire de la phase 9 (`_refonte/prototypes/labo/`, `v2bis-labo/`) est conservé comme archive. Léo a demandé de ne plus explorer.
 
-**Direction du mouvement : cinq gestes d'édition.** La page se compose ; l'encre se pose ; le papier a de l'épaisseur ; la lecture laisse une trace ; une réalisation ne se quitte pas, elle s'ouvre. Un mouvement qui ne relève d'aucun de ces gestes n'a pas sa place.
+Intégré au § 7 :
+- la composition de la une (une fois par session) ;
+- la vignette qui devient l'image de la fiche et la réalisation suivante ;
+- les cercles au stylo ;
+- la frise chronologique avec « aujourd'hui » ;
+- le trait de lecture ;
+- une profondeur limitée à ±3 % sur les grandes figures.
 
-| Rang | Signature | Rôle | Paramètres du laboratoire | Règles si elle est retenue |
-| --- | --- | --- | --- | --- |
-| 1 | **La une se compose** : filets tracés, manchette posée rubrique par rubrique, portrait « développé » (gris → couleur), figure découverte de gauche à droite, stylo en dernier | Plaisir de première visite | ≈ 1,8 s ; filets 900 ms `--ease-in-out` ; blocs 500 ms `--ease-out` décalés de 45 à 80 ms | Une fois par session (puis entrée courte) ; s'achève au premier geste ; sur téléphone, la une attend d'être visible ; aucune en mouvement réduit |
-| 2 | **La réalisation devient la page** : vignette et titre deviennent l'image et le titre de la fiche ; « Réalisation suivante » glisse latéralement | Continuité spatiale | 500 ms `--ease-in-out` ; page suivante 420 ms | Noms posés au clic (`pageswap`) et retrouvés au retour (`pagereveal`) ; navigation normale sans prise en charge |
-| 3 | **Annotations vivantes** : cercles au stylo autour des zones commentées de la figure | Explication | 600 ms `--ease-out`, décalés de 380 ms après la tendance | La donnée ne bouge jamais ; actif au survol, au focus et au toucher |
-| 4 | **Planches en profondeur** : l'image glisse dans son cadre au défilement | Profondeur | Discrète ±3 % (×1,07), marquée ±6 % (×1,13), expressive ±10 % (×1,21) et cadre mobile | Animation liée au défilement, `translate` seulement, `overflow: clip` ; jamais sur un graphique ; recommandé : discrète partout, marquée sur les grandes figures |
-| 5 | **La lecture laisse une trace** : frise tracée dans l'ordre du temps, repère « aujourd'hui » calculé, estompage au survol ; trait unique glissant dans la manchette | Explication, état | Barres 900 ms, décalées de 110 ms ; trait 300 ms `--ease-in-out` | Le repère se calcule à partir de la date du jour (il ne se périme pas) |
-
-Mesures (Edge, processeur ×4 sur téléphone) : aucune image lente au défilement ; CLS ≤ 0,009 ; LCP inchangé ; mouvement réduit et clavier conformes. À confirmer sur un vrai téléphone et dans Safari.
-
-Une signature retenue par Léo passe dans les §§ 5 et 7 (statut « Validé », datée) ; les autres restent ici ou sont retirées.
+Non retenu :
+- le titre qui glisse vers le titre de la fiche (instantané agrandi peu net) ;
+- les intensités de parallaxe « marquée » et « expressive » ;
+- toute parallaxe sur les vignettes de liste.
 
 ## Historique
+
+- 2026-11-06 : phase 10 : mouvement définitif (§ 7), tablette (§§ 4 et 8), polices de secours mesurées (§ 3), frise de 2020 à 2027, pièges techniques complétés ; laboratoire clos (§ 11).
 
 - 2026-11-06 : première version, tirée de V2bis (phases 5 à 9). À valider.
 - 2026-11-06 : statuts « Validé » / « Expérimental » ; § 11 (laboratoire de mouvement) ; pièges techniques du mouvement.

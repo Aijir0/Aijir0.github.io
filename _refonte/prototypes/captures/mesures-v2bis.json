@@ -1,0 +1,58 @@
+{
+ "date": "2026-11-06T21:35:27.659Z",
+ "resultats": [
+  {
+   "nom": "V2bis fin phase 9",
+   "appareil": "ordinateur",
+   "lcp": 236,
+   "cls": 0.001,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "V2bis phase 10",
+   "appareil": "ordinateur",
+   "lcp": 188,
+   "cls": 0.0034,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 7
+  },
+  {
+   "nom": "V2bis fin phase 9",
+   "appareil": "téléphone",
+   "lcp": 396,
+   "cls": 0,
+   "images": 110,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "V2bis phase 10",
+   "appareil": "téléphone",
+   "lcp": 372,
+   "cls": 0,
+   "images": 108,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "reduit": {
+    "compo": false,
+    "elementsTransparents": [],
+    "parallaxe": "none"
+   }
+  },
+  {
+   "clavier": {
+    "cercle": true,
+    "apercu": 2
+   }
+  }
+ ]
+}

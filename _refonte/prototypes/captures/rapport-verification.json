@@ -136,7 +136,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 4834,
+    "hauteur": 4759,
     "erreurs": []
   },
   "v2bis/mobile": {
@@ -148,7 +148,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 7477,
+    "hauteur": 7370,
     "erreurs": []
   },
   "fiche-v2bis/desktop": {
@@ -160,7 +160,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2625,
+    "hauteur": 2750,
     "erreurs": []
   },
   "fiche-v2bis/mobile": {
@@ -172,7 +172,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2768,
+    "hauteur": 2878,
     "erreurs": []
   },
   "pistes/desktop": {
@@ -208,7 +208,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2076,
+    "hauteur": 2200,
     "erreurs": []
   },
   "fiche-rr/mobile": {
@@ -220,7 +220,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2313,
+    "hauteur": 2423,
     "erreurs": []
   },
   "fiche-atlas/desktop": {
@@ -232,7 +232,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 1592,
+    "hauteur": 1716,
     "erreurs": []
   },
   "fiche-atlas/mobile": {
@@ -244,7 +244,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 1450,
+    "hauteur": 1559,
     "erreurs": []
   },
   "phase7/desktop": {

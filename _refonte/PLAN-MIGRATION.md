@@ -197,20 +197,18 @@ Chaque lot se termine par :
   - Les URL directes et les `?carte=` fonctionnent.
 
 ### Lot 6 — Animations
-- **Contenu**
-  - Les animations déjà validées (§ 7 de `DESIGN.md`) arrivent avec les lots 1 à 4.
-  - Ce lot ajoute **uniquement les signatures du laboratoire retenues par Léo** (§ 11 de `DESIGN.md`), puis les passe au statut « Validé ».
-- **Fichiers** : `assets/site/site.css` et `assets/site/site.js`, à partir de `_refonte/prototypes/v2bis-labo/labo.css` et `labo.js`. Sans le panneau du laboratoire ni les attributs de réglage : chaque signature retenue devient du code direct.
+- **Contenu** : le mouvement est définitif depuis la phase 10 (§ 7 de `DESIGN.md`) et déjà construit dans V2bis. Ce lot le transpose, sans rien ajouter.
+- **Fichiers** : `assets/site/site.css` et `assets/site/site.js`, à partir de `_refonte/prototypes/v2bis/v2bis.css` (bloc « Phase 10 ») et `v2bis.js`. Le script reste chargé dans `<head>`, sans `defer`.
 - **Points d'attention**
-  - Cadres en `overflow: clip`, sinon la parallaxe reste figée.
-  - Composition une seule fois par session, via `sessionStorage`, avec un repli silencieux si le stockage est indisponible.
-  - Noms de View Transitions posés au clic, et uniques dans la page.
-  - Les fiches réelles seront sous `/travaux/…/` : adapter la détection des fiches dans `labo.js`.
-- **Dépend de** : les lots 1 à 4 et les choix de Léo dans le laboratoire.
+  - Adapter la détection des fiches de `v2bis.js` aux chemins `/travaux/…/`.
+  - Conserver `overflow: clip` sur les cadres.
+  - Observer le parent des images masquées par `clip-path`.
+  - Mesurer les positions avec `getBoundingClientRect()`.
+  - Conserver les polices de secours mesurées.
+- **Dépend de** : lots 1 à 4.
 - **Vérifications**
-  - `_refonte/outils/mesures-labo.mjs`, adapté aux pages racine : images lentes, CLS, LCP, mouvement réduit, clavier.
-  - Captures à 1440, 1024, 768 et 390 px.
-  - Revue du mouvement : grille du skill `animate`, ou `review-animations` s'il est installé.
+  - `_refonte/outils/mesures-labo.mjs`, adapté aux pages racine : images lentes, CLS en mode normal **et** en mouvement réduit, LCP, clavier.
+  - Captures en cours d'animation à 1440, 1024, 768 et 390 px.
   - Essai sur un vrai téléphone et dans Safari.
 
 ### Lot 7 — Audit final et publication

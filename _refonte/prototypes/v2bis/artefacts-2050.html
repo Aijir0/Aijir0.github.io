@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
   <link rel="stylesheet" href="../commun/base.css">
   <link rel="stylesheet" href="v2bis.css">
+  <script src="v2bis.js"></script>
   <style>
     /* Fiche V2bis : l'en-tête « objet / date » de la note de service (repris de V3), puis la figure et le texte. */
     .fiche-page { max-width: 64rem; margin: 0 auto; padding: 0 var(--gouttiere) 2rem; }
@@ -19,7 +20,6 @@
     .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
     .titre-fiche { padding: 2.75rem 0 1.75rem; }
     .titre-fiche h1 { margin: .5rem 0 1rem; font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 400; letter-spacing: -.035em; }
-    .hero .cadre { view-transition-name: fig-artefacts; }
     .memo { margin: 2rem 0 0; border-top: 1px solid var(--encre); }
     .memo div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--filet); }
     .memo dt { font: 500 .8125rem/1.75 var(--sans); color: var(--encre-2); }
@@ -84,6 +84,7 @@
       <h2 id="t-acces">Accès</h2>
       <p class="acces"><a class="bouton" href="../../../artefacts-2050/">Jouer à Artéfacts 2050 <span aria-hidden="true">↗</span></a><a class="lien" href="./" data-retour>Revenir au profil</a></p>
     </section>
+    <nav class="fiche-suivante" aria-label="Réalisation suivante"><p class="rubrique">Réalisation suivante</p><a href="researchrabbit.html">ResearchRabbit <span class="fleche" aria-hidden="true">→</span></a></nav>
   </main>
   <footer class="colophon"><p>Site personnel : il n'engage ni ne représente aucune organisation. Prototype V2bis.</p></footer>
 </div>

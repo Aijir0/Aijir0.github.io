@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas — Hors-série en chantier (V2bis)</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <link rel="stylesheet" href="v2bis.css">
+  <style>
+    /* Même gabarit que la fiche Artéfacts 2050 : en-tête « objet, date », figure, texte, accès. */
+    .fiche-page { max-width: 64rem; margin: 0 auto; padding: 0 var(--gouttiere) 2rem; }
+    .haut { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    .titre-fiche { padding: 2.75rem 0 1.75rem; }
+    .titre-fiche h1 { margin: .5rem 0 .4rem; font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 400; letter-spacing: -.035em; }
+    .titre-fiche .sous-titre { margin: 0 0 1rem; font: italic 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.25 var(--serif); color: var(--encre-2); }
+    .memo { margin: 2rem 0 0; border-top: 1px solid var(--encre); }
+    .memo div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--filet); }
+    .memo dt { font: 500 .8125rem/1.75 var(--sans); color: var(--encre-2); }
+    .memo dd { margin: 0; font-size: 1.0625rem; line-height: 1.45; }
+    .fiche-page section { padding-top: 3.25rem; }
+    .fiche-page h2 { margin-bottom: 1rem; font-size: 2rem; }
+    .acces { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+    @media (max-width: 640px) {
+      .memo div { grid-template-columns: 6rem minmax(0, 1fr); gap: .75rem; }
+      .acces .bouton { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="fiche-page">
+  <div class="haut"><a href="./" data-retour>← Retour au profil</a><span class="meta">Hors-série</span></div>
+  <main id="contenu">
+    <header class="titre-fiche">
+      <p class="rubrique">Hors-série · En chantier</p>
+      <h1>Atlas</h1>
+      <p class="sous-titre">Un globe interactif de mes voyages</p>
+      <p class="chapo">Atlas sera un globe terrestre interactif en 3D pour explorer mes voyages : les lieux visités, des photographies et quelques récits personnels. Le projet est en préparation ; rien n'est encore en ligne.</p>
+      <p class="proto-note">Texte rédigé d'après la description de Léo, à valider.</p>
+    </header>
+    <figure>
+      <div class="cadre"><img src="../medias/projets/p7-atlas-carte.jpg" width="1600" height="840" alt="Globe terrestre centré sur l'Atlantique nord, avec un repère sur Québec."></div>
+      <figcaption>Un globe d'attente : côtes réelles, projection orthographique, un seul repère, Québec.</figcaption>
+    </figure>
+    <dl class="memo">
+      <div><dt>Statut</dt><dd>En chantier ; aucune date de mise en ligne annoncée</dd></div>
+      <div><dt>Forme</dt><dd>Globe terrestre interactif en 3D</dd></div>
+      <div><dt>Contenu prévu</dt><dd>Lieux visités, photographies, récits personnels</dd></div>
+    </dl>
+    <section aria-labelledby="t-acces">
+      <h2 id="t-acces">En attendant</h2>
+      <p class="acces"><a class="bouton" href="./#travaux">Voir les travaux publiés</a><a class="lien" href="./" data-retour>Revenir au profil</a></p>
+    </section>
+  </main>
+  <footer class="colophon"><p>Site personnel : il n'engage ni ne représente aucune organisation. Prototype V2bis.</p></footer>
+</div>
+<script src="../commun/signatures.js" defer></script>
+</body>
+</html>

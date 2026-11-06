@@ -50,7 +50,6 @@ h2 { font-weight: 400; letter-spacing: -.02em; }
 .fiche dt { font: 500 .8125rem/1.75 var(--sans); color: var(--encre-2); }
 .fiche dd { margin: 0; font-size: 1.0625rem; line-height: 1.45; }
 .actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
-.a-la-une .cadre { view-transition-name: fig-artefacts; }
 .a-la-une .rubrique { margin: 1.15rem 0 .45rem; }
 .a-la-une h2 { font-size: clamp(1.9rem, 2.5vw, 2.5rem); line-height: 1.08; margin-bottom: .6rem; }
 .a-la-une .chapo { font-size: 1.125rem; margin-bottom: .9rem; }
@@ -94,22 +93,22 @@ main > section:not(.une) { padding-top: 6.5rem; }
 .analyse .liens { margin-top: 2rem; }
 
 /* ---------- Parcours : deux registres sur une même échelle de temps ---------- */
-.frise-cadre { position: relative; --axe: 9; }
+.frise-cadre { position: relative; --debut: 2020; --axe: 7; } /* échelle de 2020 à 2027 */
 .registre { margin: 2.25rem 0 .4rem; font: 600 .8125rem var(--sans); color: var(--vert); }
 .registre:first-child { margin-top: 0; }
 .frise { list-style: none; margin: 0; padding: 0; }
 .frise li { display: grid; grid-template-columns: var(--col-texte) minmax(0, 1fr); gap: var(--ecart); align-items: center; padding: .8rem 0; border-top: 1px solid var(--filet); }
 .frise h4 { margin: 0 0 .15rem; font: 500 1.125rem/1.25 var(--serif); }
 .frise .ou { margin: 0; font: 400 .875rem/1.45 var(--sans); color: var(--encre-2); }
-.piste { position: relative; height: 1.5rem; background: repeating-linear-gradient(to right, var(--filet) 0 1px, transparent 1px calc(100% / 9)); }
-.barre { position: absolute; top: 50%; height: 8px; margin-top: -4px; left: calc((var(--d) - 2018) / var(--axe) * 100%); width: calc((var(--f) - var(--d)) / var(--axe) * 100%); background: var(--vert); transform-origin: 0 50%; transition: transform 900ms var(--ease-in-out); transition-delay: calc(var(--i, 0) * 110ms); }
+.piste { position: relative; height: 1.5rem; background: repeating-linear-gradient(to right, var(--filet) 0 1px, transparent 1px calc(100% / var(--axe))); }
+.barre { position: absolute; top: 50%; height: 8px; margin-top: -4px; left: calc((var(--d) - var(--debut)) / var(--axe) * 100%); width: calc((var(--f) - var(--d)) / var(--axe) * 100%); background: var(--vert); transform-origin: 0 50%; transition: transform 900ms var(--ease-in-out) calc(var(--i, 0) * 110ms), opacity 200ms ease; }
 .barre.en-cours::after { content: ""; position: absolute; right: -9px; top: -3px; border: 7px solid transparent; border-left: 9px solid var(--vert); border-right: 0; }
 .barre.incertaine { background: repeating-linear-gradient(90deg, var(--vert) 0 7px, transparent 7px 11px); }
 .barre.leger { background: var(--encre-2); }
 .barre.leger.incertaine { background: repeating-linear-gradient(90deg, var(--encre-2) 0 7px, transparent 7px 11px); }
 .js .frise-cadre:not(.trace) .barre { transform: scaleX(0); }
 .axe { display: grid; grid-template-columns: var(--col-texte) minmax(0, 1fr); gap: var(--ecart); padding-top: .5rem; border-top: 1px solid var(--encre); }
-.axe ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(9, 1fr); font: 400 .9rem var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--encre-2); }
+.axe ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--axe), 1fr); font: 400 .9rem var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--encre-2); }
 .legende-frise { margin: 1rem 0 0; font: 400 .875rem/1.5 var(--sans); color: var(--encre-2); }
 .hors-champ { margin: 2.5rem 0 0; max-width: 40rem; font: italic 400 1.15rem/1.5 var(--serif); color: var(--encre-2); }
 
@@ -229,3 +228,170 @@ main > section:not(.une) { padding-top: 6.5rem; }
    l'accent des capitales ; l'accroche se sépare de la fiche sans la note « à valider » qui faisait l'écart. */
 .manifeste .ligne { padding-top: .14em; margin-top: -.14em; }
 .une .manifeste { margin-bottom: 1.75rem; }
+
+/* =====================================================================
+   Phase 10 — finition et mouvement (voir DESIGN.md § 7). Comportements : v2bis.js.
+   ===================================================================== */
+
+/* ---------- Polices de secours aux métriques mesurées : le passage aux polices web ne fait plus bouger le texte ---------- */
+@font-face { font-family: "Newsreader repli"; font-style: normal; src: local("Georgia"); size-adjust: 100.49%; ascent-override: 73.64%; descent-override: 26.87%; line-gap-override: 0%; }
+/* L'italique de Georgia est bien plus large que celui de Newsreader : sans facteur propre, l'accroche gagnait une ligne (37 px de saut sur téléphone) */
+@font-face { font-family: "Newsreader repli"; font-style: italic; src: local("Georgia Italic"), local("Georgia-Italic"); size-adjust: 91.41%; ascent-override: 80.95%; descent-override: 29.54%; line-gap-override: 0%; }
+@font-face { font-family: "Atkinson repli"; src: local("Arial"); size-adjust: 102.1%; ascent-override: 95.98%; descent-override: 31.34%; line-gap-override: 0%; }
+:root {
+  --serif: "Newsreader", "Newsreader repli", Georgia, serif;
+  --sans: "Atkinson Hyperlegible Next", "Atkinson repli", "Segoe UI", system-ui, sans-serif;
+}
+
+/* Cadres en « clip » et non « hidden » : un cadre « hidden » devient un conteneur de défilement et fige la profondeur */
+.cadre, .portrait { overflow: clip; }
+.portrait { outline: 1px solid var(--filet); outline-offset: -1px; }
+.portrait img { outline: 0; }
+
+/* ---------- Tablette (641–1099 px) : l'axe 5/7 revient dans la une et dans l'index, au lieu d'images pleine largeur ---------- */
+@media (min-width: 641px) and (max-width: 1099.98px) {
+  .a-la-une { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: 1fr repeat(4, auto) 1fr; column-gap: var(--axe-ecart); }
+  .a-la-une > a { grid-column: 1; grid-row: 1 / -1; align-self: center; }
+  .a-la-une > .rubrique { grid-column: 2; grid-row: 2; margin-top: 0; }
+  .a-la-une > h2 { grid-column: 2; grid-row: 3; }
+  .a-la-une > .chapo { grid-column: 2; grid-row: 4; }
+  .a-la-une > .liens { grid-column: 2; grid-row: 5; }
+  .index li a { grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); grid-template-rows: auto auto 1fr; grid-template-areas: "titre vignette" "annee vignette" "type vignette"; column-gap: 1.75rem; align-items: start; }
+  .index .t-titre { grid-area: titre; }
+  .index .t-annee { grid-area: annee; }
+  .index .t-type { grid-area: type; grid-column: auto; }
+  .index .t-vignette { grid-area: vignette; grid-column: auto; margin-top: 0; }
+}
+
+/* ---------- Boutons : une marche au survol, un appui au clic ---------- */
+@media (hover: hover) and (pointer: fine) { .bouton:hover { transform: translateY(-1px); } }
+.bouton:active { transform: scale(.97); }
+
+/* ---------- Aperçu de l'index : la nouvelle image se pose sur l'ancienne (plus de double image grise à mi-fondu) ---------- */
+.apercu figure { z-index: 0; transition: opacity 0s linear 280ms; }
+.apercu figure.visible { z-index: 1; transition: opacity 280ms var(--ease-out); }
+.apercu figure img { scale: 1.02; transition: scale 300ms var(--ease-out); }
+.apercu figure.visible img { scale: 1; }
+/* Légendes : l'ancienne disparaît aussitôt, la nouvelle arrive juste après (jamais deux textes superposés) */
+.apercu figure:not(.visible) figcaption { opacity: 0; transition: none; }
+.apercu figure.visible figcaption { opacity: 1; transition: opacity 220ms ease 100ms; }
+
+/* ---------- Trait de lecture : un seul trait glisse d'une rubrique à l'autre et s'allonge avec la lecture ---------- */
+.avec-trait .manchette .jauge { display: none; }
+.trait-lecture { position: absolute; left: 0; bottom: .55rem; width: 1px; height: 2px; background: var(--vert); pointer-events: none; opacity: 0;
+  transform-origin: 0 50%; transform: translateX(var(--x, 0)) scaleX(var(--w, 0)); transition: transform 300ms var(--ease-in-out), opacity 150ms ease; }
+.trait-lecture.pret { opacity: 1; }
+
+/* ---------- Frise : repère « aujourd'hui » calculé, survol qui isole une ligne ---------- */
+.frise-cadre { --auj-x: calc((var(--maintenant, 2026.85) - var(--debut)) / var(--axe) * 100%); }
+.avec-aujourdhui .piste::after { content: ""; position: absolute; top: -.4rem; bottom: -.4rem; left: var(--auj-x); width: 1px; background: var(--rouge); opacity: 0; transition: opacity 400ms ease var(--auj-delai, 1200ms); }
+.avec-aujourdhui .axe ol { position: relative; }
+.axe ol li.aujourdhui { visibility: visible; position: absolute; top: 0; left: var(--auj-x); translate: -100% 0; padding-right: .35rem; font: italic 400 .85rem var(--serif); color: var(--rouge); white-space: nowrap; opacity: 0; transition: opacity 400ms ease var(--auj-delai, 1200ms); }
+.frise-cadre.trace .piste::after, .frise-cadre.trace .aujourdhui { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .frise-cadre:has(.frise li:hover) .barre { opacity: .3; }
+  .frise-cadre .frise li:hover .barre { opacity: 1; }
+}
+
+/* ---------- Annotations vivantes : cercles au stylo autour des zones commentées ---------- */
+.graphique svg.cercles path { fill: none; stroke: var(--rouge); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0;
+  transition: stroke-dashoffset 650ms var(--ease-out), opacity 200ms ease, stroke-width 200ms ease; }
+.graphique svg.cercles path.vu { stroke-dashoffset: 0; opacity: .4; }
+.graphique svg.cercles path.actif { stroke-dashoffset: 0; opacity: 1; stroke-width: 4; }
+
+/* ---------- Réalisation suivante (bas des fiches) ---------- */
+.fiche-suivante { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--encre); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; }
+.fiche-suivante .rubrique { margin: 0; }
+.fiche-suivante a { font: 400 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); text-decoration: none; padding: .25rem 0; transition: color 150ms ease; }
+.fiche-suivante a .fleche { font-family: var(--sans); }
+@media (hover: hover) and (pointer: fine) { .fiche-suivante a:hover { color: var(--vert); } }
+
+/* ---------- Transitions entre pages ---------- */
+.fiche-page main > figure .cadre { view-transition-name: fig-hero; }
+::view-transition-group(fig-hero) { animation-duration: 500ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(root) { animation: 220ms var(--ease-out) both vt-sort; }
+::view-transition-new(root) { animation: 420ms var(--ease-out) both vt-entre; }
+html:active-view-transition-type(suivant)::view-transition-old(root) { animation: 420ms var(--ease-in-out) both vt-gauche; }
+html:active-view-transition-type(suivant)::view-transition-new(root) { animation: 420ms var(--ease-in-out) both vt-droite; }
+@keyframes vt-sort { to { opacity: 0; } }
+@keyframes vt-entre { from { opacity: 0; translate: 0 10px; } }
+@keyframes vt-gauche { to { opacity: 0; translate: -5% 0; } }
+@keyframes vt-droite { from { opacity: 0; translate: 5% 0; } }
+
+/* =====================================================================
+   Mouvement d'entrée et de lecture — uniquement sans « mouvement réduit »
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- La une se compose (première visite de la session) : lisible en ≈ 1 s, achevée en 1,8 s ---------- */
+  .compo .tete, .compo .fiche, .compo .fiche div { position: relative; border-color: transparent; }
+  .compo .manchette { border-bottom-color: transparent; }
+  .compo .tete::after, .compo .manchette::after, .compo .fiche::before, .compo .fiche div::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 1px; transform-origin: 0 50%; animation: compo-filet 800ms var(--ease-in-out) both; }
+  .compo .tete::after { bottom: -1px; background: var(--encre); animation-delay: 100ms; }
+  .compo .manchette::after { bottom: -1px; background: var(--filet); animation-delay: 260ms; }
+  .compo .fiche::before { top: -1px; background: var(--encre); animation-delay: 500ms; }
+  .compo .fiche div::after { bottom: -1px; background: var(--filet); animation-delay: calc(580ms + var(--n, 0) * 70ms); }
+  .compo .fiche div:nth-child(2) { --n: 1; } .compo .fiche div:nth-child(3) { --n: 2; } .compo .fiche div:nth-child(4) { --n: 3; }
+  .compo .manchette li:not(.trait-lecture), .compo .manchette .cv { animation: compo-monte 450ms var(--ease-out) both; animation-delay: calc(300ms + var(--k, 0) * 40ms); }
+  .compo .manchette li:nth-child(2) { --k: 1; } .compo .manchette li:nth-child(3) { --k: 2; } .compo .manchette li:nth-child(4) { --k: 3; }
+  .compo .manchette li:nth-child(5) { --k: 4; } .compo .manchette li:nth-child(6) { --k: 5; } .compo .manchette .cv { --k: 6; }
+  .compo .manifeste .ligne > span { animation-delay: calc(var(--i, 0) * 100ms + 360ms); }
+  .compo .manifeste .stylo { transition-delay: 1450ms; }
+  .compo .identite, .compo .a-la-une { animation: none; }
+  .compo .portrait { animation: compo-devoile-bas 900ms var(--ease-in-out) both 500ms; }
+  .compo .portrait img { animation: compo-developpe 1300ms var(--ease-out) both 500ms; }
+  .compo .fiche dt, .compo .fiche dd { animation: compo-monte 450ms var(--ease-out) both; animation-delay: calc(640ms + var(--n, 0) * 70ms); }
+  .compo .actions { animation: compo-monte 450ms var(--ease-out) both 1000ms; }
+  .compo .a-la-une .cadre { animation: compo-devoile-gauche 1000ms var(--ease-in-out) both 380ms; }
+  .compo .a-la-une .cadre img { animation: compo-resserre 1400ms var(--ease-out) both 380ms; }
+  .compo .a-la-une > :not(a) { animation: compo-monte 500ms var(--ease-out) both; animation-delay: calc(900ms + var(--k, 0) * 60ms); }
+  .compo .a-la-une > h2 { --k: 1; } .compo .a-la-une > .chapo { --k: 2; } .compo .a-la-une > .liens { --k: 3; }
+  /* Téléphone : la une hors de l'écran attend d'y entrer */
+  .compo-attente .a-la-une .cadre, .compo-attente .a-la-une .cadre img, .compo-attente .a-la-une > :not(a) { animation-play-state: paused; }
+  /* Au premier geste, tout rejoint son état final en 120 ms */
+  .compo-fin *, .compo-fin *::before, .compo-fin *::after { animation-delay: 0s !important; animation-duration: 120ms !important; }
+  .compo-fin .stylo { transition-delay: 0s !important; }
+
+  /* ---------- Révélations au défilement, une fois : titres de section, images de l'index (étroit), figure de l'analyse ---------- */
+  .revelations .tete-section[data-revele] { position: relative; border-top-color: transparent; }
+  .revelations .tete-section[data-revele]::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: var(--encre); transform: scaleX(0); transform-origin: 0 50%; transition: transform 900ms var(--ease-in-out); }
+  .revelations .tete-section[data-revele] > * { opacity: 0; transform: translateY(12px); transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out); }
+  .revelations .tete-section[data-revele] > h2 { transition-delay: 120ms; }
+  .revelations .tete-section[data-revele] > p { transition-delay: 240ms; }
+  .revelations .tete-section.revele::before { transform: none; }
+  .revelations .tete-section.revele > * { opacity: 1; transform: none; }
+
+  .revelations .revele-image[data-revele] { clip-path: inset(0 0 100% 0); transition: clip-path 900ms var(--ease-in-out); }
+  .revelations .revele-image[data-revele] img { scale: 1.06; transition: scale 1400ms var(--ease-out); }
+  .revelations .revele-image.revele { clip-path: inset(0); }
+  .revelations .revele-image.revele img { scale: 1; }
+  .graphique .trace-svg path { transition-delay: 600ms; }
+
+  /* ---------- Profondeur : très légère parallaxe (±3 %) sur les grandes figures seulement, jamais sur une donnée ---------- */
+  @supports (animation-timeline: view()) {
+    .a-la-une .cadre img, .fiche-page main > figure .cadre img { scale: 1.07; animation: profondeur linear both; animation-timeline: view(); animation-range: cover; }
+    .compo .a-la-une .cadre img { animation: compo-resserre 1400ms var(--ease-out) both 380ms, profondeur linear both; animation-timeline: auto, view(); animation-range: normal, cover; }
+  }
+}
+@keyframes compo-filet { from { transform: scaleX(0); } }
+@keyframes compo-monte { from { opacity: 0; transform: translateY(6px); } }
+@keyframes compo-devoile-bas { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes compo-devoile-gauche { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes compo-developpe { from { scale: 1.1; filter: grayscale(1) contrast(1.12) brightness(1.1); } }
+@keyframes compo-resserre { from { scale: 1.12; } }
+@keyframes profondeur { from { translate: 0 -3%; } to { translate: 0 3%; } }
+
+/* ---------- Mouvement réduit : moins et plus doux, jamais caché ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .apercu figure, .apercu figure.visible { transition: opacity 200ms ease; }
+  .apercu figure img { scale: 1; transition: none; }
+  .trait-lecture, .graphique svg.cercles path { transition: opacity 200ms ease; }
+  .barre { transition: opacity 200ms ease; }
+  .bouton:hover, .bouton:active { transform: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* Accroche : la ligne part d'assez bas pour qu'aucun sommet de lettre ne dépasse de son masque au départ (le masque déborde de .2em) */
+@media (prefers-reduced-motion: no-preference) { .manifeste .ligne > span { animation-name: ligne-monte-accroche; } }
+@keyframes ligne-monte-accroche { from { transform: translateY(calc(100% + .4em)); } }

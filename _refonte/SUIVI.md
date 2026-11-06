@@ -2,12 +2,12 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 9 élargie)
+## Où en est-on (6 novembre 2026, fin de phase 10)
 
-**Phase 9 terminée : `DESIGN.md` consolidé (validé / expérimental), laboratoire de mouvement fonctionnel (`prototypes/labo/`, `prototypes/v2bis-labo/`), plan de migration par lots. V2bis validée intacte. En attente de Léo : choix des signatures, validation de `DESIGN.md` et du plan.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
+**Phase 10 terminée : V2bis finie (mouvement retravaillé et coordonné, défauts visuels corrigés, tablette recomposée, Citelum retiré, chargement stabilisé). En attente de la validation de Léo avant la phase de remplacement du site public.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
 Laboratoire : http://127.0.0.1:8765/_refonte/prototypes/labo/ (comparaison : `labo/comparer.html`).
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
-Avant / après : `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
+Avant / après : `v2bis-phase9/` (fin de phase 9, avant la finition), `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
 Propositions de la phase 7 : http://127.0.0.1:8765/_refonte/prototypes/phase7.html (pistes des phases 5 et 6 : `pistes-visuels.html`).
 
 Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni publié.
@@ -44,6 +44,7 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | **Phase 7 : V2bis est la référence visuelle définitive** ; direction « Note de breffage — publication vivante » confirmée. Pas de changement d'architecture ni de nouvelle exploration générale. |
 | 2026-11-06 | Faits confirmés par Léo (phase 8) : au Ministère depuis décembre 2022, poste actuel « Étudiant en veille, recherche et prospective » ; stage terminé, emploi étudiant en cours ; pendant le stage, contribution notamment aux travaux de programmation pluriannuelle de la recherche. Ne pas présenter le stage comme un emploi terminé ; ne pas inventer ses dates. |
 | 2026-11-06 | **Phase 8 tranchée par Léo** : accroche **A** « Éclairer les décisions publiques / par la recherche, la prospective et les données. » ; Nadeshicon (CA 2025 – 2026) et Collectif de Québec pour la paix (bénévole, 2026) **ajoutés** à la frise (côté événementiel et engagement) ; Citelum **conservé** ; le CV sera mis à jour par Léo plus tard. |
+| 2026-11-06 | **Phase 10** : V2bis retenue définitivement ; plus de variantes ni de laboratoire. **Citelum (stage de 2018 – 2019) retiré du parcours** à la demande de Léo (remplace la décision « laisse Citelum » de la phase 8) ; la frise va désormais de 2020 à 2027. |
 | 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
@@ -88,6 +89,57 @@ Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est de
 - **Atlas** : globe orthographique aux côtes réelles (Natural Earth 1:110 M via world-atlas, d3-geo au moment de la génération, aucun script sur la page), un seul repère sur Québec, rien d'inventé. `p7-atlas-globe.svg` (en-tête), `p7-atlas-vignette.jpg` (grille), `p7-atlas-carte.jpg` (fiche). Le titre de l'annonce mène à `v2bis/atlas.html` (« Hors-série · En chantier ») ; ligne « Atlas · À venir » en fin de Travaux.
 - **Portrait** : `medias/portrait-leo.jpg` (recadrage 4:5 de `images/port1.jpg`, original intact). A **photo d'identité en tête de la fiche signalétique** (recommandée, **intégrée à V2bis**) ; B portrait au contact (simulé pour la capture : `outils/captures-phase7.mjs`). `images/portrait.png` est un selfie de voyage, non utilisé (piste possible pour Atlas, si Léo le souhaite).
 
+## Phase 10 : finition (V2bis)
+
+**Défauts corrigés**
+- **Tablette, de 641 à 1099 px.** La figure à la une et toutes les vignettes de l'index passaient en pleine largeur : la section Travaux mesurait 3 260 px à 1024 px. L'axe 5/7 revient dans la une et dans chaque ligne, avec le texte à gauche et la vignette de 17rem à droite.
+- **Saut au chargement.** L'italique de Georgia, plus large, faisait gagner une ligne à l'accroche pendant le chargement des polices (37 px de saut sur téléphone). Le CLS atteignait 0,11 en mouvement réduit ; le défaut existait déjà et restait masqué par les fondus. Il est corrigé par des polices de secours aux métriques mesurées, romain et italique : la mise en page est désormais identique avant et après le chargement, et le CLS tombe à 0,001.
+- **Sommets de lettres visibles** au départ de la montée de l'accroche, quand elle passe sur deux lignes : le masque déborde de .2em. Le texte part maintenant d'un peu plus bas.
+- **Aperçu de l'index.** Le fondu croisé montrait une double image grise et deux légendes superposées. La nouvelle image se pose désormais sur l'ancienne, et l'ancienne légende disparaît aussitôt.
+- Trois défauts introduits en cours de phase, repérés sur capture et corrigés :
+  - la figure de l'analyse ne se révélait jamais (l'observateur ne voit pas un élément masqué par `clip-path`) ;
+  - le trait de lecture restait sur la première rubrique (`offsetLeft` faussé par la transformation des rubriques) ;
+  - une règle d'entrée réactivait le mouvement en mouvement réduit.
+- **Barres « en cours » de la frise.** Elles s'arrêtaient à une date figée (2026,85). Elles s'arrêtent désormais à « aujourd'hui », calculé chaque jour.
+
+**Mouvement retravaillé** (détail : § 7 de `DESIGN.md` ; code : `v2bis/v2bis.js` et le bloc « Phase 10 » de `v2bis.css`)
+- **Entrée :** la une se compose à la première visite de la session (filets, rubriques, portrait développé, figure découverte, stylo). Elle est lisible en environ 1 s et s'interrompt au premier geste ; sur téléphone, la une attend d'être visible. Les visites suivantes gardent des fondus courts.
+- **Révélations rationnées :** titres de section (filet tracé, titre, chapeau), images de l'index en tablette et téléphone, figure de l'analyse. La séquence est coordonnée : révélation, puis tendance, puis cercles au stylo.
+- **Profondeur :** ±3 % sur la une et les figures des fiches seulement.
+- **Navigation**
+  - La vignette devient l'image de la fiche ; au retour, l'aperçu remontre l'œuvre quittée.
+  - « Réalisation suivante » glisse latéralement.
+  - Un trait de lecture unique dans la manchette.
+  - Le nom de section glisse dans la barre de lecture (téléphone).
+  - Les boutons marquent une marche au survol et s'enfoncent au clic.
+- **Frise :** tracée dans l'ordre du temps, repère « aujourd'hui », estompage au survol.
+
+**Contenu**
+- Citelum est retiré de V2bis (frise). Les anciennes versions et archives le gardent : instantanés `v2bis-phase5` à `v2bis-phase9`, V1 à V3, `v2bis-labo`.
+- Rien d'autre ne change : ResearchRabbit et ses deux vignettes, le MBA, le Ministère, Nadeshicon, le Collectif et les projets sont conservés.
+
+**Optimisation**
+- Aucune dépendance ajoutée ; le mouvement passe par CSS, View Transitions et environ 200 lignes de JavaScript natif.
+- Animations liées au défilement hors du fil principal ; aucune boucle permanente.
+- Le socle commun (`commun/`) n'est pas modifié, pour ne pas altérer les instantanés.
+
+**Revue** (grilles d'`animate` et de `review-animations`)
+- Réglages appliqués : remise à l'échelle de l'aperçu ramenée à 300 ms, transition vers la fiche ramenée à 500 ms.
+- Exception assumée : le filtre gris → couleur du portrait.
+- Verdict : favorable.
+
+**Tests**
+- **Audit Playwright :** 1440, 1024, 768 et 390 px, avec captures en cours d'animation (entrée à 120, 450, 600, 900, 1100 et 1700 ms ; révélations ; figure ; aperçu ; transitions vers la fiche, vers la fiche suivante et retour) ; aucune erreur JavaScript, aucun débordement.
+- **Clavier :** le focus active l'aperçu et les cercles.
+- **Mouvement réduit :** rien n'est caché.
+- **Liens et images :** 98 testés sur 22 pages, aucun cassé.
+- **Mesures** (`mesures-labo.mjs v2bis`) : aucune image lente au défilement, même sur téléphone ralenti quatre fois ; CLS de 0,003 sur ordinateur et 0 sur téléphone ; LCP de 188 ms (ordinateur) et 372 ms (téléphone), meilleurs qu'avant.
+
+**Limites**
+- Rien n'a été essayé sur un vrai téléphone, dans Safari ni dans Firefox. Firefox affiche la version calme, sans transitions entre pages ni profondeur.
+- Le rythme de la composition se juge à l'œil.
+- `review-animations` porte `disable-model-invocation` : ses critères ont été lus et appliqués, mais le skill n'a pas pu être lancé.
+
 ## Phase 8 : vérification éditoriale (`phase8.html`, `_refonte/cv/proposition-cv-2026-11.md`)
 
 Sources rapprochées : indications de Léo ; CV PDF actuel (`CV/CVLeoM.pdf`, Canva, 28 septembre 2026, titre interne « Copie de Nouveau CV à modifier ») ; ancien CV LaTeX (`CV/cvLaTeX.tex`, décembre 2024, plus à jour) ; site en ligne ; contenus des projets (`artefacts-2050/game.json` et données du jeu, `projet_session/code/code.R`, `presentation/rabb2.pdf`, `PacQC/README.md` et tests).
@@ -128,6 +180,8 @@ _refonte/prototypes/labo/                 Laboratoire : direction, signatures cl
 _refonte/prototypes/v2bis-labo/           Copie expérimentale de V2bis : labo.css, labo.js (panneau de réglage)
 _refonte/outils/mesures-labo.mjs          Fluidité, CLS, LCP, mouvement réduit, clavier (V2bis contre labo)
 _refonte/prototypes/v2bis-phase8/         Instantané de V2bis à la fin de la phase 8 (avant / après)
+_refonte/prototypes/v2bis-phase9/         Instantané de V2bis à la fin de la phase 9 (avant la finition)
+_refonte/prototypes/v2bis/v2bis.js        Mouvement de V2bis (phase 10), chargé dans <head>
 _refonte/prototypes/v2bis-phase6/         Instantané de V2bis à la fin de la phase 6 (avant / après)
 _refonte/outils/visuels-phase7.mjs        Générateur phase 7 (moteur de pixels, alphabet, sprites, globe, portrait)
 _refonte/outils/captures-phase7.mjs       Captures du portrait (A, B) et de l'annonce Atlas
@@ -178,7 +232,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-0. Phase 9 : retenir (ou non) les signatures du laboratoire (1 La une se compose, 2 La réalisation devient la page, 3 Annotations vivantes, 4 Parallaxe et son intensité, 5 Frise et trait de lecture) ; valider `DESIGN.md` et `PLAN-MIGRATION.md` ; autoriser ou non le correctif de confidentialité immédiat (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent de la phase 8 : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
+0. Phase 10 : valider la V2bis finie avant la phase de remplacement du site public ; autoriser ou non le correctif de confidentialité (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -200,6 +254,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 8) : instantané `v2bis-phase7/` ; vérification des contenus source par source ; corrections factuelles dans V2bis ; trois accroches ; bilan `phase8.html` ; proposition de CV ; contrôles liens et images (80, aucun cassé) et Playwright.
 - 2026-11-06 (phase 9) : instantané `v2bis-phase8/` ; accroche A et engagements Nadeshicon et Collectif ajoutés à V2bis (accent du « É » rétabli : le masque de ligne le rognait) ; analyse du site actuel (publication Jekyll, fichiers de travail publiés dont `CV/cvLaTeX.tex`, scripts déjà en 404, `origin/main` en avance d'une vignette) ; `DESIGN.md` et `PLAN-MIGRATION.md` ; contrôles liens et Playwright.
 - 2026-11-06 (phase 9 élargie) : skills vérifiés (`find-animation-opportunities` et `animate` disponibles ; `review-animations` **absent**, revue faite avec la grille d'`animate`) ; opportunités et rejets consignés ; laboratoire avec six expériences (une composée, réalisation qui devient la page, annotations vivantes, parallaxe à trois intensités, frise et trait de lecture) ; piège corrigé (`overflow: hidden` fige `animation-timeline: view()`, d'où `overflow: clip`) ; mesures : aucune image lente (téléphone ×4), CLS ≤ 0,009, mouvement réduit et clavier conformes ; `DESIGN.md` § 11 et plan par lots.
+- 2026-11-06 (phase 10) : instantané `v2bis-phase9/` ; audit à quatre largeurs (tablette, saut au chargement, masque des lignes, aperçu) ; Citelum retiré, frise de 2020 à 2027 ; mouvement définitif dans V2bis ; polices de secours mesurées ; revue ; tests Playwright, liens et mesures ; `DESIGN.md` § 7 définitif ; plan, lot 6.
 
 ## Prochaines étapes
 
