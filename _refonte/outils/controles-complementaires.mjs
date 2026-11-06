@@ -21,7 +21,7 @@ res.contrastes = Object.fromEntries([
 const nav = await chromium.launch({ channel: 'msedge' });
 
 // 2. Poids transféré, décalage de mise en page (CLS) et LCP par variante
-for (const v of ['v1-couverture/', 'v2-la-une/', 'v3-note-annotee/']) {
+for (const v of ['v1-couverture/', 'v2-la-une/', 'v2bis/', 'v3-note-annotee/']) {
   const ctx = await nav.newContext({ viewport: { width: 1440, height: 900 } });
   const p = await ctx.newPage();
   let octets = 0;
@@ -43,7 +43,7 @@ for (const v of ['v1-couverture/', 'v2-la-une/', 'v3-note-annotee/']) {
 {
   const ctx = await nav.newContext({ viewport: { width: 1440, height: 900 } });
   const p = await ctx.newPage();
-  await p.goto(base + 'v2-la-une/', { waitUntil: 'networkidle' });
+  await p.goto(base + 'v2bis/', { waitUntil: 'networkidle' });
   res.viewTransitions = await p.evaluate(() => CSS.supports('view-transition-name: a') && 'onpagereveal' in window);
   await p.locator('.a-la-une a.lien', { hasText: 'Lire la fiche' }).click();
   await p.waitForTimeout(180);
@@ -74,7 +74,7 @@ for (const v of ['v1-couverture/', 'v2-la-une/', 'v3-note-annotee/']) {
 {
   const ctx = await nav.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
   const p = await ctx.newPage();
-  await p.goto(base + 'v3-note-annotee/', { waitUntil: 'networkidle' });
+  await p.goto(base + 'v2bis/', { waitUntil: 'networkidle' });
   await p.locator('[data-ouvre-tiroir]').click();
   await p.waitForTimeout(500);
   const ouvert = await p.evaluate(() => document.querySelector('.tiroir').open && document.querySelector('.tiroir').contains(document.activeElement));

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pistes visuelles — PacQC et Scène Pixel Art</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="commun/base.css">
+  <link rel="stylesheet" href="v2bis/v2bis.css">
+  <style>
+    .page { padding-bottom: 4rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    h1 { margin: 2.5rem 0 1rem; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; letter-spacing: -.03em; }
+    .intro { max-width: 46rem; }
+    .projet { padding-top: 4.5rem; }
+    .etat { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--axe-ecart); align-items: start; margin-bottom: 2.5rem; }
+    .etat ul { margin: 0; padding-left: 1.1rem; font: 400 1rem/1.55 var(--sans); }
+    .etat li + li { margin-top: .4rem; }
+    .pistes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+    .piste-carte h3 { margin: 1rem 0 .4rem; font-size: 1.45rem; font-weight: 400; }
+    .piste-carte .rubrique { margin-top: 1rem; }
+    .piste-carte p { font: 400 .95rem/1.5 var(--sans); color: var(--encre-2); margin: 0 0 .5rem; }
+    .piste-carte p strong { color: var(--encre); font-weight: 600; }
+    .recommandee { outline: 2px solid var(--vert); outline-offset: 10px; }
+    .reco { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--papier-2); max-width: 52rem; }
+    .reco p { margin: 0; font-size: 1.0625rem; }
+    @media (max-width: 1099.98px) { .etat, .pistes { grid-template-columns: minmax(0, 1fr); } .recommandee { outline-offset: 6px; } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 5 · propositions, rien n'est remplacé</span></div>
+  <h1>Pistes visuelles pour deux projets</h1>
+  <p class="chapo intro">Chaque jeu garde son identité : ses couleurs, ses personnages, sa matière. Le site, lui, impose seulement un cadre commun (même proportion, même légende, même filet) pour que la grille des travaux reste cohérente. Toutes les images ci-dessous sont fabriquées à partir des ressources réelles des jeux ; aucun fichier d'origine n'a été modifié.</p>
+
+  <section class="projet" aria-labelledby="t-pacqc">
+    <header class="tete-section"><h2 id="t-pacqc">PacQC</h2><p>Un jeu d'arcade au bureau : ses fantômes portent des sigles, ses bonus sont la bière et le café.</p></header>
+    <div class="etat">
+      <figure><div class="vignette cadre"><img src="medias/pacqc.jpg" width="1000" height="625" alt="Vignette actuelle de PacQC : capture de toute l'interface du jeu."></div><figcaption>Vignette actuelle : la capture de toute l'interface.</figcaption></figure>
+      <div>
+        <p class="rubrique">Ce qui ne va pas aujourd'hui</p>
+        <ul>
+          <li>La vignette montre l'interface entière (score, boutons, texte) : en petit, on lit une capture d'écran, pas un jeu.</li>
+          <li>Le joueur est le visage photographié d'une tierce personne : à éviter tant que son accord n'est pas confirmé.</li>
+          <li>Le logo (« PACQC » espacé, point vert anis) est cohérent avec le jeu ; il mérite d'être conservé tel quel.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pistes">
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/pistes/pacqc-a-plan.jpg" width="1600" height="840" alt="Piste A : le labyrinthe cadré sur la réserve des fantômes."></div>
+        <p class="rubrique">Piste A</p><h3>Le plan de carte</h3>
+        <p>Un cadrage serré sur le labyrinthe et la réserve des fantômes, sans interface ni joueur.</p>
+        <p><strong>Pour :</strong> immédiatement lisible comme un jeu. <strong>Contre :</strong> ne montre qu'une carte sur trois.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/pistes/pacqc-b-fantomes.jpg" width="1600" height="840" alt="Piste B : les quatre fantômes alignés au-dessus du logo PacQC."></div>
+        <p class="rubrique">Piste B</p><h3>La distribution</h3>
+        <p>Les quatre fantômes présentés comme un générique, au-dessus du logo d'origine.</p>
+        <p><strong>Pour :</strong> la plus mémorable, l'humour du jeu en une image. <strong>Contre :</strong> les sigles visent des réalités administratives et l'un reprend le logo de Teams (marque déposée) ; à éviter devant un employeur public si le clin d'œil peut être mal reçu.</p>
+      </article>
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/pistes/pacqc-c-cartes.jpg" width="1600" height="840" alt="Piste C : les trois cartes du jeu côte à côte, en plan."></div>
+        <p class="rubrique">Piste C · recommandée</p><h3>Les trois cartes</h3>
+        <p>Les trois labyrinthes côte à côte, comme des plans d'architecte.</p>
+        <p><strong>Pour :</strong> montre un travail de conception (trois tracés, validés automatiquement), sans visage ni marque. <strong>Contre :</strong> moins drôle que la piste B.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="projet" aria-labelledby="t-scene">
+    <header class="tete-section"><h2 id="t-scene">Scène Pixel Art</h2><p>Une ville de Québec en isométrie, où l'on promène un personnage.</p></header>
+    <div class="etat">
+      <figure><div class="vignette cadre"><img src="medias/pixel-art.jpg" width="1200" height="675" alt="Vignette actuelle : la scène entière."></div><figcaption>Vignette actuelle : la scène entière, réduite.</figcaption></figure>
+      <div>
+        <p class="rubrique">Ce qui ne va pas aujourd'hui</p>
+        <ul>
+          <li>Réduite à la taille d'une vignette, la scène entière devient un motif vert et beige : les bâtiments, qui font son intérêt, disparaissent.</li>
+          <li>Le projet n'a pas de logo, et son nom de travail s'écrit sans accent (« Scene Pixel Art »).</li>
+          <li>Rien n'indique qu'elle est interactive : le personnage n'apparaît pas.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pistes">
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/pistes/pixel-a-detail.jpg" width="1600" height="840" alt="Piste A : détail du pavillon Charles-De Koninck agrandi deux fois."></div>
+        <p class="rubrique">Piste A · recommandée</p><h3>Le détail au pixel près</h3>
+        <p>Un cadrage sur le pavillon Charles-De Koninck (Université Laval), agrandi deux fois sans lissage.</p>
+        <p><strong>Pour :</strong> on voit le soin du dessin, et le lieu parle de votre parcours. <strong>Contre :</strong> la ville entière n'est plus visible.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/pistes/pixel-b-personnage.jpg" width="1600" height="840" alt="Piste B : la place centrale avec le personnage jouable."></div>
+        <p class="rubrique">Piste B</p><h3>La scène habitée</h3>
+        <p>La place centrale avec le personnage jouable, à l'échelle du jeu.</p>
+        <p><strong>Pour :</strong> dit tout de suite « on peut s'y promener ». <strong>Contre :</strong> le personnage est petit en vignette ; à animer au survol si on la retient.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/pistes/pixel-c-titre.jpg" width="1600" height="840" alt="Piste C : la scène avec un cartouche-titre en lettres pixel."></div>
+        <p class="rubrique">Piste C</p><h3>Le cartouche-titre</h3>
+        <p>Un logo en lettres pixel (Silkscreen) posé sur la scène, comme l'écran-titre d'un jeu.</p>
+        <p><strong>Pour :</strong> donne enfin un nom visible et une identité propre au projet. <strong>Contre :</strong> une police de plus à charger ; le cartouche reprend le rouge du site, à remplacer par une couleur du jeu si on veut l'en détacher.</p>
+      </article>
+    </div>
+    <div class="reco"><p>Recommandation : PacQC en piste C et la Scène en piste A pour la grille, car elles montrent le travail sans dépendre d'un visage, d'une marque ou d'une blague d'initiés. Le cartouche-titre de la Scène (piste C) peut servir de logo sur la page du jeu lui-même. V2bis utilise ces deux pistes à titre d'essai ; les originaux restent en place tant que vous n'avez pas tranché.</p></div>
+  </section>
+</div>
+</body>
+</html>

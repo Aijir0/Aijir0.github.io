@@ -59,7 +59,7 @@
     .apercu { position: sticky; top: 5rem; align-self: start; display: grid; }
     .apercu figure { grid-area: 1 / 1; opacity: 0; transform: scale(.985); transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
     .apercu figure.visible { opacity: 1; transform: none; }
-    .apercu .t-vignette { display: none; }
+    .index .t-vignette { display: none; }
 
     /* Figure annotée */
     .analyse .entete-analyse { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; margin-bottom: 2rem; }
@@ -116,7 +116,7 @@
       .profil .meta, .profil .bouton { grid-column: 2; }
       .index, .analyse .entete-analyse, .figure-annotee, .contact { grid-template-columns: minmax(0, 1fr); }
       .apercu { display: none; }
-      .apercu .t-vignette { display: block; }
+      .index li a .t-vignette { display: block; }
       .index li a { grid-template-columns: 2rem minmax(0, 1fr) auto; }
       .index li a .t-vignette { display: block; grid-column: 2 / -1; margin-top: .6rem; }
       .rubriques { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
@@ -169,8 +169,8 @@
         </article>
         <article class="breve">
           <p class="meta">En formation</p>
-          <h3>Maîtrise en science politique avec stage</h3>
-          <p>Université Laval, depuis 2024. Baccalauréat obtenu à l'hiver 2024.</p>
+          <h3>MBA en analytique d'affaires</h3>
+          <p><span class="a-completer">établissement</span> Après une maîtrise (2026) et un baccalauréat (2024) en science politique à l'Université Laval.</p>
         </article>
         <article class="breve">
           <p class="meta">Langues</p>
@@ -245,14 +245,15 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
     <section id="parcours" aria-labelledby="t-parcours">
       <div class="titre-section"><span class="paragraphe">§ 04</span><h2 id="t-parcours">Parcours, à l'échelle</h2></div>
       <ol class="frise" data-trace>
-        <li><div><h3>Étudiant et conseiller</h3><p class="ou">Ministère de l'Éducation du Québec · depuis déc. 2022</p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
-        <li><div><h3>Maîtrise en science politique avec stage</h3><p class="ou">Université Laval · depuis 2024</p></div><div class="piste"><span class="barre en-cours" style="--d:2024.3;--f:2026.85;--i:1"></span></div></li>
-        <li><div><h3>Secrétaire</h3><p class="ou">Club Animé Québec · depuis sept. 2024</p></div><div class="piste"><span class="barre en-cours" style="--d:2024.67;--f:2026.85;--i:2"></span></div></li>
-        <li><div><h3>Baccalauréat en science politique</h3><p class="ou">Université Laval · obtenu à l'hiver 2024 · <span class="a-completer">année de début</span></p></div><div class="piste"><span class="barre incertaine" style="--d:2020.7;--f:2021.7;--i:3"></span><span class="barre" style="--d:2021.7;--f:2024.3;--i:3"></span></div></li>
-        <li><div><h3>Stage en ressources humaines</h3><p class="ou">Citelum, Paris · 2018 – 2019</p></div><div class="piste"><span class="barre" style="--d:2018.1;--f:2019.9;--i:4"></span></div></li>
+        <li><div><h3>Ministère de l'Éducation du Québec</h3><p class="ou">Depuis déc. 2022 · stage, puis emploi en cours · <span class="a-completer">dates du stage, intitulé du poste</span></p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
+        <li><div><h3>MBA en analytique d'affaires</h3><p class="ou">En cours · <span class="a-completer">établissement, date de début</span></p></div><div class="piste"><span class="barre incertaine en-cours" style="--d:2026.5;--f:2026.85;--i:1"></span></div></li>
+        <li><div><h3>Maîtrise en science politique avec stage</h3><p class="ou">Université Laval · 2024 – mai 2026</p></div><div class="piste"><span class="barre" style="--d:2024.33;--f:2026.37;--i:2"></span></div></li>
+        <li><div><h3>Secrétaire, Club Animé Québec</h3><p class="ou">Depuis sept. 2024, fonction terminée · <span class="a-completer">date de fin</span></p></div><div class="piste"><span class="barre" style="--d:2024.67;--f:2024.92;--i:3"></span><span class="barre incertaine" style="--d:2024.92;--f:2025.9;--i:3"></span></div></li>
+        <li><div><h3>Baccalauréat en science politique</h3><p class="ou">Université Laval · automne 2020 – hiver 2024</p></div><div class="piste"><span class="barre" style="--d:2020.67;--f:2024.3;--i:4"></span></div></li>
+        <li><div><h3>Stage en ressources humaines</h3><p class="ou">Citelum, Paris · 2018 – 2019</p></div><div class="piste"><span class="barre" style="--d:2018.1;--f:2019.9;--i:5"></span></div></li>
       </ol>
       <div class="axe" aria-hidden="true"><span></span><ol><li>2018</li><li>2019</li><li>2020</li><li>2021</li><li>2022</li><li>2023</li><li>2024</li><li>2025</li><li>2026</li></ol></div>
-      <p class="legende-frise">Les flèches indiquent une activité en cours ; le pointillé, une date de début à confirmer.</p>
+      <p class="legende-frise">Les flèches indiquent une activité en cours ; le pointillé, une date à confirmer.</p>
     </section>
 
     <section id="competences" aria-labelledby="t-competences">

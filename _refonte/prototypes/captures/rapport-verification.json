@@ -1,54 +1,54 @@
 {
   "v1/desktop": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 1,
-    "hauteur": 5416,
+    "hauteur": 5542,
     "erreurs": []
   },
   "v1/mobile": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 7878,
+    "hauteur": 8104,
     "erreurs": []
   },
   "v2/desktop": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 4363,
+    "hauteur": 4414,
     "erreurs": []
   },
   "v2/mobile": {
     "polices": {
-      "Newsreader": true,
+      "Atkinson Hyperlegible Mono": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 6945,
+    "hauteur": 7135,
     "erreurs": []
   },
   "v3/desktop": {
@@ -105,28 +105,98 @@
   },
   "comparatif/desktop": {
     "polices": {
-      "Newsreader": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 3389,
+    "hauteur": 3414,
     "erreurs": []
   },
   "comparatif/mobile": {
     "polices": {
-      "Newsreader": true,
       "Atkinson Hyperlegible Next": true,
-      "Atkinson Hyperlegible Mono": true
+      "Newsreader": true
     },
     "defilementHorizontal": false,
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 5637,
+    "hauteur": 5391,
+    "erreurs": []
+  },
+  "v2bis/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 4605,
+    "erreurs": []
+  },
+  "v2bis/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 6877,
+    "erreurs": []
+  },
+  "fiche-v2bis/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 2485,
+    "erreurs": []
+  },
+  "fiche-v2bis/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 2485,
+    "erreurs": []
+  },
+  "pistes/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 2609,
+    "erreurs": []
+  },
+  "pistes/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 5093,
     "erreurs": []
   }
 }

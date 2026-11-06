@@ -11,6 +11,7 @@ function sommaireVivant() {
   const titres = new Map(liens.map(a => [a.hash.slice(1), a.querySelector('.titre')?.textContent || a.textContent.trim()]));
   const libelle = document.querySelector('[data-section-courante]');
   const barre = document.querySelector('.barre-lecture');
+  const prefixe = libelle?.dataset.prefixe ?? '§ '; // V2bis : pas de signe de paragraphe
   let attente = false;
 
   function maj() {
@@ -35,8 +36,8 @@ function sommaireVivant() {
       if (a) curseur.style.setProperty('--y', a.offsetTop + 'px');
     });
     if (libelle) libelle.innerHTML = id
-      ? `<span class="num">§ ${actif + 1}/${sections.length}</span> ${titres.get(id)}`
-      : '<span class="num">§</span> Sommaire';
+      ? `<span class="num">${prefixe}${actif + 1}/${sections.length}</span> ${titres.get(id)}`
+      : (prefixe ? '<span class="num">§</span> ' : '') + 'Sommaire';
     if (barre) {
       const max = document.documentElement.scrollHeight - innerHeight;
       barre.style.setProperty('--p-page', max > 0 ? (scrollY / max).toFixed(3) : 0);

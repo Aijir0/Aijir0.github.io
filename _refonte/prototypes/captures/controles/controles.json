@@ -10,22 +10,27 @@
     "saumon/encre (barre mobile)": 9.99
   },
   "perf v1-couverture/": {
-    "cls": 0.011,
-    "lcpMs": 260,
-    "poidsKo": 627
+    "cls": 0.012,
+    "lcpMs": 296,
+    "poidsKo": 685
   },
   "perf v2-la-une/": {
     "cls": 0,
-    "lcpMs": 192,
-    "poidsKo": 656
+    "lcpMs": 200,
+    "poidsKo": 641
+  },
+  "perf v2bis/": {
+    "cls": 0.001,
+    "lcpMs": 220,
+    "poidsKo": 536
   },
   "perf v3-note-annotee/": {
     "cls": 0,
-    "lcpMs": 316,
-    "poidsKo": 683
+    "lcpMs": 348,
+    "poidsKo": 500
   },
   "viewTransitions": true,
-  "retourVersOrigine": "http://127.0.0.1:8765/_refonte/prototypes/v2-la-une/",
+  "retourVersOrigine": "http://127.0.0.1:8765/_refonte/prototypes/v2bis/",
   "ordreTabulation": [
     "Aller au contenu",
     "Léo Matrat",

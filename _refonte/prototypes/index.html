@@ -3,180 +3,138 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comparatif des variantes — Note de breffage</title>
+  <title>Comparatif des versions — Note de breffage</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:,">
   <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
   <link rel="stylesheet" href="commun/base.css">
+  <link rel="stylesheet" href="v2bis/v2bis.css">
   <style>
-    .page { max-width: var(--page); margin: 0 auto; padding: 0 var(--gouttiere) 2rem; }
-    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25rem 0 1rem; border-bottom: 1px solid var(--encre); }
-    .intro { padding: 3rem 0 2.5rem; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: end; }
-    .intro h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); font-weight: 380; letter-spacing: -.03em; }
-    .commun { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--encre); border-bottom: 1px solid var(--encre); }
-    .commun > div { padding: 1.25rem 1.5rem 1.5rem; }
-    .commun > div:first-child { padding-left: 0; }
-    .commun > div + div { border-left: 1px solid var(--filet); }
-    .commun h2 { font-size: 1.25rem; font-weight: 500; margin: .4rem 0 1rem; }
-    .nuancier { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; }
-    .nuancier span { display: block; aspect-ratio: 1; outline: 1px solid var(--filet); outline-offset: -1px; }
-    .nuancier small { display: block; font: 500 .68rem/1.3 var(--mono); color: var(--encre-2); margin-top: .35rem; }
-    .specimen p { margin: 0 0 .5rem; }
-    .commun ol { margin: 0; padding-left: 1.1rem; font: 400 .95rem/1.55 var(--sans); }
+    .page { padding-bottom: 2rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); }
+    .intro { display: grid; grid-template-columns: var(--axe-grille); gap: 1.5rem var(--axe-ecart); align-items: end; padding: 3rem 0 3.5rem; }
+    .intro h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 400; letter-spacing: -.03em; }
+    .intro .chapo { margin: 0; }
 
-    .variante { display: grid; grid-template-columns: minmax(0, 6.5fr) minmax(0, 1.6fr) minmax(0, 3.9fr); gap: 2rem; padding: 3.5rem 0; border-bottom: 1px solid var(--filet); align-items: start; }
-    .variante h2 { font-size: clamp(2rem, 3vw, 2.7rem); font-weight: 420; margin: .4rem 0 .8rem; }
-    .variante .recommandee { color: var(--papier); background: var(--vert); padding: .2em .55em; border-radius: 2px; margin-left: .5rem; }
-    .variante h3 { font: 600 .82rem var(--sans); text-transform: uppercase; letter-spacing: .06em; margin: 1.1rem 0 .3rem; color: var(--encre-2); }
-    .variante ul { margin: 0; padding-left: 1.1rem; font: 400 .95rem/1.5 var(--sans); }
-    .variante .actions { display: flex; flex-wrap: wrap; gap: .8rem 1.25rem; margin-top: 1.5rem; align-items: center; }
-    .vignette { display: block; text-decoration: none; }
-    .vignette .cadre { box-shadow: 0 1px 0 var(--filet); }
+    .version { display: grid; grid-template-columns: minmax(0, 6.5fr) minmax(0, 1.6fr) minmax(0, 3.9fr); gap: 2rem; padding: 3rem 0; border-top: 1px solid var(--filet); align-items: start; }
+    .version h2 { margin: .35rem 0 .8rem; font-size: clamp(2rem, 3vw, 2.6rem); }
+    .version .etiquette { margin-left: .5rem; padding: .2em .55em; border-radius: 2px; background: var(--vert); color: var(--papier); font: 600 .8125rem var(--sans); vertical-align: middle; }
+    .version h3 { margin: 1.1rem 0 .3rem; font: 600 .8125rem var(--sans); color: var(--vert); }
+    .version ul, .version .resume { margin: 0; font: 400 .97rem/1.5 var(--sans); }
+    .version ul { padding-left: 1.1rem; }
+    .version .actions { display: flex; flex-wrap: wrap; gap: .8rem 1.25rem; align-items: center; margin: 1.5rem 0 0; }
+    .apercu-lien { display: block; text-decoration: none; }
 
-    table.comparatif { width: 100%; border-collapse: collapse; font: 400 .95rem/1.45 var(--sans); }
-    .comparatif th, .comparatif td { text-align: left; padding: .8rem 1rem .8rem 0; border-bottom: 1px solid var(--filet); vertical-align: top; }
-    .comparatif thead th { font: 500 .75rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--encre-2); border-bottom: 1px solid var(--encre); }
-    .comparatif tbody th { font: 500 1.05rem/1.35 var(--serif); width: 22%; }
-    .comparatif .fort { color: var(--vert); font-weight: 600; }
-    section.bloc { padding-top: 4rem; }
-    .reco { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; }
-    .reco .grand { font: 350 clamp(1.5rem, 2.2vw, 2.1rem)/1.35 var(--serif); }
-    .reco ul { font: 400 1rem/1.55 var(--sans); padding-left: 1.1rem; }
+    section.bloc { padding-top: 5rem; }
+    .critique { width: 100%; border-collapse: collapse; font: 400 .97rem/1.5 var(--sans); }
+    .critique th, .critique td { padding: .85rem 1.25rem .85rem 0; text-align: left; vertical-align: baseline; border-bottom: 1px solid var(--filet); }
+    .critique thead th { font: 500 .8125rem var(--sans); color: var(--encre-2); border-bottom: 1px solid var(--encre); }
+    .critique tbody th { width: 18%; font: 500 1.075rem/1.35 var(--serif); }
+    .critique .fort { color: var(--vert); font-weight: 600; }
+    .reference { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: baseline; padding: 1.5rem 0; border-top: 1px solid var(--filet); font: 400 .97rem/1.5 var(--sans); }
+    .reco { display: grid; grid-template-columns: var(--axe-grille); gap: var(--axe-ecart); }
+    .reco .grand { font: 400 clamp(1.5rem, 2.2vw, 2.05rem)/1.35 var(--serif); margin: 0; }
+    .reco ul { margin: 0; padding-left: 1.1rem; font: 400 1rem/1.55 var(--sans); }
 
     @media (max-width: 1099.98px) {
       .intro, .reco { grid-template-columns: minmax(0, 1fr); }
-      .commun { grid-template-columns: minmax(0, 1fr); }
-      .commun > div { padding: 1.25rem 0 !important; border-left: 0 !important; }
-      .commun > div + div { border-top: 1px solid var(--filet); }
-      .variante { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
-      .variante > .texte { grid-column: 1 / -1; }
+      .version { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
+      .version > .texte { grid-column: 1 / -1; }
     }
     @media (max-width: 640px) {
-      .comparatif thead { display: none; }
-      .comparatif tr { display: block; padding: .8rem 0; border-bottom: 1px solid var(--filet); }
-      .comparatif th, .comparatif td { display: block; border: 0; padding: .2rem 0; width: auto !important; }
-      .comparatif td::before { content: attr(data-v) " · "; font: 600 .8rem var(--mono); color: var(--encre-2); }
+      .critique thead { display: none; }
+      .critique tr { display: block; padding: .8rem 0; border-bottom: 1px solid var(--filet); }
+      .critique th, .critique td { display: block; width: auto !important; padding: .2rem 0; border: 0; }
+      .critique td::before { content: attr(data-v) " : "; font-weight: 600; color: var(--encre-2); }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <div class="haut meta"><span>Refonte leomatrat.com · Phase 2 · Prototypes</span><span>6 novembre 2026</span></div>
+  <div class="haut meta"><span>Refonte du site · phase 5 · prototypes locaux</span><span>À comparer : V2bis, V2, V1</span></div>
   <header class="intro">
-    <div>
-      <p class="meta">Direction « Note de breffage — publication vivante »</p>
-      <h1 class="lignes"><span class="ligne"><span>Trois compositions</span></span><span class="ligne"><span style="--i:1">pour une même voix.</span></span></h1>
-    </div>
-    <p class="chapo">Même palette, mêmes polices, mêmes quatre signatures, mêmes contenus réels. Seule change la manière de composer la page d'accueil. Les fiches de réalisation sont communes : essayez « Lire la fiche » d'Artéfacts 2050 dans chaque variante.</p>
+    <h1 class="lignes"><span class="ligne"><span>Trois versions,</span></span><span class="ligne"><span style="--i:1">une direction qui s'affine.</span></span></h1>
+    <p class="chapo">V2bis reprend la une de V2 et la retenue de V1, avec une typographie revue détail par détail. V1 et V2 restent telles qu'elles étaient, avec les informations de parcours corrigées : on peut les comparer côte à côte.</p>
   </header>
 
-  <section class="commun" aria-label="Système commun">
-    <div>
-      <p class="meta">Palette</p><h2>Papier, encre, vert, stylo rouge</h2>
-      <div class="nuancier">
-        <div><span style="background:#f5f2ea"></span><small>Papier F5F2EA</small></div>
-        <div><span style="background:#1a1c1a"></span><small>Encre 1A1C1A</small></div>
-        <div><span style="background:#1e4636"></span><small>Vert 1E4636</small></div>
-        <div><span style="background:#a63d2a"></span><small>Rouge A63D2A</small></div>
-        <div><span style="background:#d9d3c4"></span><small>Filet D9D3C4</small></div>
-      </div>
-    </div>
-    <div class="specimen">
-      <p class="meta">Typographie</p><h2>Une voix éditoriale, une voix d'interface</h2>
-      <p style="font:380 2rem/1.1 var(--serif);letter-spacing:-.02em">Newsreader <em style="color:var(--vert)">— lecture</em></p>
-      <p style="font:500 1.15rem var(--sans)">Atkinson Hyperlegible Next — interface</p>
-      <p class="meta" style="text-transform:none;letter-spacing:.02em">Atkinson Hyperlegible Mono — dates, cotes, n° 01</p>
-    </div>
-    <div>
-      <p class="meta">Signatures testées</p><h2>Quatre gestes communs</h2>
-      <ol>
-        <li><span class="stylo">Stylo rouge</span> : l'essentiel se souligne une fois.</li>
-        <li>Notes en marge reliées par un fil.</li>
-        <li>Sommaire vivant et barre de lecture mobile.</li>
-        <li>La figure devient la page (fiche Artéfacts).</li>
-      </ol>
-    </div>
-  </section>
-
-  <article class="variante" aria-labelledby="t-v1">
-    <a class="vignette" href="v1-couverture/"><div class="cadre"><img src="captures/v1/desktop_00-premier-ecran.png" width="1440" height="900" alt="V1 Couverture, premier écran sur ordinateur"></div></a>
-    <a class="vignette" href="v1-couverture/"><div class="cadre"><img src="captures/v1/mobile_00-premier-ecran.png" width="780" height="1688" alt="V1 Couverture, premier écran sur mobile" loading="lazy"></div></a>
+  <article class="version" aria-labelledby="t-v2bis">
+    <a class="apercu-lien" href="v2bis/"><div class="cadre"><img src="captures/v2bis/desktop_00-premier-ecran.png" width="1440" height="900" alt="V2bis, premier écran sur ordinateur"></div></a>
+    <a class="apercu-lien" href="v2bis/"><div class="cadre"><img src="captures/v2bis/mobile_00-premier-ecran.png" width="780" height="1688" alt="V2bis, premier écran sur mobile" loading="lazy"></div></a>
     <div class="texte">
-      <p class="meta">Variante 1</p>
-      <h2 id="t-v1">Couverture</h2>
-      <p class="ui" style="font-size:1rem">La page de garde d'un rapport : grande accroche, fiche signalétique en quatre cases, sommaire permanent dans la marge gauche.</p>
-      <h3>Explore</h3>
-      <ul><li>Sommaire vertical à curseur et jauge de lecture</li><li>Lecture « 30 s / 3 min » qui replie la page sur l'essentiel</li><li>Chronologie à dates en marge, tableau de compétences avec preuves</li></ul>
-      <h3>Risque</h3>
-      <ul><li>Le nom n'est pas le titre : l'accroche porte tout le premier écran</li></ul>
-      <p class="actions"><a class="bouton" href="v1-couverture/">Ouvrir V1 <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v1/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v1/mobile_99-page-complete.png">Mobile</a></p>
+      <p class="meta">Nouvelle version</p>
+      <h2 id="t-v2bis">V2bis, la une en édition de fond <span class="etiquette">Recommandée</span></h2>
+      <p class="resume">Le nom en titre de revue, la signature avec portrait, puis une seule une : à gauche l'accroche et la fiche de V1, à droite le travail phare. Chaque section reprend le même axe 5/7.</p>
+      <h3>Ce qui change</h3>
+      <ul><li>Deux polices au lieu de trois ; plus aucune capitale espacée</li><li>Dates et chiffres en Newsreader ; plus de numérotation décorative</li><li>Parcours en deux registres datés, compétences reliées à leurs preuves</li><li>Fiche Artéfacts avec en-tête « objet, date, durée »</li></ul>
+      <p class="actions"><a class="bouton" href="v2bis/">Ouvrir V2bis <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v2bis/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v2bis/mobile_99-page-complete.png">Mobile</a></p>
     </div>
   </article>
 
-  <article class="variante" aria-labelledby="t-v2">
-    <a class="vignette" href="v2-la-une/"><div class="cadre"><img src="captures/v2/desktop_00-premier-ecran.png" width="1440" height="900" alt="V2 La Une, premier écran sur ordinateur" loading="lazy"></div></a>
-    <a class="vignette" href="v2-la-une/"><div class="cadre"><img src="captures/v2/mobile_00-premier-ecran.png" width="780" height="1688" alt="V2 La Une, premier écran sur mobile" loading="lazy"></div></a>
+  <article class="version" aria-labelledby="t-v2">
+    <a class="apercu-lien" href="v2-la-une/"><div class="cadre"><img src="captures/v2/desktop_00-premier-ecran.png" width="1440" height="900" alt="V2 La Une, premier écran sur ordinateur" loading="lazy"></div></a>
+    <a class="apercu-lien" href="v2-la-une/"><div class="cadre"><img src="captures/v2/mobile_00-premier-ecran.png" width="780" height="1688" alt="V2 La Une, premier écran sur mobile" loading="lazy"></div></a>
     <div class="texte">
-      <p class="meta">Variante 2</p>
-      <h2 id="t-v2">La Une <span class="meta recommandee">Recommandée</span></h2>
-      <p class="ui" style="font-size:1rem">La une d'une revue : nom en titre de journal, brèves, réalisation phare au centre, profil à droite. Tout l'essentiel tient dans le premier écran.</p>
-      <h3>Explore</h3>
-      <ul><li>Figure annotée : le vrai graphique R, repères reliés à leur lecture</li><li>Frise du parcours à l'échelle (études et poste en parallèle)</li><li>Index des travaux avec aperçu qui suit le survol</li></ul>
-      <h3>Risque</h3>
-      <ul><li>Densité plus forte ; le pastiche de journal est à doser</li></ul>
-      <p class="actions"><a class="bouton" href="v2-la-une/">Ouvrir V2 <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v2/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v2/mobile_99-page-complete.png">Mobile</a></p>
+      <p class="meta">Version de la phase 2</p>
+      <h2 id="t-v2">V2, La Une</h2>
+      <p class="resume">La une d'un quotidien : brèves à gauche, travail phare au centre, profil à droite.</p>
+      <h3>À garder</h3>
+      <ul><li>Le nom en grand, la figure annotée, la frise, l'index avec aperçu</li></ul>
+      <h3>À reprendre</h3>
+      <ul><li>Trois colonnes et trois niveaux de titres sur le premier écran</li><li>Codes de journal appuyés (« Vol. 1 · N° 1 », double filet)</li></ul>
+      <p class="actions"><a class="bouton secondaire" href="v2-la-une/">Ouvrir V2 <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v2/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v2/mobile_99-page-complete.png">Mobile</a></p>
     </div>
   </article>
 
-  <article class="variante" aria-labelledby="t-v3">
-    <a class="vignette" href="v3-note-annotee/"><div class="cadre"><img src="captures/v3/desktop_00-premier-ecran.png" width="1440" height="900" alt="V3 Note annotée, premier écran sur ordinateur" loading="lazy"></div></a>
-    <a class="vignette" href="v3-note-annotee/"><div class="cadre"><img src="captures/v3/mobile_00-premier-ecran.png" width="780" height="1688" alt="V3 Note annotée, premier écran sur mobile" loading="lazy"></div></a>
+  <article class="version" aria-labelledby="t-v1">
+    <a class="apercu-lien" href="v1-couverture/"><div class="cadre"><img src="captures/v1/desktop_00-premier-ecran.png" width="1440" height="900" alt="V1 Couverture, premier écran sur ordinateur" loading="lazy"></div></a>
+    <a class="apercu-lien" href="v1-couverture/"><div class="cadre"><img src="captures/v1/mobile_00-premier-ecran.png" width="780" height="1688" alt="V1 Couverture, premier écran sur mobile" loading="lazy"></div></a>
     <div class="texte">
-      <p class="meta">Variante 3</p>
-      <h2 id="t-v3">Note annotée</h2>
-      <p class="ui" style="font-size:1rem">Une vraie note de service (Objet, Date, Destinataires) dont le texte d'ouverture est souligné au stylo ; les notes en marge mènent aux sections.</p>
-      <h3>Explore</h3>
-      <ul><li>Stylo rouge en séquence sur trois passages</li><li>Travaux en encadrés, compétences en lexique, CV en « pièce jointe »</li><li>Renvois « → § 2 » qui éclairent le titre visé</li></ul>
-      <h3>Risque</h3>
-      <ul><li>La plus littéraire : moins rapide à parcourir en diagonale</li></ul>
-      <p class="actions"><a class="bouton" href="v3-note-annotee/">Ouvrir V3 <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v3/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v3/mobile_99-page-complete.png">Mobile</a></p>
+      <p class="meta">Version de la phase 2</p>
+      <h2 id="t-v1">V1, Couverture</h2>
+      <p class="resume">La page de garde d'un rapport : grande accroche, fiche signalétique, sommaire dans la marge.</p>
+      <h3>À garder</h3>
+      <ul><li>L'accroche composée, la fiche, la lecture « 30 s / 3 min », le tableau des preuves</li></ul>
+      <h3>À reprendre</h3>
+      <ul><li>Le nom presque invisible, un vide en haut du premier écran, deux boutons CV</li></ul>
+      <p class="actions"><a class="bouton secondaire" href="v1-couverture/">Ouvrir V1 <span aria-hidden="true">↗</span></a><a class="lien" href="captures/v1/desktop_99-page-complete.png">Page entière</a><a class="lien" href="captures/v1/mobile_99-page-complete.png">Mobile</a></p>
     </div>
   </article>
 
-  <section class="bloc" aria-labelledby="t-comp">
-    <div class="titre-section"><span class="paragraphe">§ A</span><h2 id="t-comp">Comparaison</h2></div>
-    <table class="comparatif">
-      <thead><tr><th scope="col">Critère</th><th scope="col">V1 Couverture</th><th scope="col">V2 La Une</th><th scope="col">V3 Note annotée</th></tr></thead>
+  <p class="reference"><span><strong>Référence :</strong> <a class="lien" href="v3-note-annotee/">V3, Note annotée</a>, conservée sans modification (ses informations de parcours n'ont pas été mises à jour).</span><span><strong>Projets :</strong> <a class="lien" href="pistes-visuels.html">pistes visuelles pour PacQC et la Scène Pixel Art</a></span></p>
+
+  <section class="bloc" aria-labelledby="t-critique">
+    <header class="tete-section"><h2 id="t-critique">Critique des détails</h2><p>Ce qui faisait « assemblé automatiquement » dans V1 et V2, et la réponse de V2bis.</p></header>
+    <table class="critique">
+      <thead><tr><th scope="col">Détail</th><th scope="col">Dans V1 et V2</th><th scope="col">Dans V2bis</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Compris en 30 secondes</th><td data-v="V1">Bon : fiche signalétique</td><td data-v="V2" class="fort">Excellent : tout au premier écran</td><td data-v="V3">Moyen : il faut lire le paragraphe</td></tr>
-        <tr><th scope="row">Valorisation des travaux</th><td data-v="V1">Bonne : dossiers en grille</td><td data-v="V2" class="fort">Très forte : à la une, index, analyse</td><td data-v="V3">Bonne : encadrés</td></tr>
-        <tr><th scope="row">Originalité</th><td data-v="V1">Sobre, élégante</td><td data-v="V2">Forte, la plus « magazine »</td><td data-v="V3" class="fort">La plus singulière</td></tr>
-        <tr><th scope="row">Lecture mobile</th><td data-v="V1" class="fort">Très claire</td><td data-v="V2">Claire, plus longue</td><td data-v="V3">Claire, plus de texte</td></tr>
-        <tr><th scope="row">Effort de production</th><td data-v="V1" class="fort">Le plus faible</td><td data-v="V2">Le plus élevé (frise, index, figure)</td><td data-v="V3">Moyen ; dépend de l'écriture</td></tr>
-        <tr><th scope="row">Risque principal</th><td data-v="V1">Nom peu visible</td><td data-v="V2">Pastiche de journal</td><td data-v="V3">Trop littéraire pour un recruteur pressé</td></tr>
+        <tr><th scope="row">Dates et métadonnées</th><td data-v="V1, V2">Chasse fixe en capitales espacées : un tic des interfaces générées, qui évoque un terminal.</td><td data-v="V2bis" class="fort">Libellés en bas de casse dans la police d'interface ; dates en Newsreader.</td></tr>
+        <tr><th scope="row">Chiffres</th><td data-v="V1, V2">Zéro barré (Atkinson), qui donne aux années un air technique.</td><td data-v="V2bis" class="fort">Tout chiffre composé en Newsreader.</td></tr>
+        <tr><th scope="row">Numérotation</th><td data-v="V1, V2">« § 02 », « 01 » devant chaque section, entrée de menu et ligne d'index.</td><td data-v="V2bis" class="fort">Supprimée : rien n'est compté qui n'a besoin de l'être.</td></tr>
+        <tr><th scope="row">Titres de section</th><td data-v="V1, V2">Même gabarit répété, sans contenu propre.</td><td data-v="V2bis" class="fort">Titre et chapeau en italique qui dit ce qu'on va lire, sur l'axe 5/7.</td></tr>
+        <tr><th scope="row">Légendes</th><td data-v="V1, V2">« Fig. n » en chasse fixe et en gras, y compris sous le portrait.</td><td data-v="V2bis" class="fort">Italique de lecture ; pas de légende pour le portrait.</td></tr>
+        <tr><th scope="row">Flèches</th><td data-v="V1, V2">« → » après presque chaque lien.</td><td data-v="V2bis" class="fort">« ↗ » pour sortir du site, « ↓ » pour télécharger ; rien d'autre.</td></tr>
+        <tr><th scope="row">Stylo rouge</th><td data-v="V1, V2">Plusieurs soulignements par écran.</td><td data-v="V2bis" class="fort">Un seul mot souligné (« lisible ») et la droite de régression.</td></tr>
+        <tr><th scope="row">Filets</th><td data-v="V1, V2">Filets verticaux entre colonnes, double filet sous le titre.</td><td data-v="V2bis" class="fort">Un filet d'encre par section, des filets clairs entre les lignes ; l'espace fait le reste.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="bloc reco" aria-labelledby="t-reco">
     <div>
-      <div class="titre-section"><span class="paragraphe">§ B</span><h2 id="t-reco">Recommandation</h2></div>
-      <p class="grand">V2 « La Une » comme structure, allégée de ses codes de journal les plus appuyés, et enrichie de deux gestes empruntés aux autres variantes.</p>
+      <header class="tete-section" style="grid-template-columns:1fr"><h2 id="t-reco">Recommandation</h2></header>
+      <p class="grand">Retenir V2bis comme base de la refonte, après arbitrage des points ouverts ; garder V1 en recours si une version plus sobre est préférée.</p>
     </div>
-    <div style="align-self:end">
-      <ul>
-        <li>Elle répond le mieux au brief : qui, quel poste, quelle formation, quel travail phare et le CV, sans défiler.</li>
-        <li>Elle prouve au lieu d'affirmer : la figure annotée et la frise montrent la compétence en données et la double vie études-travail.</li>
-        <li>Garder de V1 : la bascule « 30 s / 3 min ». De V3 : l'en-tête Objet / Date pour les fiches de réalisation.</li>
-        <li>Retirer « Vol. 1 · N° 1 » et garder le nom en grand : la revue doit rester une inspiration, pas un costume.</li>
-      </ul>
-    </div>
+    <ul style="align-self:end">
+      <li>Elle garde ce que V2 fait de mieux (identité immédiate, travaux en vedette, preuves visuelles) sans les codes de quotidien.</li>
+      <li>Elle hérite de V1 la seule chose qui manquait à V2 : une présentation calme, lisible en dix secondes.</li>
+      <li>Son axe 5/7 donne à toute la page une seule structure, ce qui facilitera la refonte des autres pages.</li>
+    </ul>
   </section>
 
-  <footer class="colophon"><p>Prototypes locaux, non publiés. Contenus réels tirés du site et du CV ; les mentions « À compléter » et « à valider » signalent ce qui reste à fournir. Suivi : <code>_refonte/SUIVI.md</code>.</p></footer>
+  <footer class="colophon"><p>Prototypes locaux, non publiés. Contenus tirés du site, du CV et des corrections de Léo ; les mentions « À compléter » et « à valider » signalent ce qui reste à fournir. Suivi : <code>_refonte/SUIVI.md</code>.</p></footer>
 </div>
 <script src="commun/signatures.js" defer></script>
 </body>

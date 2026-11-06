@@ -15,7 +15,10 @@ const PAGES = {
   v1: { url: 'v1-couverture/', sections: ['essentiel', 'parcours', 'travaux', 'competences', 'contact'] },
   v2: { url: 'v2-la-une/', sections: ['travaux', 'analyse', 'parcours', 'competences', 'contact'] },
   v3: { url: 'v3-note-annotee/', sections: ['parcours', 'travaux', 'competences', 'contact'] },
+  v2bis: { url: 'v2bis/', sections: ['travaux', 'analyse', 'parcours', 'competences', 'contact'] },
   fiche: { url: 'fiche/artefacts-2050.html', sections: [] },
+  'fiche-v2bis': { url: 'v2bis/artefacts-2050.html', sections: [] },
+  pistes: { url: 'pistes-visuels.html', sections: [] },
   comparatif: { url: '', sections: [] },
 };
 const choix = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PAGES);
@@ -51,7 +54,8 @@ for (const nom of choix) {
       await page.screenshot({ path: f('00-premier-ecran') });
       const mesures = await page.evaluate(async () => {
         await document.fonts.ready;
-        const familles = ['Newsreader', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Mono'];
+        // Les familles attendues sont celles que la page demande à Google Fonts.
+        const familles = [...document.querySelectorAll('link[href*="fonts.googleapis.com/css"]')].flatMap(l => new URL(l.href).searchParams.getAll('family').map(x => x.split(':')[0]));
         const chargees = new Set([...document.fonts].filter(f => f.status === 'loaded').map(f => f.family.replace(/"/g, '')));
         const polices = Object.fromEntries(familles.map(p => [p, chargees.has(p)]));
         const d = document.documentElement;
