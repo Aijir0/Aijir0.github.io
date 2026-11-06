@@ -1,5 +1,7 @@
 ﻿# Jeux publics sur GitHub Pages
 
+> **Novembre 2026.** L’accueil a été remplacé par le portfolio « Note de breffage ». Le joystick du pied de navigation n’existe plus : les jeux sont liés depuis la section Travaux de l’accueil (`/PacQC/`, `/jeu/`, `/artefacts-2050/`). Le menu `espace-jeux/` reste en place pour les anciens favoris et les liens « retour » des jeux ; son lien « Retour au site » mène au nouvel accueil.
+
 Les deux jeux sont publics. L’hébergement GitHub Pages et le domaine actuel restent inchangés : **aucune migration, aucun mot de passe, aucun serveur d’authentification**.
 
 ## Parcours
