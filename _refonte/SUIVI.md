@@ -79,7 +79,8 @@ Générés par `_refonte/outils/visuels-projets.mjs` (conservé : sources de l'a
 ### ResearchRabbit
 - PDF vérifié avec pdf.js : producteur pdfTeX-1.40.25, classe Beamer, « Présentation de Research Rabbit · Outils numériques de recherche », Léo Matrat, Université Laval, 5 décembre 2024 ; parties : introduction (origines, place dans la recherche), comparaison (Zotero, Mendeley, EndNote, Google Scholar, ResearchRabbit), prise en main. La fiche ne dit rien de plus.
 - Deux vignettes, **validées dans leur usage actuel** : **A** la composition bleue (copie JPEG suivie par Git : `medias/projets/researchrabbit-vignette.jpg`), dans la grille de V2bis, légende « visuel du projet » (ce n'est pas la couverture du PDF) ; **B** la vraie première page posée sur le papier avec la diapositive « Plan » derrière (`researchrabbit-document.jpg`, suivie par Git, générée depuis le PDF), en tête de la fiche `v2bis/researchrabbit.html`.
-- Original de A : `vignette-researchrabbit.png` (1,4 Mo) à la racine, **non suivi** et non déplacé. Il serait publié tel quel s'il était commité à la racine. Rangement proposé : `_refonte/sources/vignette-researchrabbit.png` (non publié), en ajustant le chemin dans `outils/visuels-projets.mjs` ; à la refonte définitive, une copie web légère ira dans `images/`.
+- Original de A : **rangé dans `_refonte/sources/vignette-researchrabbit.png`** (1,4 Mo, suivi par Git ; rangement validé par Léo). Chemin mis à jour dans `outils/visuels-projets.mjs`. À la refonte définitive, une copie web légère ira dans `images/`.
+- Non-publication : GitHub Pages compile le site avec Jekyll (pas de `.nojekyll`, pas de `_config.yml`, pas de workflow), et Jekyll exclut les dossiers en `_` ou en `.`. Constat sur le site en ligne : `.Rhistory`, suivi sur `main`, renvoie 404. **À préserver lors de la bascule** : ajouter un `.nojekyll` ou un workflow Pages publierait `_refonte/` ; dans ce cas, exclure `_refonte/` explicitement. Si la branche est poussée, le PNG reste visible dans le dépôt GitHub public (pas sur le site).
 - Intégration dans la grille vérifiée (1440, 768, 390) : descriptif raccourci à « Présentation d'un outil de recherche, en LaTeX » pour tenir sur une ligne à 390 px, comme les lignes voisines ; recadrage 40 : 21 de la vignette sans perte d'information. Le bleu saturé reste l'élément le plus coloré de la liste, choix assumé.
 - Bouton « Consulter la présentation » vers `presentation/rabb2.pdf`.
 - Correction appliquée aussi à V1, V2, V3 et `v2bis-phase5/` (sans fiche propre : lien direct vers le PDF, ou vers la fiche de V2bis pour l'instantané).
@@ -109,7 +110,8 @@ _refonte/prototypes/commun/               base.css, signatures.js (préfixe de l
 _refonte/prototypes/medias/               Copies JPEG légères ; medias/pistes/ = visuels-pistes
 _refonte/prototypes/captures/             Captures par page + rapport-verification.json + controles/
 _refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis comparatif pistes)
-_refonte/outils/verifier-liens.mjs           Liens internes (HTTP 200) et ancres, sur 10 pages
+_refonte/outils/verifier-liens.mjs           Liens et images internes (HTTP 200) et ancres, sur 10 pages
+_refonte/sources/                         Originaux fournis par Léo (non publiés) : vignette-researchrabbit.png
 _refonte/outils/controles-complementaires.mjs Contrastes, poids, CLS, LCP, transition (V2bis), clavier (V1), tiroir (V2bis)
 ```
 
@@ -147,9 +149,8 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 2. L'annonce Atlas : emplacement (couverture) et texte.
 3. Le retrait du portrait : définitif, ou retour discret (contact, fiche) ?
 4. L'accroche définitive.
-5. Rangement de l'original `vignette-researchrabbit.png` (proposition ci-dessus).
-6. Le jeu PacQC lui-même affiche encore le visage du collègue, les sigles et le logo Teams : hors périmètre des prototypes, à traiter avant de mettre PacQC en avant.
-7. Orthographe du nom « Scène Pixel Art » (avec accent) sur la page du jeu.
+5. Le jeu PacQC lui-même affiche encore le visage du collègue, les sigles et le logo Teams : hors périmètre des prototypes, à traiter avant de mettre PacQC en avant.
+6. Orthographe du nom « Scène Pixel Art » (avec accent) sur la page du jeu.
 
 ## Journal
 
@@ -159,6 +160,8 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 6) : instantané `v2bis-phase5/` ; Atlas à la place de l'avatar ; retraits (bascule 30 s, repère daté, doublon du colophon) ; faits complétés dans V2bis, V1 et V2 ; visuels PacQC et Scène (générateur conservé) ; intégration à l'essai ; vérifications Playwright (`4891870`).
 - 2026-11-06 (correction des travaux) : veille retirée, ResearchRabbit ajouté (fiche V2bis, deux vignettes), PDF détaché de l'analyse ; contrôle des liens ; vérifications Playwright (`00c3249`).
 - 2026-11-06 (validation) : correction des travaux validée ; légende de la vignette A rectifiée, descriptif ResearchRabbit raccourci (V2bis, instantané, V2) ; liens et rendu revérifiés.
+
+- 2026-11-06 (rangement) : original de la vignette ResearchRabbit déplacé dans `_refonte/sources/`, générateur mis à jour ; contrôle étendu aux images (50 liens et images, aucun cassé) ; non-publication vérifiée.
 
 ## Prochaines étapes
 

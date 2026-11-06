@@ -125,7 +125,7 @@ await rendre('scene-3-pastille.png', `${silk}<div style="width:800px;height:420p
 // 1. La vignette fournie par Léo (racine du dépôt), convertie en JPEG léger ; l'original n'est pas modifié.
 {
   const p = await (await b.newContext({ viewport: { width: 1672, height: 941 } })).newPage();
-  await p.goto(`${H}/_refonte/`); await p.setContent(`<body style="margin:0"><img src="${H}/vignette-researchrabbit.png" style="display:block;width:1672px;height:941px">`);
+  await p.goto(`${H}/_refonte/`); await p.setContent(`<body style="margin:0"><img src="${H}/_refonte/sources/vignette-researchrabbit.png" style="display:block;width:1672px;height:941px">`);
   await p.waitForLoadState('networkidle');
   await p.screenshot({ path: path.join(OUT, 'researchrabbit-vignette.jpg'), type: 'jpeg', quality: 84 });
   await p.close();
