@@ -1,409 +1,198 @@
 <!doctype html>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<html lang="fr-CA">
 <head>
-  <title>Léo Matrat</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- Ajout de Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <!-- Lien pour les icônes Flaticon -->
-  <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
-  <!-- Ajout de Font Awesome Version 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Ajout boutons d'accessibilité CSS et JS -->
-  <link rel="stylesheet" href="node_modules/accessibility-buttons/dist/css/accessibility-buttons.css">
-  <script src="node_modules/accessibility-buttons/dist/js/accessibility-buttons.js" defer></script>
-
-  <head>
-    <!-- ... autres éléments du head ... -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-
-<body class="is-preload">
-
-  <!-- Header -->
-  <section id="header">
-    <header>
-      <span class="image avatar tilt-container">
-        <img src="images/port2.jpg" alt="" />
-      </span>
-      <h1 id="logo"><a href="#">Léo Matrat</a></h1>
-      <p>
-        Étudiant motivé par l'idée de contribuer à un monde meilleur. 
-        Curieux et passionné par la fonction publique.
-      </p>
-    </header>
-    <nav id="nav">
-      <ul>
-        <li><a href="#one" class="active">À propos</a></li>
-        <li><a href="#two">Mes compétences</a></li>
-        <li><a href="#three">Mon CV</a></li>
-        <li><a href="#projets">Mes Projets</a></li>
-        <li><a href="#four">Contact</a></li>
-      </ul>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Léo Matrat — veille, recherche, prospective et données</title>
+  <meta name="description" content="Léo Matrat, étudiant en veille, recherche et prospective au ministère de l'Éducation du Québec et étudiant au MBA en analytique d'affaires à l'Université Laval : travaux, parcours et contact.">
+  <link rel="canonical" href="https://leomatrat.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="Léo Matrat">
+  <meta property="og:title" content="Léo Matrat — veille, recherche, prospective et données">
+  <meta property="og:description" content="Léo Matrat, étudiant en veille, recherche et prospective au ministère de l'Éducation du Québec et étudiant au MBA en analytique d'affaires à l'Université Laval : travaux, parcours et contact.">
+  <meta property="og:url" content="https://leomatrat.com/">
+  <meta property="og:image" content="https://leomatrat.com/assets/site/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f5f2ea">
+  <link rel="icon" href="/assets/site/icone.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="/assets/site/site.css?v=20261106">
+  <script src="/assets/site/site.js?v=20261106"></script>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="page">
+  <header class="tete">
+    <h1 class="nom lignes"><span class="ligne"><span>Léo Matrat</span></span></h1>
+    <aside class="atlas apparait" style="--d:300ms" aria-labelledby="atlas-titre">
+      <img class="globe" src="/assets/site/img/atlas-globe.svg" width="68" height="68" alt="">
+      <div>
+        <p class="rubrique">Hors-série · en chantier</p>
+        <p class="atlas-titre" id="atlas-titre"><a href="/travaux/atlas/"><em>Atlas</em>, un globe interactif de mes voyages</a></p>
+        <p class="atlas-statut">À paraître : lieux visités, photographies, récits.</p>
+      </div>
+    </aside>
+  </header>
+  <div class="manchette">
+    <nav class="sommaire" aria-label="Sommaire">
+      <ol>
+        <li><a href="#une"><span class="titre">À la une</span><span class="jauge"></span></a></li>
+        <li><a href="#travaux"><span class="titre">Travaux</span><span class="jauge"></span></a></li>
+        <li><a href="#analyse"><span class="titre">Analyse</span><span class="jauge"></span></a></li>
+        <li><a href="#parcours"><span class="titre">Parcours</span><span class="jauge"></span></a></li>
+        <li><a href="#competences"><span class="titre">Compétences</span><span class="jauge"></span></a></li>
+        <li><a href="#contact"><span class="titre">Contact</span><span class="jauge"></span></a></li>
+      </ol>
     </nav>
-    <footer>
-      <ul class="icons">
-        <li>
-          <!-- Vous pouvez mettre en hyperlien vos reseaux sociaux en modifiant la valeur de href-->
-          <a href="https://www.instagram.com/leo.mtrt" class="icon brands fa-instagram"><span
-              class="label">Instagram</span></a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/leo.matrat/" class="icon brands fa-facebook-f"><span
-              class="label">Facebook</span></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/l%C3%A9o-matrat/" class="icon brands fa-linkedin"><span
-              class="label">LinkedIn</span></a>
-        </li>
-        <li>
-          <a href="https://github.com/Aijir0" class="icon brands fa-github"><span class="label">Github</span></a>
-        </li>
-        <li>
-          <a href="leo.matrat.pro@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a>
-        </li>
-        <li>
-          <a href="espace-jeux/selection.html" class="games-entry" aria-label="Jeux" title="Jeux">
-            <img src="images/joystick.svg" alt="" width="24" height="24" />
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </section>
-
-  <!-- Wrapper -->
-  <div id="wrapper">
-    <!-- Main -->
-    <div id="main">
-      <!-- One -->
-      <section id="one">
-        <div class="image main" data-position="center">
-          <img src="images/bg1.jpg" alt="" />
-
-          <!-- Icône Font Awesome avec animation -->
-          <i id="rotate-icon" class="fa-solid fa-location-dot fa-bounce" title="Cliquez sur moi"></i>
-        </div>
-        <div class="container">
-          <header class="major">
-            <h2>LÉO MATRAT</h2>
-            <p>Étudiant en science politique.</p>
-          </header>
-          <p>
-            Bienvenue sur mon site ! Je m’appelle Léo Matrat, étudiant en science politique passionné 
-            par l’étude des politiques publiques, la gouvernance et l'éthique des organisations. 
-            Originaire de France, j'ai choisi de m'établir à Québec pour approfondir mes connaissances 
-            dans un environnement politique stimulant et enrichissant. Mon parcours académique et 
-            professionnel est orienté vers une compréhension des enjeux de la fonction publique, 
-            avec l’ambition de contribuer activement à la société québécoise.
-          </p>
-        </div>
-      </section>
-
-      <!-- Two -->
-      <section id="two">
-        <div class="container">
-          <h3>Mes compétences</h3>
-          <p>
-            Je suis animé par une grande curiosité et j'apprécie particulièrement 
-            explorer de nouvelles perspectives et approches. J'aime progresser et grandir 
-            grâce aux enseignements que je tire des autres, de mes voyages et de mon apprentissage personnel.
-          </p>
-          <ul class="feature-icons">
-            <li class="icon solid fa-code">
-              J'apprends et pratique le code R/HTML/CSS/JS
-            </li>
-            <li class="icon solid fa-language">
-              Je pratique ces langues :
-              Français, Anglais, Espagnol, Allemand
-            </li>
-            <li class="icon solid fa-file-word">
-              Je maîtrise la suite Office
-            </li>
-            <li class="icon solid fa-earth-americas">
-              Ouvert d'esprit grâce aux voyages
-            </li>
-            <li class="icon solid fa-brain">
-              J'apprend extrêmement vite
-            </li>
-            <li class="icon solid fa-users">
-              J'adore le travail d'équipe
-            </li>
-            <li class="icon solid fa-handshake">Je suis altruiste et médiateur</li>
-            <li class="icon solid fa-bolt"> J'ai une posture proactive</li>
-          </ul>
-        </div>
-      </section>
-
-<!-- Mon CV -->
-<section id="three">
-  <div class="container">
-    <h3>Mon CV</h3>
-    <p>
-      Je suis actuellement étudiant à la maîtrise avec stage en science politique à l'Université Laval.
-      Je travaille aussi dans la fonction publique depuis <span id="public-service-time"></span> au Ministère de
-      l'Éducation ou j'effectue de la veille et de la recherche.
-    </p>
-    <div class="features">
-      <article>
-        <a href="https://raw.githubusercontent.com/Aijir0/Aijir0.github.io/main/CV/CVLeoM.pdf" download
-          class="image">
-          <div class="image-container tilt-container">
-            <img src="images/pic05.jpg" alt="" />
-            <div id="cv-destination-text" class="destination-name" style="display: none;">Madère</div>
-          </div>
-        </a>
-        <div class="inner">
-          <h4>Obtenir mon curriculum vitae ? <i id="cv-icon" class="fa-solid fa-location-dot fa-bounce"
-              title="Cliquez sur moi" style="cursor: pointer;"></i></h4>
-          <p>
-            Si vous souhaitez en savoir plus.
-            Je vous invite à cliquer sur l'image pour télécharger mon CV !
-            Il est à jour et contient plus de spécifications.
-          </p>
-        </div>
-      </article>
-    </div>
+    <a class="lien cv" href="/CV/CVLeoM.pdf" download>CV en PDF <span aria-hidden="true">↓</span></a>
   </div>
-</section>
 
-<!-- Mes projets -->
-<section id="projets">
-  <div class="container">
-    <h3>Mes Projets</h3>
-    <p>
-      Voici une sélection de mes projets. Cliquez sur l'image pour découvrir le projet complet.
-    </p>
-    <div class="features">
-      <article>
-        <!-- Aperçu du projet en image -->
-        <a href="projet_session/projet2.html" class="image" target="_blank">
-          <img src="images/projet.png" alt="Aperçu du projet de session" />
-        </a>
-        <div class="inner">
-          <h4>Cours d'outils numériques (POL-6078)</h4>
-          <p style="margin-bottom: 1rem;">
-            Cliquez sur l'image ou sur les liens ci-dessous pour explorer le contenu de ce projet.
-          </p>
-          <!-- Lien direct vers le projet -->
-          <p style="margin: 0;">
-            <a href="projet_session/projet2.html" target="_blank" class="button primary" style="display: inline-block; width: 100%; text-align: center;">
-              Voir le projet complet
-            </a>
-          </p>
-          <!-- Bouton pour voir la présentation -->
-          <p style="margin-top: 0.5rem;">
-            <button class="button primary" onclick="openPresentation()" style="display: inline-block; width: 100%; text-align: center;">
-              Voir ma présentation
-            </button>
-          </p>
+  <main id="contenu">
+    <section class="une" id="une" aria-label="À la une">
+      <div class="presentation">
+        <p class="manifeste lignes">
+          <span class="ligne"><span style="--i:1">Éclairer les décisions publiques</span></span>
+          <span class="ligne"><span style="--i:2"><em>par la recherche, la prospective et les <span class="stylo" style="--delai:1100ms">données</span>.</em></span></span>
+        </p>
+        <div class="identite apparait" style="--d:550ms">
+        <figure class="portrait"><img src="/assets/site/img/portrait-leo.jpg" width="480" height="600" alt="Portrait de Léo Matrat"></figure>
+        <dl class="fiche">
+          <div><dt>En poste</dt><dd>Étudiant en veille, recherche et prospective, ministère de l'Éducation du Québec</dd></div>
+          <div><dt>En formation</dt><dd>MBA en analytique d'affaires, Université Laval</dd></div>
+          <div><dt>Diplômé</dt><dd>Maîtrise en science politique, Université Laval, 2026</dd></div>
+          <div><dt>Langues</dt><dd>Français, anglais, espagnol</dd></div>
+        </dl>
         </div>
+        <div class="actions apparait" style="--d:650ms">
+          <a class="bouton" href="/CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <article class="a-la-une apparait" style="--d:250ms">
+        <a href="/travaux/artefacts-2050/" tabindex="-1" aria-hidden="true"><div class="cadre"><img src="/assets/site/img/artefacts-2050.jpg" width="1200" height="630" alt=""></div></a>
+        <p class="rubrique">À la une</p>
+        <h2>Penser l'école québécoise de 2050 en six décisions</h2>
+        <p class="chapo">Artéfacts 2050 : cinq fiches de prospective, des choix faits entre 2026 et 2045, des effets papillon révélés en 2050 ; environ cinq minutes de jeu.</p>
+        <p class="liens"><a class="lien" href="/travaux/artefacts-2050/">Lire la fiche</a><a class="lien" href="/artefacts-2050/">Jouer <span class="fleche" aria-hidden="true">↗</span></a></p>
       </article>
-    </div>
-  </div>
-</section>
-    
-    
+    </section>
 
-      <!-- Four -->
-      <section id="four">
-        <div class="container">
-          <h3>Me joindre</h3>
-          <p>
-            Si mon profil vous intéresse, que vous avez des questions ou que vous
-            souhaitez juste entamer une conversation, envoyez-moi un courriel !
-          </p>
-          <div class="row gtr-uniform">
-            <div class="col-12">
-              <!-- Vous pouvez mettre votre email ici au lieu de your-email@example.com -->
-              <a href="mailto:leo.matrat.pro@gmail.com?subject=Sujet&body=Votre message ici." class="button primary">
-                Envoyer un courriel
-              </a>
-            </div>
-          </div>
+    <section id="travaux" aria-labelledby="t-travaux">
+      <header class="tete-section" data-revele><h2 id="t-travaux">Travaux</h2><p>Des jeux sérieux, une analyse de données et une présentation scientifique, à essayer ou à lire.</p></header>
+      <div class="index">
+        <ol>
+          <li><a href="/travaux/artefacts-2050/" data-apercu="0" data-actif><span class="t-titre">Artéfacts 2050</span><span class="t-annee">2026</span><span class="t-type">Jeu de prospective sur l'éducation au Québec</span><span class="t-vignette vignette cadre revele-image" data-revele><img src="/assets/site/img/artefacts-2050.jpg" width="1200" height="630" alt="" loading="lazy"></span></a></li>
+          <li><a href="/PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre revele-image" data-revele><img src="/assets/site/img/pacqc.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="/jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre revele-image" data-revele><img src="/assets/site/img/scene-pixel-art.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="#analyse" data-apercu="3"><span class="t-titre">Dépenses sociales et pauvreté</span><span class="t-annee">2024</span><span class="t-type">Analyse de données en R, présentée plus bas</span></a></li>
+          <li><a href="/travaux/researchrabbit/" data-apercu="4"><span class="t-titre">ResearchRabbit</span><span class="t-annee">2024</span><span class="t-type">Présentation d'un outil de recherche, en LaTeX</span><span class="t-vignette vignette cadre revele-image" data-revele><img src="/assets/site/img/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></span></a></li>
+          <li><a href="/travaux/atlas/" data-apercu="5"><span class="t-titre">Atlas</span><span class="t-annee">À venir</span><span class="t-type">Hors-série : globe interactif de mes voyages</span><span class="t-vignette vignette cadre revele-image" data-revele><img src="/assets/site/img/atlas-vignette.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+        </ol>
+        <div class="apercu" aria-hidden="true">
+          <figure class="visible"><div class="vignette cadre"><img src="/assets/site/img/artefacts-2050.jpg" width="1200" height="630" alt=""></div><figcaption>Artéfacts 2050, écran d'accueil.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="/assets/site/img/pacqc.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, le personnage et son nom.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="/assets/site/img/scene-pixel-art.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Scène Pixel Art, une place et son personnage.</figcaption></figure>
+          <figure><div class="vignette cadre document"><img src="/images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div><figcaption>Dépenses sociales et pauvreté, pays de l'OCDE.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="/assets/site/img/researchrabbit-vignette.jpg" width="1672" height="941" alt="" loading="lazy"></div><figcaption>ResearchRabbit, visuel du projet.</figcaption></figure>
+          <figure><div class="vignette cadre"><img src="/assets/site/img/atlas-vignette.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Atlas, hors-série en chantier.</figcaption></figure>
         </div>
-      </section>
-      <!-- Five -->
-      <!-- -->
-    </div>
-
-    <!-- Footer -->
-    <section id="footer">
-      <div class="container">
-        <ul class="copyright">
-          <li>&copy; Untitled. All rights reserved.</li>
-          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
       </div>
     </section>
-  </div>
 
-  <!-- Trailing Cursor Div -->
-  <div id="cursor"></div>
-  <div id="click-circle"></div>
+    <section id="analyse" class="analyse" aria-labelledby="t-analyse">
+      <header class="tete-section" data-revele><h2 id="t-analyse">Analyse</h2><p>Les dépenses sociales réduisent-elles la pauvreté dans les pays de l'OCDE ? Données ouvertes depuis 2010, régression linéaire multiple en R.</p></header>
+      <div class="figure-annotee">
+        <figure>
+          <div class="graphique">
+            <div class="cadre document revele-image" data-revele><img src="/images/Relation1.png" width="1041" height="546" alt="Nuage de points : taux de pauvreté après transferts en fonction des dépenses sociales en pourcentage du PIB, pays de l'OCDE ; la droite de régression descend."></div>
+            <svg class="trace-svg" viewBox="0 0 1041 546" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M89 236L997 360"/></svg>
+            <button class="appel" type="button" style="left:16%;top:22%" aria-controls="l1" aria-expanded="false" aria-label="Lecture 1">1</button>
+            <button class="appel" type="button" style="left:49%;top:47%" aria-controls="l2" aria-expanded="false" aria-label="Lecture 2">2</button>
+            <button class="appel" type="button" style="left:86%;top:15%" aria-controls="l3" aria-expanded="false" aria-label="Lecture 3">3</button>
+          </div>
+          <figcaption><b>Figure.</b>Taux de pauvreté après transferts selon les dépenses sociales (en % du PIB). Graphique d'origine en R ; droite de régression repassée en rouge.</figcaption>
+        </figure>
+        <ol class="lecture" aria-label="Lecture du graphique">
+          <li class="note fixe" id="l1"><span class="num-note">1</span><strong>Peu de dépenses, plus de pauvreté</strong>Les pays qui consacrent 10 à 15 % du PIB aux dépenses sociales affichent les taux les plus élevés.</li>
+          <li class="note fixe" id="l2"><span class="num-note">2</span><strong>Une pente négative</strong>La tendance va dans le sens de l'hypothèse : plus de dépenses, moins de pauvreté. C'est une corrélation, pas une preuve de causalité.</li>
+          <li class="note fixe" id="l3"><span class="num-note">3</span><strong>Des exceptions</strong>Quelques pays combinent dépenses élevées et pauvreté élevée : d'où l'ajout du chômage et du PIB par habitant au modèle.</li>
+        </ol>
+      </div>
+      <p class="liens"><a class="lien" href="/projet_session/projet2.html">Lire le rapport</a></p>
+    </section>
 
+    <section id="parcours" aria-labelledby="t-parcours">
+      <header class="tete-section" data-revele><h2 id="t-parcours">Parcours</h2><p>Formation et expérience, sur une même échelle de temps.</p></header>
+      <div class="frise-cadre" data-trace>
+        <h3 class="registre">Expérience</h3>
+        <ol class="frise">
+          <li><div><h4>Ministère de l'Éducation du Québec</h4><p class="ou">En poste depuis décembre 2022 comme étudiant en veille, recherche et prospective. Un stage, aujourd'hui terminé, y a aussi été effectué.</p><p class="ou">Pendant le stage, contribution notamment aux travaux de programmation pluriannuelle de la recherche.</p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
+          <li><div><h4>Secrétaire, Club Animé Québec</h4><p class="ou">Septembre 2024 – mai 2025, deux sessions universitaires.</p></div><div class="piste"><span class="barre leger" style="--d:2024.67;--f:2025.37;--i:1"></span></div></li>
+          <li><div><h4>Membre du conseil d'administration, Nadeshicon</h4><p class="ou">2025 – 2026 · congrès annuel d'environ 4 000 participants : organisation et coordination.</p></div><div class="piste"><span class="barre leger incertaine" style="--d:2025;--f:2026.85;--i:2"></span></div></li>
+          <li><div><h4>Bénévole, Collectif de Québec pour la paix</h4><p class="ou">2026 · mobilisation, sensibilisation, soutien à des initiatives communautaires.</p></div><div class="piste"><span class="barre leger incertaine" style="--d:2026;--f:2026.85;--i:3"></span></div></li>
+        </ol>
+        <h3 class="registre">Formation</h3>
+        <ol class="frise">
+          <li><div><h4>MBA en analytique d'affaires</h4><p class="ou">Université Laval · en cours</p></div><div class="piste"><span class="barre incertaine en-cours" style="--d:2026.37;--f:2026.85;--i:5"></span></div></li>
+          <li><div><h4>Maîtrise en science politique avec stage</h4><p class="ou">Université Laval · 2024 – mai 2026</p></div><div class="piste"><span class="barre" style="--d:2024.33;--f:2026.37;--i:6"></span></div></li>
+          <li><div><h4>Baccalauréat en science politique</h4><p class="ou">Université Laval · automne 2020 – hiver 2024</p></div><div class="piste"><span class="barre" style="--d:2020.67;--f:2024.3;--i:7"></span></div></li>
+        </ol>
+        <div class="axe" aria-hidden="true"><span></span><ol><li>2020</li><li>2021</li><li>2022</li><li>2023</li><li>2024</li><li>2025</li><li>2026</li></ol></div>
+      </div>
+      <p class="legende-frise">Flèche : en cours. Pointillé : dates non précisées. Gris : engagement associatif et bénévole.</p>
+      <p class="hors-champ">Hors champ : deux médailles de bronze aux championnats de France de natation, et de la poésie, à mes heures.</p>
+    </section>
 
+    <section id="competences" aria-labelledby="t-competences">
+      <header class="tete-section" data-revele><h2 id="t-competences">Compétences</h2><p>Chaque pratique renvoie à l'endroit où la voir.</p></header>
+      <table class="competences">
+        <thead><tr><th scope="col">Domaine</th><th scope="col">Pratique</th><th scope="col">Où la voir</th></tr></thead>
+        <tbody>
+          <tr><td>Veille et recherche</td><td>Veille internationale en éducation ; revue de littérature outillée (Elicit, NotebookLM)</td><td>Ministère · <a class="lien" href="/travaux/researchrabbit/">ResearchRabbit</a> · <a class="lien" href="#analyse">Analyse OCDE</a></td></tr>
+          <tr><td>Rédaction</td><td>Notes informationnelles pour les autorités et les services ministériels</td><td>Ministère</td></tr>
+          <tr><td>Analyse de données</td><td>R (tidyverse, ggplot2), régression linéaire multiple</td><td><a class="lien" href="#analyse">Analyse OCDE</a></td></tr>
+          <tr><td>Prospective et médiation</td><td>Veille prospective ; conception d'un jeu sérieux de prospective sur l'éducation</td><td>Ministère · <a class="lien" href="/travaux/artefacts-2050/">Artéfacts 2050</a></td></tr>
+          <tr><td>Outils numériques</td><td>HTML, CSS, JavaScript, Python ; LaTeX (Beamer) ; suite Office, Canva, Genially</td><td><a class="lien" href="/PacQC/">PacQC</a>, <a class="lien" href="/jeu/">Scène</a>, <a class="lien" href="/travaux/researchrabbit/">ResearchRabbit</a></td></tr>
+          <tr><td>Langues</td><td>Français ; anglais (VEPT : 63) ; espagnol ; allemand</td><td>CV</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-  <!-- Script Trailing Cursor -->
-  <script src="assets/js/trailing-cursor.js"></script>
+    <section id="contact" aria-labelledby="t-contact">
+      <header class="tete-section" data-revele><h2 id="t-contact">Contact</h2><p>Pour un poste, une collaboration ou un échange.</p></header>
+      <div class="contact">
+        <a class="courriel" href="mailto:leo.matrat.pro@gmail.com"><span>leo.matrat.pro@gmail.com</span></a>
+        <p class="autres"><a class="bouton" href="/CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a><a class="lien" href="https://www.linkedin.com/in/l%C3%A9o-matrat/">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a><a class="lien" href="https://github.com/Aijir0">GitHub <span class="fleche" aria-hidden="true">↗</span></a></p>
+      </div>
+    </section>
+    <footer class="colophon">
+      <div class="grille">
+        <p>Composé en Newsreader et Atkinson Hyperlegible Next. Site personnel : il n'engage ni ne représente aucune organisation.</p>
+        <p>© 2026 Léo Matrat · <a href="https://github.com/Aijir0">Code source</a></p>
+      </div>
+    </footer>
+  </main>
+</div>
 
-  <script>
-    // Variable pour le texte de la destination
-    var destinationText = "Japon : Shinkyō"; // Modifie le texte ici
-
-    // Script pour l'icône interactive avec réapparition
-    document.getElementById('rotate-icon').addEventListener('click', function () {
-      var icon = this;
-      // Animation de rotation
-      icon.style.transition = 'transform 1s, opacity 1s';
-      icon.style.transform = 'rotate(360deg)';
-
-      // Attendre la fin de la rotation, puis montrer le nom et disparaître
-      setTimeout(() => {
-        icon.style.opacity = '0'; // Icône disparaît
-
-        // Affichage du nom de la destination
-        var destinationName = document.createElement('div');
-        destinationName.innerText = destinationText; // Utilisation de la variable pour afficher la destination
-        destinationName.className = 'destination-name'; // Ajouter la classe pour le style
-        document.querySelector('#one .image').appendChild(destinationName);
-
-        // Disparition du texte après quelques secondes
-        setTimeout(() => {
-          destinationName.style.opacity = '0'; // Le nom disparaît
-
-          setTimeout(() => {
-            destinationName.remove(); // Retirer complètement l'élément
-
-            // Réapparition de l'icône après que le texte a disparu
-            icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
-            setTimeout(() => {
-              icon.style.opacity = '1'; // Réapparaître l'icône
-            }, 1000); // Délai pour que l'icône réapparaisse
-          }, 1000);
-        }, 3000); // Le nom de la destination reste visible pendant 3 secondes
-      }, 1000); // 1 seconde pour la rotation de l'icône
-    });
-
-    // Script pour l'accessibilité
-    document.getElementById('accessibility-btn').addEventListener('click', function () {
-      var menu = document.getElementById('accessibility-menu');
-      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-    });
-
-    function increaseFontSize() {
-      document.body.style.fontSize = 'larger';
-    }
-
-    function toggleColorScheme() {
-      document.body.classList.toggle('daltonien');
-    }
-
-    function startTextToSpeech() {
-      var text = document.body.innerText;
-      var speech = new SpeechSynthesisUtterance(text);
-      window.speechSynthesis.speak(speech);
-    }
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      accessibilityButtons();
-    });
-  </script>
-
-  <script>
-    // Script pour l'icône CV avec réapparition et texte de destination
-    document.getElementById('cv-icon').addEventListener('click', function () {
-      var icon = this;
-      var destinationText = document.getElementById('cv-destination-text');
-
-      // Animation de rotation et disparition de l'icône
-      icon.style.transition = 'transform 1s, opacity 1s';
-      icon.style.transform = 'rotate(360deg)';
-
-      // Attendre la fin de la rotation, puis montrer le texte de destination
-      setTimeout(() => {
-        icon.style.opacity = '0'; // Icône disparaît
-
-        // Affichage du texte de destination
-        destinationText.style.display = 'block';
-        destinationText.style.opacity = '1';
-
-        // Disparition du texte après quelques secondes
-        setTimeout(() => {
-          destinationText.style.opacity = '0'; // Le texte disparaît
-
-          setTimeout(() => {
-            destinationText.style.display = 'none'; // Retirer complètement l'élément
-
-            // Réapparition de l'icône après que le texte a disparu
-            icon.style.transform = 'rotate(0deg)'; // Réinitialiser la rotation
-            setTimeout(() => {
-              icon.style.opacity = '1'; // Réapparaître l'icône
-            }, 1000); // Délai pour que l'icône réapparaisse
-          }, 1000);
-        }, 3000); // Le texte de la destination reste visible pendant 3 secondes
-      }, 1000); // 1 seconde pour la rotation de l'icône
-    });
-  </script>
-
-<script>
-  function updatePublicServiceTime() {
-    const startTime = new Date('December 2, 2022 10:00:00');
-    const currentTime = new Date();
-
-    // Calcul de la différence en millisecondes
-    let years = currentTime.getFullYear() - startTime.getFullYear();
-    let months = currentTime.getMonth() - startTime.getMonth();
-    let days = currentTime.getDate() - startTime.getDate();
-
-    // Ajuster les mois et les années si nécessaire
-    if (days < 0) {
-      months--;
-      days += new Date(currentTime.getFullYear(), currentTime.getMonth(), 0).getDate();
-    }
-
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-
-    // Formatage de la chaîne de résultat
-    let timeString = `${years} ans, ${months} mois, ${days} jours`;
-
-    document.getElementById('public-service-time').textContent = timeString;
-  }
-
-  setInterval(updatePublicServiceTime, 1000);
-</script>
-
-<script>
-  function openPresentation() {
-    // Remplace le chemin ci-dessous par celui de ta présentation PDF
-    const presentationURL = "presentation/rabb2.pdf";
-    // Ouvre la présentation dans un nouvel onglet
-    window.open(presentationURL, "_blank");
-  }
-</script>
-
-
+<div class="barre-lecture">
+  <button type="button" data-ouvre-tiroir aria-haspopup="dialog"><span data-section-courante data-prefixe="">Sommaire</span></button>
+  <a href="/CV/CVLeoM.pdf" download>CV <span aria-hidden="true">↓</span></a>
+</div>
+<dialog class="tiroir" aria-label="Sommaire">
+  <div class="entete"><span class="meta">Sommaire</span><button class="fermer" type="button">Fermer</button></div>
+  <nav class="sommaire" aria-label="Sommaire (mobile)">
+    <ol>
+      <li><a href="#une"><span class="titre">À la une</span></a></li>
+      <li><a href="#travaux"><span class="titre">Travaux</span></a></li>
+      <li><a href="#analyse"><span class="titre">Analyse</span></a></li>
+      <li><a href="#parcours"><span class="titre">Parcours</span></a></li>
+      <li><a href="#competences"><span class="titre">Compétences</span></a></li>
+      <li><a href="#contact"><span class="titre">Contact</span></a></li>
+    </ol>
+  </nav>
+</dialog>
 </body>
-
 </html>

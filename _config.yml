@@ -1,0 +1,24 @@
+# Publication GitHub Pages (Jekyll) : seul le site est publié.
+# Les chemins commençant par « _ » ou « . » sont déjà ignorés par Jekyll.
+# Ne jamais ajouter de .nojekyll ni de workflow Pages sans garder ces exclusions.
+# La liste « exclude » remplace celle de Jekyll par défaut : node_modules y figure donc explicitement.
+exclude:
+  - DESIGN.md
+  - README.md
+  - Curseur.md
+  - docs/
+  - tests/
+  - scripts/
+  - projet_annexe/
+  - CV/cvLaTeX.tex
+  - CV/cv.png
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - PacQC/README.md
+  - PacQC/docs/
+  - PacQC/tests/
+  - PacQC/tests.html
+  - PacQC/scripts/
+  - PacQC/assets-audit.json
+  - projet_session/projet.md
