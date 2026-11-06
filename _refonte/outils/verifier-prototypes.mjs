@@ -22,6 +22,7 @@ const PAGES = {
   pistes: { url: 'pistes-visuels.html', sections: [] },
   'fiche-atlas': { url: 'v2bis/atlas.html', sections: [] },
   phase7: { url: 'phase7.html', sections: [] },
+  phase8: { url: 'phase8.html', sections: [] },
   comparatif: { url: '', sections: [] },
 };
 const choix = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PAGES);

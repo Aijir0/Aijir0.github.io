@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 8 — Bilan éditorial</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="commun/base.css">
+  <link rel="stylesheet" href="v2bis/v2bis.css">
+  <style>
+    .page { padding-bottom: 4rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    h1 { margin: 2.5rem 0 1rem; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; letter-spacing: -.03em; }
+    .intro { max-width: 46rem; }
+    .liens-haut { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1.5rem 0 0; }
+    .bloc { padding-top: 4.5rem; }
+    .accroches { display: grid; gap: 2.5rem; }
+    .accroche { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--axe-ecart); padding-top: 1.25rem; border-top: 1px solid var(--filet); }
+    .accroche.recommandee { border-top: 2px solid var(--vert); }
+    .apercu-accroche { margin: .5rem 0 0; font: 400 clamp(1.9rem, 3.4vw, 2.9rem)/1.12 var(--serif); letter-spacing: -.02em; }
+    .apercu-accroche em { color: var(--vert); }
+    .mobile-accroche { width: 22.375rem; max-width: 100%; margin-top: 1rem; padding: 1rem; border: 1px dashed var(--filet); font: 400 2.05rem/1.12 var(--serif); letter-spacing: -.02em; }
+    .mobile-accroche em { color: var(--vert); }
+    .accroche ul { margin: 0; padding-left: 1.1rem; font: 400 .975rem/1.55 var(--sans); color: var(--encre-2); }
+    .accroche li + li { margin-top: .35rem; }
+    .accroche li strong { color: var(--encre); font-weight: 600; }
+    .reco { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--papier-2); max-width: 52rem; }
+    .reco p { margin: 0; font-size: 1.0625rem; }
+    .reco p + p { margin-top: .6rem; }
+    table.bilan { width: 100%; border-collapse: collapse; font: 400 .9375rem/1.45 var(--sans); }
+    .bilan th { text-align: left; font-weight: 600; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--encre); vertical-align: bottom; }
+    .bilan td { padding: .65rem .75rem .65rem 0; border-bottom: 1px solid var(--filet); vertical-align: top; }
+    .bilan td:first-child { font-family: var(--serif); font-size: 1.0625rem; }
+    .statut { display: inline-block; padding: .05rem .45rem; font-size: .8125rem; font-weight: 600; white-space: nowrap; }
+    .statut.ok { background: #dfe9e2; color: var(--vert); }
+    .statut.conf { background: #f2e0d9; color: var(--rouge); }
+    .statut.cv { background: var(--papier-2); color: var(--encre); }
+    .defile { overflow-x: auto; }
+    .defile table { min-width: 46rem; }
+    .liste { max-width: 52rem; font: 400 1rem/1.6 var(--sans); }
+    .liste li + li { margin-top: .5rem; }
+    .liste li strong { font-weight: 600; }
+    @media (max-width: 1099.98px) { .accroche { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+    /* Mobile : chaque ligne du bilan devient une fiche, colonnes nommées */
+    @media (max-width: 640px) {
+      .defile { overflow: visible; }
+      .defile table { min-width: 0; }
+      .bilan thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .bilan tr { display: block; padding: .8rem 0; border-bottom: 1px solid var(--filet); }
+      .bilan td { display: block; padding: .1rem 0; border: 0; }
+      .bilan td:nth-child(2)::before { content: "Site : "; font-weight: 600; }
+      .bilan td:nth-child(3)::before { content: "CV : "; font-weight: 600; }
+      .bilan td:last-child { margin-top: .3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 8 · validation éditoriale ; rien n'est publié</span></div>
+  <h1>Bilan éditorial, phase 8</h1>
+  <p class="chapo intro">Chaque information de V2bis a été rapprochée de sa source : vos indications, le CV PDF actuel (Canva, 28 septembre 2026), l'ancien CV LaTeX (décembre 2024), le site en ligne, et le contenu des projets eux-mêmes (données du jeu, code R, PDF, README). Les erreurs certaines sont corrigées dans V2bis. Les arbitrages éditoriaux attendent votre validation.</p>
+  <p class="liens-haut"><a class="lien" href="v2bis/">V2bis corrigée</a><a class="lien" href="v2bis-phase7/">Avant : V2bis à la fin de la phase 7</a><a class="lien" href="../cv/proposition-cv-2026-11.md">Proposition de texte pour le CV</a></p>
+
+  <!-- ============ 1. Corrections ============ -->
+  <section class="bloc" aria-labelledby="t-corr">
+    <header class="tete-section"><h2 id="t-corr">Corrections appliquées</h2><p>Erreurs certaines, corrigées sans attendre ; aucune information ajoutée sans source.</p></header>
+    <ol class="liste">
+      <li><strong>Ministère.</strong> « Depuis décembre 2022 : un stage, puis le poste actuel » supposait que le stage avait précédé l'emploi, ce qui n'est établi nulle part (l'emploi date de décembre 2022 ; la maîtrise « avec stage » de 2024). Devient : « En poste depuis décembre 2022 comme étudiant en veille, recherche et prospective. Un stage, aujourd'hui terminé, y a aussi été effectué. » La contribution reprend votre formulation : « notamment aux travaux de programmation pluriannuelle de la recherche ».</li>
+      <li><strong>Artéfacts 2050.</strong> Le jeu parle de « fiches de prospective » (pas de « notes »), de décisions prises « de 2026 à 2045 », d'effets révélés « en 2050 », et d'« une entrée en cinq minutes ». Le site promettait « moins de cinq minutes » et « un effet papillon » : corrigé en « environ cinq minutes », « des effets papillon », dans la une et dans la fiche.</li>
+      <li><strong>Artéfacts 2050, démarche.</strong> Ajout des sources effectivement citées dans le jeu (OCDE dont PISA 2022, UNESCO, UNICEF, CEDEFOP, Conseil de l'Union européenne, Forum économique mondial, MIT Media Lab, Pew Research Center, Xavier St-Denis et Matissa Hollister) et de la distinction faits sourcés / hypothèses, qui est visible dans le jeu. Votre rôle, vos outils, le public visé et les retours restent « à compléter ».</li>
+      <li><strong>Compétences, prospective.</strong> « Conception de jeux sérieux sur les politiques éducatives » (pluriel) devient « conception d'un jeu sérieux de prospective sur l'éducation » : seul Artéfacts 2050 porte sur l'éducation.</li>
+      <li><strong>Compétences, langues.</strong> Le site disait « anglais (avancé) ; espagnol (intermédiaire) » ; le CV actuel dit « anglais fonctionnel (VEPT : 63) ». Les niveaux non confirmés sont retirés : « Français ; anglais (VEPT : 63) ; espagnol ; allemand », signalé « niveaux à confirmer ».</li>
+      <li><strong>Compétences, veille et recherche.</strong> Elicit et NotebookLM sont cités dans le rapport d'analyse : ajout du lien « Analyse OCDE » comme preuve.</li>
+      <li><strong>ResearchRabbit.</strong> « Composée en LaTeX (Beamer) sur Overleaf et exportée en PDF ».</li>
+    </ol>
+    <p class="intro" style="margin-top:1.5rem">Vérifiés et conformes, sans changement : l'analyse OCDE (code R : tidyverse, ggplot, <code>lm</code>, données depuis 2010 ; Elicit et NotebookLM cités), PacQC (trois cartes distinctes, tests automatiques des tracés), la Scène (en chantier), ResearchRabbit (PDF), Atlas (en chantier), la frise de formation, le Club Animé, les dates du baccalauréat et de la maîtrise. La veille bibliographique automatisée reste absente.</p>
+  </section>
+
+  <!-- ============ 2. Accroches ============ -->
+  <section class="bloc" aria-labelledby="t-accroche">
+    <header class="tete-section"><h2 id="t-accroche">Trois accroches</h2><p>L'accroche actuelle reste en place jusqu'à votre choix. Chaque proposition est montrée à la taille du site et à la largeur d'un téléphone.</p></header>
+    <div class="accroches">
+      <article class="accroche recommandee">
+        <div>
+          <p class="rubrique">A · recommandée</p>
+          <p class="apercu-accroche">Éclairer les décisions publiques<br><em>par la recherche, la prospective et les données.</em></p>
+          <p class="mobile-accroche">Éclairer les décisions publiques <em>par la recherche, la prospective et les données.</em></p>
+        </div>
+        <ul>
+          <li><strong>Ce qu'elle dit :</strong> les trois pratiques, nommées sans détour, et leur destination : les décisions publiques.</li>
+          <li><strong>Pourquoi elle est juste :</strong> « éclairer les décisions », c'est ce que font des notes informationnelles destinées aux autorités ; le verbe ne promet pas plus que votre travail réel.</li>
+          <li><strong>Pour un recruteur :</strong> les mots qu'il cherche (recherche, prospective, données) sont lus en premier. Le parcours (maîtrise, MBA, Ministère) suit immédiatement dans la fiche signalétique : l'accroche n'a pas à le répéter.</li>
+          <li><strong>Limite :</strong> plus descriptive que mémorable.</li>
+        </ul>
+      </article>
+      <article class="accroche">
+        <div>
+          <p class="rubrique">B · continuité</p>
+          <p class="apercu-accroche">Comprendre l'action publique,<br><em>anticiper ses choix, en mesurer les effets.</em></p>
+          <p class="mobile-accroche">Comprendre l'action publique, <em>anticiper ses choix, en mesurer les effets.</em></p>
+        </div>
+        <ul>
+          <li><strong>Ce qu'elle dit :</strong> trois verbes pour trois pratiques : comprendre (science politique, recherche), anticiper (prospective), mesurer (analyse de données).</li>
+          <li><strong>Atout :</strong> elle garde le début de l'accroche actuelle et gagne en précision ; la plus élégante des trois.</li>
+          <li><strong>Limite :</strong> les mots « prospective » et « données » n'y figurent pas, ils sont seulement suggérés. Le rythme ternaire peut sembler un peu construit.</li>
+        </ul>
+      </article>
+      <article class="accroche">
+        <div>
+          <p class="rubrique">C · parcours</p>
+          <p class="apercu-accroche">De la science politique à l'analytique d'affaires :<br><em>la recherche et les données au service des décisions.</em></p>
+          <p class="mobile-accroche">De la science politique à l'analytique d'affaires : <em>la recherche et les données au service des décisions.</em></p>
+        </div>
+        <ul>
+          <li><strong>Ce qu'elle dit :</strong> la trajectoire universitaire, explicitement, et ce qui la relie.</li>
+          <li><strong>Atout :</strong> elle explique d'emblée le passage au MBA.</li>
+          <li><strong>Limites :</strong> la plus longue (cinq lignes sur téléphone) ; elle répète la fiche signalétique qui suit ; « au service de » est une tournure convenue ; la prospective disparaît.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="reco"><p><strong>Recommandation : A.</strong> C'est la seule qui nomme les trois pratiques sans exagérer, et elle laisse au parcours sa place dans la fiche. Si vous tenez à la continuité avec l'accroche actuelle, B est une bonne alternative. Le soulignement au stylo rouge passerait alors sur « données » (A) ou sur « mesurer » (B).</p></div>
+  </section>
+
+  <!-- ============ 3. Bilan ============ -->
+  <section class="bloc" aria-labelledby="t-bilan">
+    <header class="tete-section"><h2 id="t-bilan">Informations vérifiées et à confirmer</h2><p>Site = V2bis corrigée. CV = PDF actuel du dépôt.</p></header>
+    <div class="defile">
+      <table class="bilan">
+        <thead><tr><th scope="col">Information</th><th scope="col">Site</th><th scope="col">CV actuel</th><th scope="col">Statut</th></tr></thead>
+        <tbody>
+          <tr><td>Baccalauréat en science politique, Université Laval</td><td>Automne 2020 – hiver 2024</td><td>« 2024 »</td><td><span class="statut ok">Vérifié</span></td></tr>
+          <tr><td>Maîtrise en science politique avec stage</td><td>2024 – mai 2026, diplômé</td><td>« En cours », « Je finalise actuellement »</td><td><span class="statut ok">Vérifié</span> <span class="statut cv">CV à corriger</span><br>Mois de début : <span class="statut conf">à confirmer</span></td></tr>
+          <tr><td>MBA en analytique d'affaires, Université Laval</td><td>En cours, sans dates</td><td>Absent (seulement évoqué dans le profil)</td><td><span class="statut ok">Vérifié</span> <span class="statut cv">CV à compléter</span><br>Dates : <span class="statut conf">à confirmer</span></td></tr>
+          <tr><td>Ministère de l'Éducation, depuis décembre 2022</td><td>« Étudiant en veille, recherche et prospective »</td><td>« Étudiant - Conseiller » ; « Veille stratégique, prospective et recherche au MEQ »</td><td><span class="statut ok">Vérifié</span><br>Intitulé officiel : <span class="statut conf">à confirmer</span></td></tr>
+          <tr><td>Stage au Ministère (terminé)</td><td>Mentionné, sans dates</td><td>Absent</td><td><span class="statut ok">Vérifié</span><br>Lien avec la maîtrise « avec stage » : <span class="statut conf">à confirmer</span></td></tr>
+          <tr><td>Programmation pluriannuelle de la recherche</td><td>Oui</td><td>Absent</td><td><span class="statut ok">Vérifié</span> <span class="statut cv">CV à compléter</span></td></tr>
+          <tr><td>Secrétaire, Club Animé Québec</td><td>Septembre 2024 – mai 2025</td><td>Absent (le CV LaTeX de 2024 le disait « en cours »)</td><td><span class="statut ok">Vérifié</span></td></tr>
+          <tr><td>CA de Nadeshicon (congrès d'environ 4 000 participants)</td><td>Absent</td><td>2025 – 2026</td><td><span class="statut conf">À confirmer</span> en cours ou terminé ; à ajouter au site ?</td></tr>
+          <tr><td>Bénévole, Collectif de Québec pour la paix</td><td>Absent</td><td>2026</td><td><span class="statut conf">À confirmer</span> à ajouter au site ?</td></tr>
+          <tr><td>Stage en ressources humaines, Citelum, Paris</td><td>2018 – 2019</td><td>Absent (présent dans le CV LaTeX)</td><td><span class="statut conf">À décider</span> le garder ?</td></tr>
+          <tr><td>Langues</td><td>Français ; anglais (VEPT : 63) ; espagnol ; allemand</td><td>Seulement « anglais fonctionnel (VEPT : 63) »</td><td><span class="statut conf">Niveaux à confirmer</span> ; allemand (seulement sur l'ancien site)</td></tr>
+          <tr><td>Programmation</td><td>HTML, CSS, JavaScript, Python ; LaTeX ; R</td><td>« R, HTML »</td><td>JavaScript, LaTeX, R : <span class="statut ok">visibles dans les projets</span><br>Python : <span class="statut conf">à confirmer</span> (sa seule trace était le script de veille, retiré du portfolio)</td></tr>
+          <tr><td>Artéfacts 2050</td><td>Jeu de prospective, 2026, cinq fiches, environ cinq minutes</td><td>Absent</td><td><span class="statut ok">Vérifié</span> (données du jeu)<br>Rôle, outils, public, retours : <span class="statut conf">à compléter</span></td></tr>
+          <tr><td>PacQC</td><td>Jeu web, trois cartes, tracés validés automatiquement</td><td>Absent</td><td><span class="statut ok">Vérifié</span> (README, tests)<br>Le jeu montre encore le visage du collègue : <span class="statut conf">à traiter</span></td></tr>
+          <tr><td>Scène Pixel Art</td><td>En chantier</td><td>Absent</td><td><span class="statut ok">Vérifié</span><br>Titre sans accent sur la page du jeu : <span class="statut conf">à décider</span></td></tr>
+          <tr><td>Analyse OCDE</td><td>R, régression multiple, données depuis 2010</td><td>Absent</td><td><span class="statut ok">Vérifié</span> (code R, rapport)</td></tr>
+          <tr><td>ResearchRabbit</td><td>Présentation LaTeX Beamer, PDF, 5 décembre 2024</td><td>Absent</td><td><span class="statut ok">Vérifié</span> (PDF)</td></tr>
+          <tr><td>Atlas</td><td>Hors-série en chantier</td><td>Absent</td><td><span class="statut ok">Conforme</span> ; textes <span class="statut conf">à valider</span></td></tr>
+          <tr><td>Hors champ : natation, poésie</td><td>Deux médailles de bronze aux championnats de France ; poésie</td><td>Absents du CV actuel (présents dans le CV LaTeX)</td><td><span class="statut ok">Vérifié</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 4. CV ============ -->
+  <section class="bloc" aria-labelledby="t-cv">
+    <header class="tete-section"><h2 id="t-cv">Changements nécessaires au CV</h2><p>Le fichier actuel n'est pas modifié ; le texte proposé est dans <code>_refonte/cv/proposition-cv-2026-11.md</code>.</p></header>
+    <ol class="liste">
+      <li><strong>Titre.</strong> « Étudiant en science politique » est dépassé : maîtrise terminée, MBA en cours.</li>
+      <li><strong>Maîtrise.</strong> Remplacer « en cours » et « Je finalise actuellement » par « diplômé, mai 2026 ».</li>
+      <li><strong>MBA.</strong> L'ajouter dans la formation (Université Laval, en cours), sans dates tant qu'elles ne sont pas confirmées.</li>
+      <li><strong>Ministère.</strong> Un seul intitulé, identique au site ; mentionner le stage terminé et la contribution à la programmation pluriannuelle de la recherche.</li>
+      <li><strong>Profil.</strong> Le paragraphe évoque les restrictions budgétaires et le gel d'embauche dans la fonction publique alors que vous travaillez au Ministère ; à remplacer par une présentation courte (proposition fournie).</li>
+      <li><strong>Engagements.</strong> Choisir ce qui figure à la fois sur le CV et le site : Club Animé (absent du CV), Nadeshicon et Collectif pour la paix (absents du site), Citelum (absent du CV).</li>
+      <li><strong>Langues.</strong> Une rubrique dédiée, avec des niveaux confirmés ; aujourd'hui seul l'anglais est mentionné.</li>
+      <li><strong>Compétences techniques.</strong> Les aligner sur le site : R (tidyverse, ggplot2), HTML, CSS, JavaScript, LaTeX ; Python à confirmer.</li>
+      <li><strong>Réalisations.</strong> Ajouter une ligne vers le portfolio (Artéfacts 2050, PacQC, analyse OCDE, ResearchRabbit) : aucun projet ne figure sur le CV.</li>
+      <li><strong>Coquilles.</strong> « études supérieurs », « Science Politique », « des projet d'améliorations », point final collé à l'adresse courriel.</li>
+      <li><strong>Confidentialité.</strong> Le CV téléchargeable depuis le site expose votre téléphone et les courriels de trois référents : prévoir une version publique (« Références disponibles sur demande »).</li>
+    </ol>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-decider">
+    <header class="tete-section"><h2 id="t-decider">À trancher</h2><p>Arbitrages éditoriaux : rien n'est appliqué sans votre accord.</p></header>
+    <ol class="liste">
+      <li>Accroche : A, B ou C.</li>
+      <li>Nadeshicon et le Collectif de Québec pour la paix : à ajouter à la frise du parcours ?</li>
+      <li>Citelum : garder sur le site, ou retirer comme dans le CV actuel ?</li>
+      <li>Intitulé officiel du poste au Ministère ; lien entre le stage et la maîtrise.</li>
+      <li>Niveaux de langue (et l'allemand) ; Python.</li>
+      <li>Artéfacts 2050 : votre rôle et vos outils.</li>
+      <li>Version publique du CV sans téléphone ni courriels de référents.</li>
+    </ol>
+  </section>
+</div>
+</body>
+</html>

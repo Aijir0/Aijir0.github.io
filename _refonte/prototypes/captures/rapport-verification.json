@@ -136,7 +136,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 4586,
+    "hauteur": 4657,
     "erreurs": []
   },
   "v2bis/mobile": {
@@ -148,7 +148,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 7104,
+    "hauteur": 7202,
     "erreurs": []
   },
   "fiche-v2bis/desktop": {
@@ -160,7 +160,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2485,
+    "hauteur": 2625,
     "erreurs": []
   },
   "fiche-v2bis/mobile": {
@@ -172,7 +172,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2485,
+    "hauteur": 2768,
     "erreurs": []
   },
   "pistes/desktop": {
@@ -208,7 +208,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2042,
+    "hauteur": 2076,
     "erreurs": []
   },
   "fiche-rr/mobile": {
@@ -269,6 +269,30 @@
     "sansAlt": 0,
     "petitesCibles": 0,
     "hauteur": 8562,
+    "erreurs": []
+  },
+  "phase8/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 5947,
+    "erreurs": []
+  },
+  "phase8/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 10493,
     "erreurs": []
   }
 }

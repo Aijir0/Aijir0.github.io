@@ -2,11 +2,11 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 7)
+## Où en est-on (6 novembre 2026, fin de phase 8)
 
-**Phase 7 terminée : V2bis retenue définitivement comme référence visuelle ; nouveaux visuels (PacQC, Scène Pixel Art), carte d'Atlas et portrait proposés, les recommandés intégrés à V2bis à l'essai. En attente de l'examen de Léo.**
+**Phase 8 terminée : contenus de V2bis vérifiés source par source, erreurs certaines corrigées, trois accroches proposées, écarts avec le CV relevés et texte de mise à jour du CV préparé. En attente des arbitrages de Léo.** Bilan : http://127.0.0.1:8765/_refonte/prototypes/phase8.html
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
-Avant / après : `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
+Avant / après : `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
 Propositions de la phase 7 : http://127.0.0.1:8765/_refonte/prototypes/phase7.html (pistes des phases 5 et 6 : `pistes-visuels.html`).
 
 Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni publié.
@@ -41,6 +41,7 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | **Correction des travaux** : « Veille bibliographique automatisée » retirée de tous les prototypes (le script `projet_annexe/semantic_scholar_search.py` reste dans le dépôt) ; le PDF `presentation/rabb2.pdf` quitte le projet d'analyse (qui garde « Lire le rapport ») et devient une réalisation distincte, **ResearchRabbit — Présentation d'un outil de recherche scientifique** (travail universitaire, LaTeX Beamer sur Overleaf, 5 décembre 2024, 11 diapositives ; Léo est l'auteur de la présentation, pas du logiciel). |
 | 2026-11-06 | **Validé** : la correction des travaux. Deux réalisations distinctes (analyse de données ; présentation ResearchRabbit) ; veille retirée des prototypes. Vignette **A** (composition bleue) dans la grille de V2bis, vignette **B** (vraie couverture du PDF, mise en scène documentaire) en tête de la fiche ResearchRabbit : l'une donne une identité reconnaissable, l'autre montre le document réel. |
 | 2026-11-06 | **Phase 7 : V2bis est la référence visuelle définitive** ; direction « Note de breffage — publication vivante » confirmée. Pas de changement d'architecture ni de nouvelle exploration générale. |
+| 2026-11-06 | Faits confirmés par Léo (phase 8) : au Ministère depuis décembre 2022, poste actuel « Étudiant en veille, recherche et prospective » ; stage terminé, emploi étudiant en cours ; pendant le stage, contribution notamment aux travaux de programmation pluriannuelle de la recherche. Ne pas présenter le stage comme un emploi terminé ; ne pas inventer ses dates. |
 | 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
@@ -85,6 +86,13 @@ Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est de
 - **Atlas** : globe orthographique aux côtes réelles (Natural Earth 1:110 M via world-atlas, d3-geo au moment de la génération, aucun script sur la page), un seul repère sur Québec, rien d'inventé. `p7-atlas-globe.svg` (en-tête), `p7-atlas-vignette.jpg` (grille), `p7-atlas-carte.jpg` (fiche). Le titre de l'annonce mène à `v2bis/atlas.html` (« Hors-série · En chantier ») ; ligne « Atlas · À venir » en fin de Travaux.
 - **Portrait** : `medias/portrait-leo.jpg` (recadrage 4:5 de `images/port1.jpg`, original intact). A **photo d'identité en tête de la fiche signalétique** (recommandée, **intégrée à V2bis**) ; B portrait au contact (simulé pour la capture : `outils/captures-phase7.mjs`). `images/portrait.png` est un selfie de voyage, non utilisé (piste possible pour Atlas, si Léo le souhaite).
 
+## Phase 8 : vérification éditoriale (`phase8.html`, `_refonte/cv/proposition-cv-2026-11.md`)
+
+Sources rapprochées : indications de Léo ; CV PDF actuel (`CV/CVLeoM.pdf`, Canva, 28 septembre 2026, titre interne « Copie de Nouveau CV à modifier ») ; ancien CV LaTeX (`CV/cvLaTeX.tex`, décembre 2024, plus à jour) ; site en ligne ; contenus des projets (`artefacts-2050/game.json` et données du jeu, `projet_session/code/code.R`, `presentation/rabb2.pdf`, `PacQC/README.md` et tests).
+- **Corrigé dans V2bis** : ordre « stage, puis poste » retiré (non établi) ; formulation de la programmation pluriannuelle alignée sur Léo ; Artéfacts « fiches » et non « notes », « environ cinq minutes », « des effets papillon », sources citées par le jeu ajoutées à la fiche ; « un jeu sérieux » (singulier) ; niveaux de langue non confirmés retirés (anglais : VEPT 63, d'après le CV actuel) ; lien « Analyse OCDE » pour Elicit et NotebookLM ; ResearchRabbit « exportée en PDF ».
+- **Accroche** : A « Éclairer les décisions publiques / par la recherche, la prospective et les données. » (recommandée) ; B « Comprendre l'action publique, / anticiper ses choix, en mesurer les effets. » ; C « De la science politique à l'analytique d'affaires : / la recherche et les données au service des décisions. ». L'accroche actuelle reste en place jusqu'au choix.
+- **CV** : le texte proposé ne reprend ni téléphone, ni adresse, ni courriels de référents. Le CV public expose le téléphone et les courriels de trois référents : version publique recommandée.
+
 ### ResearchRabbit
 - PDF vérifié avec pdf.js : producteur pdfTeX-1.40.25, classe Beamer, « Présentation de Research Rabbit · Outils numériques de recherche », Léo Matrat, Université Laval, 5 décembre 2024 ; parties : introduction (origines, place dans la recherche), comparaison (Zotero, Mendeley, EndNote, Google Scholar, ResearchRabbit), prise en main. La fiche ne dit rien de plus.
 - Deux vignettes, **validées dans leur usage actuel** : **A** la composition bleue (copie JPEG suivie par Git : `medias/projets/researchrabbit-vignette.jpg`), dans la grille de V2bis, légende « visuel du projet » (ce n'est pas la couverture du PDF) ; **B** la vraie première page posée sur le papier avec la diapositive « Plan » derrière (`researchrabbit-document.jpg`, suivie par Git, générée depuis le PDF), en tête de la fiche `v2bis/researchrabbit.html`.
@@ -108,6 +116,9 @@ Fabriquées à partir des ressources réelles des jeux ; aucun original modifié
 _refonte/prototypes/index.html            Comparatif V2bis, V2, V1 (+ V3 en référence), critique des détails
 _refonte/prototypes/pistes-visuels.html   Pistes visuelles PacQC et Scène Pixel Art (phases 5 et 6)
 _refonte/prototypes/phase7.html           Propositions de la phase 7 (PacQC, Scène, Atlas, portrait)
+_refonte/prototypes/phase8.html           Bilan éditorial de la phase 8 (corrections, accroches, vérifications, CV)
+_refonte/prototypes/v2bis-phase7/         Instantané de V2bis à la fin de la phase 7 (avant / après)
+_refonte/cv/proposition-cv-2026-11.md     Texte proposé pour le CV (à reporter dans Canva ; CV actuel intact)
 _refonte/prototypes/v2bis-phase6/         Instantané de V2bis à la fin de la phase 6 (avant / après)
 _refonte/outils/visuels-phase7.mjs        Générateur phase 7 (moteur de pixels, alphabet, sprites, globe, portrait)
 _refonte/outils/captures-phase7.mjs       Captures du portrait (A, B) et de l'annonce Atlas
@@ -122,8 +133,8 @@ _refonte/prototypes/fiche/                Fiche Artéfacts 2050 commune à V1, V
 _refonte/prototypes/commun/               base.css, signatures.js (préfixe de la barre mobile réglable : data-prefixe)
 _refonte/prototypes/medias/               Copies JPEG légères ; medias/pistes/ = visuels-pistes
 _refonte/prototypes/captures/             Captures par page + rapport-verification.json + controles/
-_refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis fiche-rr fiche-atlas comparatif pistes phase7)
-_refonte/outils/verifier-liens.mjs           Liens et images internes (HTTP 200) et ancres, sur 13 pages
+_refonte/outils/verifier-prototypes.mjs       Captures et mesures (pages : v1 v2 v3 v2bis fiche fiche-v2bis fiche-rr fiche-atlas comparatif pistes phase7 phase8)
+_refonte/outils/verifier-liens.mjs           Liens et images internes (HTTP 200) et ancres, sur 15 pages
 _refonte/sources/                         Originaux fournis par Léo (non publiés) : vignette-researchrabbit.png
 _refonte/outils/controles-complementaires.mjs Contrastes, poids, CLS, LCP, transition (V2bis), clavier (V1), tiroir (V2bis)
 ```
@@ -158,6 +169,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
+0. Phase 8 : accroche (A, B, C) ; Nadeshicon (CA 2025 – 2026) et Collectif de Québec pour la paix (2026), présents dans le CV, absents du site ; Citelum, présent sur le site, absent du CV ; intitulé officiel du poste et lien stage / maîtrise ; niveaux de langue, allemand, Python ; rôle et outils pour Artéfacts 2050 ; version publique du CV.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -176,6 +188,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 - 2026-11-06 (rangement) : original de la vignette ResearchRabbit déplacé dans `_refonte/sources/`, générateur mis à jour ; contrôle étendu aux images (50 liens et images, aucun cassé) ; non-publication vérifiée.
 - 2026-11-06 (phase 7) : instantané `v2bis-phase6/` ; générateur pixel `visuels-phase7.mjs` ; PacQC (3 propositions, 2 logos), avatar d'après le portrait et 3 compositions de la Scène, globe d'Atlas aux côtes réelles et fiche `atlas.html`, portrait A intégré et B simulé ; page `phase7.html` ; contrôles liens et images (74, aucun cassé) et Playwright.
+- 2026-11-06 (phase 8) : instantané `v2bis-phase7/` ; vérification des contenus source par source ; corrections factuelles dans V2bis ; trois accroches ; bilan `phase8.html` ; proposition de CV ; contrôles liens et images (80, aucun cassé) et Playwright.
 
 ## Prochaines étapes
 
