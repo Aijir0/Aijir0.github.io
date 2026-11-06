@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labo · ResearchRabbit — Fiche de réalisation (V2bis)</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <link rel="stylesheet" href="v2bis.css">
+  <link rel="stylesheet" href="labo.css">
+  <script src="labo.js"></script>
+  <style>
+    /* Même gabarit que la fiche Artéfacts 2050 : en-tête « objet, date », figure, texte, accès. */
+    .fiche-page { max-width: 64rem; margin: 0 auto; padding: 0 var(--gouttiere) 2rem; }
+    .haut { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    .titre-fiche { padding: 2.75rem 0 1.75rem; }
+    .titre-fiche h1 { margin: .5rem 0 .4rem; font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 400; letter-spacing: -.035em; }
+    .titre-fiche .sous-titre { margin: 0 0 1rem; font: italic 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.25 var(--serif); color: var(--encre-2); }
+    .memo { margin: 2rem 0 0; border-top: 1px solid var(--encre); }
+    .memo div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--filet); }
+    .memo dt { font: 500 .8125rem/1.75 var(--sans); color: var(--encre-2); }
+    .memo dd { margin: 0; font-size: 1.0625rem; line-height: 1.45; }
+    .fiche-page section { padding-top: 3.25rem; }
+    .fiche-page h2 { margin-bottom: 1rem; font-size: 2rem; }
+    .parties { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+    .parties li { counter-increment: n; display: grid; grid-template-columns: 2.5rem 1fr; padding: .75rem 0; border-top: 1px solid var(--filet); }
+    .parties li::before { content: counter(n) "."; font: 400 1.1875rem var(--serif); color: var(--vert); }
+    .parties strong { font-weight: 500; }
+    .acces { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+    @media (max-width: 640px) {
+      .memo div { grid-template-columns: 6rem minmax(0, 1fr); gap: .75rem; }
+      .acces .bouton { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="fiche-page">
+  <div class="haut"><a href="./" data-retour>← Retour au profil</a><span class="meta">Fiche de réalisation</span></div>
+  <main id="contenu">
+    <header class="titre-fiche">
+      <p class="rubrique">Travail universitaire · Présentation scientifique</p>
+      <h1>ResearchRabbit</h1>
+      <p class="sous-titre">Présentation d'un outil de recherche scientifique</p>
+      <p class="chapo">Une présentation universitaire de ResearchRabbit, un outil qui aide à explorer la littérature scientifique et les liens entre publications. Composée en LaTeX (Beamer) sur Overleaf et exportée en PDF, elle retrace l'origine de l'outil, le compare aux outils courants, puis en montre la prise en main.</p>
+    </header>
+    <figure>
+      <div class="cadre"><img src="../medias/projets/researchrabbit-document.jpg" width="1600" height="840" alt="Première diapositive de la présentation : « Présentation de Research Rabbit, Outils numériques de recherche », Léo Matrat, Université Laval, 5 décembre 2024 ; la diapositive « Plan » apparaît derrière."></div>
+      <figcaption>Première page et plan de la présentation, telles qu'elles figurent dans le PDF.</figcaption>
+    </figure>
+    <dl class="memo">
+      <div><dt>Objet</dt><dd>Présentation de ResearchRabbit, outil d'exploration des publications scientifiques et de leurs relations bibliographiques</dd></div>
+      <div><dt>Date</dt><dd>5 décembre 2024</dd></div>
+      <div><dt>Cadre</dt><dd>Présentation universitaire, « Outils numériques de recherche », Université Laval</dd></div>
+      <div><dt>Outils</dt><dd>Overleaf, LaTeX (classe Beamer) ; onze diapositives</dd></div>
+      <div><dt>Rôle</dt><dd>Auteur de la présentation. ResearchRabbit est un outil existant, développé par une autre équipe.</dd></div>
+    </dl>
+
+    <section aria-labelledby="t-contenu">
+      <h2 id="t-contenu">Ce que couvre la présentation</h2>
+      <ol class="parties">
+        <li><span><strong>Introduction.</strong> Les origines de l'outil et sa place dans la démarche de recherche.</span></li>
+        <li><span><strong>Comparaison.</strong> Accessibilité, fonctionnalités, points forts et limites de Zotero, Mendeley, EndNote, Google Scholar et ResearchRabbit, puis le choix argumenté de ce dernier.</span></li>
+        <li><span><strong>Prise en main.</strong> Créer un compte, rechercher un article ou un auteur, explorer les relations entre publications.</span></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="t-acces">
+      <h2 id="t-acces">Accès</h2>
+      <p class="acces"><a class="bouton" href="../../../presentation/rabb2.pdf">Consulter la présentation <span aria-hidden="true">↗</span></a><a class="lien" href="./" data-retour>Revenir au profil</a></p>
+    </section>
+  </main>
+  <footer class="colophon"><p>Site personnel : il n'engage ni ne représente aucune organisation. Prototype V2bis.</p></footer>
+</div>
+<script src="../commun/signatures.js" defer></script>
+</body>
+</html>

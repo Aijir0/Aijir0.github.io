@@ -1,0 +1,98 @@
+{
+ "date": "2026-11-06T20:52:01.881Z",
+ "resultats": [
+  {
+   "nom": "V2bis",
+   "appareil": "ordinateur",
+   "lcp": 292,
+   "cls": 0.0008,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe discrète",
+   "appareil": "ordinateur",
+   "lcp": 220,
+   "cls": 0.0089,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe marquée",
+   "appareil": "ordinateur",
+   "lcp": 208,
+   "cls": 0.0052,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe expressive",
+   "appareil": "ordinateur",
+   "lcp": 200,
+   "cls": 0.0062,
+   "images": 64,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "V2bis",
+   "appareil": "téléphone",
+   "lcp": 420,
+   "cls": 0,
+   "images": 110,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe discrète",
+   "appareil": "téléphone",
+   "lcp": 428,
+   "cls": 0,
+   "images": 110,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe marquée",
+   "appareil": "téléphone",
+   "lcp": 440,
+   "cls": 0,
+   "images": 110,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "nom": "Labo, parallaxe expressive",
+   "appareil": "téléphone",
+   "lcp": 440,
+   "cls": 0,
+   "images": 110,
+   "lentes": 0,
+   "pctLentes": 0,
+   "median": 6.9
+  },
+  {
+   "reduit": {
+    "compo": false,
+    "elementsTransparents": [],
+    "parallaxe": "none"
+   }
+  },
+  {
+   "clavier": {
+    "cercle": true,
+    "apercu": 2
+   }
+  }
+ ]
+}

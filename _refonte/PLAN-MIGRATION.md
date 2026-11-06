@@ -48,13 +48,13 @@ Références : `_refonte/DESIGN.md` (design system), `_refonte/SUIVI.md` (état 
 
 **Construire le site définitif à la racine, sur une branche, sans toucher aux jeux, puis publier en une seule fusion.**
 
-1. **Une branche, un commit par étape.**
+1. **Une branche, un commit par lot.**
    - On continue sur `refonte-visuelle-2026`, après y avoir fusionné `origin/main`.
-   - Chaque étape du § 5 est un commit vérifié, donc réversible séparément.
+   - Chaque lot du § 5 est un commit vérifié, donc réversible séparément.
 2. **Ajouter, puis remplacer, puis retirer.**
    - Le nouveau socle (`assets/site/`) cohabite d'abord avec l'ancien gabarit (`assets/css`, `assets/js`…).
-   - L'ancien accueil est remplacé à l'étape 1.
-   - Les fichiers obsolètes sont supprimés **en dernier** (étape 6), après une recherche prouvant qu'aucune page ne les référence, et sur accord de Léo.
+   - L'ancien accueil est remplacé au lot 1.
+   - Les fichiers obsolètes sont supprimés **en dernier** (lot 7), après une recherche prouvant qu'aucune page ne les référence, et sur accord de Léo.
 3. **On transpose le prototype, sans le réécrire.**
    - `commun/base.css` et `v2bis/v2bis.css` sont fusionnés en une feuille unique, débarrassée des règles propres aux prototypes.
    - `signatures.js` et le petit script de l'index deviennent un module unique, sans dépendance.
@@ -87,7 +87,7 @@ Références : `_refonte/DESIGN.md` (design system), `_refonte/SUIVI.md` (état 
 | `/artefacts-2050/` | Jeu | **Inchangée** |
 | `/PacQC/` et ses `?carte=…` | Jeu | **Inchangée** |
 | `/jeu/` | Scène Pixel Art | **Inchangée** |
-| `/espace-jeux/`, `/espace-jeux/selection.html` | Menu des jeux | **Conservées** (anciens favoris, liens « retour » des jeux) ; vignettes mises à jour à l'étape 4 |
+| `/espace-jeux/`, `/espace-jeux/selection.html` | Menu des jeux | **Conservées** (anciens favoris, liens « retour » des jeux) ; vignettes mises à jour au lot 5 |
 | `/projet_session/projet2.html` | Rapport | **Inchangée** |
 | `/presentation/rabb2.pdf` | Présentation | **Inchangée** |
 | `/CV/CVLeoM.pdf` | CV | **Inchangée** (Léo remplacera le fichier au même chemin) |
@@ -129,15 +129,15 @@ Points d'attention :
 - **Correctif urgent possible, indépendant de la refonte** : publier dès maintenant sur `main` un `_config.yml` réduit à `exclude: [CV/cvLaTeX.tex, docs/, tests/, README.md, Curseur.md, projet_annexe/, node_modules/]`, pour retirer l'adresse postale du site. Cela demande l'accord de Léo et une publication.
 - Un fichier déjà indexé peut rester visible dans des caches ou des archives web après son retrait.
 
-## 5. Étapes
+## 5. Lots
 
-Chaque étape se termine par :
+Chaque lot se termine par :
 - les vérifications indiquées ;
 - une capture examinée à 1440 et 390px ;
 - un commit ;
 - une ligne dans `SUIVI.md`.
 
-### Étape 0 — Socle et publication protégée
+### Lot 0 — Socle et publication protégée
 - **Fichiers**
   - Création : `_config.yml`, `assets/site/site.css` (fusion de `base.css` et `v2bis.css`, sans `.proto-note` ni `.piste-visuel`, sans `--vert-clair` ni règles inutilisées), `assets/site/site.js` (`signatures.js` et le script de l'index), `assets/site/img/` (images issues de `_refonte/prototypes/medias/`).
   - Déplacement : `DESIGN.md` à la racine (exclu de la publication).
@@ -148,58 +148,76 @@ Chaque étape se termine par :
   - Simulation de la liste `exclude` par un script, puisque Jekyll n'est pas disponible localement.
   - Aucun fichier de `_refonte/` n'est référencé par une page publiée.
 
-### Étape 1 — Accueil et navigation
+### Lot 1 — Accueil et navigation
 - **Fichiers**
   - Remplacement : `index.html`, par le contenu de V2bis avec ses chemins réécrits.
   - Ajouts : `<title>`, description, balises Open Graph (titre, description, image de partage) et icône du site. **Pas de `noindex`.**
-- **Dépend de** : l'étape 0.
+- **Dépend de** : lot 0.
 - **Vérifications**
   - Sommaire vivant (bureau), barre de lecture et tiroir (mobile), lien d'évitement.
   - Aucune mention « à compléter » ou « à valider » ne reste visible : celles qui restent sont soit tranchées par Léo, soit retirées.
   - Liens et ancres ; aucune erreur dans la console ; aucun débordement.
 
-### Étape 2 — Travaux et fiches de projets
-- **Fichiers** : `travaux/artefacts-2050/index.html`, `travaux/researchrabbit/index.html`, `travaux/atlas/index.html`, et les vignettes dans `assets/site/img/`.
-- **Dépend de** : l'étape 0 ; liens de l'index à l'étape 1.
+### Lot 2 — Travaux (index et vignettes)
+- **Fichiers** : `index.html` (section Travaux, aperçu) ; `assets/site/img/` (vignettes retenues en phase 7).
+- **Dépend de** : lot 1.
 - **Vérifications**
-  - La transition « la figure devient la page » fonctionne entre l'accueil et la fiche Artéfacts.
+  - Aperçu au survol et au focus (bureau) ; vignettes intégrées à l'index (étroit).
+  - Chaque descriptif tient sur une ligne à 390 px.
+  - Liens vers les jeux et les fiches.
+- **Décision à prendre** : visuels finaux de PacQC et de la Scène (phase 7).
+
+### Lot 3 — Fiches de réalisation
+- **Fichiers**
+  - `travaux/artefacts-2050/index.html`, `travaux/researchrabbit/index.html`, `travaux/atlas/index.html`.
+  - Un gabarit commun : le style propre aux fiches quitte l'en-tête de chaque page pour `site.css`.
+- **Dépend de** : lot 0 ; lot 2 pour les liens.
+- **Vérifications**
+  - « La figure devient la page » entre l'accueil et la fiche Artéfacts (transition validée).
   - Liens « Jouer », « Lire le rapport », « Consulter la présentation » ; retour au profil.
   - Rôle et outils d'Artéfacts 2050 fournis par Léo, ou mention retirée.
-- **Décision à prendre** : le visuel final de PacQC et de la Scène (propositions de la phase 7).
 
-### Étape 3 — Parcours professionnel et CV
-- **Fichiers** : `index.html` (frise, compétences, contact) ; `CV/CVLeoM.pdf`, remplacé par Léo au même chemin quand il le souhaite.
-- **Dépend de** : l'étape 1.
+### Lot 4 — Parcours professionnel et CV
+- **Fichiers** : `index.html` (frise, compétences, contact) ; `CV/CVLeoM.pdf`, que Léo remplacera au même chemin quand il le souhaite.
+- **Dépend de** : lot 1.
 - **Vérifications**
   - La frise correspond aux faits validés (`SUIVI.md`) ; la légende est en texte.
   - Le lien du CV fonctionne (attribut `download`).
   - Les niveaux de langue sont confirmés, ou retirés.
 - **Recommandation** : une version publique du CV sans téléphone ni courriels de référents.
 
-### Étape 4 — Intégration des jeux
+### Lot 5 — Intégration des jeux
 - **Fichiers**
-  - `espace-jeux/index.html`, `espace-jeux/selection.html` et `espace-jeux/preview.js` : nouvelles vignettes et lien vers l'accueil.
-  - Sur accord, et chacun dans un commit séparé : PacQC (visage du collègue, sigles, logo Teams) et `jeu/index.html` (« Scène » avec accent).
-- **Dépend de** : l'étape 2 (visuels choisis) et les décisions de Léo sur PacQC.
+  - `espace-jeux/index.html`, `espace-jeux/selection.html`, `espace-jeux/preview.js` : nouvelles vignettes et lien vers l'accueil.
+  - Sur accord, chacun dans un commit séparé : PacQC (visage du collègue, sigles, logo Teams) et `jeu/index.html` (« Scène » avec accent).
+- **Dépend de** : lot 2 (visuels choisis) et les décisions de Léo sur PacQC.
 - **Vérifications**
-  - Les tests existants passent toujours : `node tests/preview.test.mjs` et `node PacQC/tests/run.mjs`.
+  - `node tests/preview.test.mjs` et `node PacQC/tests/run.mjs` passent toujours.
   - Les liens retour des jeux mènent au menu, puis le menu à l'accueil.
-  - Les URL directes des jeux et les `?carte=` fonctionnent.
+  - Les URL directes et les `?carte=` fonctionnent.
 
-### Étape 5 — Adaptation mobile et animations
-- **Fichiers** : `assets/site/site.css` et `assets/site/site.js`, retouches seulement.
-- **Dépend de** : les étapes 1 à 4.
+### Lot 6 — Animations
+- **Contenu**
+  - Les animations déjà validées (§ 7 de `DESIGN.md`) arrivent avec les lots 1 à 4.
+  - Ce lot ajoute **uniquement les signatures du laboratoire retenues par Léo** (§ 11 de `DESIGN.md`), puis les passe au statut « Validé ».
+- **Fichiers** : `assets/site/site.css` et `assets/site/site.js`, à partir de `_refonte/prototypes/v2bis-labo/labo.css` et `labo.js`. Sans le panneau du laboratoire ni les attributs de réglage : chaque signature retenue devient du code direct.
+- **Points d'attention**
+  - Cadres en `overflow: clip`, sinon la parallaxe reste figée.
+  - Composition une seule fois par session, via `sessionStorage`, avec un repli silencieux si le stockage est indisponible.
+  - Noms de View Transitions posés au clic, et uniques dans la page.
+  - Les fiches réelles seront sous `/travaux/…/` : adapter la détection des fiches dans `labo.js`.
+- **Dépend de** : les lots 1 à 4 et les choix de Léo dans le laboratoire.
 - **Vérifications**
-  - Captures à 1440, 1024, 768 et 390px.
-  - Mouvement réduit : rien de caché, View Transitions désactivées.
-  - Cibles tactiles d'au moins 44px ; aucun défilement horizontal.
-  - Revue du mouvement avec le skill `review-animations`, selon le § 7 de `DESIGN.md`.
+  - `_refonte/outils/mesures-labo.mjs`, adapté aux pages racine : images lentes, CLS, LCP, mouvement réduit, clavier.
+  - Captures à 1440, 1024, 768 et 390 px.
+  - Revue du mouvement : grille du skill `animate`, ou `review-animations` s'il est installé.
+  - Essai sur un vrai téléphone et dans Safari.
 
-### Étape 6 — Contrôle qualité et publication
+### Lot 7 — Audit final et publication
 - **Fichiers**
   - Suppressions, sur accord : `assets/css/main.css`, `assets/sass/`, `assets/js/*` (jQuery…), `assets/webfonts/` (Font Awesome), `node_modules/`, `package.json`, `package-lock.json`. Chaque suppression est faite seulement après une recherche montrant qu'aucune page ne les référence.
   - Ajout éventuel : `404.html` aux couleurs du site.
-- **Dépend de** : toutes les étapes précédentes.
+- **Dépend de** : tous les lots précédents.
 - **Vérifications**
   - Vérificateur adapté aux pages racine : liens, images, ancres, polices, console, débordement, textes alternatifs, mentions de travail.
   - Contrastes ; poids des pages ; LCP et CLS.
@@ -222,30 +240,40 @@ Chaque étape se termine par :
 | Fichiers Markdown ou HTML avec un en-tête `---` traités par Jekyll (Liquid) | Faible | Les nouvelles pages n'ont pas d'en-tête ; recherche de `{{` et `{%` avant publication |
 | Chemins relatifs du prototype (`../../../`) cassés après le déplacement | Élevée sans contrôle | Chemins relatifs à la racine ; vérificateur de liens et d'images |
 | CSS ou JS en cache après publication (CDN de Pages, environ 10 minutes) | Moyenne, faible | Paramètre de version (`site.css?v=AAAAMMJJ`) |
-| Visage du collègue encore visible dans le menu des jeux et dans PacQC | **Déjà le cas** | Étape 4, sur décision de Léo |
+| Visage du collègue encore visible dans le menu des jeux et dans PacQC | **Déjà le cas** | Lot 5, sur décision de Léo |
 | Anciennes ancres de l'accueil (`/#…`) perdues | Faible, faible | Acceptable ; la page s'ouvre en haut |
-| Mentions « à compléter » publiées par oubli | Moyenne, moyenne | Contrôle automatique à l'étape 6 |
-| `noindex` des prototypes recopié dans le site | Moyenne, grave pour la visibilité | Retrait vérifié par le contrôle de l'étape 6 |
+| Mentions « à compléter » publiées par oubli | Moyenne, moyenne | Contrôle automatique au lot 7 |
+| `noindex` des prototypes recopié dans le site | Moyenne, grave pour la visibilité | Retrait vérifié par le contrôle du lot 7 |
 | Google Fonts indisponible ou lent | Faible | Polices de secours déclarées ; hébergement local possible plus tard |
-| Divergence entre `main` et la branche | Faible (une vignette) | Fusion d'`origin/main` avant l'étape 0 |
+| Divergence entre `main` et la branche | Faible (une vignette) | Fusion d'`origin/main` avant le lot 0 |
 | View Transitions non prises en charge (Firefox, Safari ancien) | Certaine, nulle | Amélioration progressive : la navigation reste normale |
+| Animations liées au défilement non prises en charge (Firefox) | Certaine, nulle | `@supports (animation-timeline: view())` : les images restent fixes |
+| Parallaxe figée par un cadre en `overflow: hidden` | Élevée en cas d'oubli | `overflow: clip` sur les cadres ; mesure de la translation dans le vérificateur |
+| Bibliothèque d'animation ajoutée « au cas où » (GSAP, Motion) | Faible | Aucune n'est nécessaire (§ 10 de `DESIGN.md`) ; seulement sur besoin démontré et avec accord |
+| Poids des médias (vignettes PNG en pixel art, portrait, globe SVG de 41 Ko) | Moyenne, faible | Largeur maximale de 1600 px ; `loading="lazy"` hors du premier écran ; globe simplifiable (graticule, précision) |
+| Ressources de `_refonte/` référencées par le site publié, où elles ne sont pas servies | Moyenne, grave (images cassées) | Copier les médias retenus dans `assets/site/img/` ; contrôle « aucun lien vers `_refonte` » au lot 7 |
+| Composition rejouée à chaque visite, donc agaçante | Moyenne en cas d'oubli | Une fois par session, puis entrée courte ; interruption au premier geste |
 
 ## 7. Ordre d'exécution recommandé
 
 1. **Correctif de confidentialité** (`_config.yml` minimal sur `main`), si Léo l'autorise. Il est indépendant du reste.
-2. Étape 0 : socle, publication protégée, `DESIGN.md` à la racine.
-3. Étape 1 : accueil et navigation.
-4. Étape 2 : travaux et fiches. On tranche avant les visuels de PacQC et de la Scène.
-5. Étape 3 : parcours et CV.
-6. Étape 4 : jeux. On décide avant du sort du visage du collègue dans PacQC.
-7. Étape 5 : passe mobile et mouvement.
-8. Étape 6 : contrôle qualité, nettoyage sur accord, publication par Léo.
+2. Lot 0 : socle, publication protégée, `DESIGN.md` à la racine.
+3. Lot 1 : accueil et navigation.
+4. Lot 2 : travaux. On tranche avant les visuels de PacQC et de la Scène.
+5. Lot 3 : fiches.
+6. Lot 4 : parcours et CV.
+7. Lot 5 : jeux. On décide avant du sort du visage du collègue dans PacQC.
+8. Lot 6 : animations retenues dans le laboratoire.
+9. Lot 7 : audit final, nettoyage sur accord, publication par Léo.
 
-Les étapes 2 et 3 sont indépendantes l'une de l'autre et peuvent être inversées. L'étape 4 peut commencer dès que les visuels sont choisis.
+Aménagements possibles :
+- Les lots 3 et 4 sont indépendants et peuvent être inversés.
+- Le lot 5 peut commencer dès que les visuels sont choisis.
+- Le lot 6 peut suivre chacun des autres lots, si Léo préfère voir le mouvement arriver au fil de l'eau : la composition avec le lot 1, la transition des réalisations avec le lot 3, la frise avec le lot 4.
 
 ## 8. Décisions à prendre avant le développement
 
-1. Valider `DESIGN.md` et ce plan.
+1. Valider `DESIGN.md` et ce plan ; choisir les signatures du laboratoire et l'intensité de la parallaxe.
 2. Autoriser, ou non, le correctif de confidentialité immédiat.
 3. Visuels finaux de PacQC (Borne, Tuque ou Labyrinthe) et de la Scène (Personnage, Place ou Titre) ; portrait A, B ou les deux ; textes d'Atlas.
 4. Publier, ou non, le code R du rapport.

@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 const { chromium } = await import(pathToFileURL(path.join(process.env.PW, 'index.mjs')).href);
 const base = 'http://127.0.0.1:8765/_refonte/prototypes/';
 const pages = ['', 'pistes-visuels.html', 'v1-couverture/', 'v2-la-une/', 'v3-note-annotee/', 'v2bis/', 'v2bis/artefacts-2050.html',
-  'v2bis/researchrabbit.html', 'v2bis/atlas.html', 'v2bis-phase5/', 'v2bis-phase6/', 'v2bis-phase7/', 'v2bis-phase8/', 'fiche/artefacts-2050.html', 'phase7.html', 'phase8.html'];
+  'v2bis/researchrabbit.html', 'v2bis/atlas.html', 'v2bis-phase5/', 'v2bis-phase6/', 'v2bis-phase7/', 'v2bis-phase8/', 'fiche/artefacts-2050.html', 'phase7.html', 'phase8.html', 'labo/', 'labo/comparer.html', 'v2bis-labo/', 'v2bis-labo/researchrabbit.html'];
 const b = await chromium.launch({ channel: 'msedge' });
 const p = await b.newPage();
 const vus = new Map(), casses = [];

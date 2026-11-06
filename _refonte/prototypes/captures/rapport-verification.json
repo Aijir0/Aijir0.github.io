@@ -294,5 +294,53 @@
     "petitesCibles": 0,
     "hauteur": 10493,
     "erreurs": []
+  },
+  "labo/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 4727,
+    "erreurs": []
+  },
+  "labo/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 9646,
+    "erreurs": []
+  },
+  "v2bis-labo/desktop": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 4834,
+    "erreurs": []
+  },
+  "v2bis-labo/mobile": {
+    "polices": {
+      "Atkinson Hyperlegible Next": true,
+      "Newsreader": true
+    },
+    "defilementHorizontal": false,
+    "debord": [],
+    "sansAlt": 0,
+    "petitesCibles": 0,
+    "hauteur": 7499,
+    "erreurs": []
   }
 }

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labo · Avec ou sans mouvement</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <link rel="stylesheet" href="../v2bis/v2bis.css">
+  <style>
+    body { padding-bottom: 0; }
+    .page { padding-bottom: 2rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 0 .9rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; }
+    h1 { margin: 1.5rem 0 .5rem; font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 400; }
+    .outils { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; margin: 1rem 0 1.25rem; font: 500 .9375rem var(--sans); }
+    .outils label { display: flex; gap: .5rem; align-items: center; min-height: 2.75rem; }
+    .outils select { font: inherit; padding: .45rem .6rem; border: 1px solid var(--filet); background: var(--papier); color: var(--encre); border-radius: 2px; }
+    .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    .duo figcaption { margin: 0 0 .5rem; font: 600 .9375rem var(--sans); font-style: normal; color: var(--encre); }
+    .ecran { position: relative; overflow: hidden; outline: 1px solid var(--filet); background: var(--papier); }
+    .ecran iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; }
+    @media (max-width: 900px) { .duo { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="haut"><a href="./">← Le laboratoire</a><span class="meta">Comparaison côte à côte · V2bis validée à gauche, expérience à droite</span></div>
+  <h1>Avec ou sans mouvement</h1>
+  <div class="outils">
+    <label>Expérience
+      <select id="reglage">
+        <option value="compo=1&parallaxe=2&transitions=1&annotations=1&frise=1&manchette=1">Tout, parallaxe marquée</option>
+        <option value="compo=1&parallaxe=1&transitions=1&annotations=1&frise=1&manchette=1">Tout, parallaxe discrète</option>
+        <option value="compo=1&parallaxe=0&transitions=0&annotations=0&frise=0&manchette=0">1 · La une se compose</option>
+        <option value="compo=0&parallaxe=1&transitions=0&annotations=0&frise=0&manchette=0">2 · Parallaxe discrète</option>
+        <option value="compo=0&parallaxe=2&transitions=0&annotations=0&frise=0&manchette=0">2 · Parallaxe marquée</option>
+        <option value="compo=0&parallaxe=3&transitions=0&annotations=0&frise=0&manchette=0">2 · Parallaxe expressive</option>
+        <option value="compo=0&parallaxe=0&transitions=1&annotations=0&frise=0&manchette=0">3 · La réalisation devient la page</option>
+        <option value="compo=0&parallaxe=0&transitions=0&annotations=1&frise=0&manchette=0#analyse">4 · Annotations vivantes</option>
+        <option value="compo=0&parallaxe=0&transitions=0&annotations=0&frise=1&manchette=0#parcours">5 · Frise qui se lit</option>
+      </select>
+    </label>
+    <label>Écran
+      <select id="appareil">
+        <option value="1440x900">Ordinateur, 1440 × 900</option>
+        <option value="390x844">Téléphone, 390 × 844</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="synchro" checked> Défilement synchronisé</label>
+    <button class="bouton" type="button" id="rejouer">Rejouer les deux</button>
+  </div>
+  <div class="duo">
+    <figure><figcaption>Sans : V2bis validée</figcaption><div class="ecran"><iframe id="sans" title="V2bis validée, sans les expériences"></iframe></div></figure>
+    <figure><figcaption>Avec : laboratoire</figcaption><div class="ecran"><iframe id="avec" title="V2bis avec les expériences de mouvement"></iframe></div></figure>
+  </div>
+</div>
+<script>
+  // Deux écrans à la même taille réelle, réduits pour tenir côte à côte ; le défilement peut être lié.
+  const $ = (s) => document.querySelector(s);
+  const sans = $('#sans'), avec = $('#avec');
+  const q = new URLSearchParams(location.search);
+  if (q.get('r')) { const o = [...$('#reglage').options].find(o => o.value.startsWith(q.get('r'))); if (o) o.selected = true; }
+  if (q.get('ecran')) $('#appareil').value = q.get('ecran');
+  function taille() {
+    const [w, h] = $('#appareil').value.split('x').map(Number);
+    for (const f of [sans, avec]) {
+      const cadre = f.parentElement, k = cadre.clientWidth / w;
+      f.style.width = w + 'px'; f.style.height = h + 'px'; f.style.transform = `scale(${k})`;
+      cadre.style.height = h * k + 'px';
+    }
+  }
+  function charger() {
+    const [params, ancre = ''] = $('#reglage').value.split('#');
+    sans.src = '../v2bis/?t=' + Date.now() + (ancre && '#' + ancre);
+    avec.src = '../v2bis-labo/?' + params + (ancre && '#' + ancre);
+    taille();
+  }
+  let enCours = false;
+  function lier(de, vers) {
+    de.addEventListener('load', () => de.contentWindow.addEventListener('scroll', () => {
+      if (!$('#synchro').checked || enCours) return;
+      const a = de.contentWindow, b = vers.contentWindow; if (!b) return;
+      const r = a.scrollY / Math.max(1, a.document.documentElement.scrollHeight - a.innerHeight);
+      enCours = true; b.scrollTo({ top: r * (b.document.documentElement.scrollHeight - b.innerHeight), behavior: 'instant' });
+      requestAnimationFrame(() => { enCours = false; });
+    }, { passive: true }));
+  }
+  lier(sans, avec); lier(avec, sans);
+  $('#reglage').addEventListener('change', charger);
+  $('#appareil').addEventListener('change', charger);
+  $('#rejouer').addEventListener('click', charger);
+  addEventListener('resize', taille);
+  charger();
+</script>
+</body>
+</html>

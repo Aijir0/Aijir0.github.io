@@ -1,0 +1,159 @@
+/* Laboratoire de motion design (phase 9) : expériences isolées, chacune activée par un attribut de <html>
+   (data-compo, data-parallaxe, data-transitions, data-annotations, data-frise, data-manchette ; « 0 » = coupée).
+   Rien ici n'est validé. Courbes et durées : celles de DESIGN.md (--ease-out, --ease-in-out). */
+
+/* ============ Panneau du laboratoire : hors design, pour régler les expériences ============ */
+.labo-panneau { position: fixed; z-index: 60; bottom: 1rem; right: 1rem; max-width: 19.5rem; font: 500 .85rem/1.4 var(--sans); color: var(--papier); background: var(--encre); border-radius: 2px; box-shadow: 0 10px 30px -14px #000c; }
+.labo-panneau summary { cursor: pointer; list-style: none; padding: .65rem .95rem; min-height: 2.75rem; display: flex; align-items: center; gap: .5rem; }
+.labo-panneau summary::-webkit-details-marker { display: none; }
+.labo-panneau summary::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #f0b9ac; }
+.labo-panneau .corps { display: grid; gap: .55rem; padding: 0 .95rem .95rem; }
+.labo-panneau label { display: flex; align-items: center; gap: .55rem; min-height: 1.9rem; cursor: pointer; }
+.labo-panneau input { accent-color: #f0b9ac; width: 1rem; height: 1rem; }
+.labo-panneau fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 .9rem; }
+.labo-panneau legend { padding: 0; color: #f0b9ac; }
+.labo-panneau .actions-labo { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
+.labo-panneau button, .labo-panneau a { font: inherit; color: var(--encre); background: var(--papier); border: 0; border-radius: 2px; padding: .5rem .75rem; text-decoration: none; cursor: pointer; }
+@media (max-width: 1099.98px) { .labo-panneau { top: auto; bottom: 4.4rem; right: .75rem; } }
+
+/* ============ 1. La une se compose (première visite) ============
+   Rôle : plaisir de première visite et arrivée sans à-coup. Les filets se tracent comme sur une planche de montage,
+   le portrait se développe, la figure se découvre, le stylo vient en dernier. ~1,8 s ; tout s'achève au premier geste. */
+@media (prefers-reduced-motion: no-preference) {
+  .compo-joue .tete, .compo-joue .fiche, .compo-joue .fiche div { position: relative; border-color: transparent; }
+  .compo-joue .manchette { border-bottom-color: transparent; }
+  .compo-joue .tete::after, .compo-joue .manchette::after, .compo-joue .fiche::before, .compo-joue .fiche div::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 1px; transform-origin: 0 50%;
+    animation: labo-filet 900ms var(--ease-in-out) both;
+  }
+  .compo-joue .tete::after { bottom: -1px; background: var(--encre); animation-delay: 120ms; }
+  .compo-joue .manchette::after { bottom: -1px; background: var(--filet); animation-delay: 320ms; }
+  .compo-joue .fiche::before { top: -1px; background: var(--encre); animation-delay: 620ms; }
+  .compo-joue .fiche div::after { bottom: -1px; background: var(--filet); animation-delay: calc(720ms + var(--n, 0) * 80ms); }
+  .compo-joue .fiche div:nth-child(2) { --n: 1; } .compo-joue .fiche div:nth-child(3) { --n: 2; } .compo-joue .fiche div:nth-child(4) { --n: 3; }
+
+  /* Navigation : les rubriques arrivent une à une derrière le filet */
+  .compo-joue .manchette li:not(.labo-trait), .compo-joue .manchette .cv { animation: labo-monte 500ms var(--ease-out) both; animation-delay: calc(380ms + var(--k, 0) * 45ms); }
+  .compo-joue .manchette li:nth-child(2) { --k: 1; } .compo-joue .manchette li:nth-child(3) { --k: 2; } .compo-joue .manchette li:nth-child(4) { --k: 3; }
+  .compo-joue .manchette li:nth-child(5) { --k: 4; } .compo-joue .manchette li:nth-child(6) { --k: 5; } .compo-joue .manchette .cv { --k: 6; }
+
+  /* Accroche : mêmes lignes qui montent, calées après le nom */
+  .compo-joue .manifeste .ligne > span { animation-delay: calc(var(--i, 0) * 110ms + 420ms); }
+  .compo-joue .manifeste .stylo { transition-delay: 1650ms; }
+
+  /* Fiche signalétique : le portrait se développe (tirage qui sort du bain), les valeurs suivent les filets */
+  .compo-joue .identite { animation: none; }
+  .compo-joue .portrait { animation: labo-devoile-bas 1000ms var(--ease-in-out) both 640ms; }
+  .compo-joue .portrait img { animation: labo-developpe 1500ms var(--ease-out) both 640ms; }
+  .compo-joue .fiche dt, .compo-joue .fiche dd { animation: labo-monte 500ms var(--ease-out) both; animation-delay: calc(820ms + var(--n, 0) * 80ms); }
+  .compo-joue .actions { animation: labo-monte 500ms var(--ease-out) both 1200ms; }
+
+  /* À la une : la figure se découvre de gauche à droite pendant que l'image se resserre */
+  .compo-joue .a-la-une { animation: none; }
+  .compo-joue .a-la-une .cadre { animation: labo-devoile-gauche 1100ms var(--ease-in-out) both 420ms; }
+  .compo-joue .a-la-une .cadre img { animation: labo-resserre 1600ms var(--ease-out) both 420ms; }
+  .compo-joue .a-la-une > :not(a) { animation: labo-monte 550ms var(--ease-out) both; animation-delay: calc(1050ms + var(--k, 0) * 70ms); }
+  .compo-joue .a-la-une > h2 { --k: 1; } .compo-joue .a-la-une > .chapo { --k: 2; } .compo-joue .a-la-une > .liens { --k: 3; }
+
+  /* Étroit : la une est sous la ligne de flottaison ; sa découverte attend d'entrer dans l'écran */
+  .compo-attente .a-la-une .cadre, .compo-attente .a-la-une .cadre img, .compo-attente .a-la-une > :not(a) { animation-play-state: paused; }
+
+  /* Interruption : au premier geste, tout rejoint son état final en 120 ms */
+  .compo-fin *, .compo-fin *::before, .compo-fin *::after { animation-delay: 0s !important; animation-duration: 120ms !important; }
+  .compo-fin .stylo { transition-delay: 0s !important; }
+}
+@keyframes labo-filet { from { transform: scaleX(0); } }
+@keyframes labo-monte { from { opacity: 0; transform: translateY(6px); } }
+@keyframes labo-devoile-bas { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes labo-devoile-gauche { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes labo-developpe { from { scale: 1.12; filter: grayscale(1) contrast(1.15) brightness(1.12); } }
+@keyframes labo-resserre { from { scale: 1.08; } }
+
+/* ============ 2. Planches en profondeur : parallaxe dans les cadres ============
+   Rôle : profondeur. L'image glisse dans un cadre immobile au fil du défilement (animation liée au défilement,
+   hors du fil principal). Seule la propriété translate bouge : le zoom au survol reste actif. Jamais sur un graphique. */
+html[data-parallaxe="1"] { --px: 3%; --px-s: 1.07; }
+html[data-parallaxe="2"] { --px: 6%; --px-s: 1.13; }
+html[data-parallaxe="3"] { --px: 10%; --px-s: 1.21; --px-cadre: 22px; }
+@media (max-width: 640px) {
+  html[data-parallaxe="2"] { --px: 4%; --px-s: 1.09; }
+  html[data-parallaxe="3"] { --px: 6%; --px-s: 1.13; --px-cadre: 12px; }
+}
+/* overflow: clip (et non hidden) : un cadre en « hidden » devient un conteneur de défilement, et la timeline view() de l'image
+   se rapporterait à lui (progression figée à 50 %) au lieu de la page. */
+.cadre, .portrait { overflow: clip; }
+.portrait { outline: 1px solid var(--filet); outline-offset: -1px; }
+.portrait img { outline: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    html:is([data-parallaxe="1"], [data-parallaxe="2"], [data-parallaxe="3"]) :is(.t-vignette, .fiche-page main > figure .cadre, .portrait) img,
+    html:is([data-parallaxe="1"], [data-parallaxe="2"], [data-parallaxe="3"]):not(.compo-joue) .a-la-une .cadre img {
+      scale: var(--px-s); animation: labo-px linear both; animation-timeline: view(); animation-range: cover;
+    }
+    /* La une composée : la parallaxe prend le relais une fois l'image resserrée */
+    html:is([data-parallaxe="1"], [data-parallaxe="2"], [data-parallaxe="3"]).compo-joue .a-la-une .cadre img {
+      animation: labo-resserre 1600ms var(--ease-out) both 420ms, labo-px linear both;
+      animation-timeline: auto, view(); animation-range: normal, cover; scale: var(--px-s);
+    }
+    html:is([data-parallaxe="1"], [data-parallaxe="2"], [data-parallaxe="3"]).compo-joue .portrait img {
+      animation: labo-developpe 1500ms var(--ease-out) both 640ms, labo-px linear both;
+      animation-timeline: auto, view(); animation-range: normal, cover;
+    }
+    /* Expressif : le cadre lui-même avance plus vite que la page (premier plan) */
+    html[data-parallaxe="3"] :is(.a-la-une > a, .fiche-page main > figure) { display: block; animation: labo-px-cadre linear both; animation-timeline: view(); animation-range: cover; }
+  }
+}
+@keyframes labo-px { from { translate: 0 calc(var(--px) * -1); } to { translate: 0 var(--px); } }
+@keyframes labo-px-cadre { from { translate: 0 var(--px-cadre); } to { translate: 0 calc(var(--px-cadre) * -1); } }
+
+/* ============ 3. La réalisation devient la page ============
+   Rôle : continuité spatiale. La vignette cliquée et son titre deviennent l'image et le titre de la fiche
+   (noms posés au clic par labo.js). « Réalisation suivante » glisse latéralement. */
+html[data-transitions="1"] .a-la-une .cadre, html[data-transitions="1"] .hero .cadre { view-transition-name: none; }
+html[data-transitions="1"] .fiche-page main > figure .cadre { view-transition-name: fig-hero; }
+html[data-transitions="1"] .fiche-page .titre-fiche h1 { view-transition-name: titre-hero; width: fit-content; }
+::view-transition-group(fig-hero), ::view-transition-group(titre-hero) { animation-duration: 500ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(titre-hero), ::view-transition-new(titre-hero) { height: 100%; object-fit: none; object-position: left top; }
+html:active-view-transition-type(suivant)::view-transition-old(root) { animation: labo-sort 420ms var(--ease-in-out) both; }
+html:active-view-transition-type(suivant)::view-transition-new(root) { animation: labo-entre 420ms var(--ease-in-out) both; }
+@keyframes labo-sort { to { translate: -6% 0; opacity: 0; } }
+@keyframes labo-entre { from { translate: 6% 0; opacity: 0; } }
+.labo-suivant { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--encre); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.labo-suivant .rubrique { margin: 0; }
+.labo-suivant a { font: 400 clamp(1.5rem, 3vw, 2.2rem)/1.15 var(--serif); text-decoration: none; }
+.labo-suivant a .fleche { font-family: var(--sans); }
+@media (hover: hover) and (pointer: fine) { .labo-suivant a:hover { color: var(--vert); } }
+
+/* ============ 4. Annotations vivantes : cercles au stylo sur la figure ============
+   Rôle : explication. Le cercle désigne la zone dont parle la note ; à la première lecture, les trois se tracent
+   l'un après l'autre après la tendance. La donnée ne bouge jamais : seule l'annotation se dessine. */
+.graphique svg.labo-annot path { fill: none; stroke: var(--rouge); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; transition: stroke-dashoffset 600ms var(--ease-out), opacity 200ms ease, stroke-width 200ms ease; }
+.graphique svg.labo-annot path.vu { stroke-dashoffset: 0; opacity: .45; }
+.graphique svg.labo-annot path.actif { stroke-dashoffset: 0; opacity: 1; stroke-width: 4; }
+
+/* ============ 5. Frise qui se lit ============
+   Rôle : explication, état. Barres tracées dans l'ordre du temps ; repère « aujourd'hui » calculé chaque jour ;
+   au survol d'une ligne, les autres s'estompent. */
+html[data-frise="1"] .frise-cadre { --auj-x: calc((var(--maintenant, 2026.85) - 2018) / var(--axe) * 100%); }
+html[data-frise="1"] .piste::after { content: ""; position: absolute; top: -.4rem; bottom: -.4rem; left: var(--auj-x); width: 1px; background: var(--rouge); opacity: 0; transition: opacity 400ms ease var(--auj-delai, 1200ms); }
+html[data-frise="1"] .axe ol { position: relative; }
+html[data-frise="1"] .axe ol li.labo-auj { visibility: visible; } html[data-frise="1"] .labo-auj { position: absolute; left: var(--auj-x); top: 0; translate: -100% 0; padding-right: .35rem; font: italic 400 .85rem var(--serif); color: var(--rouge); white-space: nowrap; opacity: 0; transition: opacity 400ms ease var(--auj-delai, 1200ms); }
+html[data-frise="1"] .frise-cadre.trace .piste::after, html[data-frise="1"] .frise-cadre.trace .labo-auj { opacity: 1; }
+html[data-frise="1"] .barre { transition: transform 900ms var(--ease-in-out) calc(var(--i, 0) * 110ms), opacity 200ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-frise="1"] .frise-cadre:has(.frise li:hover) .barre { opacity: .3; }
+  html[data-frise="1"] .frise-cadre .frise li:hover .barre { opacity: 1; }
+}
+
+/* ============ 6. Manchette : un trait de lecture qui glisse ============
+   Rôle : état (où l'on est, combien on a lu). Un seul trait se déplace d'une rubrique à l'autre et s'allonge avec la lecture. */
+html[data-manchette="1"] .manchette .jauge { display: none; }
+.labo-trait { position: absolute; left: 0; bottom: .5rem; width: 1px; height: 2px; background: var(--vert); transform-origin: 0 50%; transform: translateX(var(--x, 0)) scaleX(var(--w, 0)); transition: transform 300ms var(--ease-in-out), opacity 150ms ease; opacity: 0; pointer-events: none; }
+.labo-trait.pret { opacity: 1; }
+
+/* ============ Mouvement réduit : moins, plus doux, jamais caché ============ */
+@media (prefers-reduced-motion: reduce) {
+  .graphique svg.labo-annot path, .labo-trait { transition: opacity 200ms ease; }
+  html[data-frise="1"] .barre { transition: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

@@ -2,9 +2,10 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 9)
+## Où en est-on (6 novembre 2026, fin de phase 9 élargie)
 
-**Phase 9 terminée : `_refonte/DESIGN.md` (design system) et `_refonte/PLAN-MIGRATION.md` (méthode, carte des URL, publication, étapes, risques, ordre) proposés pour validation. Décisions de la phase 8 appliquées à V2bis. Rien du site définitif n'est développé.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
+**Phase 9 terminée : `DESIGN.md` consolidé (validé / expérimental), laboratoire de mouvement fonctionnel (`prototypes/labo/`, `prototypes/v2bis-labo/`), plan de migration par lots. V2bis validée intacte. En attente de Léo : choix des signatures, validation de `DESIGN.md` et du plan.** À lire avant toute session de développement : ce suivi, puis `DESIGN.md`, puis `PLAN-MIGRATION.md`.
+Laboratoire : http://127.0.0.1:8765/_refonte/prototypes/labo/ (comparaison : `labo/comparer.html`).
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
 Avant / après : `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
 Propositions de la phase 7 : http://127.0.0.1:8765/_refonte/prototypes/phase7.html (pistes des phases 5 et 6 : `pistes-visuels.html`).
@@ -121,7 +122,11 @@ _refonte/prototypes/phase8.html           Bilan éditorial de la phase 8 (correc
 _refonte/prototypes/v2bis-phase7/         Instantané de V2bis à la fin de la phase 7 (avant / après)
 _refonte/cv/proposition-cv-2026-11.md     Texte proposé pour le CV (à reporter dans Canva ; CV actuel intact)
 _refonte/DESIGN.md                        Design system proposé (sera déplacé à la racine, exclu de la publication)
-_refonte/PLAN-MIGRATION.md                Plan de migration de V2bis vers le site définitif
+_refonte/PLAN-MIGRATION.md                Plan de migration de V2bis vers le site définitif (lots 0 à 7)
+_refonte/motion/01-opportunites.md        Occasions d'animation retenues et écartées (skill find-animation-opportunities)
+_refonte/prototypes/labo/                 Laboratoire : direction, signatures classées, mesures, revue ; comparer.html (avec / sans)
+_refonte/prototypes/v2bis-labo/           Copie expérimentale de V2bis : labo.css, labo.js (panneau de réglage)
+_refonte/outils/mesures-labo.mjs          Fluidité, CLS, LCP, mouvement réduit, clavier (V2bis contre labo)
 _refonte/prototypes/v2bis-phase8/         Instantané de V2bis à la fin de la phase 8 (avant / après)
 _refonte/prototypes/v2bis-phase6/         Instantané de V2bis à la fin de la phase 6 (avant / après)
 _refonte/outils/visuels-phase7.mjs        Générateur phase 7 (moteur de pixels, alphabet, sprites, globe, portrait)
@@ -173,7 +178,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-0. Phase 9 : valider `DESIGN.md` et `PLAN-MIGRATION.md` ; autoriser ou non le correctif de confidentialité immédiat (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent de la phase 8 : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
+0. Phase 9 : retenir (ou non) les signatures du laboratoire (1 La une se compose, 2 La réalisation devient la page, 3 Annotations vivantes, 4 Parallaxe et son intensité, 5 Frise et trait de lecture) ; valider `DESIGN.md` et `PLAN-MIGRATION.md` ; autoriser ou non le correctif de confidentialité immédiat (`CV/cvLaTeX.tex`, avec l'adresse postale, est publié en ligne) ; publier ou non le code R du rapport. Restent de la phase 8 : intitulé officiel du poste, lien stage / maîtrise, niveaux de langue, allemand, Python, rôle et outils pour Artéfacts 2050, version publique du CV.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -194,6 +199,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 7) : instantané `v2bis-phase6/` ; générateur pixel `visuels-phase7.mjs` ; PacQC (3 propositions, 2 logos), avatar d'après le portrait et 3 compositions de la Scène, globe d'Atlas aux côtes réelles et fiche `atlas.html`, portrait A intégré et B simulé ; page `phase7.html` ; contrôles liens et images (74, aucun cassé) et Playwright.
 - 2026-11-06 (phase 8) : instantané `v2bis-phase7/` ; vérification des contenus source par source ; corrections factuelles dans V2bis ; trois accroches ; bilan `phase8.html` ; proposition de CV ; contrôles liens et images (80, aucun cassé) et Playwright.
 - 2026-11-06 (phase 9) : instantané `v2bis-phase8/` ; accroche A et engagements Nadeshicon et Collectif ajoutés à V2bis (accent du « É » rétabli : le masque de ligne le rognait) ; analyse du site actuel (publication Jekyll, fichiers de travail publiés dont `CV/cvLaTeX.tex`, scripts déjà en 404, `origin/main` en avance d'une vignette) ; `DESIGN.md` et `PLAN-MIGRATION.md` ; contrôles liens et Playwright.
+- 2026-11-06 (phase 9 élargie) : skills vérifiés (`find-animation-opportunities` et `animate` disponibles ; `review-animations` **absent**, revue faite avec la grille d'`animate`) ; opportunités et rejets consignés ; laboratoire avec six expériences (une composée, réalisation qui devient la page, annotations vivantes, parallaxe à trois intensités, frise et trait de lecture) ; piège corrigé (`overflow: hidden` fige `animation-timeline: view()`, d'où `overflow: clip`) ; mesures : aucune image lente (téléphone ×4), CLS ≤ 0,009, mouvement réduit et clavier conformes ; `DESIGN.md` § 11 et plan par lots.
 
 ## Prochaines étapes
 

@@ -23,6 +23,8 @@ const PAGES = {
   'fiche-atlas': { url: 'v2bis/atlas.html', sections: [] },
   phase7: { url: 'phase7.html', sections: [] },
   phase8: { url: 'phase8.html', sections: [] },
+  labo: { url: 'labo/', sections: [] },
+  'v2bis-labo': { url: 'v2bis-labo/?compo=0', sections: ['travaux', 'analyse', 'parcours', 'competences', 'contact'] },
   comparatif: { url: '', sections: [] },
 };
 const choix = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PAGES);

@@ -2,13 +2,15 @@
 
 Référence de design du site professionnel de Léo Matrat (leomatrat.com).
 Statut : **proposé pour validation (phase 9, 6 novembre 2026)**. Source : prototype validé `_refonte/prototypes/v2bis/` (phases 5 à 9).
-Emplacement : ce fichier sera déplacé à la racine du dépôt à l'étape 0 de la migration, puis exclu de la publication (voir `_refonte/PLAN-MIGRATION.md`).
+
+**Lecture.** Les §§ 1 à 10 documentent l'existant **validé** (marqué « Validé »). Le § 11 regroupe les **propositions expérimentales** du laboratoire de mouvement (marquées « Expérimental ») : elles ne s'appliquent pas tant que Léo ne les a pas retenues.
+Emplacement : ce fichier sera déplacé à la racine du dépôt au lot 0 de la migration, puis exclu de la publication (voir `_refonte/PLAN-MIGRATION.md`).
 
 Ce document décrit ce qui est **validé**. Pour une règle qui n'y figure pas, imiter le composant validé le plus proche plutôt qu'en inventer un nouveau.
 
 ---
 
-## 1. Philosophie
+## 1. Philosophie · Validé
 
 Le site se lit comme une **note de breffage sur une personne** : les faits d'abord, les sources visibles, l'essentiel souligné à la main. C'est une interprétation contemporaine et chaleureuse d'un document de travail, jamais une imitation d'administration (ni sceau, ni sigle, ni gabarit gouvernemental).
 
@@ -21,7 +23,7 @@ Principes :
 
 Public visé : recruteurs, employeurs, collaborateurs. Ils doivent comprendre en 30 secondes qui est Léo, ce qu'il fait et où le voir, sur ordinateur comme sur téléphone.
 
-## 2. Couleurs
+## 2. Couleurs · Validé
 
 | Jeton | Valeur | Rôle |
 | --- | --- | --- |
@@ -40,7 +42,7 @@ Règles :
 - Les visuels de jeux gardent leurs propres palettes **à l'intérieur de leur cadre** (PacQC : nuit `#101419`, vert anis `#D9FB81` ; Scène : palette pixel). Elles ne débordent jamais sur l'interface.
 - Pas de mode sombre pour l'instant (reporté). Le jeton `--vert-clair` du socle n'est pas utilisé : il sera retiré.
 
-## 3. Typographie
+## 3. Typographie · Validé
 
 Deux familles, chargées depuis Google Fonts :
 
@@ -73,7 +75,7 @@ Règles :
 | Interface (navigation, boutons) | .9375rem | 500–600 |
 | Rubrique, libellé | .8125rem | 600 (rubrique, vert) ou 500 (libellé, `--encre-2`) |
 
-## 4. Grille, espacements, composition
+## 4. Grille, espacements, composition · Validé
 
 - **Page** : largeur maximale `86rem`, gouttière `clamp(1rem, 4vw, 3rem)`.
 - **Axe 5/7** (`--axe-grille: minmax(0,5fr) minmax(0,7fr)`, écart `clamp(2.5rem, 5vw, 4.5rem)`). Il structure la une (présentation / travail phare), l'en-tête de chaque section (titre / chapeau), l'index des travaux (liste / aperçu). Une nouvelle section reprend cet axe.
@@ -83,7 +85,7 @@ Règles :
 - **Seuils** : `1100px` (large ou étroit : marge des notes, manchette, aperçu) et `640px` (téléphone). Pas de troisième seuil sans besoin démontré sur capture.
 - La règle « une section par écran » de Taste Skill ne s'applique qu'au premier écran.
 
-## 5. Composants éditoriaux
+## 5. Composants éditoriaux · Validé
 
 | Composant | Rôle | Règles clés |
 | --- | --- | --- |
@@ -103,9 +105,9 @@ Règles :
 | **Notes en marge reliées** | Précisions | Appel en exposant ; en large, la note flotte dans la marge avec un fil rouge au survol ou au focus ; en étroit, elle s'ouvre dans le texte. |
 | **Colophon** | Mentions | Polices, mention « site personnel ». |
 
-Mentions de travail (`.a-completer`, `.a-valider`, `.proto-note`, `.piste-visuel`) : **réservées aux prototypes**. Aucune ne doit subsister dans le site publié (contrôle automatique à l'étape 6).
+Mentions de travail (`.a-completer`, `.a-valider`, `.proto-note`, `.piste-visuel`) : **réservées aux prototypes**. Aucune ne doit subsister dans le site publié (contrôle automatique au lot 7).
 
-## 6. Photographies, figures et illustrations
+## 6. Photographies, figures et illustrations · Validé
 
 - **Cadre commun** : fond `--papier-2`, contour `1px --filet`, aucun arrondi ni ombre. Légende en Newsreader italique sous la figure. Les légendes sont conservées volontairement (écart assumé avec Taste Skill).
 - **Photographies** : réelles, en couleur naturelle, sans filtre. Le portrait professionnel est recadré en 4:5 depuis `images/port1.jpg`, avec un texte alternatif. Aucun visage généré, aucun visage de tiers sans accord.
@@ -114,7 +116,7 @@ Mentions de travail (`.a-completer`, `.a-valider`, `.proto-note`, `.piste-visuel
 - **Illustration** : uniquement si elle porte une information. Exemple validé : le globe d'Atlas, avec côtes réelles (Natural Earth), un seul repère, rien d'inventé.
 - **Formats** : JPEG pour les photos et captures, PNG pour le pixel art, SVG pour le vectoriel. Largeur maximale 1600px. Attributs `width` et `height` toujours présents. `loading="lazy"` partout sauf au premier écran.
 
-## 7. Mouvement
+## 7. Mouvement · Validé (l'existant)
 
 Le mouvement a un rôle nommé, sinon il n'existe pas. Outils : CSS d'abord, JavaScript natif si nécessaire. Aucune bibliothèque d'animation.
 
@@ -139,7 +141,12 @@ Règles :
 - Une interaction fréquente reste sous 250ms. Ce qui est déclenché à répétition passe par des transitions (interruptibles), pas par des animations à étapes.
 - **Mouvement réduit** (`prefers-reduced-motion: reduce`) : états finaux immédiats ; seuls des fondus d'opacité de 200ms subsistent ; View Transitions désactivées ; défilement non lissé. Rien ne reste caché.
 
-## 8. Adaptation aux écrans
+Pièges techniques connus :
+- Une animation liée au défilement (`animation-timeline: view()`) se rapporte au plus proche conteneur de défilement : un cadre en `overflow: hidden` en est un, et fige l'animation. Utiliser `overflow: clip` sur les cadres.
+- Un nom de View Transition doit être unique dans la page au moment de la capture : poser les noms au clic plutôt qu'en dur quand plusieurs éléments représentent la même œuvre.
+- Avec une animation d'entrée à images-clés (`fill: both`) sur une propriété, une transition sur cette même propriété ne joue plus : séparer les propriétés (`translate`, `scale`, `transform`).
+
+## 8. Adaptation aux écrans · Validé
 
 - **Large (≥ 1100px)** : axe 5/7, manchette collante, aperçu de l'index, notes en marge.
 - **Étroit (< 1100px)** : une colonne ; la manchette laisse place à la barre de lecture et au tiroir ; vignettes insérées dans l'index ; notes ouvertes dans le texte ; frise sur une colonne.
@@ -148,7 +155,7 @@ Règles :
 - Aucun défilement horizontal. Cibles tactiles d'au moins 44px. Le courriel ne se coupe jamais au milieu.
 - Largeurs à vérifier : 1440, 1024, 768 et 390px.
 
-## 9. Accessibilité
+## 9. Accessibilité · Validé
 
 - `lang="fr-CA"`, lien d'évitement, repères (`header`, `nav`, `main`, `footer`), un `h1` par page, titres dans l'ordre.
 - Focus visible : contour rouge de 2px, décalé de 3px. Tout ce qui réagit au survol réagit aussi au focus (aperçu de l'index, notes reliées).
@@ -158,7 +165,7 @@ Règles :
 - Contrastes AA mesurés (§ 2). Le site s'imprime proprement (styles d'impression : notes dépliées, adresses des liens).
 - Mouvement réduit : voir § 7.
 
-## 10. Gouvernance du design
+## 10. Gouvernance du design · Validé (proposé en phase 9)
 
 Ordre d'autorité :
 1. La demande explicite de Léo.
@@ -173,6 +180,7 @@ Rôles des outils :
 - **Playwright** : vérification du rendu réel (1440 et 390px au minimum, mouvement réduit compris). Rien n'est déclaré vérifié sans capture examinée.
 - **UI UX Pro Max** et **Impeccable** : références et audit, sans autorité sur la direction.
 - Un seul système de design : pas de bibliothèque de composants, de framework CSS ni de seconde palette.
+- Bibliothèques d'animation (GSAP, Motion) : aucune n'est nécessaire à ce jour ; CSS, animations liées au défilement, View Transitions et l'API Web Animations couvrent tous les besoins. Une bibliothèque ne s'ajoute que pour un besoin démontré et avec l'accord de Léo.
 
 Proposer une amélioration est encouragé, sous conditions :
 - Une proposition indique le problème observé, l'idée, le gain attendu, son coût, et sa compatibilité avec ce document.
@@ -184,6 +192,25 @@ Proposer une amélioration est encouragé, sous conditions :
   - la modification d'un composant validé.
 - Une idée acceptée met à jour ce document, en datant le changement.
 
+## 11. Propositions expérimentales · Expérimental (phase 9, non validé)
+
+Laboratoire : `_refonte/prototypes/labo/` (présentation, mesures, comparaison) et `_refonte/prototypes/v2bis-labo/` (copie de V2bis, `labo.css`, `labo.js`). Opportunités et rejets : `_refonte/motion/01-opportunites.md`.
+
+**Direction du mouvement : cinq gestes d'édition.** La page se compose ; l'encre se pose ; le papier a de l'épaisseur ; la lecture laisse une trace ; une réalisation ne se quitte pas, elle s'ouvre. Un mouvement qui ne relève d'aucun de ces gestes n'a pas sa place.
+
+| Rang | Signature | Rôle | Paramètres du laboratoire | Règles si elle est retenue |
+| --- | --- | --- | --- | --- |
+| 1 | **La une se compose** : filets tracés, manchette posée rubrique par rubrique, portrait « développé » (gris → couleur), figure découverte de gauche à droite, stylo en dernier | Plaisir de première visite | ≈ 1,8 s ; filets 900 ms `--ease-in-out` ; blocs 500 ms `--ease-out` décalés de 45 à 80 ms | Une fois par session (puis entrée courte) ; s'achève au premier geste ; sur téléphone, la une attend d'être visible ; aucune en mouvement réduit |
+| 2 | **La réalisation devient la page** : vignette et titre deviennent l'image et le titre de la fiche ; « Réalisation suivante » glisse latéralement | Continuité spatiale | 500 ms `--ease-in-out` ; page suivante 420 ms | Noms posés au clic (`pageswap`) et retrouvés au retour (`pagereveal`) ; navigation normale sans prise en charge |
+| 3 | **Annotations vivantes** : cercles au stylo autour des zones commentées de la figure | Explication | 600 ms `--ease-out`, décalés de 380 ms après la tendance | La donnée ne bouge jamais ; actif au survol, au focus et au toucher |
+| 4 | **Planches en profondeur** : l'image glisse dans son cadre au défilement | Profondeur | Discrète ±3 % (×1,07), marquée ±6 % (×1,13), expressive ±10 % (×1,21) et cadre mobile | Animation liée au défilement, `translate` seulement, `overflow: clip` ; jamais sur un graphique ; recommandé : discrète partout, marquée sur les grandes figures |
+| 5 | **La lecture laisse une trace** : frise tracée dans l'ordre du temps, repère « aujourd'hui » calculé, estompage au survol ; trait unique glissant dans la manchette | Explication, état | Barres 900 ms, décalées de 110 ms ; trait 300 ms `--ease-in-out` | Le repère se calcule à partir de la date du jour (il ne se périme pas) |
+
+Mesures (Edge, processeur ×4 sur téléphone) : aucune image lente au défilement ; CLS ≤ 0,009 ; LCP inchangé ; mouvement réduit et clavier conformes. À confirmer sur un vrai téléphone et dans Safari.
+
+Une signature retenue par Léo passe dans les §§ 5 et 7 (statut « Validé », datée) ; les autres restent ici ou sont retirées.
+
 ## Historique
 
 - 2026-11-06 : première version, tirée de V2bis (phases 5 à 9). À valider.
+- 2026-11-06 : statuts « Validé » / « Expérimental » ; § 11 (laboratoire de mouvement) ; pièges techniques du mouvement.

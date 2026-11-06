@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratoire de mouvement — Note de breffage</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="../commun/base.css">
+  <link rel="stylesheet" href="../v2bis/v2bis.css">
+  <style>
+    .page { padding-bottom: 4rem; }
+    .haut { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--encre); font: 500 .9375rem var(--sans); }
+    .haut a { text-decoration: none; padding: .45rem 0; margin: -.45rem 0; }
+    h1 { margin: 2.5rem 0 1rem; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; letter-spacing: -.03em; }
+    .intro { max-width: 48rem; }
+    .liens-haut { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; margin: 1.75rem 0 0; }
+    .bloc { padding-top: 4.5rem; }
+    .principes { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2.5rem; margin: 0; padding: 0; list-style: none; }
+    .principes li { border-top: 1px solid var(--filet); padding-top: .9rem; }
+    .principes strong { display: block; font: 400 1.35rem/1.25 var(--serif); margin-bottom: .35rem; }
+    .principes span { font: 400 .975rem/1.55 var(--sans); color: var(--encre-2); }
+    .signature { display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 20rem); gap: 1rem 2rem; padding: 1.5rem 0; border-top: 1px solid var(--filet); }
+    .signature .rang { font: 400 2.6rem/1 var(--serif); color: var(--vert); }
+    .signature h3 { font-size: 1.7rem; font-weight: 400; margin-bottom: .4rem; }
+    .signature p { font: 400 1rem/1.55 var(--sans); color: var(--encre-2); margin: 0 0 .6rem; }
+    .signature p strong { color: var(--encre); font-weight: 600; }
+    .signature dl { margin: 0; font: 400 .9rem/1.5 var(--sans); }
+    .signature dt { color: var(--encre-2); font-weight: 600; margin-top: .45rem; }
+    .signature dd { margin: 0; }
+    .signature .liens { margin-top: .4rem; }
+    .statut { display: inline-block; padding: .05rem .45rem; font: 600 .8125rem var(--sans); background: #dfe9e2; color: var(--vert); }
+    .statut.idee { background: var(--papier-2); color: var(--encre-2); }
+    table.mesures { width: 100%; border-collapse: collapse; font: 400 .9375rem/1.45 var(--sans); }
+    .mesures th { text-align: left; font-weight: 600; padding: .5rem .75rem .5rem 0; border-bottom: 1px solid var(--encre); }
+    .mesures td { padding: .55rem .75rem .55rem 0; border-bottom: 1px solid var(--filet); font-variant-numeric: tabular-nums; }
+    .mesures td:not(:first-child) { font-family: var(--serif); }
+    .defile { overflow-x: auto; }
+    .liste { max-width: 54rem; font: 400 1rem/1.6 var(--sans); }
+    .liste li + li { margin-top: .45rem; }
+    .liste strong { font-weight: 600; }
+    @media (max-width: 1099.98px) { .signature { grid-template-columns: 3rem minmax(0, 1fr); } .signature dl { grid-column: 2; } }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="haut"><a href="../">← Comparatif des versions</a><span class="meta">Phase 9 · expériences isolées, V2bis validée intacte</span></div>
+  <h1>Laboratoire de mouvement</h1>
+  <p class="chapo intro">Une publication vivante ne se contente pas d'apparaître : elle se compose, s'annote et garde la trace de la lecture. Six expériences, toutes construites sur les éléments réels de V2bis, dans une copie isolée (<code>v2bis-labo/</code>). Chacune se coupe, se règle et se compare à la version validée.</p>
+  <p class="liens-haut">
+    <a class="bouton" href="../v2bis-labo/?compo=1&amp;parallaxe=2&amp;transitions=1&amp;annotations=1&amp;frise=1&amp;manchette=1">Ouvrir le laboratoire <span aria-hidden="true">↗</span></a>
+    <a class="lien" href="comparer.html">Comparer avec et sans, côte à côte</a>
+    <a class="lien" href="../v2bis/">V2bis validée</a>
+  </p>
+  <p class="intro" style="margin-top:1rem;font:400 .95rem/1.5 var(--sans);color:var(--encre-2)">Dans le laboratoire, le panneau en bas à droite active chaque expérience et règle la parallaxe ; « Rejouer l'entrée » relance la composition. Conseil : Chrome ou Edge récents (les transitions entre pages et la parallaxe n'existent pas encore dans Firefox, qui affiche alors la version calme).</p>
+
+  <section class="bloc" aria-labelledby="t-vision">
+    <header class="tete-section"><h2 id="t-vision">Direction du mouvement</h2><p>Cinq gestes empruntés au métier de l'édition ; tout mouvement en relève, sinon il n'existe pas.</p></header>
+    <ul class="principes">
+      <li><strong>La page se compose</strong><span>À la première visite, la une se monte sous les yeux : filets tracés, blocs posés, image découverte. Une fois, puis le calme.</span></li>
+      <li><strong>L'encre se pose</strong><span>Le rouge écrit : traits, cercles, repères se tracent au rythme d'une main, jamais d'un logiciel.</span></li>
+      <li><strong>Le papier a de l'épaisseur</strong><span>Les images vivent derrière la page : elles glissent dans leur cadre, sans jamais quitter la grille.</span></li>
+      <li><strong>La lecture laisse une trace</strong><span>Le sommaire, la frise, les notes montrent où l'on est et ce que l'on a lu.</span></li>
+      <li><strong>Une réalisation ne se quitte pas, elle s'ouvre</strong><span>La vignette devient la page ; d'un projet à l'autre, on tourne les pages au lieu de recharger.</span></li>
+    </ul>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-signatures">
+    <header class="tete-section"><h2 id="t-signatures">Signatures, par ordre d'intérêt</h2><p>Classées selon leur apport à la personnalité du site, leur originalité et leur coût ; les cinq sont fonctionnelles dans le laboratoire.</p></header>
+
+    <article class="signature">
+      <span class="rang">1</span>
+      <div>
+        <h3>La une se compose <span class="statut">Fonctionnelle</span></h3>
+        <p>À l'arrivée, la page se monte comme une une de journal : le filet du titre se trace, la manchette s'aligne rubrique après rubrique, la fiche signalétique pose ses filets un à un pendant que le portrait se « développe » (il passe du gris à la couleur en sortant du cadre, comme un tirage), la figure à la une se découvre de gauche à droite et se resserre ; le trait de stylo vient en dernier, sous « données ».</p>
+        <p><strong>Pourquoi d'abord :</strong> c'est la première impression d'un recruteur, la seule animation vue par tous, et elle incarne le concept. Coût faible : elle orchestre des pièces qui existaient déjà.</p>
+        <p class="liens"><a class="lien" href="../v2bis-labo/?compo=1&amp;parallaxe=0&amp;transitions=0&amp;annotations=0&amp;frise=0&amp;manchette=0">Voir seule</a><a class="lien" href="comparer.html?r=compo%3D1%26parallaxe%3D0">Comparer</a></p>
+      </div>
+      <dl><dt>Durée</dt><dd>≈ 1,8 s ; tout s'achève au premier geste (molette, toucher, touche, clic)</dd><dt>Téléphone</dt><dd>Même composition ; la figure à la une attend d'entrer dans l'écran</dd><dt>Mouvement réduit</dt><dd>Aucune composition : simples fondus</dd><dt>Dans le site</dt><dd>Une fois par session, puis entrée courte</dd></dl>
+    </article>
+
+    <article class="signature">
+      <span class="rang">2</span>
+      <div>
+        <h3>La réalisation devient la page <span class="statut">Fonctionnelle</span></h3>
+        <p>Cliquer une réalisation de l'index (ou la une) fait grandir sa vignette jusqu'à devenir l'image de la fiche, pendant que son titre glisse vers le grand titre. Le retour refait le chemin inverse vers la bonne ligne. En bas de chaque fiche, « Réalisation suivante » tourne la page latéralement.</p>
+        <p><strong>Pourquoi :</strong> c'est la continuité spatiale qui distingue un site conçu d'un empilement de pages ; elle prolonge la transition validée d'Artéfacts à toutes les fiches.</p>
+        <p class="liens"><a class="lien" href="../v2bis-labo/?compo=0&amp;parallaxe=0&amp;transitions=1&amp;annotations=0&amp;frise=0&amp;manchette=0#travaux">Essayer depuis les travaux</a></p>
+      </div>
+      <dl><dt>Durée</dt><dd>500 ms (image, titre) ; 420 ms (page suivante)</dd><dt>Technique</dt><dd>View Transitions entre documents ; noms posés au clic, retrouvés au retour</dd><dt>Compatibilité</dt><dd>Chrome, Edge ; Safari 18.2+ ; Firefox : navigation normale</dd><dt>Mouvement réduit</dt><dd>Désactivée</dd></dl>
+    </article>
+
+    <article class="signature">
+      <span class="rang">3</span>
+      <div>
+        <h3>Annotations vivantes <span class="statut">Fonctionnelle</span></h3>
+        <p>Sur la figure de l'analyse, après le tracé de la tendance, trois cercles au stylo se dessinent l'un après l'autre autour des zones commentées. Survoler ou toucher une note (ou mettre le focus sur son appel) repasse son cercle à l'encre pleine : on voit enfin <em>où</em> regarder dans le nuage de points.</p>
+        <p><strong>Pourquoi :</strong> la signature la plus propre au concept (« l'annotation est le seul ornement ») ; elle sert la compréhension, pas le décor. La donnée elle-même ne bouge jamais.</p>
+        <p class="liens"><a class="lien" href="../v2bis-labo/?compo=0&amp;parallaxe=0&amp;transitions=0&amp;annotations=1&amp;frise=0&amp;manchette=0#analyse">Voir sur la figure</a></p>
+      </div>
+      <dl><dt>Durée</dt><dd>600 ms par cercle, décalés de 380 ms</dd><dt>Technique</dt><dd>SVG, tracé à main levée calculé, transitions CSS</dd><dt>Clavier</dt><dd>Le focus sur l'appel active le cercle (vérifié)</dd><dt>Mouvement réduit</dt><dd>Cercles présents d'emblée, sans tracé</dd></dl>
+    </article>
+
+    <article class="signature">
+      <span class="rang">4</span>
+      <div>
+        <h3>Planches en profondeur (parallaxe) <span class="statut">Fonctionnelle, 3 intensités</span></h3>
+        <p>Les images (une, vignettes, portrait, figures des fiches) glissent lentement dans leur cadre immobile pendant le défilement : la page gagne une épaisseur de papier. La variante expressive fait en plus avancer le cadre plus vite que la page (premier plan).</p>
+        <p><strong>À doser :</strong> discrète (±3 %) se ressent sans se voir ; marquée (±6 %) se voit ; expressive (±10 % et cadre mobile) devient un effet. Plus l'intensité monte, plus l'image est recadrée (agrandie de 1,07 à 1,21). Recommandation : discrète partout, marquée seulement sur les grandes figures des fiches.</p>
+        <p class="liens"><a class="lien" href="comparer.html?r=compo%3D0%26parallaxe%3D1">Discrète</a><a class="lien" href="comparer.html?r=compo%3D0%26parallaxe%3D2">Marquée</a><a class="lien" href="comparer.html?r=compo%3D0%26parallaxe%3D3">Expressive</a></p>
+      </div>
+      <dl><dt>Technique</dt><dd>Animation CSS liée au défilement (<code>animation-timeline: view()</code>), hors du fil principal ; aucune ligne de JavaScript</dd><dt>Jamais</dt><dd>Sur le graphique de données</dd><dt>Compatibilité</dt><dd>Chrome, Edge ; Safari 26 ; Firefox : images fixes</dd><dt>Mouvement réduit</dt><dd>Désactivée</dd></dl>
+    </article>
+
+    <article class="signature">
+      <span class="rang">5</span>
+      <div>
+        <h3>La lecture laisse une trace : frise et manchette <span class="statut">Fonctionnelle</span></h3>
+        <p>La frise se trace dans l'ordre du temps (de Citelum 2018 au MBA), puis un repère rouge « aujourd'hui » se pose, calculé à partir de la date du jour : il ne se périme jamais, et les barres « en cours » s'arrêtent sur lui. Survoler une ligne estompe les autres. Dans la manchette, un seul trait glisse d'une rubrique à l'autre et s'allonge avec la lecture.</p>
+        <p><strong>Pourquoi en dernier :</strong> utile et juste, mais moins visible ; ce sont des enrichissements de composants validés plutôt que des signatures.</p>
+        <p class="liens"><a class="lien" href="../v2bis-labo/?compo=0&amp;parallaxe=0&amp;transitions=0&amp;annotations=0&amp;frise=1&amp;manchette=1#parcours">Voir la frise</a></p>
+      </div>
+      <dl><dt>Durée</dt><dd>Barres 900 ms décalées de 110 ms ; trait 300 ms</dd><dt>Mouvement réduit</dt><dd>Barres et repère immédiats</dd></dl>
+    </article>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-idees">
+    <header class="tete-section"><h2 id="t-idees">Pistes non construites</h2><p>Pour plus tard, ou à écarter ; aucune n'est dans le laboratoire.</p></header>
+    <ul class="liste">
+      <li><strong>Atlas tourne au survol</strong> <span class="statut idee">Plus tard</span> — le petit globe de l'en-tête pivote lentement vers le pointeur. Demande de recalculer la projection (d3-geo, environ 30 Ko) : à réserver au vrai projet Atlas.</li>
+      <li><strong>Titres de section soulignés à l'entrée</strong> <span class="statut idee">Possible</span> — le filet de tête de chaque section se trace au premier passage, comme ceux de la une. Cohérent avec la signature 1, mais risque de répétition : à juger après la signature 1.</li>
+      <li><strong>Notes lues cochées</strong> <span class="statut idee">Possible</span> — une note consultée garde une petite coche rouge pendant la visite : la lecture laisse une trace, jusque dans les marges.</li>
+      <li><strong>Page qui se tourne entre les fiches</strong> <span class="statut idee">Écartée</span> — effet de page cornée : littéral et daté.</li>
+      <li><strong>Curseur personnalisé, défilement lissé détourné, inclinaison 3D des vignettes, compteurs animés</strong> <span class="statut idee">Écartés</span> — voir <code>_refonte/motion/01-opportunites.md</code>.</li>
+    </ul>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-mesures">
+    <header class="tete-section"><h2 id="t-mesures">Performance et accessibilité</h2><p>Mesuré avec Playwright dans Edge (<code>_refonte/outils/mesures-labo.mjs</code>), téléphone simulé avec un processeur ralenti quatre fois.</p></header>
+    <div class="defile">
+      <table class="mesures">
+        <thead><tr><th scope="col">Version</th><th scope="col">Écran</th><th scope="col">LCP</th><th scope="col">CLS</th><th scope="col">Images lentes au défilement</th></tr></thead>
+        <tbody>
+          <tr><td>V2bis validée</td><td>ordinateur</td><td>292 ms</td><td>0,0008</td><td>0 / 64</td></tr>
+          <tr><td>Labo, parallaxe discrète</td><td>ordinateur</td><td>220 ms</td><td>0,0089</td><td>0 / 64</td></tr>
+          <tr><td>Labo, parallaxe marquée</td><td>ordinateur</td><td>208 ms</td><td>0,0052</td><td>0 / 64</td></tr>
+          <tr><td>Labo, parallaxe expressive</td><td>ordinateur</td><td>200 ms</td><td>0,0062</td><td>0 / 64</td></tr>
+          <tr><td>V2bis validée</td><td>téléphone ×4</td><td>420 ms</td><td>0</td><td>0 / 110</td></tr>
+          <tr><td>Labo, parallaxe discrète</td><td>téléphone ×4</td><td>428 ms</td><td>0</td><td>0 / 110</td></tr>
+          <tr><td>Labo, parallaxe marquée</td><td>téléphone ×4</td><td>440 ms</td><td>0</td><td>0 / 110</td></tr>
+          <tr><td>Labo, parallaxe expressive</td><td>téléphone ×4</td><td>440 ms</td><td>0</td><td>0 / 110</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="liste" style="margin-top:1.5rem">
+      <li><strong>Fluidité :</strong> aucune image au-delà de 25 ms pendant un défilement complet, même ralenti ; la parallaxe tourne hors du fil principal.</li>
+      <li><strong>Mise en page :</strong> CLS au plus 0,009 (seuil « bon » : 0,1) ; tout ce qui bouge passe par <code>transform</code>, <code>translate</code>, <code>scale</code>, <code>opacity</code>, <code>clip-path</code> ou un tracé SVG. Exception assumée : un filtre gris → couleur sur le portrait, une seule fois.</li>
+      <li><strong>Mouvement réduit :</strong> ni composition, ni parallaxe, ni transition de page ; aucun élément ne reste transparent (vérifié).</li>
+      <li><strong>Clavier et tactile :</strong> le focus active cercles et aperçus (vérifié) ; au toucher, les appels ouvrent la note ; aucun effet ne dépend du seul survol.</li>
+      <li><strong>Interruption :</strong> la composition s'achève au premier geste ; la parallaxe suit le défilement ; une transition de page se coupe en naviguant.</li>
+      <li><strong>Bibliothèques :</strong> aucune. GSAP ou Motion n'apporteraient rien ici : CSS (animations, animations liées au défilement), View Transitions et quelques lignes de JavaScript suffisent.</li>
+      <li><strong>Limites :</strong> mesures en navigateur sans écran ; à confirmer sur un vrai téléphone (fluidité, ressenti de la parallaxe) et dans Safari.</li>
+    </ul>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-revue">
+    <header class="tete-section"><h2 id="t-revue">Revue d'exécution</h2><p>Le skill <code>review-animations</code> n'est pas installé dans cette session : revue faite avec la grille « à ne jamais livrer » du skill <code>animate</code>.</p></header>
+    <ul class="liste">
+      <li>Aucune <code>transition: all</code>, aucune entrée depuis <code>scale(0)</code>, aucune courbe <code>ease-in</code> ; courbes du site uniquement (<code>--ease-out</code>, <code>--ease-in-out</code>), <code>linear</code> pour la parallaxe liée au défilement.</li>
+      <li>Durées au-delà de 300 ms réservées à la première visite (composition), à l'explication (tracés, cercles) et à la navigation entre pages ; interactions fréquentes ≤ 300 ms (trait de manchette, estompage de la frise : 200 ms).</li>
+      <li>Survols conditionnés à un pointeur fin ; transitions (et non animations à étapes) pour tout ce qui se déclenche à répétition (cercles, trait).</li>
+      <li>Entrées décalées de 45 à 110 ms ; rien n'arrive en bloc.</li>
+      <li>Piège corrigé : un cadre en <code>overflow: hidden</code> devient un conteneur de défilement et fige la parallaxe ; les cadres passent en <code>overflow: clip</code>.</li>
+      <li><strong>À juger à l'œil (non tranchable dans le code) :</strong> le rythme de la composition, l'intensité de la parallaxe sur téléphone, la netteté du titre pendant sa transition (instantané agrandi).</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
