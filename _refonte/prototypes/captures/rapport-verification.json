@@ -9,7 +9,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 1,
-    "hauteur": 5542,
+    "hauteur": 5575,
     "erreurs": []
   },
   "v1/mobile": {
@@ -22,7 +22,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 8104,
+    "hauteur": 8137,
     "erreurs": []
   },
   "v2/desktop": {
@@ -35,7 +35,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 4414,
+    "hauteur": 4391,
     "erreurs": []
   },
   "v2/mobile": {
@@ -48,7 +48,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 2,
-    "hauteur": 7135,
+    "hauteur": 7076,
     "erreurs": []
   },
   "v3/desktop": {
@@ -112,7 +112,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 3414,
+    "hauteur": 3415,
     "erreurs": []
   },
   "comparatif/mobile": {
@@ -124,7 +124,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 5391,
+    "hauteur": 5358,
     "erreurs": []
   },
   "v2bis/desktop": {
@@ -136,7 +136,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 4605,
+    "hauteur": 4497,
     "erreurs": []
   },
   "v2bis/mobile": {
@@ -148,7 +148,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 6877,
+    "hauteur": 6628,
     "erreurs": []
   },
   "fiche-v2bis/desktop": {
@@ -184,7 +184,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 2609,
+    "hauteur": 4977,
     "erreurs": []
   },
   "pistes/mobile": {
@@ -196,7 +196,7 @@
     "debord": [],
     "sansAlt": 0,
     "petitesCibles": 0,
-    "hauteur": 5093,
+    "hauteur": 9862,
     "erreurs": []
   }
 }

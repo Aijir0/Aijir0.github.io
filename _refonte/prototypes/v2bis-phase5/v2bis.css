@@ -1,0 +1,188 @@
+/* V2bis « La Une, édition de fond » — chargée après commun/base.css, qu'elle surcharge.
+   Règle typographique : deux familles seulement, chacune avec un rôle.
+   - Newsreader : tout ce qui se lit (nom, titres, texte, dates, légendes en italique).
+   - Atkinson Hyperlegible Next : tout ce qui se manipule ou s'étiquette (navigation, boutons, libellés), en bas de casse.
+   - La chasse fixe disparaît : elle signalait du code là où il n'y en avait pas. Seul l'extrait de code la garde (police système). */
+
+:root {
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --col-texte: 19rem;   /* colonne des intitulés de la frise */
+  --ecart: 2rem;
+  --axe-grille: minmax(0, 5fr) minmax(0, 7fr); /* l'axe 5/7 de la une, repris par chaque section */
+  --axe-ecart: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+/* ---------- Petits textes : une seule voix d'interface ---------- */
+.meta { font: 500 .8125rem/1.4 var(--sans); letter-spacing: .005em; text-transform: none; color: var(--encre-2); }
+.rubrique { font: 600 .8125rem/1.3 var(--sans); color: var(--vert); margin: 0; }
+.date { font-family: var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+figcaption { font: italic 400 .95rem/1.45 var(--serif); color: var(--encre-2); }
+figcaption b { font: 600 .95rem var(--serif); font-style: normal; color: var(--encre); letter-spacing: 0; margin-right: .3em; }
+.a-completer { font: 500 .78rem/1.4 var(--sans); }
+.appel { font: 700 .7em/1 var(--sans); }
+.note { font: 400 .9rem/1.5 var(--sans); }
+.note .num-note { font: 600 .95rem var(--serif); }
+.barre-lecture .num { font: 600 .8rem var(--sans); }
+.code { font: 400 .78rem/1.65 var(--mono); }
+h2 { font-weight: 400; letter-spacing: -.02em; }
+.proto-note { font: 500 .78rem/1.4 var(--sans); color: var(--rouge); margin: 0; }
+
+.page { max-width: var(--page); margin: 0 auto; padding-inline: var(--gouttiere); }
+
+/* ---------- En-tête : le nom en titre de revue, la signature du chroniqueur à droite ---------- */
+.tete { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 1.6rem 0 1.2rem; border-bottom: 1px solid var(--encre); }
+.nom { font-size: clamp(3.4rem, 8.2vw, 7.75rem); font-weight: 400; letter-spacing: -.035em; line-height: .92; }
+.signature { display: flex; align-items: center; gap: 1rem; margin: 0 0 .45rem; }
+.signature img { width: 4.5rem; height: 4.5rem; object-fit: cover; border-radius: 50%; }
+.signature p { margin: 0; font: italic 400 1.15rem/1.3 var(--serif); }
+.signature .lieu { display: block; margin-top: .2rem; font: 500 .8125rem var(--sans); font-style: normal; color: var(--encre-2); }
+
+/* ---------- Manchette : sommaire en bas de casse, sans numéros ---------- */
+.manchette { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--papier); border-bottom: 1px solid var(--filet); }
+.manchette .sommaire ol { display: flex; gap: 2rem; }
+.manchette .sommaire a { display: inline-block; padding: .85rem 0; font: 500 .9375rem var(--sans); }
+.manchette .sommaire .jauge { left: 0; bottom: .55rem; }
+.manchette .cv { font-size: .9375rem; }
+
+/* ---------- La une : présentation à gauche, travail phare à droite ---------- */
+.une { display: grid; grid-template-columns: var(--axe-grille); gap: var(--axe-ecart); align-items: start; padding: 2.5rem 0 1rem; }
+.manifeste { font: 400 clamp(2.1rem, 3.2vw, 3.05rem)/1.06 var(--serif); letter-spacing: -.02em; margin: 0 0 .55rem; text-wrap: balance; }
+.manifeste em { color: var(--vert); }
+.une .proto-note { margin-bottom: 1.75rem; }
+.fiche { margin: 0 0 1.75rem; border-top: 1px solid var(--encre); }
+.fiche div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--filet); }
+.fiche dt { font: 500 .8125rem/1.75 var(--sans); color: var(--encre-2); }
+.fiche dd { margin: 0; font-size: 1.0625rem; line-height: 1.45; }
+.actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+.a-la-une .cadre { view-transition-name: fig-artefacts; }
+.a-la-une .rubrique { margin: 1.15rem 0 .45rem; }
+.a-la-une h2 { font-size: clamp(1.9rem, 2.5vw, 2.5rem); line-height: 1.08; margin-bottom: .6rem; }
+.a-la-une .chapo { font-size: 1.125rem; margin-bottom: .9rem; }
+.liens { display: flex; flex-wrap: wrap; gap: .75rem 1.75rem; margin: 0; }
+
+/* ---------- Sections : même axe 5/7, un titre et un chapeau qui dit ce qu'on va lire ---------- */
+main > section:not(.une) { padding-top: 6.5rem; }
+.tete-section { display: grid; grid-template-columns: var(--axe-grille); gap: .75rem var(--axe-ecart); align-items: baseline; padding-top: 1rem; margin-bottom: 2.5rem; border-top: 1px solid var(--encre); }
+.tete-section h2 { font-size: clamp(2.2rem, 3.3vw, 3rem); }
+.tete-section p { margin: 0; max-width: 34rem; font: italic 400 1.25rem/1.4 var(--serif); color: var(--encre-2); }
+
+/* ---------- Travaux : index à gauche, aperçu à droite (même colonne que la une) ---------- */
+.index { display: grid; grid-template-columns: var(--axe-grille); gap: var(--axe-ecart); }
+.index ol { list-style: none; margin: 0; padding: 0; }
+.index li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; align-items: baseline; padding: .95rem 0 1rem; border-bottom: 1px solid var(--filet); text-decoration: none; }
+.index li:first-child a { padding-top: 0; }
+.t-titre { font: 400 clamp(1.4rem, 1.9vw, 1.7rem)/1.15 var(--serif); transition: color 150ms ease; }
+.t-annee { font: 400 1rem var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--encre-2); }
+.t-type { grid-column: 1 / -1; font: 400 .9375rem/1.4 var(--sans); color: var(--encre-2); transition: color 150ms ease; }
+.index li a[data-actif] .t-titre { color: var(--vert); }
+.index li a[data-actif] .t-type { color: var(--encre); }
+.index .t-vignette { display: none; }
+.apercu { position: sticky; top: 4.5rem; align-self: start; display: grid; }
+.apercu figure { grid-area: 1 / 1; opacity: 0; transition: opacity 220ms var(--ease-out); }
+.apercu figure.visible { opacity: 1; }
+.vignette { aspect-ratio: 40 / 21; }
+.vignette img { width: 100%; height: 100%; object-fit: cover; }
+.apercu .code { aspect-ratio: 40 / 21; overflow: hidden; padding: 1.75rem 2rem; font-size: .9rem; }
+.piste-visuel { font-style: normal; font: 500 .75rem var(--sans); color: var(--rouge); margin-left: .35em; white-space: nowrap; }
+
+/* ---------- Analyse : figure annotée ---------- */
+.figure-annotee { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: var(--axe-ecart); align-items: start; }
+.graphique { position: relative; }
+.graphique svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.graphique svg path { fill: none; stroke: var(--rouge); stroke-width: 4; stroke-linecap: round; }
+.graphique .appel { position: absolute; transform: translate(-50%, -50%); vertical-align: baseline; width: 1.75rem; height: 1.75rem; padding: 0; border-radius: 50%; border: 1.5px solid var(--rouge); background: var(--papier); font-size: .8rem; }
+.graphique .appel.actif { background: var(--rouge); }
+.lecture { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.lecture .note { font-size: .95rem; }
+.lecture .note strong { display: block; margin-bottom: .2rem; font: 500 1.15rem/1.3 var(--serif); color: var(--encre); }
+.analyse .liens { margin-top: 2rem; }
+
+/* ---------- Parcours : deux registres sur une même échelle de temps ---------- */
+.frise-cadre { position: relative; --axe: 9; }
+.registre { margin: 2.25rem 0 .4rem; font: 600 .8125rem var(--sans); color: var(--vert); }
+.registre:first-child { margin-top: 0; }
+.frise { list-style: none; margin: 0; padding: 0; }
+.frise li { display: grid; grid-template-columns: var(--col-texte) minmax(0, 1fr); gap: var(--ecart); align-items: center; padding: .8rem 0; border-top: 1px solid var(--filet); }
+.frise h4 { margin: 0 0 .15rem; font: 500 1.125rem/1.25 var(--serif); }
+.frise .ou { margin: 0; font: 400 .875rem/1.45 var(--sans); color: var(--encre-2); }
+.piste { position: relative; height: 1.5rem; background: repeating-linear-gradient(to right, var(--filet) 0 1px, transparent 1px calc(100% / 9)); }
+.barre { position: absolute; top: 50%; height: 8px; margin-top: -4px; left: calc((var(--d) - 2018) / var(--axe) * 100%); width: calc((var(--f) - var(--d)) / var(--axe) * 100%); background: var(--vert); transform-origin: 0 50%; transition: transform 900ms var(--ease-in-out); transition-delay: calc(var(--i, 0) * 110ms); }
+.barre.en-cours::after { content: ""; position: absolute; right: -9px; top: -3px; border: 7px solid transparent; border-left: 9px solid var(--vert); border-right: 0; }
+.barre.incertaine { background: repeating-linear-gradient(90deg, var(--vert) 0 7px, transparent 7px 11px); }
+.barre.leger { background: var(--encre-2); }
+.barre.leger.incertaine { background: repeating-linear-gradient(90deg, var(--encre-2) 0 7px, transparent 7px 11px); }
+.js .frise-cadre:not(.trace) .barre { transform: scaleX(0); }
+.axe { display: grid; grid-template-columns: var(--col-texte) minmax(0, 1fr); gap: var(--ecart); padding-top: .5rem; border-top: 1px solid var(--encre); }
+.axe ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(9, 1fr); font: 400 .9rem var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--encre-2); }
+/* Repère « aujourd'hui » : la frise est datée, comme une carte porte sa date de levé */
+.maintenant { position: absolute; top: 0; bottom: 2.1rem; width: 1px; background: var(--rouge); left: calc(var(--col-texte) + var(--ecart) + (100% - var(--col-texte) - var(--ecart)) * (2026.85 - 2018) / 9); }
+.maintenant span { position: absolute; top: 0; right: .4rem; font: 600 .75rem var(--sans); color: var(--rouge); white-space: nowrap; background: var(--papier); padding: 0 .25rem; }
+.legende-frise { margin: 1rem 0 0; font: 400 .875rem/1.5 var(--sans); color: var(--encre-2); }
+.hors-champ { margin: 2.5rem 0 0; max-width: 40rem; font: italic 400 1.15rem/1.5 var(--serif); color: var(--encre-2); }
+
+/* ---------- Compétences : chaque pratique renvoie à sa preuve ---------- */
+.competences { width: 100%; border-collapse: collapse; }
+.competences th { padding: 0 1.5rem .6rem 0; text-align: left; font: 500 .8125rem var(--sans); color: var(--encre-2); border-bottom: 1px solid var(--encre); }
+.competences td { padding: .9rem 1.5rem .9rem 0; vertical-align: baseline; border-bottom: 1px solid var(--filet); }
+.competences td:first-child { width: 26%; font: 500 1.125rem/1.3 var(--serif); }
+.competences td:nth-child(2) { font: 400 1rem/1.5 var(--sans); }
+.competences td:last-child { padding-right: 0; font: 400 .9375rem/1.5 var(--sans); }
+
+/* ---------- Contact ---------- */
+.contact { display: grid; grid-template-columns: var(--axe-grille); gap: 2rem var(--axe-ecart); align-items: end; }
+.contact .courriel { display: block; font: 400 clamp(1.8rem, 3.6vw, 3.4rem)/1.1 var(--serif); letter-spacing: -.025em; overflow-wrap: anywhere; text-decoration: none; }
+.contact .courriel span { background: linear-gradient(var(--rouge), var(--rouge)) 0 100% / 0 2px no-repeat; transition: background-size 350ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .contact .courriel:hover span { background-size: 100% 2px; } }
+.contact .autres { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; margin: 0; }
+.contact .chapo { grid-column: 1 / -1; margin: 0; }
+
+/* ---------- Étroit ---------- */
+@media (max-width: 1099.98px) {
+  .manchette { display: none; }
+  .tete { flex-direction: column; align-items: start; gap: 1rem; }
+  .une, .tete-section, .index, .figure-annotee, .contact { grid-template-columns: minmax(0, 1fr); }
+  .une { gap: 2.75rem; padding-top: 2rem; }
+  .apercu { display: none; }
+  .index .t-vignette { display: block; grid-column: 1 / -1; margin-top: .7rem; }
+  .frise-cadre { --col-texte: 0px; --ecart: 0px; }
+  .frise li { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .axe { grid-template-columns: minmax(0, 1fr); }
+  .axe > span { display: none; }
+  main > section:not(.une) { padding-top: 4.5rem; }
+}
+@media (max-width: 640px) {
+  .nom { font-size: 17vw; }
+  .manifeste { font-size: 2.15rem; }
+  .fiche div { grid-template-columns: 6rem minmax(0, 1fr); gap: .75rem; }
+  .actions .bouton, .contact .bouton { width: 100%; justify-content: center; }
+  .axe ol li:nth-child(even) { visibility: hidden; }
+  .competences thead { display: none; }
+  .competences tr { display: grid; padding: .9rem 0; border-bottom: 1px solid var(--filet); }
+  .competences td { width: auto !important; padding: .1rem 0; border: 0; }
+  .competences td:last-child { color: var(--encre-2); }
+}
+
+/* Le trait rouge sous « lisible » ne doit pas être rogné par le masque de la ligne */
+.manifeste .ligne { padding-bottom: .2em; margin-bottom: -.2em; }
+
+/* Chiffres : Atkinson Hyperlegible dessine un zéro barré (sans variante pour le retirer).
+   Utile pour distinguer 0 et O, mais il donne aux dates un air de terminal : tout chiffre passe en Newsreader. */
+.frise .ou { font: 400 1rem/1.45 var(--serif); }
+.bascule-lecture button { font: 500 1rem var(--serif); }
+.barre-lecture .num { font: 600 .9rem var(--serif); }
+.maintenant span { font: italic 500 .9rem var(--serif); }
+
+/* Finitions relevées sur capture */
+.tete { padding-top: 2.4rem; }
+.fiche div, .memo div { align-items: baseline; }
+.fiche dt, .memo dt { line-height: 1.4; }
+.a-completer { display: inline-block; }
+
+/* Le courriel occupe toute la largeur et ne se coupe jamais au milieu d'un mot */
+.contact { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 1.75rem; }
+.contact .courriel { font-size: clamp(1.55rem, 5.6vw, 4.25rem); overflow-wrap: normal; white-space: nowrap; }
+/* Colonne des preuves : des titres d'œuvres, donc en Newsreader (et sans zéro barré) */
+.competences td:last-child, .competences td:last-child .lien { font-family: var(--serif); font-size: 1.0625rem; }
+.competences td:last-child .lien { font-weight: 500; }
+/* Étroit : le texte passe au-dessus de la piste, le repère « aujourd'hui » le traverserait */
+@media (max-width: 1099.98px) { .maintenant { display: none; } }

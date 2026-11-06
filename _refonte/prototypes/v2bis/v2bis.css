@@ -29,13 +29,9 @@ h2 { font-weight: 400; letter-spacing: -.02em; }
 
 .page { max-width: var(--page); margin: 0 auto; padding-inline: var(--gouttiere); }
 
-/* ---------- En-tête : le nom en titre de revue, la signature du chroniqueur à droite ---------- */
+/* ---------- En-tête : le nom en titre de revue, l'annonce du hors-série à droite ---------- */
 .tete { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 1.6rem 0 1.2rem; border-bottom: 1px solid var(--encre); }
 .nom { font-size: clamp(3.4rem, 8.2vw, 7.75rem); font-weight: 400; letter-spacing: -.035em; line-height: .92; }
-.signature { display: flex; align-items: center; gap: 1rem; margin: 0 0 .45rem; }
-.signature img { width: 4.5rem; height: 4.5rem; object-fit: cover; border-radius: 50%; }
-.signature p { margin: 0; font: italic 400 1.15rem/1.3 var(--serif); }
-.signature .lieu { display: block; margin-top: .2rem; font: 500 .8125rem var(--sans); font-style: normal; color: var(--encre-2); }
 
 /* ---------- Manchette : sommaire en bas de casse, sans numéros ---------- */
 .manchette { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--papier); border-bottom: 1px solid var(--filet); }
@@ -114,9 +110,6 @@ main > section:not(.une) { padding-top: 6.5rem; }
 .js .frise-cadre:not(.trace) .barre { transform: scaleX(0); }
 .axe { display: grid; grid-template-columns: var(--col-texte) minmax(0, 1fr); gap: var(--ecart); padding-top: .5rem; border-top: 1px solid var(--encre); }
 .axe ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(9, 1fr); font: 400 .9rem var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--encre-2); }
-/* Repère « aujourd'hui » : la frise est datée, comme une carte porte sa date de levé */
-.maintenant { position: absolute; top: 0; bottom: 2.1rem; width: 1px; background: var(--rouge); left: calc(var(--col-texte) + var(--ecart) + (100% - var(--col-texte) - var(--ecart)) * (2026.85 - 2018) / 9); }
-.maintenant span { position: absolute; top: 0; right: .4rem; font: 600 .75rem var(--sans); color: var(--rouge); white-space: nowrap; background: var(--papier); padding: 0 .25rem; }
 .legende-frise { margin: 1rem 0 0; font: 400 .875rem/1.5 var(--sans); color: var(--encre-2); }
 .hors-champ { margin: 2.5rem 0 0; max-width: 40rem; font: italic 400 1.15rem/1.5 var(--serif); color: var(--encre-2); }
 
@@ -170,7 +163,6 @@ main > section:not(.une) { padding-top: 6.5rem; }
 .frise .ou { font: 400 1rem/1.45 var(--serif); }
 .bascule-lecture button { font: 500 1rem var(--serif); }
 .barre-lecture .num { font: 600 .9rem var(--serif); }
-.maintenant span { font: italic 500 .9rem var(--serif); }
 
 /* Finitions relevées sur capture */
 .tete { padding-top: 2.4rem; }
@@ -184,5 +176,31 @@ main > section:not(.une) { padding-top: 6.5rem; }
 /* Colonne des preuves : des titres d'œuvres, donc en Newsreader (et sans zéro barré) */
 .competences td:last-child, .competences td:last-child .lien { font-family: var(--serif); font-size: 1.0625rem; }
 .competences td:last-child .lien { font-weight: 500; }
-/* Étroit : le texte passe au-dessus de la piste, le repère « aujourd'hui » le traverserait */
-@media (max-width: 1099.98px) { .maintenant { display: none; } }
+
+/* ---------- Hors-série Atlas : l'annonce de couverture, à la place de l'avatar ----------
+   Un globe au trait (méridiens, parallèles), une route tracée une fois au stylo rouge : la grammaire
+   d'annotation du site, appliquée à un futur projet. Rien ne tourne : le globe interactif viendra avec Atlas. */
+.atlas { display: flex; align-items: center; gap: 1rem; max-width: 22rem; margin: 0 0 .35rem; }
+.atlas .globe { flex: none; width: 4.25rem; height: 4.25rem; overflow: visible; }
+.atlas .globe circle:not(.escale), .atlas .globe ellipse, .atlas .globe .axe-globe { fill: none; stroke: var(--vert); stroke-width: .9; }
+.atlas .globe .axe-globe { opacity: .55; }
+.atlas .globe .route { fill: none; stroke: var(--rouge); stroke-width: 1.6; stroke-linecap: round; }
+.atlas .globe .escale { fill: var(--rouge); }
+.atlas .rubrique { margin-bottom: .2rem; }
+.atlas-titre { margin: 0 0 .15rem; font: 400 1.15rem/1.3 var(--serif); }
+.atlas-titre em { font-size: 1.3rem; }
+@media (max-width: 1099.98px) { .atlas { max-width: none; } .atlas .globe { width: 3.5rem; height: 3.5rem; } }
+/* base.css pointille toute ligne d'un .trace-svg : les repères du globe restent pleins */
+.js .atlas .globe .axe-globe, .atlas .globe .axe-globe { stroke-dasharray: none; stroke-dashoffset: 0; }
+
+/* Finitions phase 6 */
+.frise-cadre { --col-texte: 22rem; }
+.frise .ou + .ou { margin-top: .35rem; }
+/* Mobile : l'annonce Atlas reste une ligne de couverture, elle ne repousse pas la fiche sous la ligne de flottaison */
+@media (max-width: 640px) {
+  .atlas { gap: .75rem; }
+  .atlas .globe { width: 2.75rem; height: 2.75rem; }
+  .atlas-titre { font-size: 1.02rem; }
+  .atlas-titre em { font-size: 1.1rem; }
+  .tete { padding-top: 1.6rem; gap: .75rem; }
+}

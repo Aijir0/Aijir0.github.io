@@ -2,11 +2,12 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 5)
+## Où en est-on (6 novembre 2026, fin de phase 6)
 
-**Phase 5 terminée : V2bis créée, V1 et V2 corrigées sur les faits, pistes visuelles des projets proposées. En attente du choix de Léo.**
+**Phase 6 terminée : V2bis retenue et affinée (Atlas, nouveaux visuels de projets à l'essai, parcours complété). En attente de validation de Léo.**
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
-Pistes des projets : http://127.0.0.1:8765/_refonte/prototypes/pistes-visuels.html
+Avant / après : `v2bis-phase5/` (instantané de fin de phase 5) contre `v2bis/`.
+Visuels des projets : http://127.0.0.1:8765/_refonte/prototypes/pistes-visuels.html
 
 Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni publié.
 
@@ -34,6 +35,10 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 | 2026-11-06 | Espace jeux intégré à « Travaux », sans supprimer les anciennes URL. |
 | 2026-11-06 | Phase 5 : travail concentré sur V1 et V2 (préférence de Léo pour V2) ; V3 conservée comme référence, sans travail supplémentaire. |
 | 2026-11-06 | Faits fournis par Léo : bac en science politique automne 2020 – hiver 2024 ; maîtrise en science politique terminée en mai 2026 ; MBA en analytique d'affaires en cours ; stage au ministère de l'Éducation terminé, emploi au Ministère en cours ; fonction de secrétaire du Club Animé Québec terminée. |
+| 2026-11-06 | **Phase 6 : V2bis retenue comme base principale.** Pas de nouvelle exploration générale ni de retour sur l'architecture. |
+| 2026-11-06 | Retirés de V2bis : l'avatar (portrait rond) et la biographie d'une ligne, remplacés par l'annonce du hors-série Atlas ; la bascule « 30 s / 3 min » (affichage scripté) ; le repère daté « Novembre 2026 » de la frise (il se périmerait). Le lien GitHub reste dans le contact. |
+| 2026-11-06 | Faits complétés par Léo : poste actuel « Étudiant en veille, recherche et prospective » au ministère de l'Éducation du Québec (stage terminé, emploi étudiant en cours, dates du stage non affichées) ; pendant le stage, contribution à la programmation pluriannuelle des travaux de recherche du Ministère ; MBA en analytique d'affaires à l'Université Laval, en cours (dates non confirmées) ; secrétaire du Club Animé de septembre 2024 à mai 2025 (deux sessions universitaires). |
+| 2026-11-06 | PacQC : plus de visage du collègue, de sigles administratifs ni de logo Teams ; un personnage dessiné et le nom « PacQC » intégré. Scène Pixel Art : un avatar pixel stylisé inspiré de Léo. |
 
 ## Système des prototypes
 
@@ -52,7 +57,8 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 - **Stylo rouge rationné** : un mot souligné (« lisible ») et la droite de régression.
 - **Filets** : un filet d'encre par section, des filets clairs entre les lignes ; plus de filets verticaux ni de double filet.
 - **Repris de V1** : accroche composée, fiche signalétique, lecture « 30 s / 3 min », tableau des compétences avec leurs preuves. **Repris de V2** : nom en titre, travail phare, index avec aperçu, figure annotée, frise. **Repris de V3** : en-tête « objet, date, durée » de la fiche.
-- **Nouveau** : signature avec portrait rond (byline) ; frise en deux registres (expérience, formation) avec un repère « Novembre 2026 » (desktop seulement) ; ligne « Hors champ » (natation, poésie).
+- **Nouveau** : frise en deux registres (expérience, formation) ; ligne « Hors champ » (natation, poésie).
+- **Phase 6** : à droite du nom, l'annonce de couverture « Hors-série · en chantier — Atlas, un globe interactif de mes voyages » (texte provisoire), avec un globe au trait vert et une route tracée une fois au stylo rouge (même grammaire que les annotations ; rien ne tourne). Sur mobile, réduite à une ligne de couverture. L'annonce n'est plus répétée dans le colophon. Le portrait n'apparaît plus nulle part sur la page.
 - **Vignettes des travaux** : même cadre pour toutes (proportion 40/21, filet, légende en italique) ; chaque visuel garde sa propre identité.
 
 ## Arbitrages entre skills et demande (la demande de Léo prime)
@@ -62,19 +68,28 @@ Aucun fichier du site principal n'a été modifié. Rien n'a été poussé ni pu
 - « Une section par écran » → appliqué au premier écran seulement.
 - Ses scripts (tirage aléatoire de palette, vérificateurs) ne sont pas utilisés : ils contrediraient la palette validée et signaleraient comme fautes les choix éditoriaux ci-dessus.
 
-## Pistes visuelles des projets (`pistes-visuels.html`, images dans `medias/pistes/`)
+## Visuels des projets, phase 6 (`pistes-visuels.html`, images dans `medias/projets/`)
+
+Générés par `_refonte/outils/visuels-projets.mjs` (conservé : sources de l'avatar et du logotype, à retoucher puis relancer).
+- **PacQC** : logotype SVG « PA + personnage à la place du C + QC » (identité d'origine : capitales grasses, « QC » vert anis `#D9FB81`, fond `#101419`). Propositions : 1 logotype seul ; **2 couloir de labyrinthe, personnage, pastilles, fantôme vert anis sans sigle (à l'essai dans V2bis)** ; 3 logotype sur le plan réel assombri. Le personnage reprend la forme du personnage d'arcade d'origine (marque déposée de Bandai Namco) : acceptable pour un jeu personnel non commercial, à garder en tête.
+- **Scène Pixel Art** : avatar `avatar-leo.svg`, 16 × 24 pixels dessinés à la main (cheveux bruns, lunettes, barbe courte, veste marine, chemise bleu clair), toujours agrandi par multiples entiers sans lissage. Propositions : 1 fiche de personnage sur carreau isométrique ; **2 avatar net devant la scène floutée (à l'essai dans V2bis)** ; 3 pastille (buste en cadre pixel), utilisable comme logo. Titre en Silkscreen, intégré à l'image (aucune police chargée par le site).
+
+## Pistes visuelles des projets, phase 5 (écartées ; images dans `medias/pistes/`)
 
 Fabriquées à partir des ressources réelles des jeux ; aucun original modifié, aucun logo remplacé.
 - **PacQC** : A plan de carte ; B les quatre fantômes et le logo d'origine ; **C les trois cartes en plan (recommandée)**. Le joueur (visage d'une tierce personne) est masqué dans toutes les pistes. B est déconseillée devant un employeur public : sigles administratifs et logo Teams (marque déposée).
 - **Scène Pixel Art** : **A détail du pavillon Charles-De Koninck agrandi ×2 (recommandée)** ; B la place avec le personnage ; C cartouche-titre en lettres pixel (Silkscreen), utilisable comme logo sur la page du jeu.
-- V2bis utilise PacQC C et Scène A à titre d'essai, signalées « Visuel en piste, à valider ».
+- Remplacées en phase 6 par les propositions ci-dessus.
 
 ## Fichiers
 
 ```
 _refonte/prototypes/index.html            Comparatif V2bis, V2, V1 (+ V3 en référence), critique des détails
 _refonte/prototypes/pistes-visuels.html   Pistes visuelles PacQC et Scène Pixel Art
-_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, v2bis.css
+_refonte/prototypes/v2bis/                V2bis : index.html, artefacts-2050.html, v2bis.css (base retenue)
+_refonte/prototypes/v2bis-phase5/         Instantané de V2bis à la fin de la phase 5 (avant / après)
+_refonte/prototypes/medias/projets/       Visuels phase 6 (PacQC, Scène), avatar-leo.svg, pacqc-logotype.svg
+_refonte/outils/visuels-projets.mjs       Générateur des visuels phase 6 (avatar et logotype en source)
 _refonte/prototypes/v1-couverture/        V1 « Couverture » (faits corrigés en phase 5)
 _refonte/prototypes/v2-la-une/            V2 « La Une » (faits corrigés, vignettes miniatures corrigées en phase 5)
 _refonte/prototypes/v3-note-annotee/      V3 « Note annotée » (référence, inchangée : faits non mis à jour)
@@ -105,9 +120,8 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 ## Contenus manquants (signalés « À compléter » ou « à valider » dans les prototypes)
 
 - Accroche de positionnement (proposée : « Comprendre l'action publique, et la rendre lisible. »). Avec le MBA, une variante possible : « Lire l'action publique à travers ses données. »
-- Ministère : dates du stage, date de début et intitulé du poste actuel.
-- MBA en analytique d'affaires : établissement et date de début.
-- Club Animé Québec : date de fin de la fonction de secrétaire.
+- Texte de l'annonce Atlas (provisoire : « Atlas, un globe interactif de mes voyages »).
+- MBA : dates de début et de fin non confirmées (la frise montre un pointillé entre la fin de la maîtrise et aujourd'hui, légendé « début non précisé »).
 - Maîtrise : mois de début en 2024 (la frise place le début au printemps, à titre indicatif).
 - Année d'arrivée au Québec (note de V1).
 - Niveau en allemand (cité sur l'ancien site, absent du CV).
@@ -117,18 +131,19 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-1. Composition à retenir : V2bis (recommandée), V2 ou V1.
-2. Règles typographiques de V2bis (deux polices, chiffres en Newsreader, plus de chasse fixe) : à généraliser ou non.
-3. L'accroche définitive.
-4. Pistes visuelles : PacQC (A, B ou C) et Scène Pixel Art (A, B ou C) ; adoption du cartouche-titre comme logo de la Scène ; orthographe du nom (« Scène » avec accent).
-5. La place de PacQC sur un site de recrutement (visage d'une tierce personne, sigles administratifs).
-6. Mettre à jour V3 sur les faits, ou la laisser comme simple référence.
+1. Visuels : PacQC (1, 2 ou 3) et Scène Pixel Art (1, 2 ou 3) ; ressemblance de l'avatar ; logos des pages de jeux (logotype PacQC, pastille de la Scène).
+2. L'annonce Atlas : emplacement (couverture) et texte.
+3. Le retrait du portrait : définitif, ou retour discret (contact, fiche) ?
+4. L'accroche définitive.
+5. Le jeu PacQC lui-même affiche encore le visage du collègue, les sigles et le logo Teams : hors périmètre des prototypes, à traiter avant de mettre PacQC en avant.
+6. Orthographe du nom « Scène Pixel Art » (avec accent) sur la page du jeu.
 
 ## Journal
 
 - 2026-11-05 : archive visuelle, diagnostic, 3 directions, choix de la direction A, proposition de phase 1.
 - 2026-11-06 : commits `0293cba` (socle + V1) et `3174285` (V2, V3, fiche, outils) ; comparatif, contrôles complémentaires, ce suivi (`09fd5a3`).
-- 2026-11-06 (phase 5) : faits corrigés dans V1 et V2 ; critique visuelle ; V2bis et sa fiche ; pistes visuelles PacQC et Scène ; comparatif refait ; vérifications Playwright.
+- 2026-11-06 (phase 5) : faits corrigés dans V1 et V2 ; critique visuelle ; V2bis et sa fiche ; pistes visuelles PacQC et Scène ; comparatif refait ; vérifications Playwright (`f79ce7f`).
+- 2026-11-06 (phase 6) : instantané `v2bis-phase5/` ; Atlas à la place de l'avatar ; retraits (bascule 30 s, repère daté, doublon du colophon) ; faits complétés dans V2bis, V1 et V2 ; visuels PacQC et Scène (générateur conservé) ; intégration à l'essai ; vérifications Playwright.
 
 ## Prochaines étapes
 

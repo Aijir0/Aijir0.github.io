@@ -29,14 +29,97 @@
     .recommandee { outline: 2px solid var(--vert); outline-offset: 10px; }
     .reco { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--papier-2); max-width: 52rem; }
     .reco p { margin: 0; font-size: 1.0625rem; }
+    .planche-logo { margin-top: 2.5rem; padding: 1.5rem; background: #101419; }
+    .planche-logo .rubrique { color: #d9fb81; margin-bottom: 1rem; }
+    .planche-logo div { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; }
+    .avatar-grand { display: grid; place-items: center; aspect-ratio: 40 / 21; background: #e9dcbf; }
+    .avatar-grand img { width: auto; height: 80%; image-rendering: pixelated; }
+    .titre-archives { margin: 6rem 0 0; padding-top: 1rem; border-top: 1px solid var(--encre); font-size: 1.6rem; color: var(--encre-2); }
     @media (max-width: 1099.98px) { .etat, .pistes { grid-template-columns: minmax(0, 1fr); } .recommandee { outline-offset: 6px; } }
   </style>
 </head>
 <body>
 <div class="page">
-  <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 5 · propositions, rien n'est remplacé</span></div>
-  <h1>Pistes visuelles pour deux projets</h1>
+  <div class="haut"><a href="./">← Comparatif des versions</a><span class="meta">Phase 6 · propositions, rien n'est remplacé sur le site</span></div>
+  <h1>Visuels de PacQC et de la Scène Pixel Art</h1>
   <p class="chapo intro">Chaque jeu garde son identité : ses couleurs, ses personnages, sa matière. Le site, lui, impose seulement un cadre commun (même proportion, même légende, même filet) pour que la grille des travaux reste cohérente. Toutes les images ci-dessous sont fabriquées à partir des ressources réelles des jeux ; aucun fichier d'origine n'a été modifié.</p>
+
+  <section class="projet" aria-labelledby="t6-pacqc">
+    <header class="tete-section"><h2 id="t6-pacqc">PacQC, phase 6</h2><p>Un personnage dessiné, le nom intégré ; aucun visage, aucun sigle, aucun logo tiers.</p></header>
+    <div class="etat">
+      <figure><div class="vignette cadre"><img src="medias/pacqc.jpg" width="1000" height="625" alt="Vignette actuelle de PacQC : capture de toute l'interface du jeu."></div><figcaption>Vignette du site actuel.</figcaption></figure>
+      <div>
+        <p class="rubrique">Ce qui change</p>
+        <ul>
+          <li>Le visage photographié du collègue disparaît : le personnage est redessiné en jaune, bouche ouverte, reconnaissable au premier coup d'œil.</li>
+          <li>Le fantôme garde la couleur vert anis du jeu, sans sigle ; le logo de Teams n'apparaît nulle part.</li>
+          <li>Le logotype reprend l'identité d'origine (capitales grasses, « QC » vert anis) ; le personnage y remplace le C.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pistes">
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/pacqc-1-logotype.png" width="1600" height="840" alt="Proposition 1 : le logotype PacQC, le C remplacé par le personnage."></div>
+        <p class="rubrique">Proposition 1</p><h3>Le logotype seul</h3>
+        <p>« PA », le personnage à la place du C, deux pastilles, puis « QC ».</p>
+        <p><strong>Pour :</strong> le plus net, lisible jusqu'à l'icône. <strong>Contre :</strong> ne montre pas le jeu lui-même.</p>
+      </article>
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="Proposition 2 : un couloir de labyrinthe, le personnage mange des pastilles, un fantôme vert le suit."></div>
+        <p class="rubrique">Proposition 2 · recommandée, à l'essai dans V2bis</p><h3>Le couloir</h3>
+        <p>Un couloir aux doubles murs bleus du jeu, le personnage, les pastilles, un fantôme ; le logotype en petit.</p>
+        <p><strong>Pour :</strong> dit « jeu d'arcade » et « PacQC » à la fois, reste lisible en vignette mobile. <strong>Contre :</strong> dessin réinterprété, pas une capture du jeu.</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/pacqc-3-plan.png" width="1600" height="840" alt="Proposition 3 : le logotype posé sur le plan réel d'une carte, assombri."></div>
+        <p class="rubrique">Proposition 3</p><h3>Le logotype sur le plan</h3>
+        <p>Le logotype et une ligne de description sur la vraie carte du jeu, assombrie.</p>
+        <p><strong>Pour :</strong> montre le vrai labyrinthe. <strong>Contre :</strong> plus chargée, la ligne de texte devient illisible en petit.</p>
+      </article>
+    </div>
+    <div class="planche-logo">
+      <p class="rubrique">Le logotype à trois tailles</p>
+      <div><img src="medias/projets/pacqc-logotype.svg" width="260" height="60" alt="Logotype PacQC, grande taille."><img src="medias/projets/pacqc-logotype.svg" width="130" height="30" alt="Logotype PacQC, taille moyenne."><img src="medias/projets/pacqc-logotype.svg" width="78" height="18" alt="Logotype PacQC, petite taille."></div>
+    </div>
+  </section>
+
+  <section class="projet" aria-labelledby="t6-scene">
+    <header class="tete-section"><h2 id="t6-scene">Scène Pixel Art, phase 6</h2><p>Un petit personnage en pixel art inspiré de vous, pour donner un visage au projet.</p></header>
+    <div class="etat">
+      <figure><div class="cadre avatar-grand"><img src="medias/projets/avatar-leo.svg" width="16" height="24" alt="Avatar pixel : cheveux bruns, lunettes, barbe courte, veste marine."></div><figcaption>L'avatar, 16 × 24 pixels, dessiné à la main.</figcaption></figure>
+      <div>
+        <p class="rubrique">Le personnage</p>
+        <ul>
+          <li>Repris de votre portrait : cheveux bruns, lunettes, barbe courte, veste marine sur chemise bleu clair. Stylisé, pas ressemblant au pixel près.</li>
+          <li>16 × 24 pixels, toujours agrandi par multiples entiers et sans lissage : le dessin reste net à toutes les tailles.</li>
+          <li>Source modifiable dans <code>_refonte/outils/visuels-projets.mjs</code> : une lettre par pixel, facile à retoucher (coiffure, couleur de veste).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pistes">
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/scene-1-carte.png" width="1600" height="840" alt="Proposition 1 : l'avatar debout sur un carreau d'herbe, le titre en lettres pixel."></div>
+        <p class="rubrique">Proposition 1</p><h3>La fiche de personnage</h3>
+        <p>L'avatar sur son carreau isométrique, le titre en lettres pixel, sur un fond pierre.</p>
+        <p><strong>Pour :</strong> la plus nette en petit. <strong>Contre :</strong> on ne voit plus la ville, qui est le sujet du projet.</p>
+      </article>
+      <article class="piste-carte recommandee">
+        <div class="vignette cadre"><img src="medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="Proposition 2 : l'avatar au premier plan devant la scène floutée, cartouche-titre."></div>
+        <p class="rubrique">Proposition 2 · recommandée, à l'essai dans V2bis</p><h3>Dans la scène</h3>
+        <p>La ville en arrière-plan, floutée comme une profondeur de champ ; l'avatar net au premier plan.</p>
+        <p><strong>Pour :</strong> la plus mémorable, et le flou évite le conflit entre deux tailles de pixel. <strong>Contre :</strong> image plus lourde (134 Ko).</p>
+      </article>
+      <article class="piste-carte">
+        <div class="vignette cadre"><img src="medias/projets/scene-3-pastille.png" width="1600" height="840" alt="Proposition 3 : le buste de l'avatar dans un cadre vert, le nom du projet en lettres pixel."></div>
+        <p class="rubrique">Proposition 3</p><h3>La pastille</h3>
+        <p>Le buste dans un cadre pixel : un logo pour la page du jeu, ou une icône.</p>
+        <p><strong>Pour :</strong> utilisable comme logo. <strong>Contre :</strong> en vignette, peu d'information sur le projet.</p>
+      </article>
+    </div>
+    <div class="reco"><p>Recommandation : PacQC proposition 2 et Scène proposition 2 dans la grille des travaux (déjà à l'essai dans V2bis). Le logotype PacQC et la pastille de la Scène peuvent servir de logos sur les pages des jeux eux-mêmes.</p></div>
+  </section>
+
+  <h2 class="titre-archives">Pistes de la phase 5 (écartées, conservées pour mémoire)</h2>
 
   <section class="projet" aria-labelledby="t-pacqc">
     <header class="tete-section"><h2 id="t-pacqc">PacQC</h2><p>Un jeu d'arcade au bureau : ses fantômes portent des sigles, ses bonus sont la bière et le café.</p></header>
@@ -106,7 +189,7 @@
         <p><strong>Pour :</strong> donne enfin un nom visible et une identité propre au projet. <strong>Contre :</strong> une police de plus à charger ; le cartouche reprend le rouge du site, à remplacer par une couleur du jeu si on veut l'en détacher.</p>
       </article>
     </div>
-    <div class="reco"><p>Recommandation : PacQC en piste C et la Scène en piste A pour la grille, car elles montrent le travail sans dépendre d'un visage, d'une marque ou d'une blague d'initiés. Le cartouche-titre de la Scène (piste C) peut servir de logo sur la page du jeu lui-même. V2bis utilise ces deux pistes à titre d'essai ; les originaux restent en place tant que vous n'avez pas tranché.</p></div>
+    <div class="reco"><p>Recommandation : PacQC en piste C et la Scène en piste A pour la grille, car elles montrent le travail sans dépendre d'un visage, d'une marque ou d'une blague d'initiés. Le cartouche-titre de la Scène (piste C) peut servir de logo sur la page du jeu lui-même. Ces pistes ont servi d'essai en phase 5, puis ont cédé la place aux propositions ci-dessus.</p></div>
   </section>
 </div>
 </body>

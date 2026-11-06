@@ -20,10 +20,18 @@
 <div class="page">
   <header class="tete">
     <h1 class="nom lignes"><span class="ligne"><span>Léo Matrat</span></span></h1>
-    <div class="signature apparait" style="--d:300ms">
-      <img src="../../../images/port2.jpg" width="667" height="667" alt="Portrait de Léo Matrat">
-      <p>Science politique et analytique d'affaires<span class="lieu">Québec</span></p>
-    </div>
+    <aside class="atlas apparait" style="--d:300ms" aria-label="Hors-série à paraître">
+      <svg class="globe trace-svg" viewBox="-34 -34 68 68" aria-hidden="true">
+        <circle r="31"/><ellipse rx="12" ry="31"/><ellipse rx="23" ry="31"/><path class="axe-globe" d="M0-31V31"/>
+        <ellipse ry="9" rx="31"/><path class="axe-globe" d="M-27-15.5H27M-27 15.5H27"/>
+        <path class="route" pathLength="1" style="--delai:900ms" d="M17-6C10-25-14-24-19-9"/><circle class="escale" cx="17" cy="-6" r="2.2"/><circle class="escale" cx="-19" cy="-9" r="2.2"/>
+      </svg>
+      <div>
+        <p class="rubrique">Hors-série · en chantier</p>
+        <p class="atlas-titre"><em>Atlas</em>, un globe interactif de mes voyages</p>
+        <p class="proto-note">Texte provisoire, à valider.</p>
+      </div>
+    </aside>
   </header>
   <div class="manchette">
     <nav class="sommaire" aria-label="Sommaire">
@@ -48,23 +56,18 @@
         </p>
         <p class="proto-note apparait" style="--d:500ms">Accroche proposée, à valider.</p>
         <dl class="fiche apparait" style="--d:550ms">
-          <div><dt>En poste</dt><dd>Ministère de l'Éducation du Québec, depuis décembre 2022 <span class="a-completer">intitulé du poste actuel</span></dd></div>
-          <div><dt>En formation</dt><dd>MBA en analytique d'affaires <span class="a-completer">établissement</span></dd></div>
+          <div><dt>En poste</dt><dd>Étudiant en veille, recherche et prospective, ministère de l'Éducation du Québec</dd></div>
+          <div><dt>En formation</dt><dd>MBA en analytique d'affaires, Université Laval</dd></div>
           <div><dt>Diplômé</dt><dd>Maîtrise en science politique, Université Laval, 2026</dd></div>
           <div data-detail><dt>Langues</dt><dd>Français, anglais, espagnol</dd></div>
         </dl>
         <div class="actions apparait" style="--d:650ms">
           <a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
-          <div class="bascule-lecture" role="group" aria-label="Niveau de lecture">
-            <span>Lecture</span>
-            <button type="button" data-lecture="courte" aria-pressed="false">30 s</button>
-            <button type="button" data-lecture="complete" aria-pressed="true">3 min</button>
-          </div>
         </div>
       </div>
       <article class="a-la-une apparait" style="--d:250ms">
         <a href="artefacts-2050.html" tabindex="-1" aria-hidden="true"><div class="cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div></a>
-        <p class="rubrique">À la une · Jeu de prospective</p>
+        <p class="rubrique">À la une</p>
         <h2>Penser l'école québécoise de 2050 en six décisions</h2>
         <p class="chapo">Artéfacts 2050 : cinq notes de prospective, un effet papillon, moins de cinq minutes de jeu.</p>
         <p class="liens"><a class="lien" href="artefacts-2050.html">Lire la fiche</a><a class="lien" href="../../../artefacts-2050/">Jouer <span class="fleche" aria-hidden="true">↗</span></a></p>
@@ -72,19 +75,19 @@
     </section>
 
     <section id="travaux" aria-labelledby="t-travaux">
-      <header class="tete-section"><h2 id="t-travaux">Travaux</h2><p>Jeux sérieux, analyses et outils : ce que j'ai conçu, à essayer ou à lire.</p></header>
+      <header class="tete-section"><h2 id="t-travaux">Travaux</h2><p>Des jeux sérieux, une analyse de données et un outil de veille, à essayer ou à lire.</p></header>
       <div class="index">
         <ol>
           <li><a href="artefacts-2050.html" data-apercu="0" data-actif><span class="t-titre">Artéfacts 2050</span><span class="t-annee">2026</span><span class="t-type">Jeu de prospective sur l'éducation au Québec</span><span class="t-vignette vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt="" loading="lazy"></span></a></li>
-          <li><a href="../../../PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre"><img src="../medias/pistes/pacqc-c-cartes.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
-          <li><a href="../../../jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre"><img src="../medias/pistes/pixel-a-detail.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../PacQC/" data-apercu="1"><span class="t-titre">PacQC</span><span class="t-annee">2026</span><span class="t-type">Jeu web en trois cartes, tracés validés automatiquement</span><span class="t-vignette vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></span></a></li>
+          <li><a href="../../../jeu/" data-apercu="2"><span class="t-titre">Scène Pixel Art</span><span class="t-annee">En chantier</span><span class="t-type">Scène isométrique interactive de Québec</span><span class="t-vignette vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></span></a></li>
           <li data-detail><a href="#analyse" data-apercu="3"><span class="t-titre">Dépenses sociales et pauvreté</span><span class="t-annee">2024</span><span class="t-type">Analyse de données en R, présentée plus bas</span></a></li>
           <li data-detail><a href="../../../projet_annexe/semantic_scholar_search.py" data-apercu="4"><span class="t-titre">Veille bibliographique automatisée</span><span class="t-annee">2025</span><span class="t-type">Script Python : de l'API Semantic Scholar aux fichiers CSV et BibTeX</span></a></li>
         </ol>
         <div class="apercu" aria-hidden="true">
           <figure class="visible"><div class="vignette cadre"><img src="../medias/artefacts-2050.jpg" width="1200" height="630" alt=""></div><figcaption>Artéfacts 2050, écran d'accueil.</figcaption></figure>
-          <figure><div class="vignette cadre"><img src="../medias/pistes/pacqc-c-cartes.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, les trois cartes en plan.<span class="piste-visuel">Visuel en piste, à valider</span></figcaption></figure>
-          <figure><div class="vignette cadre"><img src="../medias/pistes/pixel-a-detail.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Le pavillon Charles-De Koninck, au pixel près.<span class="piste-visuel">Visuel en piste, à valider</span></figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/pacqc-2-couloir.png" width="1600" height="840" alt="" loading="lazy"></div><figcaption>PacQC, un couloir du labyrinthe.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
+          <figure><div class="vignette cadre"><img src="../medias/projets/scene-2-scene.jpg" width="1600" height="840" alt="" loading="lazy"></div><figcaption>Scène Pixel Art, et son personnage.<span class="piste-visuel">Visuel proposé, à valider</span></figcaption></figure>
           <figure><div class="vignette cadre document"><img src="../../../images/Relation1.png" width="1041" height="546" alt="" loading="lazy"></div><figcaption>Dépenses sociales et pauvreté, pays de l'OCDE.</figcaption></figure>
           <figure><pre class="code"><span class="c"># Veille bibliographique, Semantic Scholar</span>
 QUERY = <span class="s">"congruence"</span>
@@ -123,20 +126,19 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
       <div class="frise-cadre" data-trace>
         <h3 class="registre">Expérience</h3>
         <ol class="frise">
-          <li><div><h4>Ministère de l'Éducation du Québec</h4><p class="ou">Depuis déc. 2022 : stage, puis emploi en cours. <span class="a-completer">dates du stage, intitulé du poste</span></p><p class="ou" data-detail>Veille et recherche internationale en éducation ; notes informationnelles pour les autorités ; amélioration des processus de l'équipe.</p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
-          <li><div><h4>Secrétaire, Club Animé Québec</h4><p class="ou">De sept. 2024 à <span class="a-completer">date de fin</span>. Engagement associatif terminé.</p></div><div class="piste"><span class="barre leger" style="--d:2024.67;--f:2024.92;--i:1"></span><span class="barre leger incertaine" style="--d:2024.92;--f:2025.9;--i:1"></span></div></li>
+          <li><div><h4>Ministère de l'Éducation du Québec</h4><p class="ou">Depuis décembre 2022 : un stage, puis le poste actuel d'étudiant en veille, recherche et prospective.</p><p class="ou">Pendant le stage, contribution à la programmation pluriannuelle des travaux de recherche du Ministère.</p></div><div class="piste"><span class="barre en-cours" style="--d:2022.92;--f:2026.85;--i:0"></span></div></li>
+          <li><div><h4>Secrétaire, Club Animé Québec</h4><p class="ou">Septembre 2024 – mai 2025, deux sessions universitaires.</p></div><div class="piste"><span class="barre leger" style="--d:2024.67;--f:2025.37;--i:1"></span></div></li>
           <li><div><h4>Stage en ressources humaines</h4><p class="ou">Citelum, Paris · 2018 – 2019</p></div><div class="piste"><span class="barre" style="--d:2018.1;--f:2019.9;--i:2"></span></div></li>
         </ol>
         <h3 class="registre">Formation</h3>
         <ol class="frise">
-          <li><div><h4>MBA en analytique d'affaires</h4><p class="ou">En cours. <span class="a-completer">établissement, date de début</span></p></div><div class="piste"><span class="barre incertaine en-cours" style="--d:2026.5;--f:2026.85;--i:3"></span></div></li>
+          <li><div><h4>MBA en analytique d'affaires</h4><p class="ou">Université Laval · en cours</p></div><div class="piste"><span class="barre incertaine en-cours" style="--d:2026.37;--f:2026.85;--i:3"></span></div></li>
           <li><div><h4>Maîtrise en science politique avec stage</h4><p class="ou">Université Laval · 2024 – mai 2026</p></div><div class="piste"><span class="barre" style="--d:2024.33;--f:2026.37;--i:4"></span></div></li>
           <li><div><h4>Baccalauréat en science politique</h4><p class="ou">Université Laval · automne 2020 – hiver 2024</p></div><div class="piste"><span class="barre" style="--d:2020.67;--f:2024.3;--i:5"></span></div></li>
         </ol>
         <div class="axe" aria-hidden="true"><span></span><ol><li>2018</li><li>2019</li><li>2020</li><li>2021</li><li>2022</li><li>2023</li><li>2024</li><li>2025</li><li>2026</li></ol></div>
-        <div class="maintenant" aria-hidden="true"><span>Novembre 2026</span></div>
       </div>
-      <p class="legende-frise">Flèche : activité en cours. Pointillé : date à confirmer. Gris : engagement hors emploi.</p>
+      <p class="legende-frise">Flèche : en cours. Pointillé : début non précisé. Gris : engagement associatif.</p>
       <p class="hors-champ" data-detail>Hors champ : deux médailles de bronze aux championnats de France de natation, et de la poésie, à mes heures.</p>
     </section>
 
@@ -148,7 +150,7 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
           <tr><td>Veille et recherche</td><td>Veille internationale en éducation ; revue de littérature outillée (Elicit, NotebookLM)</td><td>Ministère · <a class="lien" href="#travaux">script de veille</a></td></tr>
           <tr><td>Rédaction</td><td>Notes informationnelles pour les autorités et les services ministériels</td><td>Ministère</td></tr>
           <tr><td>Analyse de données</td><td>R (tidyverse, ggplot2), régression linéaire multiple</td><td><a class="lien" href="#analyse">Analyse OCDE</a></td></tr>
-          <tr><td>Prospective et médiation</td><td>Conception de jeux sérieux sur les politiques éducatives</td><td><a class="lien" href="artefacts-2050.html">Artéfacts 2050</a></td></tr>
+          <tr><td>Prospective et médiation</td><td>Veille prospective ; conception de jeux sérieux sur les politiques éducatives</td><td>Ministère · <a class="lien" href="artefacts-2050.html">Artéfacts 2050</a></td></tr>
           <tr data-detail><td>Outils numériques</td><td>HTML, CSS, JavaScript, Python ; suite Office, Canva, Genially</td><td><a class="lien" href="../../../PacQC/">PacQC</a>, <a class="lien" href="../../../jeu/">Scène</a></td></tr>
           <tr><td>Langues</td><td>Français ; anglais (avancé) ; espagnol (intermédiaire) ; allemand <span class="a-completer">niveau</span></td><td>CV</td></tr>
         </tbody>
@@ -156,7 +158,7 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
     </section>
 
     <section id="contact" aria-labelledby="t-contact">
-      <header class="tete-section"><h2 id="t-contact">Contact</h2><p>Un poste, une collaboration ou une simple conversation.</p></header>
+      <header class="tete-section"><h2 id="t-contact">Contact</h2><p>Pour un poste, une collaboration ou un échange.</p></header>
       <div class="contact">
         <a class="courriel" href="mailto:leo.matrat.pro@gmail.com"><span>leo.matrat.pro@gmail.com</span></a>
         <p class="autres"><a class="bouton" href="../../../CV/CVLeoM.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a><a class="lien" href="https://www.linkedin.com/in/l%C3%A9o-matrat/">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a><a class="lien" href="https://github.com/Aijir0">GitHub <span class="fleche" aria-hidden="true">↗</span></a></p>
@@ -166,8 +168,7 @@ KEYWORDS_POLITICS = [<span class="s">"representation"</span>,
     <footer class="colophon">
       <div class="grille">
         <p>Composé en Newsreader et Atkinson Hyperlegible Next. Site personnel : il n'engage ni ne représente aucune organisation.</p>
-        <a class="hors-serie" href="#" aria-disabled="true"><span class="meta">Hors-série, à paraître</span><br><strong>Atlas</strong> : un globe des lieux visités, en photographies et en récits.</a>
-        <p>Prototype V2bis « La Une, édition de fond ».<br><a href="../">Comparer les versions</a></p>
+        <p>Prototype V2bis, phase 6.<br><a href="../">Comparer les versions</a></p>
       </div>
     </footer>
   </main>
