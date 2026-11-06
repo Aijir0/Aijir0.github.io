@@ -1,0 +1,28 @@
+{
+  "01-accueil/desktop": [
+    "404 http://127.0.0.1:8765/assets/js/trailing-cursor.js",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "FAILED http://127.0.0.1:8765/assets/js/trailing-cursor.js",
+    "PAGEERROR Cannot read properties of null (reading 'addEventListener')"
+  ],
+  "02-espace-jeux/desktop": [],
+  "03-jeu-pixel-art/desktop": [
+    "FAILED http://127.0.0.1:8765/jeu/springs!.mp3"
+  ],
+  "04-pacqc/desktop": [],
+  "05-artefacts-2050/desktop": [],
+  "06-projet-session/desktop": [],
+  "01-accueil/mobile": [
+    "404 http://127.0.0.1:8765/assets/js/trailing-cursor.js",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "FAILED http://127.0.0.1:8765/assets/js/trailing-cursor.js",
+    "PAGEERROR Cannot read properties of null (reading 'addEventListener')"
+  ],
+  "02-espace-jeux/mobile": [],
+  "03-jeu-pixel-art/mobile": [
+    "FAILED http://127.0.0.1:8765/jeu/springs!.mp3"
+  ],
+  "04-pacqc/mobile": [],
+  "05-artefacts-2050/mobile": [],
+  "06-projet-session/mobile": []
+}
