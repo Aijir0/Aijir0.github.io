@@ -2,9 +2,9 @@
 
 À lire en premier au début de chaque session (il tient lieu de `REFONTE_SUIVI.md`). Le dossier `_refonte/` n'est pas publié : Jekyll ignore les dossiers en `_`.
 
-## Où en est-on (6 novembre 2026, fin de phase 11)
+## Où en est-on (6 novembre 2026, refonte publiée)
 
-**Phase 11 terminée : le site définitif est construit et vérifié dans la branche locale `site-definitif` (répertoire `_site-definitif/`, servi sur http://127.0.0.1:8766/). Rien n'est poussé ni publié. La publication attend l'accord de Léo et deux décisions (CV, `CV/cvLaTeX.tex`) : voir `_refonte/PUBLICATION.md`.**
+**La refonte est en ligne sur https://leomatrat.com (`main` = `7a21297`). La version précédente est sauvegardée : tag `sauvegarde-avant-publication-2026-11-06` (`dd3d1c0`) et `D:\Sauvegardes-Site-Web\leomatrat-com-dd3d1c0-2026-11-06.zip`.**
 Laboratoire : http://127.0.0.1:8765/_refonte/prototypes/labo/ (comparaison : `labo/comparer.html`).
 Ouvrir le comparatif : lancer `scripts/preview-games.ps1 -Port 8765`, puis http://127.0.0.1:8765/_refonte/prototypes/
 Avant / après : `v2bis-phase9/` (fin de phase 9, avant la finition), `v2bis-phase8/` (fin de phase 8), `v2bis-phase7/` (fin de phase 7), `v2bis-phase6/` (fin de phase 6) et `v2bis-phase5/` (fin de phase 5) contre `v2bis/`.
@@ -159,8 +159,27 @@ Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est de
 **Sauvegarde avant publication (6 novembre 2026)**
 - La version en ligne est `dd3d1c0` (`main`) : dernier déploiement GitHub Pages réussi, et 7 fichiers en ligne identiques octet pour octet à ce commit.
 - Tag annoté `sauvegarde-avant-publication-2026-11-06` sur `dd3d1c0`, poussé sur GitHub. Le tag `site-avant-refonte` (`95750c5`) est conservé.
-- Archive : `D:Sauvegardes-Site-Webleomatrat-com-dd3d1c0-2026-11-06.zip`, hors du dépôt. 224 fichiers, tous identiques au commit après extraction ; SHA-256 `f3578f1e5c1ded3328165af3cfe5b244984c382485e30d04635bc4b8003c2420`.
+- Archive : `D:\Sauvegardes-Site-Web\leomatrat-com-dd3d1c0-2026-11-06.zip`, hors du dépôt. 224 fichiers, tous identiques au commit après extraction ; SHA-256 `f3578f1e5c1ded3328165af3cfe5b244984c382485e30d04635bc4b8003c2420`.
 - Commit de la fusion associative sur `site-definitif` : `680bb1a`.
+
+**Publication de la refonte (6 novembre 2026)**
+- **CV :** Léo a choisi le brouillon. Les engagements y sont regroupés comme sur le site, et la mention « brouillon » est retirée. Il remplace `CV/CVLeoM.pdf` (`7a21297`) : une page, sans téléphone, adresse ni références.
+- **Avant l'envoi :**
+  - `verifier-site.mjs` : aucun problème ;
+  - PacQC : 86 tests sur 86 ;
+  - test de l'aperçu des jeux : réussi ;
+  - CiteLoom n'apparaît que dans `CV/cvLaTeX.tex`, non publié ;
+  - aucun fichier de travail parmi les fichiers ajoutés.
+- **Envoi :** `git push origin site-definitif`, puis `git push origin site-definitif:main`, en avance simple de `dd3d1c0` à `7a21297`, sans `--force`. Le déploiement GitHub Pages de `7a21297` est en succès.
+- **Contrôle en ligne** (Playwright et Edge sur https://leomatrat.com) :
+  - **Adresses :** 16 adresses attendues en 200 et 14 fichiers de travail en 404 (dont `_refonte/`, `DESIGN.md`, `CV/cvLaTeX.tex`, `.Rhistory`) ; http redirige en 301 vers https.
+  - **CV :** le CV en ligne est le nouveau.
+  - **Accueil :** nouvelle version, entrée associative unique, aucune ancienne mention.
+  - **Rendu :** 8 pages à 1440 et 390 px, sans erreur JavaScript, ressource en échec ni débordement.
+  - **Navigation :** accueil, fiche, fiche suivante, retour ; les 8 liens internes de l'accueil répondent.
+  - **Mouvement :** captures de la composition d'entrée et de la transition vers la fiche.
+  - **Faux positif expliqué :** les 4 vignettes en double, masquées selon la largeur, ne se chargent pas (chargement différé) ; leur exemplaire visible est bien chargé.
+- **Retour arrière :** voir `PUBLICATION.md`, section 4.
 
 ## Phase 10 : finition (V2bis)
 
@@ -305,7 +324,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 
 ## Décisions ouvertes (à trancher par Léo)
 
-0. Phase 11 : valider le site définitif (http://127.0.0.1:8766/) ; choisir pour le CV (a) export Canva à jour, (b) brouillon préparé ou (c) liens retirés ; retirer ou non `CV/cvLaTeX.tex` du dépôt public ; confirmer Nadeshicon et le Collectif dans la frise ; puis autoriser la publication (`PUBLICATION.md`). Restent : visage du collègue dans PacQC, accent de « Scène », intitulé officiel du poste, niveaux de langue.
+0. Refonte publiée (`7a21297`). Restent : `CV/cvLaTeX.tex` (adresse postale) dans le dépôt public, langues incohérentes (en-tête : français, anglais, espagnol ; compétences : + allemand), visage du collègue dans PacQC, chevauchement « aujourd'hui » / « 2026 » sous la frise sur téléphone, intitulé officiel du poste.
 1. PacQC : Borne, Tuque ou Labyrinthe pour la grille ; logo de la page du jeu. Scène : composition et ressemblance de l'avatar.
 2. Atlas : texte de l'annonce et de la fiche (rédigés d'après la description de Léo).
 3. Portrait : intégration A (fiche signalétique), B (contact), ou les deux.
@@ -330,6 +349,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 10) : instantané `v2bis-phase9/` ; audit à quatre largeurs (tablette, saut au chargement, masque des lignes, aperçu) ; Citelum retiré, frise de 2020 à 2027 ; mouvement définitif dans V2bis ; polices de secours mesurées ; revue ; tests Playwright, liens et mesures ; `DESIGN.md` § 7 définitif ; plan, lot 6.
 - 2026-11-06 (phase 11) : étiquette `site-avant-refonte` ; branche `site-definitif` dans `_site-definitif/` ; lots 1 à 6 (`2960505` à `dfe6228`) ; brouillon de CV ; `PUBLICATION.md` ; vérification complète du site définitif.
 - 2026-11-06 (après phase 11) : `dd3d1c0` publié sur `main` (accent, `alt`, titre du rapport) ; `site-definitif` fusionnée avec `main` et sauvegardée sur GitHub ; engagements Club Animé et Nadeshicon fusionnés en une entrée discrète.
+- 2026-11-06 (publication) : tag `sauvegarde-avant-publication-2026-11-06` et archive ZIP ; CV remplacé par le brouillon validé ; `main` avancée à `7a21297` ; déploiement réussi et contrôlé en ligne.
 
 ## Prochaines étapes
 

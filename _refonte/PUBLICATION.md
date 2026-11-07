@@ -1,6 +1,6 @@
 # Publication de la refonte et retour arrière
 
-État au 6 novembre 2026 (fin de phase 11). **Rien n'est poussé ni publié.**
+**Publié le 6 novembre 2026 : `main` = `7a21297` (refonte), déploiement GitHub Pages réussi et contrôlé en ligne.** Version précédente : `dd3d1c0`, tag `sauvegarde-avant-publication-2026-11-06`.
 
 | Élément | Valeur |
 | --- | --- |
@@ -56,14 +56,16 @@ Ensuite, sur GitHub :
 
 Le script `_refonte/outils/verifier-site.mjs` peut aussi être pointé sur `https://leomatrat.com` : il faut alors remplacer `B`.
 
-## 4. Retour arrière
+## 4. Retour arrière vers la version précédente (`dd3d1c0`)
 
-- **Via GitHub (recommandé)** : sur la PR fusionnée, utiliser le bouton « Revert », puis fusionner la PR d'annulation. Le site revient à `95750c5`.
-- **En local** :
-  ```powershell
-  git switch main
-  git pull
-  git revert -m 1 <commit de fusion>
-  git push origin main
-  ```
-- **À éviter** : remettre `main` sur `site-avant-refonte` avec un `push --force`. Ce n'est utile que si tout le reste échoue, car cela réécrit l'historique public.
+Sans réécrire l'historique ni utiliser `--force` : on crée sur `main` un nouveau commit dont le contenu est celui du tag de sauvegarde, puis on l'envoie en avance simple.
+
+```powershell
+cd D:\Aijir0.github.io
+git fetch origin
+$c = git commit-tree "sauvegarde-avant-publication-2026-11-06^{tree}" -p origin/main -m "Retour à la version du 6 novembre 2026 (dd3d1c0)"
+git push origin "$($c):refs/heads/main"
+```
+
+GitHub Pages republie en une à deux minutes. Pour revenir à la refonte ensuite : `git push origin <commit-de-refonte>:main` n'est plus une avance simple ; utiliser le même procédé avec `7a21297^{tree}`.
+Dernier recours : l'archive `D:\Sauvegardes-Site-Web\leomatrat-com-dd3d1c0-2026-11-06.zip` (224 fichiers identiques au commit).
