@@ -646,6 +646,12 @@ html:active-view-transition-type(suivant)::view-transition-new(root) { animation
 @media (prefers-reduced-motion: no-preference) { .manifeste .ligne > span { animation-name: ligne-monte-accroche; } }
 @keyframes ligne-monte-accroche { from { transform: translateY(calc(100% + .4em)); } }
 
+/* Implication associative : une seule ligne, en retrait des formations, du poste et des réalisations */
+.frise li.discret { padding: .45rem 0; }
+.frise li.discret h4 { margin: 0; font-size: 1rem; color: var(--encre-2); }
+.frise li.discret .ou { font-size: .875rem; }
+.frise li.discret .barre { height: 4px; margin-top: -2px; }
+
 /* =====================================================================
    3. Fiches de réalisation (/travaux/…/) : en-tête « objet, date », figure, mémo, sections, accès
    ===================================================================== */
