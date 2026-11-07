@@ -1,4 +1,5 @@
 ---
+title: "Les dépenses sociales réduisent-elles la pauvreté dans les pays de l'OCDE ?"
 ---
 ---
 
@@ -69,25 +70,25 @@ Ce processus m'a permis de collecter des données prétriées et fiables, direct
 
     -   Ce graphique montre les résultats de ma régression linéaire.
 
-    ![](C:/Users/leoth/Aijir0.github.io/images/Model.png)
+    ![Sortie R du modèle linéaire expliquant les inégalités par les dépenses sociales, le taux de chômage et le PIB par habitant : les trois coefficients sont significatifs, R² ajusté de 0,26](C:/Users/leoth/Aijir0.github.io/images/Model.png)\
 
 2.  **Relation entre dépenses sociales et inégalités** :
 
     -   Ce graphique montre une corrélation négative, indiquant que des dépenses sociales plus élevées sont associées à des inégalités plus faibles.
 
-    ![](C:/Users/leoth/Aijir0.github.io/images/Relation1.png)
+    ![Nuage de points des inégalités (taux de pauvreté après transferts) selon les dépenses sociales (% du PIB), avec une droite de régression descendante](C:/Users/leoth/Aijir0.github.io/images/Relation1.png)\
 
 3.  **Relation entre PIB par habitant et inégalités** :
 
     -   Une tendance similaire est observée : un PIB par habitant plus élevé tend à réduire les inégalités.
 
-    ![](C:/Users/leoth/Aijir0.github.io/images/Relation2.png)
+    ![Nuage de points des inégalités (taux de pauvreté après transferts) selon le PIB par habitant (USD), avec une droite de régression descendante](C:/Users/leoth/Aijir0.github.io/images/Relation2.png)\
 
 4.  **Relation entre taux de chômage et inégalités** :
 
     -   Une corrélation positive est visible, suggérant que des taux de chômage plus élevés augmentent les inégalités.
 
-    ![](C:/Users/leoth/Aijir0.github.io/images/Relation3.png)
+    ![Nuage de points des inégalités (taux de pauvreté après transferts) selon le taux de chômage, avec une droite de régression montante](C:/Users/leoth/Aijir0.github.io/images/Relation3.png)\
 
 ------------------------------------------------------------------------
 
