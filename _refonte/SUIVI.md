@@ -136,11 +136,31 @@ Générés par `_refonte/outils/visuels-phase7.mjs` : chaque image de jeu est de
 **Problèmes non résolus**
 - CV obsolète (décision requise, bloquant pour la mise en ligne).
 - `CV/cvLaTeX.tex` (adresse postale) toujours lisible dans le dépôt public.
-- Les 4 images du rapport R historique (`projet_session/projet2.html`) n'ont pas d'attribut `alt` (document généré, non modifié).
+- ~~Les 4 images du rapport R n'ont pas d'attribut `alt`~~ : corrigé dans `projet2.Rmd`, et provisoirement dans `projet2.html` (`dd3d1c0`).
 - Dans le jeu PacQC et dans l'aperçu du menu des jeux, le visage du collègue est toujours présent (décision reportée, jeux non modifiés).
-- Le titre de la page de la Scène est sans accent.
+- ~~Le titre de la page de la Scène est sans accent~~ : corrigé (`dd3d1c0`).
 - Rien n'a été essayé sur un vrai téléphone, ni dans Safari ou Firefox.
 - Il n'y a pas de Jekyll local : les exclusions sont simulées, puis à vérifier en ligne.
+
+**Corrections après la phase 11**
+- `dd3d1c0`, publié sur `main` (avance simple, sans `--force`) :
+  - accent de « Scène Pixel Art » ;
+  - textes alternatifs des 4 graphiques du rapport R, dans `projet2.Rmd` et, provisoirement, dans `projet2.html` ;
+  - titre du rapport : « Les dépenses sociales réduisent-elles la pauvreté dans les pays de l'OCDE ? ».
+- `02b21ee` : `origin/main` fusionnée dans `site-definitif`, sans conflit. `site-definitif` est sauvegardée sur GitHub, sans être fusionnée dans `main`.
+- **Engagements associatifs fusionnés** (V2bis, puis `site-definitif` reconstruite par `construire-site.mjs`) :
+  - « Secrétaire, Club Animé Québec » et « Membre du conseil d'administration, Nadeshicon » deviennent une seule entrée : **« Club Animé Québec et Nadeshicon »**, avec pour description « Implication associative et évènementielle, de 2024 à 2026. ».
+  - La barre est pleine pour le Club (septembre 2024 – mai 2025), puis pointillée pour Nadeshicon (dates non précisées), sur une seule ligne.
+  - L'entrée est plus discrète que les formations et le poste au Ministère : classe `.discret`, titre en 1rem gris, description en .875rem, barre de 4 px au lieu de 8, ligne plus serrée.
+  - Le nombre de participants et le titre de membre du conseil d'administration ne sont plus affichés. Le Collectif de Québec pour la paix est inchangé.
+  - Contrôlé à 1440, 1024 et 390 px : une seule ligne, les deux segments jointifs, aucun débordement. `verifier-site.mjs` ne relève aucun problème.
+  - Observé sur téléphone, sans lien avec cette correction : le libellé « aujourd'hui » chevauche « 2026 » sous l'axe de la frise.
+
+**Sauvegarde avant publication (6 novembre 2026)**
+- La version en ligne est `dd3d1c0` (`main`) : dernier déploiement GitHub Pages réussi, et 7 fichiers en ligne identiques octet pour octet à ce commit.
+- Tag annoté `sauvegarde-avant-publication-2026-11-06` sur `dd3d1c0`, poussé sur GitHub. Le tag `site-avant-refonte` (`95750c5`) est conservé.
+- Archive : `D:Sauvegardes-Site-Webleomatrat-com-dd3d1c0-2026-11-06.zip`, hors du dépôt. 224 fichiers, tous identiques au commit après extraction ; SHA-256 `f3578f1e5c1ded3328165af3cfe5b244984c382485e30d04635bc4b8003c2420`.
+- Commit de la fusion associative sur `site-definitif` : `680bb1a`.
 
 ## Phase 10 : finition (V2bis)
 
@@ -309,6 +329,7 @@ Les visuels-pistes ont été produits par un script jetable (captures du jeu Pac
 - 2026-11-06 (phase 9 élargie) : skills vérifiés (`find-animation-opportunities` et `animate` disponibles ; `review-animations` **absent**, revue faite avec la grille d'`animate`) ; opportunités et rejets consignés ; laboratoire avec six expériences (une composée, réalisation qui devient la page, annotations vivantes, parallaxe à trois intensités, frise et trait de lecture) ; piège corrigé (`overflow: hidden` fige `animation-timeline: view()`, d'où `overflow: clip`) ; mesures : aucune image lente (téléphone ×4), CLS ≤ 0,009, mouvement réduit et clavier conformes ; `DESIGN.md` § 11 et plan par lots.
 - 2026-11-06 (phase 10) : instantané `v2bis-phase9/` ; audit à quatre largeurs (tablette, saut au chargement, masque des lignes, aperçu) ; Citelum retiré, frise de 2020 à 2027 ; mouvement définitif dans V2bis ; polices de secours mesurées ; revue ; tests Playwright, liens et mesures ; `DESIGN.md` § 7 définitif ; plan, lot 6.
 - 2026-11-06 (phase 11) : étiquette `site-avant-refonte` ; branche `site-definitif` dans `_site-definitif/` ; lots 1 à 6 (`2960505` à `dfe6228`) ; brouillon de CV ; `PUBLICATION.md` ; vérification complète du site définitif.
+- 2026-11-06 (après phase 11) : `dd3d1c0` publié sur `main` (accent, `alt`, titre du rapport) ; `site-definitif` fusionnée avec `main` et sauvegardée sur GitHub ; engagements Club Animé et Nadeshicon fusionnés en une entrée discrète.
 
 ## Prochaines étapes
 
