@@ -196,7 +196,7 @@ h2.eclaire { animation: eclaire 1400ms ease-out; }
 @starting-style { .tiroir[open]::backdrop { background: #1a1c1a00; } }
 .tiroir .entete { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .tiroir .fermer { background: none; border: 1px solid var(--filet); font: 600 .9rem var(--sans); padding: .6rem 1rem; border-radius: 2px; color: var(--encre); }
-.tiroir .sommaire a { font-size: 1.25rem; padding: .9rem 0; border-bottom: 1px solid var(--filet); }
+.tiroir .sommaire a { display: block; font-size: 1.25rem; padding: .9rem 0; border-bottom: 1px solid var(--filet); }
 
 /* =========================================================
    SIGNATURE 4 — La figure devient la page (View Transitions entre documents)
