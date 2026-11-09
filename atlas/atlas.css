@@ -1,0 +1,96 @@
+/* Atlas — page autonome. Jetons, polices et règles repris de /assets/site/site.css et de DESIGN.md. */
+
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(vendor/polices/newsreader.woff2) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 300 600; font-display: swap; src: url(vendor/polices/newsreader-italique.woff2) format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(vendor/polices/atkinson-hyperlegible-next.woff2) format("woff2"); }
+/* Replis aux métriques mesurées (site.css) : pas de saut au chargement des polices. */
+@font-face { font-family: "Newsreader repli"; font-style: normal; src: local("Georgia"); size-adjust: 100.49%; ascent-override: 73.64%; descent-override: 26.87%; line-gap-override: 0%; }
+@font-face { font-family: "Newsreader repli"; font-style: italic; src: local("Georgia Italic"), local("Georgia-Italic"); size-adjust: 91.41%; ascent-override: 80.95%; descent-override: 29.54%; line-gap-override: 0%; }
+@font-face { font-family: "Atkinson repli"; src: local("Arial"); size-adjust: 102.1%; ascent-override: 95.98%; descent-override: 31.34%; line-gap-override: 0%; }
+
+:root {
+  --papier: #f5f2ea;
+  --papier-2: #ece7da;
+  --encre: #1a1c1a;
+  --encre-2: #4a4a44;
+  --vert: #1e4636;
+  --rouge: #a63d2a;
+  --filet: #d9d3c4;
+  --serif: "Newsreader", "Newsreader repli", Georgia, serif;
+  --sans: "Atkinson Hyperlegible Next", "Atkinson repli", "Segoe UI", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --gouttiere: clamp(1rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  overflow: hidden;
+  color: var(--encre);
+  font: 400 1.1875rem/1.55 var(--serif);
+  /* Fond discret : papier pointé, comme le globe d'attente de la fiche. */
+  background: radial-gradient(circle, rgb(74 74 68 / .16) 1px, transparent 1.4px) 0 0 / 40px 40px, var(--papier-2);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--rouge); outline-offset: 3px; border-radius: 1px; }
+.lien-evitement { position: absolute; left: 1rem; top: -4rem; z-index: 10; background: var(--encre); color: var(--papier); padding: .5rem 1rem; font: 500 .9rem var(--sans); }
+.lien-evitement:focus { top: 1rem; }
+
+/* ---------- Globe ---------- */
+#globe {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out); /* entrée : le globe apparaît une fois prêt */
+}
+#globe.saisi { cursor: grabbing; }
+.globe-pret #globe { opacity: 1; }
+
+/* ---------- Titre et aides, posés sur le globe ---------- */
+.tete {
+  position: fixed; z-index: 2;
+  top: var(--gouttiere); left: var(--gouttiere);
+  pointer-events: none; /* le glisser passe au globe, sauf sur le lien */
+}
+.tete a { pointer-events: auto; }
+.retour { display: inline-block; font: 500 .9375rem/1 var(--sans); text-decoration: none; padding: .75rem 0; margin: -.75rem 0 .5rem; }
+.retour:hover { color: var(--vert); }
+h1 { margin: 0; font-weight: 400; font-size: clamp(2.6rem, 5vw, 4rem); line-height: .95; letter-spacing: -0.035em; }
+.sous-titre { margin: .35rem 0 0; font-style: italic; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.3; color: var(--vert); }
+
+.aide, .credit {
+  position: fixed; z-index: 2; margin: 0;
+  bottom: var(--gouttiere);
+  font: 400 .8125rem/1.4 var(--sans); color: var(--encre-2);
+  pointer-events: none;
+}
+.aide { left: var(--gouttiere); max-width: calc(100% - 2 * var(--gouttiere)); }
+.credit { right: var(--gouttiere); }
+.aide-tactile { display: none; }
+@media (pointer: coarse) { .aide-souris { display: none; } .aide-tactile { display: inline; } }
+@media (max-width: 640px) {
+  .credit { left: var(--gouttiere); right: auto; }
+  .aide { bottom: calc(var(--gouttiere) + 1.4rem); }
+}
+
+/* ---------- Liste des lieux : alternative textuelle, et repli sans WebGL ---------- */
+.repli { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+html:not(.js) body, .sans-globe body { overflow: auto; }
+html:not(.js) .repli, .sans-globe .repli {
+  position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal;
+  max-width: 40rem; margin: 0; padding: 12.5rem var(--gouttiere) 4rem;
+}
+html:not(.js) #globe, html:not(.js) .aide, .sans-globe #globe, .sans-globe .aide { display: none; }
+html:not(.js) .tete, html:not(.js) .credit, .sans-globe .tete, .sans-globe .credit { position: absolute; }
+.repli-message { font-size: 1.25rem; line-height: 1.4; color: var(--encre-2); margin: 0 0 2rem; }
+.repli h2 { font: 600 .8125rem/1.4 var(--sans); color: var(--vert); margin: 0 0 .5rem; padding-top: 1rem; border-top: 1px solid var(--encre); }
+.liste-lieux { list-style: none; margin: 0; padding: 0; }
+.liste-lieux li { padding: .7rem 0; border-bottom: 1px solid var(--filet); }
+
+@media (prefers-reduced-motion: reduce) {
+  #globe { transition-duration: 200ms; }
+}

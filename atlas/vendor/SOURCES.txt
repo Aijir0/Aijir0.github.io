@@ -1,0 +1,17 @@
+Fichiers tiers de l'atlas (copiés le 2026-11-09, servis depuis ce dossier : aucun CDN)
+
+three.module.min.js
+  three.js r187, paquet npm three@0.187.0. build/three.module.js et build/three.core.js
+  réunis en un module et minifiés avec esbuild (--bundle --minify --format=esm).
+  Licence MIT : three-LICENSE.txt.
+
+polices/newsreader.woff2, polices/newsreader-italique.woff2
+  Newsreader (variable, sous-ensemble latin), Production Type. Licence SIL OFL 1.1 : polices/OFL-newsreader.txt.
+
+polices/atkinson-hyperlegible-next.woff2
+  Atkinson Hyperlegible Next (variable, sous-ensemble latin), Braille Institute.
+  Licence SIL OFL 1.1 : polices/OFL-atkinson-hyperlegible-next.txt.
+
+../donnees/ne_110m_land.geojson
+  Natural Earth, 1:110m Physical Vectors, Land, version 5.1.2
+  (github.com/nvkelso/natural-earth-vector, geojson/ne_110m_land.geojson). Domaine public.

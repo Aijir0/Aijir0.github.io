@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas — Léo Matrat</title>
+  <meta name="description" content="Atlas : un globe en 3D des lieux où Léo Matrat a vécu et voyagé.">
+  <link rel="canonical" href="https://leomatrat.com/atlas/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="Léo Matrat">
+  <meta property="og:title" content="Atlas — Léo Matrat">
+  <meta property="og:description" content="Un globe en 3D des lieux où Léo Matrat a vécu et voyagé.">
+  <meta property="og:url" content="https://leomatrat.com/atlas/">
+  <meta property="og:image" content="https://leomatrat.com/assets/site/img/atlas-carte.jpg">
+  <meta name="theme-color" content="#ece7da">
+  <link rel="icon" href="/assets/site/icone.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <script nomodule>document.documentElement.classList.add('sans-globe')</script>
+  <link rel="preload" href="vendor/polices/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="atlas.css">
+  <script type="module" src="atlas.js"></script>
+</head>
+<body>
+<a class="lien-evitement" href="#lieux">Aller à la liste des lieux</a>
+
+<header class="tete">
+  <a class="retour" href="/travaux/atlas/">← Retour à la fiche</a>
+  <h1>Atlas</h1>
+  <p class="sous-titre">Les lieux où j'ai vécu et voyagé</p>
+</header>
+
+<main>
+  <canvas id="globe" role="img" aria-label="Globe terrestre en 3D. La liste des lieux suit, en texte."></canvas>
+
+  <section id="lieux" class="repli" aria-labelledby="t-lieux">
+    <p class="repli-message">Le globe en 3D ne peut pas s'afficher sur cet appareil. Voici les lieux de l'atlas.</p>
+    <h2 id="t-lieux">Lieux</h2>
+    <!-- Source unique des lieux (data-lat, data-lon) : les repères du globe la liront à l'étape 2. -->
+    <ul class="liste-lieux">
+      <li data-lat="46.81" data-lon="-71.21">Québec, Canada</li>
+    </ul>
+  </section>
+</main>
+
+<p class="aide" aria-hidden="true">
+  <span class="aide-souris">Glisser pour tourner, molette pour zoomer. Au clavier : flèches, + et −.</span>
+  <span class="aide-tactile">Glisser pour tourner, pincer pour zoomer.</span>
+</p>
+<p class="credit">Fond de carte : Natural Earth (domaine public).</p>
+</body>
+</html>
