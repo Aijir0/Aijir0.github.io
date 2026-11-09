@@ -1,0 +1,213 @@
+/* Atlas — page autonome. Jetons, polices et règles repris de /assets/site/site.css et de DESIGN.md. */
+
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(vendor/polices/newsreader.woff2) format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(vendor/polices/atkinson-hyperlegible-next.woff2) format("woff2"); }
+/* Replis aux métriques mesurées (site.css) : pas de saut au chargement des polices. */
+@font-face { font-family: "Newsreader repli"; font-style: normal; src: local("Georgia"); size-adjust: 100.49%; ascent-override: 73.64%; descent-override: 26.87%; line-gap-override: 0%; }
+@font-face { font-family: "Atkinson repli"; src: local("Arial"); size-adjust: 102.1%; ascent-override: 95.98%; descent-override: 31.34%; line-gap-override: 0%; }
+
+:root {
+  --papier: #f5f2ea;
+  --papier-2: #ece7da;
+  --encre: #1a1c1a;
+  --encre-2: #4a4a44;
+  --vert: #1e4636;
+  --rouge: #a63d2a;
+  --filet: #d9d3c4;
+  --serif: "Newsreader", "Newsreader repli", Georgia, serif;
+  --sans: "Atkinson Hyperlegible Next", "Atkinson repli", "Segoe UI", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --gouttiere: clamp(1rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  overflow: hidden;
+  color: var(--encre);
+  font: 400 1.1875rem/1.55 var(--serif);
+  /* Fond discret : papier pointé, comme le globe d'attente de la fiche. */
+  background: radial-gradient(circle, rgb(74 74 68 / .16) 1px, transparent 1.4px) 0 0 / 40px 40px, var(--papier-2);
+}
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--rouge); outline-offset: 3px; border-radius: 1px; }
+.visuellement-cache { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.symbole { display: inline-block; flex: none; vertical-align: -3px; }
+
+/* ---------- Globe ---------- */
+#globe {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out); /* entrée : le globe apparaît une fois prêt */
+}
+#globe.sur-repere { cursor: pointer; }
+#globe.saisi { cursor: grabbing; }
+.globe-pret #globe { opacity: 1; }
+.infobulle {
+  position: fixed; z-index: 3; left: 0; top: 0; margin: 0;
+  transform: translate(-50%, calc(-100% - 16px));
+  padding: .3rem .6rem; background: var(--papier); border: 1px solid var(--filet);
+  font: 500 .875rem/1.3 var(--sans); white-space: nowrap; pointer-events: none;
+}
+
+/* ---------- En-tête, liste des lieux ---------- */
+.tete {
+  position: fixed; z-index: 4;
+  top: var(--gouttiere); left: var(--gouttiere);
+  max-width: calc(100% - 2 * var(--gouttiere));
+  pointer-events: none; /* le glisser passe au globe, sauf sur les commandes */
+}
+.tete a, .tete button, .liste { pointer-events: auto; }
+.retour { display: inline-block; font: 500 .9375rem/1 var(--sans); text-decoration: none; padding: .75rem 0; margin: -.75rem 0 .5rem; }
+.retour:hover { color: var(--vert); }
+h1 { margin: 0; font-weight: 400; font-size: clamp(2.6rem, 5vw, 4rem); line-height: .95; letter-spacing: -0.035em; }
+.sous-titre { margin: .35rem 0 0; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.3; color: var(--vert); }
+
+.bouton-liste {
+  margin-top: 1rem; min-height: 44px; padding: .55rem 1rem;
+  font: 600 .9375rem/1 var(--sans);
+  background: var(--papier); border: 1px solid var(--encre); border-radius: 2px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.bouton-liste[aria-expanded="true"] { background: var(--encre); color: var(--papier); }
+@media (hover: hover) and (pointer: fine) { .bouton-liste:hover { background: var(--vert); border-color: var(--vert); color: var(--papier); } }
+
+.liste {
+  margin-top: .5rem; width: min(22rem, calc(100vw - 2 * var(--gouttiere)));
+  max-height: min(24rem, 50svh); overflow-y: auto; overscroll-behavior: contain;
+  background: var(--papier); border: 1px solid var(--filet);
+}
+.liste ul { list-style: none; margin: 0; padding: 0; }
+.liste li + li { border-top: 1px solid var(--filet); }
+.liste .lieu {
+  display: flex; align-items: center; gap: .65rem; width: 100%; min-height: 48px;
+  padding: .6rem .9rem; border: 0; background: none; text-align: left;
+}
+.liste .nom { font-size: 1.1rem; line-height: 1.25; }
+.liste .pays { margin-left: auto; padding-left: 1rem; font: 400 .8125rem/1.3 var(--sans); color: var(--encre-2); text-align: right; }
+@media (hover: hover) and (pointer: fine) { .liste .lieu:hover { background: var(--papier-2); } }
+.liste .vide { padding: .8rem .9rem; color: var(--encre-2); }
+
+/* Menu d'un regroupement de repères, ouvert à l'endroit du clic */
+.grappe {
+  position: fixed; z-index: 4; min-width: 14rem; max-width: calc(100vw - 16px);
+  background: var(--papier); border: 1px solid var(--encre);
+}
+.grappe-titre { margin: 0; padding: .55rem .9rem .45rem; border-bottom: 1px solid var(--filet); font-size: .95rem; color: var(--encre-2); }
+.grappe ul { list-style: none; margin: 0; padding: 0; }
+.grappe li + li { border-top: 1px solid var(--filet); }
+.grappe .lieu { display: flex; align-items: center; gap: .65rem; width: 100%; min-height: 44px; padding: .5rem .9rem; border: 0; background: none; text-align: left; font-size: 1.05rem; }
+@media (hover: hover) and (pointer: fine) { .grappe .lieu:hover { background: var(--papier-2); } }
+
+/* ---------- Pied : légende (filtre), aide, crédit ---------- */
+.pied {
+  position: fixed; z-index: 2;
+  left: var(--gouttiere); bottom: var(--gouttiere);
+  max-width: calc(100% - 2 * var(--gouttiere));
+  display: grid; gap: .15rem;
+  pointer-events: none;
+}
+.legende { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-bottom: .25rem; pointer-events: auto; }
+.legende button {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: 0 .1rem;
+  border: 0; background: none; font: 500 .9375rem/1 var(--sans);
+}
+.legende button[aria-pressed="false"] { color: var(--encre-2); text-decoration: line-through; }
+.legende button[aria-pressed="false"] .symbole { opacity: .35; }
+.legende-note { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font: 400 .9375rem/1 var(--sans); color: var(--encre-2); }
+.aide, .credit { margin: 0; font: 400 .8125rem/1.4 var(--sans); color: var(--encre-2); }
+.aide-tactile { display: none; }
+@media (pointer: coarse) { .aide-souris { display: none; } .aide-tactile { display: inline; } }
+
+/* ---------- Panneau d'un lieu : à droite, volet du bas sur téléphone ---------- */
+.panneau {
+  position: fixed; z-index: 5; top: 0; right: 0; bottom: 0;
+  width: clamp(20rem, 32vw, 28rem);
+  padding: 1rem clamp(1.25rem, 2.5vw, 2.25rem) 2.5rem;
+  overflow-y: auto; overscroll-behavior: contain;
+  background: var(--papier); border-left: 1px solid var(--filet);
+  visibility: hidden; translate: 100% 0;
+  transition: translate 380ms var(--ease-drawer), visibility 0s linear 380ms;
+}
+.panneau.ouvert { visibility: visible; translate: 0 0; transition-delay: 0s; }
+.panneau-haut { display: flex; align-items: center; gap: 1rem; min-height: 44px; margin-bottom: 1.25rem; }
+.fermer {
+  margin-left: auto; min-height: 44px; padding: 0 .25rem;
+  border: 0; background: none; font: 600 .9375rem/1 var(--sans);
+  text-decoration: underline; text-underline-offset: .25em; text-decoration-color: var(--filet);
+}
+.fermer:hover { text-decoration-color: currentColor; }
+.panneau h2 { margin: 0; font-weight: 400; font-size: clamp(2.2rem, 3.3vw, 3rem); line-height: 1.05; letter-spacing: -0.025em; text-wrap: balance; }
+.panneau h2:focus { outline: none; }
+.panneau h2:focus-visible { outline: 2px solid var(--rouge); }
+#panneau-pays { margin: .3rem 0 1.25rem; font-size: 1.25rem; color: var(--encre-2); }
+.memo { margin: 0 0 1.5rem; border-top: 1px solid var(--encre); }
+.memo > div:not([hidden]) { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--filet); }
+.memo dt { font: 500 .8125rem/1.9 var(--sans); color: var(--encre-2); }
+.memo dd { margin: 0; line-height: 1.4; }
+#panneau-type { display: flex; align-items: center; gap: .5rem; }
+.resume { margin: 0 0 2rem; font-size: 1.25rem; line-height: 1.45; text-wrap: pretty; }
+.panneau h3 { margin: 0 0 .75rem; padding-top: .75rem; border-top: 1px solid var(--encre); font: 600 .8125rem/1.4 var(--sans); color: var(--vert); }
+.panneau section + section, .resume + section { margin-top: 2rem; }
+#panneau-anecdotes ul { margin: 0; padding: 0; list-style: none; }
+#panneau-anecdotes li { padding: .55rem 0; border-bottom: 1px solid var(--filet); line-height: 1.45; text-wrap: pretty; }
+.galerie { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem .75rem; margin: 0; padding: 0; list-style: none; }
+.vignette { display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 1px solid var(--filet); background: var(--papier-2); overflow: clip; }
+.vignette img { display: block; width: 100%; height: 100%; object-fit: cover; transition: scale 400ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .vignette:hover img { scale: 1.025; } }
+.galerie .legende-photo { margin: .4rem 0 0; font-size: .95rem; line-height: 1.4; color: var(--encre-2); }
+
+@media (max-width: 640px) {
+  .panneau {
+    top: auto; left: 0; width: auto; max-height: 62svh;
+    border-left: 0; border-top: 1px solid var(--encre);
+    translate: 0 100%;
+    padding-top: .5rem;
+  }
+  .panneau-haut { margin-bottom: .5rem; }
+  /* Volet ouvert : le globe remonte sous l'en-tête, qui s'efface pour ne pas se superposer aux terres. */
+  .tete { transition: opacity 200ms ease, visibility 0s linear 200ms; }
+  .avec-panneau:not(.sans-globe) .tete { opacity: 0; visibility: hidden; }}
+
+/* ---------- Visionneuse ---------- */
+.visionneuse { max-width: min(92vw, 72rem); max-height: 92svh; padding: 0; border: 0; background: var(--papier); color: var(--encre); }
+.visionneuse::backdrop { background: rgb(26 28 26 / .82); }
+.visionneuse .fermer { position: absolute; top: .25rem; right: .75rem; background: var(--papier); padding: 0 .5rem; }
+.visionneuse figure { margin: 0; }
+.visionneuse img { display: block; max-width: 100%; max-height: calc(92svh - 4rem); width: auto; height: auto; margin: 0 auto; }
+.visionneuse figcaption { padding: .75rem 1rem; font-size: 1rem; color: var(--encre-2); }
+.visionneuse figcaption:empty { display: none; }
+
+/* ---------- Repli : sans JavaScript, ou sans WebGL (liste visible, même panneau) ---------- */
+.repli-message { display: none; max-width: 36rem; margin: 2rem 0 1.5rem; font-size: 1.25rem; line-height: 1.4; color: var(--encre-2); }
+noscript .repli-message, .sans-globe .repli-message { display: block; }
+html:not(.js) body, .sans-globe body { overflow: auto; }
+html:not(.js) #globe, html:not(.js) .bouton-liste, html:not(.js) .pied,
+.sans-globe #globe, .sans-globe .bouton-liste, .sans-globe .legende, .sans-globe .aide { display: none; }
+.sans-globe .tete, .sans-globe .pied { position: static; margin: var(--gouttiere); }
+.sans-globe .liste[hidden] { display: block; }
+.sans-globe .liste { width: auto; max-width: 36rem; max-height: none; background: none; border: 0; border-top: 1px solid var(--encre); }
+.sans-globe .liste .lieu { padding-inline: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  #globe { transition-duration: 200ms; }
+  .panneau { translate: 0 0; opacity: 0; transition: opacity 200ms ease, visibility 0s linear 200ms; }
+  .panneau.ouvert { opacity: 1; transition-delay: 0s; }
+  .vignette img { transition: none; }
+}
+
+/* Menu d'un regroupement ouvert : l'infobulle s'efface (elle suit le menu dans le DOM) */
+.grappe:not([hidden]) ~ .infobulle { display: none; }
+
+/* Transition de page partagée avec le reste du site (DESIGN.md § 7) : sans elle, la navigation depuis l'accueil abandonne la sienne. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation-duration: 220ms; }
+::view-transition-new(root) { animation-duration: 420ms; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }

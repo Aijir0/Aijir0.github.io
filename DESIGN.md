@@ -34,12 +34,15 @@ Public visé : recruteurs, employeurs, collaborateurs. Ils doivent comprendre en
 | `--vert` | `#1E4636` | **Structure et état** : seconde ligne de l'accroche, rubriques, lien survolé, jauge du sommaire, barres de la frise, sélection. |
 | `--rouge` | `#A63D2A` | **Annotation uniquement** : trait de stylo, appels et fils de notes, repères sur une figure, contour de focus, mentions « à compléter ». |
 | `--filet` | `#D9D3C4` | Séparateurs fins, contours des cadres. |
+| bleu de Prusse | `#24507A` | **Repères de l'atlas uniquement** : type « j'y ai voyagé » (losange). |
+| ocre | `#8A5A0F` | **Repères de l'atlas uniquement** : type « lieu de cœur » (anneau). |
 
 Règles :
 - Tous les couples texte/fond passent le niveau AA (de 5,65:1 à 15,3:1). Toute nouvelle couleur doit être mesurée.
 - Le rouge ne sert jamais de fond large, de titre ou de bouton. S'il apparaît ailleurs qu'en annotation, c'est une erreur.
 - Une information n'est jamais portée par la seule couleur (la frise a une légende en texte, les statuts ont un libellé).
 - Les visuels de jeux gardent leurs propres palettes **à l'intérieur de leur cadre** (PacQC : nuit `#101419`, vert anis `#D9FB81` ; Scène : palette pixel). Elles ne débordent jamais sur l'interface.
+- Bleu de Prusse et ocre sont réservés aux repères de l'atlas et à leur légende (le type « j'y ai habité » est en encre) : jamais de texte, de fond, de bouton ni de lien dans ces teintes. Leurs valeurs vivent dans `atlas/data/destinations.json`, sans variable CSS. Chaque repère a une forme propre à son type et un liseré papier (6,3:1 contre les terres vertes) ; contrastes contre le papier : 7,5:1 (bleu) et 5,3:1 (ocre). Le rouge n'y sert qu'au cercle de stylo autour du lieu ouvert.
 - Pas de mode sombre pour l'instant (reporté). Le jeton `--vert-clair` du socle n'est pas utilisé : il sera retiré.
 
 ## 3. Typographie · Validé
@@ -91,8 +94,8 @@ Règles :
 
 | Composant | Rôle | Règles clés |
 | --- | --- | --- |
-| **En-tête** (`.tete`) | Nom en titre de revue, annonce du hors-série Atlas à droite | L'annonce reste discrète (globe de 4,25rem, une ligne) et mène à la fiche Atlas. |
-| **Manchette** (`.manchette`) | Sommaire collant, en bas de casse, lien « CV en PDF » | Section courante marquée (`aria-current`) ; **un seul trait de lecture** vert glisse d'une rubrique à l'autre et s'allonge avec la lecture. Masquée en étroit. |
+| **En-tête** (`.tete`) | Nom en titre de revue, annonce du hors-série Atlas à droite | L'annonce reste discrète (globe de 4,25rem, une ligne) et mène à l'atlas (`/atlas/`). |
+| **Manchette** (`.manchette`) | Sommaire collant, en bas de casse, liens « Atlas » et « CV en PDF » (le tiroir mobile reprend le lien Atlas) | Section courante marquée (`aria-current`) ; **un seul trait de lecture** vert glisse d'une rubrique à l'autre et s'allonge avec la lecture. Masquée en étroit. |
 | **Barre de lecture et tiroir** | Navigation en étroit | Barre fixe en bas : section courante, progression rouge de 2px, lien CV. Le sommaire s'ouvre dans un `<dialog>`. |
 | **Accroche** (`.manifeste`) | Positionnement | Deux lignes : romain, puis italique vert ; **un seul** trait de stylo. Texte validé : « Éclairer les décisions publiques / *par la recherche, la prospective et les données.* » |
 | **Fiche signalétique** (`.identite`) | Qui, où, quoi | Portrait 4:5 à gauche et liste `dl` (En poste, En formation, Diplômé, Langues). En téléphone, libellé au-dessus de la valeur. |
@@ -226,6 +229,8 @@ Non retenu :
 - toute parallaxe sur les vignettes de liste.
 
 ## Historique
+
+- 2026-11-09 : § 2 : bleu de Prusse et ocre, réservés aux repères de l'atlas.
 
 - 2026-11-06 : phase 10 : mouvement définitif (§ 7), tablette (§§ 4 et 8), polices de secours mesurées (§ 3), frise de 2020 à 2027, pièges techniques complétés ; laboratoire clos (§ 11).
 

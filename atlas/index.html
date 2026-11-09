@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas — Léo Matrat</title>
+  <meta name="description" content="Atlas : un globe en 3D des lieux où Léo Matrat a vécu et voyagé.">
+  <link rel="canonical" href="https://leomatrat.com/atlas/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="Léo Matrat">
+  <meta property="og:title" content="Atlas — Léo Matrat">
+  <meta property="og:description" content="Un globe en 3D des lieux où Léo Matrat a vécu et voyagé.">
+  <meta property="og:url" content="https://leomatrat.com/atlas/">
+  <meta property="og:image" content="https://leomatrat.com/assets/site/img/atlas-globe-3d.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="840">
+  <meta property="og:image:alt" content="Le globe de l'atlas centré sur l'Atlantique nord, avec les repères des lieux.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ece7da">
+  <link rel="icon" href="/assets/site/icone.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <script nomodule>document.documentElement.classList.add('sans-globe')</script>
+  <link rel="preload" href="vendor/polices/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="atlas.css">
+  <script type="module" src="atlas.js"></script>
+</head>
+<body>
+<header class="tete">
+  <a class="retour" href="/travaux/atlas/">← Retour à la fiche</a>
+  <h1>Atlas</h1>
+  <p class="sous-titre">Les lieux où j'ai vécu et voyagé</p>
+  <noscript><p class="repli-message">L'atlas a besoin de JavaScript pour afficher le globe et la liste des lieux.</p></noscript>
+  <p class="repli-message">Le globe en 3D ne peut pas s'afficher sur cet appareil. Voici les lieux de l'atlas.</p>
+  <button id="bouton-liste" class="bouton-liste" type="button" aria-expanded="false" aria-controls="liste">Liste des lieux</button>
+  <nav id="liste" class="liste" aria-label="Lieux de l'atlas" hidden><ul></ul></nav>
+</header>
+
+<main>
+  <canvas id="globe" role="img" aria-label="Globe terrestre en 3D. Les lieux sont aussi accessibles par le bouton « Liste des lieux »."></canvas>
+  <div id="grappe" class="grappe" role="dialog" aria-modal="false" aria-labelledby="grappe-titre" hidden>
+    <p id="grappe-titre" class="grappe-titre"></p>
+    <ul></ul>
+  </div>
+  <p id="infobulle" class="infobulle" aria-hidden="true" hidden></p>
+</main>
+
+<section id="panneau" class="panneau" role="dialog" aria-modal="false" aria-labelledby="panneau-titre">
+  <div class="panneau-haut">
+    <button class="fermer" type="button">Fermer</button>
+  </div>
+  <h2 id="panneau-titre" tabindex="-1"></h2>
+  <p id="panneau-pays" class="pays"></p>
+  <dl class="memo">
+    <div><dt>Type</dt><dd id="panneau-type"></dd></div>
+    <div id="panneau-periode"><dt>Période</dt><dd></dd></div>
+  </dl>
+  <p id="panneau-resume" class="resume"></p>
+  <section id="panneau-anecdotes" aria-labelledby="t-anecdotes"><h3 id="t-anecdotes">Anecdotes</h3><ul></ul></section>
+  <section id="panneau-photos" aria-labelledby="t-photos"><h3 id="t-photos">Photos</h3><ul class="galerie"></ul></section>
+</section>
+
+<dialog id="visionneuse" class="visionneuse" aria-label="Photo en grand">
+  <button class="fermer" type="button">Fermer</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</dialog>
+
+<div class="pied">
+  <div id="legende" class="legende" role="group" aria-label="Types de lieux : afficher ou masquer" hidden></div>
+  <p class="aide" aria-hidden="true">
+    <span class="aide-souris">Glisser pour tourner, molette pour zoomer. Au clavier : flèches, + et −.</span>
+    <span class="aide-tactile">Glisser pour tourner, pincer pour zoomer.</span>
+  </p>
+  <p class="credit">Fond de carte : Natural Earth (domaine public).</p>
+</div>
+</body>
+</html>
