@@ -1,0 +1,9 @@
+{
+  "name": "atlas-outils",
+  "description": "Outils locaux de l'atlas (non publiés)",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}

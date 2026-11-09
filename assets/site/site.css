@@ -293,6 +293,8 @@ h2 { font-weight: 400; letter-spacing: -.02em; }
 .manchette .sommaire a { display: inline-block; padding: .85rem 0; font: 500 .9375rem var(--sans); }
 .manchette .sommaire .jauge { left: 0; bottom: .55rem; }
 .manchette .cv { font-size: .9375rem; }
+.manchette .atlas-lien { margin-left: auto; font-size: .9375rem; }
+.tiroir .atlas-lien { display: inline-block; margin-top: 1.5rem; font-size: 1.1rem; }
 
 /* ---------- La une : présentation à gauche, travail phare à droite ---------- */
 .une { display: grid; grid-template-columns: var(--axe-grille); gap: var(--axe-ecart); align-items: start; padding: 2.5rem 0 1rem; }

@@ -22,3 +22,5 @@ exclude:
   - PacQC/scripts/
   - PacQC/assets-audit.json
   - projet_session/projet.md
+  - tools/
+  - atlas/README.md
