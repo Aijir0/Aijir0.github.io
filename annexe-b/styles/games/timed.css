@@ -1,10 +1,51 @@
-/* Défi express et Catégories : compte à rebours. */
-.timer{font-size:clamp(70px,13vw,125px);font-variant-numeric:tabular-nums;font-weight:1000;line-height:1;letter-spacing:-7px;color:var(--encre);text-shadow:5px 5px 0 var(--papier)}
-.timer.low{color:var(--rouge-tampon)}
-.timer-track{height:9px;width:min(440px,100%);border-radius:100px;background:var(--papier);border:3px solid var(--encre);overflow:hidden}
-.timer-progress{height:100%;width:100%;background:var(--menthe);border-radius:100px;transition:width .1s linear}
-.timer-progress.low{background:var(--pomme)}
-
-@media(max-width:560px){
-  .timer{letter-spacing:-4px}
+/* Défi express et Catégories : un chrono géant ou une bombe, qui paniquent sous 5 secondes. */
+.chrono-jeu > .prompt-card { margin-block: 0; min-height: 0; padding: 16px 18px; }
+.chrono-jeu .question { margin: 8px 0 0; font-size: clamp(22px, 6.2vw, 34px); }
+.chrono {
+  --chrono: clamp(130px, min(62vw, 100svh - 520px), 280px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--chrono);
+  height: var(--chrono);
+  margin-block: auto;
 }
+.anneau, .bombe { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.timer {
+  position: relative;
+  font: 400 calc(var(--chrono) * .4)/1 var(--titre);
+  font-variant-numeric: tabular-nums;
+  color: var(--encre);
+}
+.chrono .tampon { width: min(calc(100vw - 48px), 340px); }
+.chrono.low { animation: tremble .28s linear infinite; }
+.timer.tic { animation: sursaut .35s var(--rebond); }
+
+/* Défi express : cadran de chronomètre */
+.couronne { fill: var(--encre); }
+.anneau-fond { fill: var(--papier); stroke: var(--encre); stroke-width: 12; }
+.anneau-reste { fill: none; stroke: var(--menthe); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 100; }
+.dare .timer { top: 3%; }
+.dare .low .timer { color: var(--rouge-tampon); }
+.dare .low .anneau-reste { stroke: var(--pomme); }
+
+/* Catégories : bombe à mèche */
+.corps { fill: var(--encre); }
+.bouchon { fill: var(--encre-douce); stroke: var(--encre); stroke-width: 4; }
+.reflet { fill: none; stroke: var(--papier); stroke-width: 7; stroke-linecap: round; opacity: .55; }
+.meche-fond { fill: none; stroke: rgb(27 19 64 / .2); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 2 8; }
+.meche { fill: none; stroke: #8a5a2b; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 100 200; }
+.etincelle { fill: var(--soleil); stroke: var(--pomme); stroke-width: 2.5; stroke-linejoin: round; transform-box: fill-box; transform-origin: center; animation: crepite .18s steps(2) infinite; }
+.categories .timer { left: -6%; top: 12%; color: var(--papier); }
+.categories .low .timer { color: var(--soleil); }
+.categories .low .etincelle { animation-duration: .09s; }
+.categories .fini .bombe { animation: explose .45s var(--sortie) forwards; }
+
+@keyframes tremble {
+  25% { transform: translate(-3px, 1px) rotate(-2deg); }
+  50% { transform: translate(2px, -2px) rotate(1.5deg); }
+  75% { transform: translate(-1px, 2px) rotate(-1deg); }
+}
+@keyframes sursaut { from { transform: scale(1.35); } }
+@keyframes crepite { 50% { transform: scale(1.4) rotate(45deg); } }
+@keyframes explose { to { transform: scale(1.5); opacity: 0; } }
