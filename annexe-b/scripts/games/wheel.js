@@ -73,7 +73,7 @@
           { transform: 'translateX(-50%) rotate(-28deg)', offset: 0.25 },
           { transform: 'translateX(-50%) rotate(0deg)' }
         ], { duration: 170, easing: 'ease-out' });
-        if (now - dernierClac > 45) { A.beep(1500, 0.025, 'square'); dernierClac = now; }
+        if (now - dernierClac > 45) { A.beep(1500, 0.025, 'square'); A.vibre(6); dernierClac = now; }
       }
       precedente = sous;
       if (busy) requestAnimationFrame(tick);
@@ -125,6 +125,7 @@
         spinBtn.disabled = false;
         spinBtn.textContent = 'Relancer';
         A.beep(850, 0.19);
+        A.vibre([40, 30, 80]);
         A.confetti();
       }, attente);
     };
