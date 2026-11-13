@@ -1,0 +1,47 @@
+/* Tu préfères ? : deux tickets à encoches et un gros « OU » entre les deux. */
+.duel .prompt-card { padding: 0; background: none; border: 0; box-shadow: none; min-height: 0; }
+.duel .prompt-card small { padding: 4px 12px; background: var(--papier); border: 2px solid var(--encre); border-radius: 999px; }
+.duel .question { display: grid; justify-items: center; gap: 0; width: 100%; margin: 10px 0; }
+.ticket {
+  display: block;
+  width: 100%;
+  padding: 18px 30px;
+  font: 400 clamp(23px, 6.4vw, 34px)/1.12 var(--titre);
+  border: var(--trait) solid var(--encre);
+  border-radius: 14px;
+  /* encoches de ticket, à gauche et à droite */
+  -webkit-mask: radial-gradient(circle 13px at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 13px at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle 13px at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 13px at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+.ticket::first-letter { text-transform: uppercase; }
+.ticket-a { background: var(--rose); transform: rotate(-2deg); }
+.ticket-b { background: var(--soleil); transform: rotate(1.5deg); }
+.ou {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: -14px 0;
+  background: var(--encre);
+  color: var(--papier);
+  border: var(--trait) solid var(--papier);
+  border-radius: 50%;
+  font: 400 26px/1 var(--titre);
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+}
+.duel .reveal .ticket-a { animation: deGauche .45s var(--rebond) both; }
+.duel .reveal .ticket-b { animation: deDroite .45s .08s var(--rebond) both; }
+.duel .reveal .ou { animation: claque .4s .3s var(--rebond) both; }
+
+@media (min-width: 700px) {
+  .duel .question { grid-template-columns: 1fr auto 1fr; align-items: center; }
+  .ticket { height: 100%; }
+  .ou { margin: 0 -14px; }
+}
+
+@keyframes deGauche { from { opacity: 0; transform: translateX(-60px) rotate(-8deg); } }
+@keyframes deDroite { from { opacity: 0; transform: translateX(60px) rotate(8deg); } }
+@keyframes claque { from { opacity: 0; transform: scale(2.4) rotate(-30deg); } }
