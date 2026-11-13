@@ -1,0 +1,44 @@
+/* Petit encrier du pied de page de l'accueil. Tout son code tient ici, dans encrier.js et dans un bloc balisé de index.html.
+   Il est accroché à un point de largeur nulle en fin de paragraphe : il ne décale aucun texte. */
+.encrier-ancre { position: relative; }
+.colophon a.encrier {
+  position: absolute;
+  left: -24px;
+  bottom: -15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 44px;
+  height: 44px;
+  padding: 0 1px 13px 0;
+  color: var(--encre);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.colophon a.encrier::after { content: none; }
+.encrier svg {
+  width: 16px;
+  height: 20px;
+  opacity: .4;
+  transform-origin: 50% 100%;
+  transition: opacity .2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .encrier:hover svg { opacity: .7; animation: encrier-fretille .45s ease-in-out; }
+}
+.encrier:active svg, .encrier:focus-visible svg { opacity: .7; animation: encrier-fretille .45s ease-in-out; }
+.encrier:focus-visible { outline: 2px solid var(--encre); outline-offset: -6px; border-radius: 4px; }
+.encrier.pop svg { opacity: 1; animation: encrier-pop .42s cubic-bezier(.3, 1.6, .6, 1) forwards; }
+
+@keyframes encrier-fretille {
+  25% { transform: rotate(-12deg); }
+  50% { transform: rotate(9deg); }
+  75% { transform: rotate(-5deg); }
+}
+@keyframes encrier-pop {
+  45% { transform: scale(1.8) rotate(-10deg); opacity: 1; }
+  100% { transform: translateY(-16px) scale(.2) rotate(25deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .encrier svg { transition: none; animation: none !important; }
+}
