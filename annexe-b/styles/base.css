@@ -17,7 +17,6 @@ img, svg { display: block; }
 a { color: var(--encre); }
 :focus-visible { outline: 3px solid var(--encre); outline-offset: 3px; }
 [hidden] { display: none !important; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* ---------- Accueil : la récompense de celui qui a trouvé l'objet ---------- */
 .accueil {

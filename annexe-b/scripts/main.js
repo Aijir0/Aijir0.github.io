@@ -26,8 +26,15 @@
     $('lienSite').hidden = false;
     document.documentElement.style.removeProperty('--stand');
     window.scrollTo(0, 0);
+    joue($('games'), 'entree', 900);
     if (focus) $('hub').querySelector('.hub-titre').focus({ preventScroll: true });
   }
+
+  // L'écran ne s'éteint pas en pleine partie (si le navigateur le permet).
+  async function garderEcranAllume() {
+    try { if ('wakeLock' in navigator && document.visibilityState === 'visible') await navigator.wakeLock.request('screen'); } catch {}
+  }
+  document.addEventListener('visibilitychange', () => { if (!$('app').hidden) garderEcranAllume(); });
 
   function entrer() {
     const accueil = $('accueil');
@@ -35,7 +42,7 @@
       accueil.hidden = true;
       $('app').hidden = false;
       montrerStands();
-      joue($('games'), 'entree', 900);
+      garderEcranAllume();
     };
     if (moinsDeMouvement()) return ouvrir();
     accueil.classList.add('sort');
@@ -49,11 +56,26 @@
     nav.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => chooseGame(b.dataset.game)));
   }
 
+  // « Surprends-moi » : un dé roule à l'écran, puis le jeu tiré s'ouvre.
+  const POINTS = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
+  const faceDe = (n) => { $('deFace').innerHTML = Array.from({ length: 9 }, (_, i) => `<i${POINTS[n].includes(i) ? ' class="on"' : ''}></i>`).join(''); };
+  function lancerDe() {
+    const choix = A.sample(jeux);
+    const ouvrir = () => { A.toast(`Jeu mystère : ${choix.titre}`); chooseGame(choix.id); };
+    if (moinsDeMouvement()) return ouvrir();
+    const scene = $('de');
+    faceDe(1 + Math.floor(Math.random() * 6));
+    scene.hidden = false;
+    const t = setInterval(() => { faceDe(1 + Math.floor(Math.random() * 6)); A.beep(420 + Math.random() * 300, 0.03, 'triangle'); }, 110);
+    scene.querySelector('.de').addEventListener('animationend', () => {
+      clearInterval(t);
+      A.vibre(25);
+      setTimeout(() => { scene.hidden = true; ouvrir(); }, 380);
+    }, { once: true });
+  }
+
   function chooseGame(id) {
-    if (id === SURPRISE.id) {
-      id = A.sample(jeux).id;
-      A.toast('Jeu mystère sélectionné !');
-    }
+    if (id === SURPRISE.id) return lancerDe();
     clearInterval(A.state.timer);
     A.state.timer = null;
     A.state.currentGame = id;
