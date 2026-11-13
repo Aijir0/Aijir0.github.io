@@ -1,20 +1,23 @@
 /* Petit encrier du pied de page de l'accueil. Tout son code tient ici, dans encrier.js et dans un bloc balisé de index.html.
-   Il est accroché à un point de largeur nulle en fin de paragraphe : il ne décale aucun texte. */
-.encrier-ancre { position: relative; }
+   Hors du flux et hors du paragraphe : il ne change ni la mise en page ni les coupures de lignes (text-wrap: pretty).
+   encrier.js le cale au bout du premier paragraphe ; sans JavaScript, il reste invisible.
+   Ne pas mettre le pied de page en position relative : cela change le rendu de son texte. */
 .colophon a.encrier {
   position: absolute;
-  left: -24px;
-  bottom: -15px;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   width: 44px;
   height: 44px;
-  padding: 0 1px 13px 0;
+  padding: 0 1px 4px 0;
   color: var(--encre);
   text-decoration: none;
+  visibility: hidden;
   -webkit-tap-highlight-color: transparent;
 }
+.colophon a.encrier.place { visibility: visible; }
 .colophon a.encrier::after { content: none; }
 .encrier svg {
   width: 16px;
