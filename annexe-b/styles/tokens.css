@@ -1,0 +1,2 @@
+/* Variables partagées : couleurs et taille de la roue. */
+:root{color-scheme:dark;--bg:#101019;--text:#f8f5ff;--muted:#aaa9be;--rose:#ff5ca5;--lime:#d8ff76;--purple:#ac83ff;--red:#ff777b;--wheelSize:clamp(242px,68vw,335px)}

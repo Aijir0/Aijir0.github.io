@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#10101a">
+  <title>AFTERHOURS — L'arcade de ta soirée</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/games/wheel.css">
+  <link rel="stylesheet" href="styles/games/higher.css">
+  <link rel="stylesheet" href="styles/games/timed.css">
+  <script src="scripts/data/prompts.js" defer></script>
+  <script src="scripts/data/wheel-tasks.js" defer></script>
+  <script src="scripts/core/utils.js" defer></script>
+  <script src="scripts/core/storage.js" defer></script>
+  <script src="scripts/core/state.js" defer></script>
+  <script src="scripts/core/audio.js" defer></script>
+  <script src="scripts/core/confetti.js" defer></script>
+  <script src="scripts/core/prompt-card.js" defer></script>
+  <!-- Jeux : un fichier par jeu, chacun s'enregistre via Arcade.register(). -->
+  <script src="scripts/games/wheel.js" defer></script>
+  <script src="scripts/games/likely.js" defer></script>
+  <script src="scripts/games/never.js" defer></script>
+  <script src="scripts/games/higher.js" defer></script>
+  <script src="scripts/games/timed.js" defer></script>
+  <script src="scripts/games/rather.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">✳</span> AFTER<em>HOURS</em></div>
+      <div class="top-actions">
+        <button class="chip-button" id="soundBtn" type="button" aria-pressed="false" title="Activer les sons">🔇 <span class="hide-mobile">Sons désactivés</span></button>
+        <button class="chip-button" id="playersBtn" type="button">👥 <span id="playersCount">4 joueurs</span> <span aria-hidden="true">✎</span></button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> TON SALON · TES RÈGLES · ZÉRO INSTALLATION</div>
+        <h1>La soirée, en <span>mode arcade.</span></h1>
+        <p>7 mini-jeux, des animations et un peu de hasard. Choisis un jeu, passe le téléphone ou projette l'écran. Les règles tiennent en une phrase.</p>
+      </section>
+      <div class="party-bar">
+        <div class="party-text">✦ Tout le monde peut jouer.<small>Aucune obligation de boire : le mode points fonctionne toujours.</small></div>
+        <div class="mode-control">
+          <label for="playMode">MODE DE JEU</label>
+          <select id="playMode" aria-label="Mode de jeu">
+            <option value="points">🏆 Points</option>
+            <option value="challenges">😈 Petits gages</option>
+            <option value="sips">🥤 Gorgées facultatives (adultes)</option>
+          </select>
+        </div>
+      </div>
+      <div class="section-heading"><h2>Choisis ton jeu</h2><span>UNE SEULE RÈGLE À RETENIR</span></div>
+      <nav class="games" id="games" aria-label="Choix du mini-jeu"></nav>
+      <section class="stage" id="stage" aria-label="Jeu en cours" aria-live="off">
+        <header class="stage-header">
+          <div><div class="stage-tag">EN COURS · #01</div><h2 id="stageTitle">Roulette du chaos</h2></div>
+          <p class="stage-rules" id="stageRules">Une roue choisit quelqu'un. Le hasard décide de la suite.</p>
+        </header>
+        <div class="stage-content" id="stageContent"></div>
+      </section>
+    </main>
+    <footer class="footer"><b>AFTERHOURS</b> — Une mini-arcade locale, sans compte ni données envoyées.<br>Des tours courts, des pauses et de l'eau à disposition. On peut toujours passer son tour. ✳</footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-bg" id="playersModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h2 id="modalTitle">La bande 👥</h2>
+      <p>Ajoute les prénoms pour la roulette et les défis. Ils restent enregistrés sur cet appareil uniquement.</p>
+      <div class="names" id="namesList"></div>
+      <form class="input-row" id="nameForm"><input id="nameInput" maxlength="17" autocomplete="off" placeholder="Un prénom ou un pseudo" aria-label="Ajouter un joueur"><button type="submit" class="primary">Ajouter</button></form>
+      <div class="modal-actions"><button type="button" class="secondary" id="closeModal">C'est parti ✦</button></div>
+    </section>
+  </div>
+</body>
+</html>

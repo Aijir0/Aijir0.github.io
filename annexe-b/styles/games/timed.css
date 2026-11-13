@@ -1,0 +1,10 @@
+/* Défi express et Catégories : compte à rebours. */
+.timer{font-size:clamp(70px,13vw,125px);font-variant-numeric:tabular-nums;font-weight:1000;line-height:1;letter-spacing:-7px;color:var(--lime);text-shadow:0 8px 40px #d8ff7650}
+.timer.low{color:var(--red);text-shadow:0 8px 40px #ff777b50}
+.timer-track{height:9px;width:min(440px,100%);border-radius:100px;background:#37374e;overflow:hidden}
+.timer-progress{height:100%;width:100%;background:linear-gradient(90deg,var(--purple),var(--lime));border-radius:100px;transition:width .1s linear}
+.timer-progress.low{background:var(--red)}
+
+@media(max-width:560px){
+  .timer{letter-spacing:-4px}
+}

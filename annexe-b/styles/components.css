@@ -1,0 +1,83 @@
+/* Composants partagés : boutons, tuiles de jeux, scène, carte de question, toast, modale, confettis. */
+.chip-button{display:flex;align-items:center;gap:8px;background:#24243a;border:1px solid #43435b;color:var(--text);padding:10px 13px;border-radius:999px;font-weight:700;font-size:13px}
+.chip-button:hover{background:#33334b}
+.primary{border:0;border-radius:15px;background:var(--lime);color:#191b14;font-weight:1000;letter-spacing:.1px;padding:15px 23px;font-size:14px;box-shadow:0 8px 26px #d8ff7626;transition:transform .16s,filter .16s}
+.primary:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.secondary{background:#303047;border:1px solid #58556d;color:var(--text);padding:13px 18px;border-radius:13px;font-weight:800;font-size:13px}
+.secondary:hover{background:#3c3c56}
+.button-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+.games{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.game{min-height:149px;text-align:left;border:1px solid #3c3b50;border-radius:19px;color:var(--text);background:linear-gradient(145deg,#26243a,#1b1b2c);padding:19px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:relative;overflow:hidden;transition:transform .18s ease,border-color .2s,background .2s}
+.game:hover{transform:translateY(-3px);border-color:var(--card-accent)}
+.game.active{border-color:var(--card-accent);box-shadow:inset 0 0 0 1px var(--card-accent),0 10px 38px #00000024;background:linear-gradient(145deg,#302941,#1e1e32)}
+.game:after{content:"";position:absolute;width:100px;height:100px;right:-55px;top:-50px;border-radius:50%;background:var(--card-accent);opacity:.12;filter:blur(10px)}
+.game-icon{font-size:28px;line-height:1.15}
+.game-title{font-size:15px;font-weight:900;letter-spacing:-.3px}
+.game-sub{font-size:11px;color:#bdbbce;line-height:1.4}
+.game-number{position:absolute;right:16px;bottom:16px;font-weight:900;font-size:11px;opacity:.5}
+.game.random{background:linear-gradient(130deg,#353a26,#242d27);border-color:#687852}
+.game.random .game-title{color:var(--lime)}
+
+.stage{margin:25px 0 33px;border:1px solid #4c465c;background:radial-gradient(circle at 50% 0%,#3d2f5147,transparent 55%),#1b1b2b;border-radius:29px;min-height:480px;overflow:hidden;box-shadow:0 20px 70px #00000035}
+.stage-header{display:flex;align-items:center;justify-content:space-between;padding:22px 25px;border-bottom:1px solid #343447;gap:12px}
+.stage-tag{font-size:11px;text-transform:uppercase;letter-spacing:1.9px;font-weight:1000;color:var(--lime)}
+.stage-header h2{font-size:25px;letter-spacing:-.9px;margin:6px 0 0}
+.stage-rules{margin:0;color:var(--muted);font-size:13px;max-width:400px;line-height:1.5;text-align:right}
+.stage-content{display:flex;align-items:center;justify-content:center;min-height:380px;flex-direction:column;padding:28px;gap:20px}
+.subline{color:var(--muted);font-size:13px;text-align:center;line-height:1.5}
+.result{border:1px solid #50536b;background:#2b2b42;border-radius:16px;padding:15px 20px;text-align:center;max-width:560px;width:100%;line-height:1.5}
+.result strong{color:var(--lime)}
+.result.success{border-color:#94ba70}
+.result.fail{border-color:#8b6582}
+.result[hidden]{display:none}
+
+.prompt-wrap{display:flex;align-items:center;flex-direction:column;width:100%;max-width:690px;gap:21px}
+.prompt-card{background:linear-gradient(150deg,#5a365b,#3d315e 55%,#293452);border:1px solid #725a7e;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:35px 27px;min-height:240px;width:100%;position:relative;overflow:hidden;box-shadow:0 18px 50px #0004}
+.prompt-card:before{content:'✦';font-size:150px;color:#ffffff0c;position:absolute;right:-9px;top:-60px;transform:rotate(-18deg)}
+.prompt-card small{position:relative;text-transform:uppercase;font-size:11px;font-weight:900;letter-spacing:2.5px;color:var(--lime)}
+.prompt-card p{position:relative;font-size:clamp(23px,3.6vw,34px);font-weight:950;line-height:1.23;letter-spacing:-.9px;margin:18px 0}
+.prompt-card .prompt-foot{position:relative;font-size:12px;color:#e4d8ef}
+.prompt-card.reveal{animation:popIn .42s both}
+.counter{font-size:12px;color:var(--muted);font-weight:700}
+
+.toast{position:fixed;z-index:30;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--lime);color:#192018;font-weight:900;padding:13px 19px;border-radius:13px;box-shadow:0 10px 25px #0009;transition:transform .32s;min-width:200px;text-align:center;pointer-events:none}
+.toast.show{transform:translate(-50%,0)}
+
+.modal-bg{position:fixed;z-index:21;inset:0;background:#08080dd4;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(6px)}
+.modal-bg[hidden]{display:none}
+.modal{width:min(480px,100%);background:#242438;border:1px solid #666078;border-radius:25px;padding:25px;max-height:calc(100dvh - 40px);overflow-y:auto;box-shadow:0 30px 90px #000c}
+.modal h2{margin:0 0 7px;font-size:26px;letter-spacing:-1px}
+.modal p{font-size:13px;color:var(--muted);line-height:1.6}
+.names{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.name-pill{border:1px solid #605b75;background:#39344a;border-radius:999px;padding:9px 12px;font-size:13px;font-weight:750;display:flex;align-items:center;gap:10px}
+.name-pill button{border:0;background:#64566f;color:#fff;border-radius:50%;width:19px;height:19px;padding:0;line-height:1}
+.input-row{display:flex;gap:8px}
+.input-row input{flex:1;min-width:0;background:#11121e;border:1px solid #666078;border-radius:11px;color:var(--text);padding:13px 12px}
+.input-row .primary{padding:12px 16px}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
+
+.confetti{position:fixed;width:9px;height:14px;z-index:45;pointer-events:none;opacity:0;animation:confettiFall 1.7s ease-in forwards}
+
+@keyframes popIn{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes confettiFall{0%{opacity:1;transform:translate3d(0,-15vh,0) rotate(0)}100%{opacity:0;transform:translate3d(var(--dx),100vh,0) rotate(var(--rot))}}
+
+@media(max-width:860px){
+  .games{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stage-header{align-items:flex-start;flex-direction:column}
+  .stage-rules{text-align:left}
+}
+@media(max-width:560px){
+  .chip-button{font-size:12px;padding:9px 10px}
+  .games{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .game{min-height:132px;padding:14px}
+  .game-icon{font-size:25px}
+  .game-title{font-size:14px}
+  .game-sub{font-size:10px}
+  .stage{border-radius:22px;min-height:430px}
+  .stage-header{padding:18px}
+  .stage-content{padding:22px 13px;min-height:360px}
+  .stage-header h2{font-size:23px}
+  .prompt-card{padding:25px 18px;min-height:220px}
+  .prompt-card p{font-size:26px}
+}
