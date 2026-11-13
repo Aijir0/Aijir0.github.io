@@ -1,6 +1,6 @@
 // Je n’ai jamais : ceux qui l’ont déjà fait lèvent la main.
 Arcade.register({
-  id: 'never', ordre: 3, icone: '🔥', couleur: '#ffb567',
+  id: 'never', ordre: 3, icone: 'assets/icons/never.svg', couleur: 'var(--soleil)',
   titre: 'Je n’ai jamais',
   sousTitre: 'Des révélations innocentes… ou pas.',
   regle: 'Lisez la phrase. Ceux qui l’ont déjà fait lèvent la main, marquent un point ou jouent leur option.',

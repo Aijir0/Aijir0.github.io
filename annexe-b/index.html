@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#10101a">
+  <meta name="theme-color" content="#ffd23f">
   <title>AFTERHOURS — L'arcade de ta soirée</title>
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/base.css">
@@ -30,52 +30,70 @@
   <script src="scripts/main.js" defer></script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand"><span class="brand-icon">✳</span> AFTER<em>HOURS</em></div>
-      <div class="top-actions">
-        <button class="chip-button" id="soundBtn" type="button" aria-pressed="false" title="Activer les sons">🔇 <span class="hide-mobile">Sons désactivés</span></button>
-        <button class="chip-button" id="playersBtn" type="button">👥 <span id="playersCount">4 joueurs</span> <span aria-hidden="true">✎</span></button>
-      </div>
+  <!-- Accueil -->
+  <section class="accueil" id="accueil" aria-labelledby="titreAccueil">
+    <div class="rayons" aria-hidden="true"></div>
+    <a class="lien-site" href="../">← Le site</a>
+    <div class="accueil-contenu">
+      <p class="ruban">Ton salon · tes règles</p>
+      <h1 class="titre-geant" id="titreAccueil"><span>After</span><span>Hours</span></h1>
+      <p class="accroche">La soirée, en mode arcade.</p>
+      <button type="button" class="primary bouton-entrer" id="entrer">Entrer</button>
+    </div>
+  </section>
+
+  <div class="app" id="app" hidden>
+    <header class="barre">
+      <a class="lien-site" id="lienSite" href="../" aria-label="Retour au site">←</a>
+      <button type="button" class="chip-button" id="retourStands" hidden>← Stands</button>
+      <p class="marque">After<span>Hours</span></p>
+      <button class="chip-button" id="soundBtn" type="button" aria-pressed="false" aria-label="Son">
+        <svg class="son-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+        <svg class="son-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+      </button>
+      <button class="chip-button" id="playersBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M15.5 4.8a3.5 3.5 0 0 1 0 6.4M18 14a6.5 6.5 0 0 1 3.5 6"/></svg>
+        <span id="playersCount">4 joueurs</span>
+      </button>
     </header>
-    <main>
-      <section class="hero">
-        <div class="eyebrow"><span class="dot"></span> TON SALON · TES RÈGLES · ZÉRO INSTALLATION</div>
-        <h1>La soirée, en <span>mode arcade.</span></h1>
-        <p>7 mini-jeux, des animations et un peu de hasard. Choisis un jeu, passe le téléphone ou projette l'écran. Les règles tiennent en une phrase.</p>
-      </section>
-      <div class="party-bar">
-        <div class="party-text">✦ Tout le monde peut jouer.<small>Aucune obligation de boire : le mode points fonctionne toujours.</small></div>
-        <div class="mode-control">
-          <label for="playMode">MODE DE JEU</label>
-          <select id="playMode" aria-label="Mode de jeu">
-            <option value="points">🏆 Points</option>
-            <option value="challenges">😈 Petits gages</option>
-            <option value="sips">🥤 Gorgées facultatives (adultes)</option>
+
+    <main class="hub" id="hub">
+      <h2 class="hub-titre" tabindex="-1">Choisis ton stand</h2>
+      <p class="hub-intro">7 mini-jeux, des animations et un peu de hasard. Choisis un jeu, passe le téléphone ou projette l'écran. Les règles tiennent en une phrase.</p>
+      <div class="reglage">
+        <p>Tout le monde peut jouer.<small>Aucune obligation de boire : le mode points fonctionne toujours.</small></p>
+        <div class="choix-mode">
+          <label for="playMode">Mode</label>
+          <select id="playMode">
+            <option value="points">Points</option>
+            <option value="challenges">Petits gages</option>
+            <option value="sips">Gorgées facultatives (adultes)</option>
           </select>
         </div>
       </div>
-      <div class="section-heading"><h2>Choisis ton jeu</h2><span>UNE SEULE RÈGLE À RETENIR</span></div>
-      <nav class="games" id="games" aria-label="Choix du mini-jeu"></nav>
-      <section class="stage" id="stage" aria-label="Jeu en cours" aria-live="off">
-        <header class="stage-header">
-          <div><div class="stage-tag">EN COURS · #01</div><h2 id="stageTitle">Roulette du chaos</h2></div>
-          <p class="stage-rules" id="stageRules">Une roue choisit quelqu'un. Le hasard décide de la suite.</p>
-        </header>
-        <div class="stage-content" id="stageContent"></div>
-      </section>
+      <nav class="stands" id="games" aria-label="Choix du mini-jeu"></nav>
+      <p class="hub-pied"><b>AFTERHOURS</b> — une mini-arcade locale, sans compte ni données envoyées. Des tours courts, des pauses et de l'eau à disposition. On peut toujours passer son tour.</p>
     </main>
-    <footer class="footer"><b>AFTERHOURS</b> — Une mini-arcade locale, sans compte ni données envoyées.<br>Des tours courts, des pauses et de l'eau à disposition. On peut toujours passer son tour. ✳</footer>
+
+    <section class="stage" id="stage" aria-labelledby="stageTitle" hidden>
+      <div class="auvent" aria-hidden="true"></div>
+      <header class="stage-header">
+        <h2 id="stageTitle" tabindex="-1"></h2>
+        <p class="stage-rules" id="stageRules"></p>
+      </header>
+      <div class="stage-content" id="stageContent"></div>
+    </section>
   </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <div class="modal-bg" id="playersModal" hidden>
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h2 id="modalTitle">La bande 👥</h2>
+      <h2 id="modalTitle">La bande</h2>
       <p>Ajoute les prénoms pour la roulette et les défis. Ils restent enregistrés sur cet appareil uniquement.</p>
+      <form class="input-row" id="nameForm"><input id="nameInput" maxlength="17" autocomplete="off" enterkeyhint="done" placeholder="Un prénom ou un pseudo" aria-label="Ajouter un joueur"><button type="submit" class="primary">Ajouter</button></form>
       <div class="names" id="namesList"></div>
-      <form class="input-row" id="nameForm"><input id="nameInput" maxlength="17" autocomplete="off" placeholder="Un prénom ou un pseudo" aria-label="Ajouter un joueur"><button type="submit" class="primary">Ajouter</button></form>
-      <div class="modal-actions"><button type="button" class="secondary" id="closeModal">C'est parti ✦</button></div>
+      <div class="modal-actions"><button type="button" class="secondary" id="closeModal">C'est parti</button></div>
     </section>
   </div>
 </body>

@@ -1,6 +1,6 @@
 // Tu préfères ? Chacun choisit son camp puis le défend.
 Arcade.register({
-  id: 'rather', ordre: 6, icone: '🤔', couleur: '#ff777b',
+  id: 'rather', ordre: 6, icone: 'assets/icons/rather.svg', couleur: 'var(--menthe)',
   titre: 'Tu préfères ?',
   sousTitre: 'Deux choix, zéro bonne réponse.',
   regle: 'Choisissez votre camp en même temps, puis défendez votre réponse.',

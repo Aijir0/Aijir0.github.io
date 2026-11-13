@@ -66,14 +66,14 @@
   }
 
   A.register({
-    id: 'dare', ordre: 5, icone: '⚡', couleur: '#d8ff76',
+    id: 'dare', ordre: 5, icone: 'assets/icons/dare.svg', couleur: 'var(--orange)',
     titre: 'Défi express',
     sousTitre: '15 secondes pour briller.',
     regle: 'Un défi, un compte à rebours. Le groupe juge si le défi est réussi.',
     init: (root) => render(root, 'dare')
   });
   A.register({
-    id: 'categories', ordre: 7, icone: '💣', couleur: '#f6c26d',
+    id: 'categories', ordre: 7, icone: 'assets/icons/categories.svg', couleur: 'var(--peche)',
     titre: 'Catégories',
     sousTitre: 'Trouve des mots avant le buzzer.',
     regle: 'À tour de rôle, donnez un mot lié au thème. Aucun doublon, et seulement 15 secondes par tour.',

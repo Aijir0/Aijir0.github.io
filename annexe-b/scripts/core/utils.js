@@ -12,6 +12,8 @@
     }
     return a;
   };
+  // Espace insécable avant ? ! : ; » et après « : la ponctuation ne part jamais seule à la ligne.
+  A.insecables = (s) => String(s).replace(/ ([?!:;»])/g, ' $1').replace(/« /g, '« ');
   // Zone de résultat commune aux jeux, masquée tant qu'elle est vide.
   A.resultat = (message = '', extraClass = '') =>
     `<div class="result ${extraClass}" id="gameResult" role="status" ${message ? '' : 'hidden'}>${message}</div>`;

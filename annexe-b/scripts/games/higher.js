@@ -54,7 +54,7 @@
   }
 
   A.register({
-    id: 'higher', ordre: 4, icone: '🃏', couleur: '#81e8f5',
+    id: 'higher', ordre: 4, icone: 'assets/icons/higher.svg', couleur: 'var(--piscine)',
     titre: 'Plus ou moins',
     sousTitre: 'Devine la prochaine carte.',
     regle: 'La prochaine carte sera-t-elle plus haute ou plus basse ? Une égalité ne compte pas.',

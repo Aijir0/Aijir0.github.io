@@ -1,2 +1,57 @@
-/* Variables partagées : couleurs et taille de la roue. */
-:root{color-scheme:dark;--bg:#101019;--text:#f8f5ff;--muted:#aaa9be;--rose:#ff5ca5;--lime:#d8ff76;--purple:#ac83ff;--red:#ff777b;--wheelSize:clamp(242px,68vw,335px)}
+/* Variables : « fête foraine pop ». Le texte est toujours en encre sur fond clair (contraste AA et plus). */
+@font-face {
+  font-family: "Lilita One";
+  src: url("../assets/fonts/lilita-one-fr.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Couleurs */
+  --creme: #fff4e0;
+  --papier: #fffbf2;
+  --encre: #1b1340;
+  --encre-douce: #4a4270;
+  --rose: #ff7eb6;
+  --soleil: #ffd23f;
+  --piscine: #3ec1d3;
+  --pomme: #ff5a4e;
+  --menthe: #7be0ad;
+  --orange: #ff9f1c;
+  --peche: #ffb38a;
+  --rouge-tampon: #c22b20;
+
+  /* Couleur du stand en cours : redéfinie par chaque jeu (voir main.js) */
+  --stand: var(--soleil);
+
+  /* Typographie */
+  --titre: "Lilita One", "Arial Rounded MT Bold", "Arial Black", system-ui, sans-serif;
+  --texte: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Espacements */
+  --e1: 4px;
+  --e2: 8px;
+  --e3: 12px;
+  --e4: 16px;
+  --e5: 24px;
+  --e6: 32px;
+
+  /* Contours, ombres dures décalées, rayons */
+  --trait: 3px;
+  --trait-fort: 4px;
+  --ombre: 4px 4px 0 var(--encre);
+  --ombre-forte: 7px 7px 0 var(--encre);
+  --rayon: 18px;
+  --rayon-petit: 12px;
+
+  /* Zones tactiles et marges de sécurité */
+  --tactile: 48px;
+  --haut-sur: env(safe-area-inset-top, 0px);
+  --bas-sur: env(safe-area-inset-bottom, 0px);
+  --gouttiere: max(16px, env(safe-area-inset-left, 0px));
+
+  /* Mouvement */
+  --rebond: cubic-bezier(.34, 1.56, .64, 1);
+  --sortie: cubic-bezier(.23, 1, .32, 1);
+}
