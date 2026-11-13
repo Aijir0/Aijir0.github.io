@@ -4,5 +4,10 @@ Arcade.register({
   titre: 'Je n’ai jamais',
   sousTitre: 'Des révélations innocentes… ou pas.',
   regle: 'Lisez la phrase. Ceux qui l’ont déjà fait lèvent la main, marquent un point ou jouent leur option.',
-  init: (root) => Arcade.promptCard(root, 'never', 'AVOUE… OU PAS', 'Ceux qui l’ont déjà fait lèvent la main.')
+  init: (root) => Arcade.promptCard(root, 'never', {
+    classe: 'confession',
+    tag: 'Avoue… ou pas',
+    foot: 'Ceux qui l’ont déjà fait lèvent la main.',
+    decor: '<img class="deco main-levee" src="assets/icons/never.svg" alt="">'
+  })
 });

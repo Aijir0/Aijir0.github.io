@@ -1,0 +1,32 @@
+/* Je n’ai jamais : une carte « confession » sur papier ligné, une main qui se lève. */
+.confession .prompt-card {
+  padding-left: 34px;
+  background:
+    linear-gradient(90deg, transparent 22px, var(--pomme) 22px 25px, transparent 25px),
+    repeating-linear-gradient(transparent 0 31px, rgb(62 193 211 / .45) 31px 33px),
+    var(--papier);
+  transform: rotate(-1.5deg);
+}
+.confession .prompt-card.reveal { animation: glisse .5s var(--sortie) both; }
+.main-levee {
+  right: -8px;
+  top: -34px;
+  width: 76px;
+  height: 76px;
+  padding: 8px;
+  background: var(--soleil);
+  border: var(--trait) solid var(--encre);
+  border-radius: 50%;
+  box-shadow: var(--ombre);
+  transform: rotate(8deg);
+}
+.confession .reveal .main-levee { animation: leve .6s .3s var(--rebond) both; }
+
+@keyframes glisse {
+  from { opacity: 0; transform: translateX(-40px) rotate(-6deg); }
+  to { transform: rotate(-1.5deg); }
+}
+@keyframes leve {
+  from { opacity: 0; transform: translateY(46px) rotate(8deg) scale(.7); }
+  to { transform: rotate(8deg); }
+}
