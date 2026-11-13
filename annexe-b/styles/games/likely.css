@@ -1,0 +1,41 @@
+/* Qui de nous ? : un panneau suspendu qui se balance, un doigt qui pointe. */
+.panneau { padding-top: 30px; }
+.panneau .prompt-card { transform-origin: 50% -30px; }
+.panneau .prompt-card::before,
+.panneau .prompt-card::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 4px;
+  height: 30px;
+  background: var(--encre);
+  border-radius: 2px;
+}
+.panneau .prompt-card::before { left: 22%; }
+.panneau .prompt-card::after { right: 22%; }
+.panneau .prompt-card.reveal { animation: balance .9s var(--sortie) both; }
+.doigt {
+  left: -10px;
+  bottom: -26px;
+  width: 78px;
+  height: 78px;
+  padding: 10px;
+  background: var(--rose);
+  border: var(--trait) solid var(--encre);
+  border-radius: 50%;
+  box-shadow: var(--ombre);
+  transform: rotate(-14deg);
+}
+.panneau .reveal .doigt { animation: pointe .6s .35s var(--rebond) both; }
+
+@keyframes balance {
+  0% { opacity: 0; transform: rotate(-9deg) translateY(-24px); }
+  35% { opacity: 1; transform: rotate(5deg); }
+  65% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes pointe {
+  0% { transform: rotate(-14deg) translateX(-30px) scale(.6); opacity: 0; }
+  60% { transform: rotate(-14deg) translateX(8px) scale(1.05); opacity: 1; }
+  100% { transform: rotate(-14deg); }
+}

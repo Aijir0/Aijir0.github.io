@@ -141,8 +141,11 @@
 .result.fail { background: var(--rose); }
 
 /* ---------- Carte de question (jeux de cartes à texte) ---------- */
-.prompt-wrap { display: flex; flex-direction: column; align-items: center; gap: var(--e4); width: 100%; }
+/* La carte se centre dans l'espace libre ; compteur et bouton restent en bas, sous le pouce. */
+.prompt-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--e4); width: 100%; }
+.prompt-wrap > .prompt-card { margin-block: auto; }
 .prompt-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,10 +160,12 @@
   box-shadow: var(--ombre-forte);
 }
 .prompt-card small { font-weight: 800; font-size: 13px; letter-spacing: .08em; }
-.prompt-card p { margin: 14px 0; font: 400 clamp(27px, 7.4vw, 40px)/1.12 var(--titre); }
+.prompt-card .question { margin: 14px 0; font: 400 clamp(27px, 7.4vw, 40px)/1.12 var(--titre); }
 .prompt-card .prompt-foot { font-size: 14px; font-weight: 700; }
 .prompt-card.reveal { animation: pose .45s var(--rebond) both; }
-.counter { font-size: 14px; font-weight: 800; }
+.counter { margin: 0; padding: 2px 12px; background: var(--papier); border: 2px solid var(--encre); border-radius: 999px; font-size: 14px; font-weight: 800; }
+.deco { position: absolute; pointer-events: none; }
+#nextQuestion { width: min(100%, 420px); }
 
 /* ---------- Toast ---------- */
 .toast {
